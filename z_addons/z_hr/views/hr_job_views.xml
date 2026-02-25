@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_hr_job_form_view_inherit" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='job_description_page']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//page[@name='recruitment_page']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <label for="acronym" string="Acronym" class="oe_asterisk" />
+                <field name="acronym"/>
+            </xpath>
+            <xpath expr="//form" position="attributes">
+                <attribute name="js_class">form_with_toast</attribute>
+            </xpath>
+            <xpath expr="//label[@for='name']" position="attributes">
+                <attribute name="class">oe_asterisk</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="z_hr_job_tree_view_inherit" model="ir.ui.view">
+        <field name="name">hr.job.tree.inherit</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="acronym" />
+                <field name="bookable" />
+                <field name="is_doctor" />
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="column_invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='no_of_recruitment']" position="attributes">
+                <attribute name="column_invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='no_of_hired_employee']" position="attributes">
+                <attribute name="column_invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='expected_employees']" position="attributes">
+                <attribute name="column_invisible">True</attribute>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">tree_with_toast</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

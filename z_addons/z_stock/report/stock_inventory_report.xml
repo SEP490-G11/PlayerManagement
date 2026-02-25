@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Report Action -->
+        <record id="action_report_stock_inventory" model="ir.actions.report">
+            <field name="name">Báo Cáo Xuất Nhập Tồn Kho</field>
+            <field name="model">stock.inventory.report.wizard</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">z_stock.report_stock_inventory</field>
+            <field name="report_file">z_stock.report_stock_inventory</field>
+            <field name="print_report_name">'Báo Cáo Xuất Nhập Tồn Kho - %s' % (object.date_from)</field>
+        </record>
+    </data>
+</odoo>

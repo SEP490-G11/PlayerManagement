@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+    <record id="action_not_found" model="ir.actions.client">
+      <field name="name">Not found</field>
+      <field name="tag">zen8.action_not_found</field>
+    </record>
+
+    <record id="action_schedule_table" model="ir.actions.client">
+      <field name="name">Schedule table</field>
+      <field name="tag">zen8.action_schedule_table</field>
+    </record>
+
+    <record id="action_schedule_calendar" model="ir.actions.client">
+      <field name="name">Schedule calendar</field>
+      <field name="tag">zen8.action_schedule_calendar</field>
+    </record>
+    <menuitem name="Appointment" id="z_appointment_menu_root" sequence="0" web_icon="z_appointment,static/description/icon.png"/>
+    <menuitem name="Danh sách lịch hẹn" id="menu_zen8_schedule_table" sequence="1" parent="z_appointment_menu_root" action="action_schedule_table" />
+    <menuitem name="Quản lý ca khám" id="menu_zen8_schedule_calendar" sequence="2" parent="z_appointment_menu_root" action="action_schedule_calendar" />
+  </data>
+</odoo>

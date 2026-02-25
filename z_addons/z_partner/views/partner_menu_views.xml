@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <!-- Root-->
+        <menuitem name="Customer" id="z_partner_menu_root" sequence="0" web_icon="contacts,static/description/icon.png"/>
+
+        <!-- Customer-->
+        <menuitem name="Customer" id="menu_zen8_customer_table" action="view_customers" sequence="0" parent="z_partner_menu_root" />
+
+        <!-- Group-->
+        <menuitem name="Group customer" id="menu_zen8_group_table" action="view_group_customer" sequence="1" parent="z_partner_menu_root" />
+
+        <!-- <menuitem id="menu_z_order_combo_in_visit" name="Combo Order"
+                sequence="10"
+                action="z_combo.z_combo_order_action_form"
+                parent="z_partner_menu_root" /> -->
+
+        <record model="ir.actions.server" id="web.download_contact">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+        <record id="base.action_partner_merge" model="ir.actions.act_window">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+        <record id="mail.action_partner_mass_mail" model="ir.actions.act_window">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+        <record id="sms.res_partner_act_window_sms_composer_multi" model="ir.actions.act_window">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+        <record id="sms.res_partner_act_window_sms_composer_single" model="ir.actions.act_window">
+            <field name="binding_model_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<odoo>
+    <record id="view_account_move_misa_issuance_wizard" model="ir.ui.view">
+        <field name="name">account.move.misa.issuance.wizard.form</field>
+        <field name="model">account.move.misa.issuance</field>
+        <field name="arch" type="xml">
+            <form string="MISA Issuance">
+                        <group>
+                            <group string="Thông tin cơ bản">
+                                <field name="move_id" readonly="1"/>
+                                <field name="place_id" readonly="1"/>
+                            </group>
+                            <group string="Thông tin khách hàng">
+                                <field name="partner_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <group string="Thông tin bổ sung">
+                            <field name="customer_company_name" string="Tên công ty"/>
+                            <field name="customer_company_tax_code" string="Mã số thuế"/>
+                            <field name="customer_company_address" string="Địa chỉ"/>
+                            <field name="customer_company_bank_account" string="Tài khoản ngân hàng"/>
+                            <field name="customer_email" string="Email"/>
+                            <label for="misa_template_id" string="Template" class="oe_asterisk"/>
+                            <field name="misa_template_id" nolabel="1" class="asterisk" required="1"/>
+                        </group>
+                        <div class="alert alert-info" role="alert">
+                            <strong>Lưu ý:</strong> Nếu có thông tin Tên công ty hoặc Mã số thuế, 
+                            thì bắt buộc phải có đầy đủ: Tên công ty, Mã số thuế, và Địa chỉ.
+                        </div>
+                <footer>
+                    <button name="action_publish" string="Publish" type="object" class="btn-primary"/>
+                    <button name="action_preview_unpublish_invoice" string="Preview Unpublish" type="object" class="btn-primary"/>
+                    <button name="action_save_as_draft" string="Lưu nháp" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_move_misa_issuance_wizard" model="ir.actions.act_window">
+        <field name="name">MISA Issuance</field>
+        <field name="res_model">account.move.misa.issuance</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_move_id': active_id}</field>
+    </record>
+</odoo>

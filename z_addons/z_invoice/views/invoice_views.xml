@@ -1,0 +1,623 @@
+<odoo>
+  <record id="z_invoice_form_view_inherit" model="ir.ui.view">
+    <field name="name">account.move.form.inherit</field>
+    <field name="model">account.move</field>
+    <field name="inherit_id" ref="account.view_move_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='action_post']" position="before">
+        <button name="button_export_invoice" type="object" string="Print invoice"
+          invisible="state != 'posted' or is_being_sent or invoice_pdf_report_id or move_type not in ('out_invoice', 'out_refund')"
+          class="oe_highlight" data-hotkey="y" />
+        <button name="button_export_invoice" type="object" string="Print draft invoice"
+          invisible="state != 'draft'"
+          data-hotkey="y" />
+        <button name="action_open_publish_misa_invoice_form" type="object" string="Publish VAT Invoice"
+          invisible="state != 'posted' or misa_state == 'published'"
+          data-hotkey="y" />
+      </xpath>
+      <xpath expr="//page[@id='other_tab']" position="attributes">
+      </xpath>
+      <xpath expr="//page[@id='invoice_tab']" position="after">
+        <page id="misa_tab" name="misa_tab" invisible="misa_state == 'draft'" string="MISA">
+          <group>
+            <field name="able_to_refunds_or_modify" invisible="1"/>
+            <field name="misa_state" string="State" readonly="1"/>
+            <field name="misa_type_inv" string="Type" readonly="1"/>
+            <field name="misa_inv_no" string="Invoice No" readonly="1"/>
+            <field name="publish_misa_invoice_date" readonly="1"/>
+            <field name="misa_inv_code" string="Invoice Code" readonly="1"/>
+            <field name="misa_transaction_id" string="Transaction ID" readonly="1"/>
+            <field name="misa_template_id" string="Template" readonly="1"/>
+          </group>
+          <group>
+            <label for="misa_url" string="" />
+            <field name="misa_url" nolabel="1" widget="misa_url_widget_1" readonly="1"/>
+            <button name="action_send_published_invoice_email" type="object" string="Gửi Email" class="btn-primary" />
+            <button name="reget_misa_url" type="object" string="Xem lại" class="btn-primary" invisible="misa_state != 'published'" />
+          </group>
+        </page>
+      </xpath>
+      <xpath expr="//h1/field[@name='name']" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      <xpath expr="//span[field[@name='move_type']]" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      <xpath expr="//button[@name='button_cancel'][1]" position="attributes">
+        <attribute name="invisible">not id or state != 'draft' or move_type != 'entry' or misa_state == 'published'</attribute>
+      </xpath>
+      <xpath expr="//button[@name='button_cancel'][2]" position="attributes">
+        <attribute name="invisible">not id or state != 'draft' or move_type == 'entry' or misa_state == 'published'</attribute>
+      </xpath>
+      <xpath expr="//field[@name='narration']" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      <xpath expr="//field[@name='product_uom_id']" position="attributes">
+        <attribute name="string">Unit</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_user_id']" position="after">
+        <field name="origin_move_id" string="Origin Move" invisible="misa_type_inv != '1'" readonly="1"/>
+        <field name="reversed_entry_id" string="Origin Move" invisible="misa_type_inv != '2'" readonly="1"/>
+      </xpath>
+      <xpath expr="//h1/span" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      <xpath expr="//field[@name='product_id']" position="attributes">
+        <attribute name="options">{'no_edit': 'True'}</attribute>
+      </xpath>
+      <xpath expr="//field[@name='payment_reference']" position="attributes">
+        <attribute name="readonly">[('state', '=', 'cancel')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='payment_reference']" position="attributes">
+        <attribute name="readonly">[('state', '=', 'cancel')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_date_due']" position="attributes">
+        <attribute name="readonly">[('state', '=', 'cancel')]</attribute>
+      </xpath>
+      <xpath
+        expr="//group[@id='other_tab_group']/group[@name='sale_info_group']//field[@name='ref']"
+        position="attributes">
+        <attribute name="readonly">[('state', '=', 'cancel')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_user_id']" position="attributes">
+        <attribute name="readonly">[('state', '=', 'cancel')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_incoterm_id']" position="attributes">
+        <attribute name="readonly">[('state', '=', 'cancel')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='incoterm_location']" position="attributes">
+        <attribute name="readonly">[('state', '=', 'cancel')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='to_check']" position="attributes">
+        <attribute name="readonly">[('state', '=', 'cancel')]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='tax_totals']" position="after">
+        <field name="invoice_payments_widget" colspan="2" nolabel="1" widget="z_payment"/>
+      </xpath>
+      <xpath expr="//field[@widget='payment']" position="attributes">
+        <attribute name="invisible">1</attribute>
+        <field name="invoice_payments_widget" colspan="2" nolabel="1" widget="payment"/>
+      </xpath>
+      <xpath expr="//field[@name='invoice_date']" position="after">
+        <label for="label" string="Invoice label" style="font-weight:bold;" />
+        <field name="label" nolabel="1" on_change="1" />
+      </xpath>
+      <xpath expr="//group[@id='header_right_group']/field[@name='currency_id']"
+        position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <!-- <xpath expr="//field[@name='price_unit']" position="after">
+        <field name="discount_amount" optional="show" on_change="1" />
+      </xpath> -->
+      <!-- <xpath expr="//field[@name='tax_ids']" position="attributes">
+        <attribute name="column_invisible">1</attribute>
+      </xpath> -->
+      <xpath expr="//field[@name='price_unit']" position="attributes">
+        <attribute name="string">Price Unit</attribute>
+      </xpath>
+      <xpath expr="//field[@name='price_total']" position="attributes">
+        <attribute name="string">Price total</attribute>
+      </xpath>
+      <xpath expr="//field[@name='tax_ids']" position="attributes">
+        <attribute name="invisible">False</attribute>
+        <attribute name="optional">show</attribute>
+      </xpath>
+      <xpath expr="//label[@for='invoice_date_due']" position="attributes">
+        <attribute name="string">Due date</attribute>
+      </xpath>
+      <xpath expr="//button[@name='action_register_payment']" position="attributes">
+        <attribute name="string">Create payment</attribute>
+      </xpath>
+      <xpath expr="//button[@name='preview_invoice']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//button[@name='action_invoice_sent']" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      <xpath expr="//field[@name='price_subtotal']" position="attributes">
+        <attribute name="optional">hide</attribute>
+      </xpath>
+      <xpath expr="//field[@name='tax_totals']" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      <xpath expr="//button[@name='button_draft']" position="attributes">
+        <attribute name="invisible">state == 'draft' or is_publish_vat_invoice</attribute>
+      </xpath>
+      <xpath expr="//button[@name='button_draft']" position="after">
+        <field name="is_publish_vat_invoice" invisible="1"/>
+      </xpath>
+      <xpath expr="//button[@name='action_reverse']" position="attributes">
+        <attribute name="invisible">misa_state != 'published' or misa_type_inv in ['1', '2', '3'] or payment_state == 'reversed' or not able_to_refunds_or_modify</attribute>
+        <attribute name="string">Adjust</attribute>
+        <attribute name="confirm">Lưu ý! Bạn nên cập nhật lại các chứng từ liên quan để khớp sau khi thực hiện việc điều chỉnh hoá đơn này bao gồm: Phiếu bán hàng, Phiếu giao hàng, Phiếu thanh toán</attribute>
+      </xpath>
+      <xpath expr="//button[@name='preview_invoice']" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+      <button name="action_register_payment" />
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="partner_dob" widget="date" nolabel="0" />
+        <field name="partner_code" nolabel="0" />
+        <field name="partner_gender" nolabel="0" invisible="partner_id == False" />
+        <field name="partner_mobile" nolabel="0" />
+        <field name="partner_group" nolabel="0" />
+        <field name="partner_address" nolabel="0" />
+        <field name="partner_job" nolabel="0" />
+      </xpath>
+      <xpath expr="//field[@name='tax_totals']" position="before">
+        <!-- <field name="total_without_discount" widget="monetary" /> -->
+        <!-- <field name="total_discount" string="Total Discount" widget="monetary" readonly="True" /> -->
+        <!-- <field name="total_after_discount" widget="monetary" /> -->
+        <field name="amount_untaxed_before_discount"/>
+        <field name="amount_discount_lines"/>
+        <field name="amount_discount_promotion"  widget="monetary"/>
+        <field name="amount_untaxed" string="Tổng sau giảm chưa thuế"/>
+        <field name="amount_tax" string="Tổng thuế"/>
+        <field name="amount_total" string="Tổng thanh toán cuối"/>
+        <field name="payment_methods" />
+      </xpath>
+      <xpath expr="//field[@name='partner_id']" position="attributes">
+        <attribute name="domain">
+          [('company_id', 'in', (False, company_id)), ('is_customer','=',True)]
+        </attribute>
+        <attribute name="context"> { 'tree_view_ref': 'inherit_view_partner_tree', 'create' :
+          'False'}</attribute>
+        <attribute name="options">{'no_create': 'True' }</attribute>
+        <attribute name="required">1</attribute>
+        <attribute name="readonly">state=="posted"</attribute>
+      </xpath>
+      <xpath expr="//label[@for='partner_id']" position="attributes">
+        <attribute name="class">oe_asterisk</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_line_ids']" position="after">
+        <label for="note" string="Note" />
+        <field name="note" />
+        <div class="ml-3" />
+        <label for="creator_account" string="Creator" />
+        <div class="ml-3" />
+        <field name="creator_account" readonly="1"/>
+        <div class="mt-3" />
+      </xpath>
+      <xpath expr="//label[@for='invoice_date']" position="before">
+        <label for="place_id" class="oe_asterisk" string="Cơ sở"/>
+        <field name="place_id" nolabel="1" readonly="appointment_place or state == 'posted'" force_save="1" options="{ 'no_create': True , 'no_edit': True}"/>
+        <field name="appointment_place" invisible="1"/>
+        <field name="z_appointment_id"
+               domain="[('customer_id', '=', partner_id)]"
+               options='{"no_quick_create": True, "no_open": True, "no_create": True}'
+               readonly="state == 'posted'"/>
+      </xpath>
+      <xpath expr="//field[@name='delivery_date']" position="before">
+        <field name="combo_id" readonly="state == 'posted'" options="{ 'no_create': True , 'no_edit': True}"/>
+      </xpath>
+      <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="after">
+        <field name="combo_id" string="Gói Combo" readonly="1" force_save="1"/>
+        <field name="total_after_discount_combo_line" column_invisible="1"/>
+        <field name="total_after_discount_combo_line_paid" column_invisible="0"/>
+      </xpath>
+      <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="attributes">
+        <attribute name="domain">[('is_combo', '=', False), '|', ('sale_ok', '=', context.get('default_move_type') in ('out_invoice', 'out_refund', 'out_receipt')), ('purchase_ok', '=', True)]</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="after">
+        <field name="product_category_id" />
+      </xpath>
+    </field>
+  </record>
+
+  <record id="z_invoice_tree_view_inherit" model="ir.ui.view">
+    <field name="name">account.move.tree.inherit</field>
+    <field name="model">account.move</field>
+    <field name="inherit_id" ref="account.view_invoice_tree" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="partner_name" />
+      </xpath>
+      <xpath expr="//field[@name='partner_name']" position="before">
+        <field name="code" />
+      </xpath>
+      <xpath expr="//field[@name='partner_name']" position="after">
+        <field name="label" widget="badge" decoration-danger="label == '1'"
+          decoration-info="label == '2'" decoration-warning="label == '3'"
+          decoration-success="label == '4'" decoration-primary="label == '5'"
+          decoration-muted="label == '6'" optional="show" />
+      </xpath>
+      <!-- <xpath expr="//field[@name='amount_total_signed']" position="before">
+        <field name="total_discount" readonly="True" />
+      </xpath> -->
+      <xpath expr="//field[@name='amount_residual_signed']" position="after">
+        <field name="paid" />
+      </xpath>
+      <xpath expr="//field[@name='invoice_user_id']" position="attributes">
+        <attribute name="string">Creator</attribute>
+      </xpath>
+      <xpath expr="//field[@name='amount_residual_signed']" position="attributes">
+        <attribute name="string">Debt</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_partner_display_name'][1]" position="attributes">
+        <attribute name="column_invisible">True</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_partner_display_name'][2]" position="attributes">
+        <attribute name="column_invisible">True</attribute>
+      </xpath>
+      <xpath expr="//field[@name='name']" position="attributes">
+        <attribute name="column_invisible">True</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="z_invoice_tree_custom" model="ir.ui.view">
+    <field name="name">z_invoice.move.tree</field>
+    <field name="model">account.move</field>
+    <field name="arch" type="xml">
+      <tree js_class="tree_with_toast" string="Invoice">
+        <field name="code" widget="block_advance_search"/>
+        <field name="customer_detail_widget" widget="customer_detail_field_bs"/>
+        <field name="place_id"/>
+        <field name="label" widget="badge" decoration-danger="label == '1'"
+          decoration-info="label == '2'" decoration-warning="label == '3'"
+          decoration-success="label == '4'" decoration-primary="label == '5'"
+          decoration-muted="label == '6'" optional="show" />
+        <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'"
+          decoration-warning="payment_state in ('partial', 'in_payment')"
+          decoration-success="payment_state in ('paid', 'reversed')"
+          invisible="payment_state == 'invoicing_legacy'" optional="show" />
+        <field name="misa_state" widget="badge" decoration-success="misa_state == 'published'"
+          decoration-info="misa_state == 'draft'" optional="show" />
+        <field name="misa_type_inv"  optional="show"/>
+        <field name="state" widget="badge" decoration-success="state == 'posted'"
+          decoration-info="state == 'draft'" optional="show" />
+        <field name="amount_total_signed" string="Amount Total (VND)" widget="block_advance_search" />
+        <field name="paid" string="Paid (VND)" widget="block_advance_search" />
+        <field name="total_discount" string="Total Discount (VND)" widget="block_advance_search" />
+        <field name="amount_residual_signed" string="Amount Residual (VND)" widget="block_advance_search" />
+        <field name="creator_account" string="Creator"/>
+        <field name="invoice_date"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="account.action_move_out_invoice_type" model="ir.actions.act_window">
+    <field name="res_model">account.move</field>
+    <field name="view_mode">tree,kanban,form</field>
+    <field name="view_ids"
+      eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('z_invoice_tree_custom')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('account.view_move_form')})]" />
+  </record>
+
+  <record id="z_invoice_payment_form_view" model="ir.ui.view">
+    <field name="name">account.payment.form.inherit</field>
+    <field name="model">account.payment</field>
+    <field name="inherit_id" ref="account.view_account_payment_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='journal_id']" position="attributes">
+        <attribute name="string">Payment Method</attribute>
+      </xpath>
+      <xpath expr="//field[@name='payment_method_line_id']" position="attributes">
+        <atrribute name="invisible">1</atrribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="z_invoice_search_view" model="ir.ui.view">
+    <field name="name">account.invoice.search.inherit</field>
+    <field name="model">account.move</field>
+    <field name="inherit_id" ref="account.view_account_invoice_filter" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="replace">
+        <field name="name" string="Invoice" filter_domain="[
+                '|', '|' , '|', '|', '|',
+                ('name', 'ilike', self), ('invoice_origin', 'ilike', self),
+                ('ref', 'ilike', self), ('payment_reference', 'ilike', self),
+                ('partner_z_mobile', 'ilike', self),
+                ('partner_id', 'child_of', self)]"/>
+      </xpath>
+      <xpath expr="//filter[@name='to_check']" position="after">
+        <filter string="Ortho K Pakage" name="label" domain="[('label', '=', 1)]" />
+        <filter string="Myopia Control Glasses Package" name="label" domain="[('label', '=', 2)]" />
+        <filter string="Hyperopia Package" name="label" domain="[('label', '=', 3)]" />
+        <filter string="Family Package" name="label" domain="[('label', '=', 4)]" />
+        <filter string="Updated Invoice" name="label" domain="[('label', '=', 5)]" />
+        <filter string="No label" name="label" domain="[('label', '=', 6)]" />
+      </xpath>
+      <xpath expr="//field[@name='journal_id']" position="after">
+        <field name="code" />
+        <field name="partner_code" />
+      </xpath>
+      <xpath expr="//field[@name='journal_id']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='name']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='partner_id']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='invoice_user_id']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='date']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='line_ids']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='partner_id']">
+        <field name="partner_id" />
+        <field name="partner_mobile"
+          filter_domain="['|', ('partner_mobile', 'ilike', self), ('partner_z_mobile', 'ilike', self)]" />
+      </xpath>
+      <xpath expr="//filter[@name='status']" position="after">
+        <filter name="partner_id" context="{'group_by':'partner_id'}" />
+      </xpath>
+      <xpath expr="//filter[@name='salesperson']" position="attributes">
+        <attribute name="string">Salesperson</attribute>
+      </xpath>
+      <xpath expr="//filter[@name='duedate']" position="after">
+        <filter string="Place" name="place" context="{'group_by': 'place_id'}"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="inherit_view_partner_tree" model="ir.ui.view">
+    <field name="name">res.partner.inherit.tree</field>
+    <field name="model">res.partner</field>
+    <field eval="8" name="priority" />
+    <field name="arch" type="xml">
+      <tree string="Contacts">
+        <field name="name" />
+        <field name="code" />
+        <field name="mobile" />
+        <field name="date" />
+        <field name="gender" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="form_view_account_move_update" model="ir.ui.view">
+    <field name="name">account.move.update.form</field>
+    <field name="model">account.move</field>
+    <field name="arch" type="xml">
+      <form string="Account Move Update">
+        <group>
+          <group>
+            <field name="name" readonly="1" />
+            <field name="invoice_date" />
+          </group>
+          <group>
+            <field name="label" />
+            <field name="invoice_date_due" />
+          </group>
+        </group>
+        <br />
+        <field name="invoice_line_ids" widget="section_and_note_one2many" mode="tree,kanban">
+          <tree editable="bottom" create="0" delete="0" string="Journal Items"
+            default_order="sequence, id">
+            <field name="sequence" widget="handle" readonly="1" />
+            <field name="name" widget="section_and_note_text" optional="show" readonly="1" />
+            <field name="product_uom_category_id" column_invisible="True" readonly="1" />
+            <field name="quantity" optional="show" readonly="1" />
+            <field name="price_unit" string="Price" readonly="1" />
+            <!-- <field name="discount_amount" /> -->
+            <field name="price_subtotal" string="Tax excl." optional="hide" />
+            <field name="price_total" string="Tax incl." />
+            <field name="currency_id" optional="hide"/>
+          </tree>
+        </field>
+        <label for='note' string="Note" />
+        <field name="note" />
+        <footer>
+          <button string="Save" special="save" class="btn-primary" />
+          <button string="Discard" class="btn-secondary" special="cancel" data-hotkey="x" />
+        </footer>
+      </form>
+    </field>
+  </record>
+  <record id="portal.partner_wizard_action_create_and_open" model="ir.actions.server">
+    <field name="binding_model_id" eval="False" />
+  </record>
+  <record id="z_account_product_template_normal_form_view_inherit" model="ir.ui.view">
+        <field name="name">account.product.template.normal.form.inherited</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="account.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='taxes_id']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+  <record id="account.menu_finance_receivables" model="ir.ui.menu">
+    <field name="web_icon">account,static/description/icon.png</field>
+  </record>
+
+  <!-- Bulk Actions -->
+  <record id="action_bulk_publish_invoices" model="ir.actions.server">
+    <field name="name">Phát hành hàng loạt</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="binding_model_id" ref="account.model_account_move"/>
+    <field name="state">code</field>
+    <field name="code">
+# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - records: list of records on which the action is triggered; may be void
+#  - recordsets: list of recordset of the records on which the action is triggered; may be void
+#  - wizard: browse record of the wizard; may be void
+#  - user: browse record of the user executing the action
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - company: browse record of the company in which the action is triggered
+#  - context: Odoo Context
+
+
+# Filter records that can be published
+publishable_records = records.filtered(lambda r: r.state == 'posted' and r.misa_state == 'draft' and r.move_type in ('out_invoice', 'out_refund'))
+
+if not publishable_records:
+    raise UserError("Chỉ có thể phát hành hoá đơn đã vào sổ và chưa được phát hành.")
+
+# Open wizard for bulk publishing
+action = env['ir.actions.act_window']._for_xml_id('z_invoice.action_bulk_publish_wizard')
+action['context'] = {
+    'default_move_ids': [(6, 0, publishable_records.ids)],
+}
+    </field>
+  </record>
+
+  <!-- Published Invoices List View -->
+  <record id="view_published_invoices_tree" model="ir.ui.view">
+    <field name="name">account.move.published.tree</field>
+    <field name="model">account.move</field>
+    <field name="arch" type="xml">
+      <tree string="Published Invoices" create="false" delete="false">
+        <field name="code" string="Mã hóa đơn"/>
+        <field name="partner_id" string="Khách hàng"/>
+        <field name="invoice_date" string="Ngày hóa đơn"/>
+        <field name="amount_total" string="Tổng tiền" sum="Total"/>
+        <field name="origin_move_id" string="Thay thế cho"/>
+        <field name="reversed_entry_id" string="Điều chỉnh cho"/>
+        <field name="misa_type_inv" string="Loại hóa đơn"/>
+        <field name="place_id" string="Cơ sở"/>
+        <field name="invoice_user_id" string="Người bán"/>
+        <field name="create_date" string="Ngày tạo"/>
+      </tree>
+    </field>
+    <!-- <field name="domain">[('misa_state', '=', 'published')]</field>
+    <field name="context">{'search_default_published': 1}</field> -->
+  </record>
+
+  <!-- Published Invoices Action -->
+  <record id="action_published_invoices" model="ir.actions.act_window">
+    <field name="name">Published Invoices</field>
+    <field name="res_model">account.move</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_published_invoices_tree"/>
+    <field name="domain">[('misa_state', '=', 'published')]</field>
+    <field name="context">{'search_default_published': 1}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        No published invoices found
+      </p>
+      <p>
+        Published invoices will appear here once they are successfully published to MISA.
+      </p>
+    </field>
+  </record>
+
+
+  <!-- Published Invoices Menu -->
+
+
+  <!-- Published Invoices Action (Extended) -->
+  <record id="action_published_invoices_extended" model="ir.actions.act_window">
+    <field name="name">Published Invoices (All Types)</field>
+    <field name="res_model">account.move</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_published_invoices_tree"/>
+    <field name="domain">[('misa_state', '=', 'published')]</field>
+    <field name="context">{'search_default_published': 1}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        No published invoices found
+      </p>
+      <p>
+        Published invoices (including cancelled) will appear here once they are successfully published to MISA.
+      </p>
+    </field>
+  </record>
+
+
+  <!-- Cancel Invoices Action -->
+  <record id="action_cancel_invoices" model="ir.actions.act_window">
+    <field name="name">Cancel Invoices</field>
+    <field name="res_model">account.move</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_published_invoices_tree"/>
+    <field name="domain">[('state', '=', 'draft'), ('misa_state', '!=', 'published')]</field>
+    <field name="context">{'search_default_published': 1}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        No invoices can be cancelled
+      </p>
+      <p>
+        Only draft invoices that are not published to MISA can be cancelled.
+      </p>
+    </field>
+  </record>
+
+  <!-- Cancel Invoices Menu -->
+  <!-- <menuitem id="menu_cancel_invoices"
+            name="Cancel Invoices"
+            parent="menu_publish_vat_invoice_root"
+            action="action_cancel_invoices"
+            sequence="22"/> -->
+
+  <!-- Search View for Published Invoices -->
+
+  <!-- Adjustment Invoices List View -->
+  <record id="view_adjustment_invoices_tree" model="ir.ui.view">
+    <field name="name">account.move.adjustment.tree</field>
+    <field name="model">account.move</field>
+    <field name="arch" type="xml">
+      <tree string="Adjustment Invoices" create="false" delete="false">
+        <field name="code" string="Mã hóa đơn"/>
+        <field name="partner_id" string="Khách hàng"/>
+        <field name="invoice_date" string="Ngày hóa đơn"/>
+        <field name="amount_total" string="Tổng tiền" sum="Total"/>
+        <field name="reversed_entry_id" string="Điều chỉnh cho"/>
+        <field name="place_id" string="Cơ sở"/>
+        <field name="invoice_user_id" string="Người bán"/>
+        <field name="state" string="Trạng thái"/>
+        <field name="misa_state" string="Trạng thái MISA"/>
+        <field name="create_date" string="Ngày tạo"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- Adjustment Invoices Action -->
+  <record id="action_adjustment_invoices" model="ir.actions.act_window">
+    <field name="name">Hóa đơn điều chỉnh</field>
+    <field name="res_model">account.move</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_adjustment_invoices_tree"/>
+    <field name="domain">[('misa_type_inv', '=', '2')]</field>
+    <field name="context">{'search_default_adjustment': 1}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Không tìm thấy hóa đơn điều chỉnh
+      </p>
+      <p>
+        Các hóa đơn điều chỉnh sẽ xuất hiện ở đây.
+      </p>
+    </field>
+  </record>
+
+  <!-- Adjustment Invoices Menu -->
+  <record id="menu_adjustment_invoices" model="ir.ui.menu">
+    <field name="name">Hóa đơn điều chỉnh</field>
+    <field name="parent_id" ref="account.menu_finance_receivables"/>
+    <field name="action" ref="action_adjustment_invoices"/>
+    <field name="sequence">22</field>
+  </record>
+
+</odoo>

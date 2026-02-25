@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_appointment.CustomerForm" owl="1">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="h3 fw-bolder">1. Customer</h3>
+                    <button t-on-click="() => this.setCustomer()" t-if="!props.isEdit" class="btn p-0">
+                        <img src="/z_web/static/image/reload.svg"></img>
+                    </button>
+                </div>
+                <div class="row gy-3">
+                    <div class="col-12">
+                        <div class="position-relative">
+                            <i class="fa fa-search position-absolute" aria-hidden="true" style="left:20px; top:9px"></i>
+                            <input t-att-disabled="props.isEdit" type="search" t-model="state.searchText" t-on-input="onSearchCustomer" t-on-focus="onFocus" t-on-blur="onBlur" placeholder="Search by name, phone number, customer code" class="form-control ps-5" />
+                            <div class="position-absolute search-result" id="searh-result" t-att-class="{'d-none': !state.open}">
+                                <ScrollLoading height="'350px'" className="'table-sticky-header'" onLoad="this.getCustomer.bind(this)">
+                                    <div class="w-100 h-100 d-flex align-items-center justify-content-center" t-if="state.isLoading">
+                                        <div class="loader"></div>
+                                    </div>
+                                    <div class="pb-3 text-center" t-elif="state.customers.length == 0">No data</div>
+                                    <div class="item" t-foreach="state.customers" t-as="customer" t-key="customer.id" t-else="">
+                                        <div t-on-click="() => this.setCustomer(customer)" style="cursor: pointer">
+                                            <span style=" font-weight: 600; font-size:13px ; color:#3A3A3A" t-esc="customer.code"></span>
+                                            <br></br>
+                                            <span style="color:#3A3A3A" t-out="customer.displayText"></span>
+                                        </div>
+                                    </div>
+
+
+                                </ScrollLoading>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="name" class="label">Name<span class="require">*</span>
+                        </label>
+                        <input placeholder="Enter name" type="text" class="form-control"  t-model="state.customer.name" t-att-value="state.customer.name" t-att-disabled="state.customer.id" t-on-input="() => this.state.error.name = null" t-ref="name-input" />
+                        <span t-if="state.error.name" t-esc="state.error.name" class="invalid-message"></span>
+                    </div>
+                    <!-- phone number -->
+                    <div class="col-12">
+                        <label for="mobile" class="label">Phone number<span class="require">*
+                            </span>
+                        </label>
+                        <input placeholder="Enter phone number" type="text" class="form-control"  t-on-input="() => this.state.error.mobile = null" t-model="state.customer.mobile" t-att-disabled="state.customer.id" t-att-value="state.customer.mobile"/>
+                        <span t-if="state.error.mobile" t-esc="state.error.mobile" class="invalid-message"></span>
+                    </div>
+                    <!-- date -->
+                    <div class="col-12">
+                        <label for="date" class="label">Date of birth(dd/mm/yyyy)
+                        </label>
+                        <CustomDatePicker onChange="this.onUpdateDate.bind(this)" placeholder="'Chọn ngày sinh'" value="state.customer.date" maxDate="new Date()" name="'date'" readonly="this.state.customer.id"/>
+                        <span t-if="state.error.date" t-esc="state.error.date" class="invalid-message"></span>
+                    </div>
+                    <!-- gender -->
+                    <div class="col-12">
+                        <label for="gender" class="label">Gender</label>
+                        <div class="grid radio-selector pt-2">
+                            <div class="g-col-4 ralative d-flex" t-foreach="state.genders" t-as="gender" t-key="gender.value">
+                                <input type="radio" t-att-id="gender.value" name="gender" t-att-value="gender.value" t-att-disabled="state.customer.id" t-model="state.customer.gender" class="form-check-input"/>
+                                <label style="font-weight: 400" t-att-for="gender.value" t-esc="gender.label"></label>
+                            </div>
+                        </div>
+                        <span t-if="state.error.gender and !state.customer.gender" t-esc="state.error.gender" class="invalid-message"></span>
+                    </div>
+                     <!-- Contact -->
+                     <div class="col-12">
+                        <label for="group_id" class="label">Contact</label>
+                        <select id="group_id" class="input form-control select-custom" t-att-disabled="state.customer.id" t-model="state.customer.contact_source">
+                            <option t-foreach="state.contacts" t-as="contact" t-key="'contact_' + contact.value + '_' + state.customer.id" t-esc="contact.label" t-att-value="contact.value"></option>
+                        </select>
+                    </div>
+                      <!-- Approach Channel -->
+                      <div class="col-12">
+                        <label for="approach_channel" class="label">Approach Channel</label>
+                        <select id="group_id" class="input form-control select-custom" t-att-disabled="state.customer.id"  t-model="state.customer.approach_channel">
+                            <option value=""></option>
+                            <option t-foreach="state.approach_channels" t-as="approach_channel" t-key="'approach_' + approach_channel.value + '_' + state.customer.id" t-esc="approach_channel.label" t-att-value="approach_channel.value"></option>
+                        </select>
+                    </div>
+                    <!-- job -->
+                    <div class="col-12">
+                        <label for="job" class="label">Job</label>
+                        <input t-att-placeholder="getPlaceholder('Nhập nghề nghiệp',!state.customer.id)" type="text" class="form-control"  t-model="state.customer.job" t-att-disabled="state.customer.id" t-att-value="state.customer.job"/>
+                    </div>
+                    <div class="col-12">
+                        <label for="address" class="label">Địa chỉ</label>
+                        <input t-att-placeholder="getPlaceholder('Nhập địa chỉ',!state.customer.id)" type="text" class="form-control"  t-model="state.customer.street" t-att-disabled="state.customer.id" t-att-value="state.customer.street"/>
+                    </div>
+                    <!-- group -->
+                    <div class="col-12">
+                        <label for="group_id" class="label">Customer group<span class="require">*
+                            </span>
+                        </label>
+                        <select id="group_id" class="input form-control select-custom" t-att-disabled="state.customer.id" t-model="state.customer.group_id">
+                            <option t-foreach="state.groups" t-as="group" t-key="'group_' + group.id + '_' + state.customer.id" t-esc="group.name" t-att-value="group.id"></option>
+                        </select>
+                        <span t-if="state.error.group_id" t-esc="state.error.group_id" class="invalid-message"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
+<!---->

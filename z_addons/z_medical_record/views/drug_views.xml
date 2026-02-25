@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="z_drug_tree_view" model="ir.ui.view">
+        <field name="name">z_medical_record.drug.tree</field>
+        <field name="model">z_medical_record.drug</field>
+        <field name="arch" type="xml">
+            <tree editable="top" default_order="name">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="unit"/>
+                <field name="usage_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

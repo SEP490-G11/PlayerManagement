@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_product_template_only_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.inherited</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="js_class">form_with_toast</attribute>
+            </xpath>
+            <xpath expr="//sheet/notebook/page[@name='general_information']/group" position="after">
+                <group>
+                    <field name="quantity_per_day"/>
+                    <field name="ingredients"/>
+                    <field name="packaging"/>
+                    <field name="instruction"/>
+                </group>
+            </xpath>
+            <xpath expr="//label[@for='name']" position="attributes">
+                <attribute name="class">oe_asterisk</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_product_template_tree_view_inherit" model="ir.ui.view">
+        <field name="name">product.template.tree.inherited</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">tree_with_toast</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_product_product_tree_view_inherit" model="ir.ui.view">
+        <field name="name">z.product.product.tree.inherited</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="after">
+                <field name="vietmis_code"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="z_product_normal_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.template.normal.form.inherited</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="js_class">form_with_toast</attribute>
+            </xpath>
+            <xpath expr="//label[@for='standard_price']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@name='standard_price_uom']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_tag_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="nolabel">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="before">
+                <field name="vietmis_code"/>
+                <label for="categ_id" string="Categ" class="oe_asterisk"/>
+            </xpath>
+            <xpath expr="//sheet/notebook/page[@name='general_information']/group" position="after">
+                <group>
+                    <field name="quantity_per_day" invisible="detailed_type != 'product'"/>
+                    <field name="ingredients" invisible="detailed_type != 'product'"/>
+                    <field name="packaging" invisible="detailed_type != 'product'"/>
+                    <field name="instruction" invisible="detailed_type != 'product'"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_product_product_normal_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.product.normal.form.inherited</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='additional_product_tag_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

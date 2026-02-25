@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_combo_category_manager,z.combo.category.manager,model_z_combo_combo_category,base.group_system,1,1,1,1
+access_z_combo_category_user,z.combo.category.user,model_z_combo_combo_category,base.group_system,1,0,0,0
+access_z_combo_manager,z.combo.manager,model_z_combo_combo,base.group_system,1,1,1,1
+access_z_combo_user,z.combo.user,model_z_combo_combo,base.group_system,1,0,0,0
+access_z_combo_line_manager,z.combo.line manager,model_z_combo_combo_line,base.group_system,1,1,1,1
+access_z_combo_line_user,z.combo.line user,model_z_combo_combo_line,base.group_system,1,0,0,0
+access_z_combo_order_user,z.combo.order user,model_z_combo_combo_order,base.group_system,1,1,1,1
+access_z_purchased_combo_line_user,z.combo.purchased_combo_line user,model_z_combo_purchased_combo_line,base.group_system,1,1,1,1
+access_purchased_combo_report,access_purchased_combo_report,model_purchased_combo_report,,1,1,1,1
+

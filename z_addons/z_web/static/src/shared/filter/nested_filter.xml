@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_web.NestedFilter" owl="1">
+        <Dropdown togglerClass="`btn-filter-table outline btn d-flex align-items-center gap-2 ${classActive}`">
+            <t t-set-slot="toggler">
+                <!-- "toggler" slot content is rendered inside a button -->
+
+                <t t-if="state.isActive" t-call="z_web.IconFilterBlue"/>
+                <t t-else="" t-call="z_web.IconFilter"/>
+                Bộ lọc
+            </t>
+            <!-- "default" slot content is rendered inside a div -->
+            <div class='d-flex flex-column nested-filter-item' t-foreach="props.nestedOptions" t-as='nestedOption' t-key='nestedOption.id'>
+                <div t-att-class="{'active':this.isShowing(nestedOption.id)}" t-on-click="()=> { this.setToggleFilter(nestedOption.id)}" class="group-title d-flex justify-content-between">
+                    <span t-esc='nestedOption.label' ></span>
+                    <img src="z_web/static/image/arrow-down.svg" />
+                </div>
+                <div t-if="this.isShowing(nestedOption.id)" class="dropdown-item ps-30 custom-color" t-on-click="()=>{this.select(nestedOption.id, option)}" t-foreach="nestedOption.options" t-as="option" t-key="option.value">
+                    <input type="checkbox" class="form-check-input custom-check-input icon-size-ssm m-0" t-att-checked="this.getChecked(nestedOption.id, option)" />
+                    <span class="option" style="width: 200px; overflow: hidden; white-space: normal;"  t-esc ="getLabel(option)"></span>
+                </div>
+            </div>
+
+
+        </Dropdown>
+    </t>
+</templates>

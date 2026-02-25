@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="z_web.ConfirmDialog" owl="1">
+        <div class="modal fade" t-att-id="props.id" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width:450px">
+                <div class="modal-content" style="border-radius: 8px!important;">
+                    <div class="modal-body p-4">
+                        <button type="button" class="btn-close position-absolute" style="right:0.5rem; top:0.5rem" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h3 t-esc="props.title" class="h3 mb-3"></h3>
+                        <div t-esc="props.content" class="confirm-warning"></div>
+                    </div>
+                    <div class="modal-footer py-2" style="gap:1rem">
+                        <t t-slot="left-action"/>
+                        <t t-slot="right-action"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

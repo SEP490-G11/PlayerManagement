@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_web.CustomerDetailFieldBs">
+    <a
+        t-att-href="partnerUrl"
+        target="_blank"
+        t-on-click="(e) => this.onClick(e, customer.id)"
+        class="customer_detail_widget"
+    >
+        <span t-esc="customer.name" class="fw-bold"/>
+        <span t-esc="genderAndAgeText"/>
+        <span>
+            MKH: <span t-esc="customer.code"/>
+        </span>
+        <span>
+            ĐT: <span t-esc="customer.mobile"/>
+        </span>
+    </a>
+</t>
+
+</templates>

@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="z_visit_list_view_inherit" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.list</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="inherit_id" ref="z_medical_record.z_visit_list_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='booking_type']" position="after">
+                    <field name="has_glass_order" column_invisible="True"/>
+                    <button name="action_open_glass_order_form" type="object" title="Glass Order" class="has_glass_order">
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

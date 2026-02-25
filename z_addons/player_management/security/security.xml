@@ -1,0 +1,19 @@
+<odoo>
+
+    <record id="module_category_football" model="ir.module.category">
+        <field name="name">Football Management</field>
+        <field name="sequence">15</field>
+    </record>
+
+    <record id="group_football_manager" model="res.groups">
+        <field name="name">Football Manager</field>
+        <field name="category_id" ref="player_management.module_category_football"/>
+        <field name="implied_ids" eval="[(4, ref('player_management.group_football_viewer'))]"/>
+    </record>
+
+    <record id="group_football_viewer" model="res.groups">
+        <field name="name">Football Viewer</field>
+        <field name="category_id" ref="player_management.module_category_football"/>
+    </record>
+
+</odoo>

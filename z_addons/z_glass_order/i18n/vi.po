@@ -1,0 +1,1019 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_glass_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-31 07:42+0000\n"
+"PO-Revision-Date: 2024-05-31 07:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_glass_order
+#: model:ir.actions.report,print_report_name:z_glass_order.action_report_glass_order
+msgid "'%s'%(object.pdf_title)"
+msgstr ""
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "(date"
+msgstr "(ngày"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600 oe_asterisk\">Consultant</span>"
+msgstr "<span class=\"fw-600 oe_asterisk\">Người tư vấn</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600 oe_asterisk\">Customer</span>"
+msgstr "<span class=\"fw-600 oe_asterisk\">Khách hàng</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600 oe_asterisk\">Glass order code</span>"
+msgstr ""
+"<span class=\"fw-600 oe_asterisk\">\n"
+"Mã đơn kính</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">Address</span>"
+msgstr "<span class=\"fw-600\">Địa chỉ</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">Appointment day</span>"
+msgstr "<span class=\"fw-600\">Ngày đo/khám</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">Cutter </span>"
+msgstr "<span class=\"fw-600\">Người cắt kính </span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">Examiner</span>"
+msgstr "<span class=\"fw-600\">Người khám</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">Note</span>"
+msgstr "<span class=\"fw-600\">Ghi chú</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">Optometrist</span>"
+msgstr "<span class=\"fw-600\">Người đo</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">Phone number</span>"
+msgstr "<span class=\"fw-600\">Số điện thoại</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">Recipient</span>"
+msgstr "<span class=\"fw-600\">Người nhận</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-600\">State</span>"
+msgstr "<span class=\"fw-600\">Trạng thái</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid ""
+"<span class=\"fw-bold\">\n"
+"                                                Counselors</span>\n"
+"                                            <br/>"
+msgstr ""
+"<span class=\"fw-bold\">\n"
+"                                                Tư vấn</span>\n"
+"                                            <br/>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid ""
+"<span class=\"fw-bold\">\n"
+"                                                Cutter</span>\n"
+"                                            <br/>"
+msgstr ""
+"<span class=\"fw-bold\">\n"
+"                                                Người cắt</span>\n"
+"                                            <br/>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid ""
+"<span class=\"fw-bold\">Delivery\n"
+"                                        Method:</span>"
+msgstr ""
+"<span class=\"fw-bold\">Hình thức\n"
+"                                        nhận kính:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-bold\">Delivery method</span>"
+msgstr "<span class=\"fw-bold\">Hình thức nhận</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span class=\"fw-bold\">Order Date:</span>"
+msgstr "<span class=\"fw-bold\">Hẹn lấy kính:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid ""
+"<span class=\"fw-bold\">Person\n"
+"                                        Measures/Examines:</span>"
+msgstr ""
+"<span class=\"fw-bold\">Người\n"
+"                                        đo/khám:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-bold\">Pupillary distance (mm)</span>"
+msgstr "<span class=\"fw-bold\">Khoảng cách đồng tử (mm)</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "<span class=\"fw-bold\">Pupillary height (mm)</span>"
+msgstr "<span class=\"fw-bold\">Độ cao đồng tử (mm)</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Add:</span>"
+msgstr ""
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Address:</span>"
+msgstr "<span>Địa chỉ:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Age:</span>"
+msgstr "<span>Tuổi:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Clinic</span>"
+msgstr "<span>Nhận tại phòng khám</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Delivery</span>"
+msgstr "<span>Giao hàng</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Gender:</span>"
+msgstr "<span>Giới tính:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Left Eye:</span>"
+msgstr "<span>Mắt trái:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Name:</span>"
+msgstr "<span>Họ tên:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Phone number:</span>"
+msgstr "<span>Điện thoại:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Pupil distance (mm):</span>"
+msgstr "<span>Khoảng cách đồng tử (mm):</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Pupil height (mm):</span>"
+msgstr "<span>Độ cao đồng tử (mm):</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Right Eye:</span>"
+msgstr "<span>Mắt phải:</span>"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "<span>Type of glass:</span>"
+msgstr "<span>Loại kính:</span>"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__add
+msgid "ADD"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_needaction
+msgid "Action Needed"
+msgstr "Hành động cần thiết"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_ids
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Hoạt động ngoại lệ"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng loại hoạt động"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Add"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__amount
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__amount
+msgid "Amount"
+msgstr "Tổng tiền"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__order_date_option__later
+msgid "Another Date"
+msgstr "Hẹn ngày lấy"
+
+#. module: z_glass_order
+#: model:ir.model,name:z_glass_order.model_z_appointment_appointment
+msgid "Appointment"
+msgstr "Lịch hẹn"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số tệp đính kèm"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__bifocal
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "Bifocal"
+msgstr "Hai tròng"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__called
+msgid "Called Patient"
+msgstr "Đã gọi bệnh nhân"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__care_again
+msgid "Care Again"
+msgstr "Cần chăm sóc lại"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__cared
+msgid "Cared"
+msgstr "Đã chăm sóc"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Chọn ngày"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__delivery_method__clinic
+msgid "Clinic"
+msgstr "Nhận tại phòng khám"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__code
+msgid "Code"
+msgstr "Mã đơn kính"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__completed
+msgid "Completed"
+msgstr "Hoàn thành"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__consultant
+msgid "Consultant"
+msgstr "Tư vấn"
+
+#. module: z_glass_order
+#: model:ir.model,name:z_glass_order.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__create_uid
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__create_uid
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_sequence__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__create_date
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__create_date
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_sequence__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__customer_id
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__customer_group_id
+msgid "Customer Group"
+msgstr "Nhóm khách hàng"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_search_view
+msgid "Customer code"
+msgstr "Mã khách hàng"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__cut
+msgid "Cut"
+msgstr "Đã cắt"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__cutter
+msgid "Cutter"
+msgstr "Cắt"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_search_view
+msgid "Date Range"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.actions.server,name:z_glass_order.ir_cron_delete_old_records_ir_actions_server
+msgid "Delete Old Records"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__delivery_method__delivery
+msgid "Delivery"
+msgstr "Giao hàng"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_partner_form_view
+msgid "Delivery Information"
+msgstr "Thông tin giao hàng"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__delivery_method
+msgid "Delivery Method"
+msgstr "Phương thức giao hàng"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Delivery information"
+msgstr "Thông tin giao hàng"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__discount
+msgid "Discount"
+msgstr "Giảm giá"
+
+#. module: z_glass_order
+#. odoo-python
+#: code:addons/z_glass_order/models/glass_order.py:0
+#, python-format
+msgid "Discount must be greater than 0."
+msgstr "Mức giảm giá phải lớn hơn 0."
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__display_name
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__display_name
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_sequence__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__doctor_id
+msgid "Doctor"
+msgstr "Người khám"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Enter address"
+msgstr "Nhập địa chỉ"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Enter consultant"
+msgstr "Nhập người tư vấn"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Enter cutter"
+msgstr "Nhập người cắt kính"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Enter note"
+msgstr "Nhập ghi chú"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Enter phone number"
+msgstr "Nhập số điện thoại"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Enter recipient"
+msgstr "Nhập tên người nhận"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__examination_date
+msgid "Examination Date"
+msgstr "Ngày khám"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Examiner"
+msgstr "Người khám"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Eyeglass Pickup Appointment"
+msgstr "Hẹn lấy kính"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__far_vision
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "Far Vision"
+msgstr "Nhìn xa"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "Female"
+msgstr "Nữ"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font biểu tượng, ví dụ: fa-tasks"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "GLASS INFO"
+msgstr "PHIẾU THÔNG TIN KÍNH"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "GLASS ORDER"
+msgstr "ĐƠN KÍNH"
+
+#. module: z_glass_order
+#. odoo-python
+#: code:addons/z_glass_order/models/glass_order.py:0
+#: code:addons/z_glass_order/models/glass_order.py:0
+#: model:ir.actions.act_window,name:z_glass_order.z_glass_order_action
+#: model:ir.actions.act_window,name:z_glass_order.z_glass_order_customer_action
+#: model:ir.model.fields,field_description:z_glass_order.field_product_product__glass_order_id
+#: model:ir.model.fields,field_description:z_glass_order.field_z_appointment_appointment__glass_order_ids
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__glass_order_id
+#: model:ir.ui.menu,name:z_glass_order.menu_z_glass_order_root
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_list_view
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_search_view
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_partner_view_partner_form_inherit
+#, python-format
+msgid "Glass Order"
+msgstr "Đơn kính"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_visit_list_view_inherit
+#, python-format
+msgid "Glass Order"
+msgstr "DK"
+
+#. module: z_glass_order
+#: model:ir.model,name:z_glass_order.model_z_glass_order_line
+msgid "Glass Order Items"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__glass_order_line_ids
+msgid "Glass Order Line"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model,name:z_glass_order.model_z_glass_order_sequence
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_sequence__name
+msgid "Glass Order Sequence"
+msgstr ""
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Glass order code"
+msgstr "Mã đơn kính"
+
+#. module: z_glass_order
+#. odoo-python
+#: code:addons/z_glass_order/models/glass_order.py:0
+#, python-format
+msgid "Glass order code is must be unique"
+msgstr "Mã đơn kính bị trùng"
+
+#. module: z_glass_order
+#. odoo-python
+#: code:addons/z_glass_order/models/glass_order.py:0
+#, python-format
+msgid "GlassOrder"
+msgstr "DonKinh"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_appointment_appointment__has_glass_order
+msgid "Has Glass Order"
+msgstr "Đơn kính"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__id
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__id
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_sequence__id
+msgid "ID"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Biểu tượng cho thấy một hoạt động ngoại lệ."
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu chọn, bạn cần chú ý tới các tin nhắn mới."
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__message_has_error
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu chọn, một số tin nhắn sẽ có lỗi gửi."
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__incident
+msgid "Incident"
+msgstr "Sự cố"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__is_added
+msgid "Is Added"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_product_product__is_glass_order
+msgid "Is Glass Order"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__is_paid
+msgid "Is Paid"
+msgstr "Đã thanh toán"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_account_move_line__is_glass_order
+msgid "Is glass Order"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model,name:z_glass_order.model_account_move
+msgid "Journal Entry"
+msgstr "Bút toán"
+
+#. module: z_glass_order
+#: model:ir.model,name:z_glass_order.model_account_move_line
+msgid "Journal Item"
+msgstr "Hạng mục bút toán"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__write_uid
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__write_uid
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_sequence__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__write_date
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__write_date
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_sequence__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__left_eye
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Left Eye"
+msgstr "Mắt trái"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Lens type"
+msgstr "Loại kính"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "Male"
+msgstr "Nam"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__multifocal
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "Multifocal"
+msgstr "Đa tròng"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "NOTE:"
+msgstr "GHI CHÚ:"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__near_vision
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "Near Vision"
+msgstr "Nhìn gần"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Hạn chót cho hoạt động tiếp theo"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_summary
+msgid "Next Activity Summary"
+msgstr "Tóm tắt hoạt động tiếp theo"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_type_id
+msgid "Next Activity Type"
+msgstr "Loại hoạt động tiếp theo"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__note
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__order_date_option__now
+msgid "Now"
+msgstr "Lấy ngay"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số lượng hành động"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lượng lỗi"
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: z_glass_order
+#. odoo-python
+#: code:addons/z_glass_order/models/account_move.py:0
+#, python-format
+msgid ""
+"Ops! This glass order is added in other invoice. Remove this from invoice to"
+" ceating"
+msgstr "Hệ thống đã tồn tại đơn kính này trong một hóa đơn khác. Vui lòng tải"
+" lại trang để tạo hóa đơn mới hoặc xóa đơn kính ở hóa đơn này"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Optometrist"
+msgstr "Người đo"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__order_date
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Order Date"
+msgstr "Hẹn lấy kính"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__order_date_option
+msgid "Order Date Option"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__ordered
+msgid "Ordered"
+msgstr "Đã đăt"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__pdf_title
+msgid "Pdf title"
+msgstr ""
+
+#. module: z_glass_order
+#. odoo-python
+#: code:addons/z_glass_order/models/glass_order.py:0
+#, python-format
+msgid "Please fill delivery information."
+msgstr "Vui lòng điền đầy đủ thông tin giao hàng"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__price
+msgid "Price"
+msgstr "Giá"
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order_line__price
+msgid "Price at which the product is sold to customers."
+msgstr "Giá mà sản phẩm được bán cho khách hàng."
+
+#. module: z_glass_order
+#: model:ir.actions.report,name:z_glass_order.action_report_glass_order
+msgid "Print glass order"
+msgstr "In đơn kính"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__products_glass_order_line
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__product_id
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Product"
+msgstr "Sản phẩm của đơn kính"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__glass_order_line_id_widget
+msgid "Product List"
+msgstr "Sản phẩm"
+
+#. module: z_glass_order
+#: model:ir.model,name:z_glass_order.model_product_product
+msgid "Product Variant"
+msgstr "Biến thể sản phẩm"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__pupillary_distance
+msgid "Pupillary Distance"
+msgstr "Khoảng cách đồng tử"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__pupillary_height
+msgid "Pupillary Height"
+msgstr "Độ cao đồng tử"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Pupillary distance"
+msgstr "Khoảng cách đồng tử"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Pupillary height"
+msgstr "Độ cao đồng tử"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order_line__quantity
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__received
+msgid "Received"
+msgstr "Tiếp nhận"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_partner_form_view
+msgid "Recipent Address"
+msgstr "Địa chỉ"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_partner_form_view
+msgid "Recipent Name"
+msgstr "Người nhận"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_partner_form_view
+msgid "Recipent Phone"
+msgstr "Số điện thoại"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_res_partner__recipient_address
+#: model:ir.model.fields,field_description:z_glass_order.field_res_users__recipient_address
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__recipient_address
+msgid "Recipient Address"
+msgstr "Địa chỉ"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_res_partner__recipient_name
+#: model:ir.model.fields,field_description:z_glass_order.field_res_users__recipient_name
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__recipient_name
+msgid "Recipient Name"
+msgstr "Người nhận"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_res_partner__recipient_phone
+#: model:ir.model.fields,field_description:z_glass_order.field_res_users__recipient_phone
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__recipient_phone
+msgid "Recipient Phone"
+msgstr "Số điện thoại"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__product_id
+msgid "Related Product"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__activity_user_id
+msgid "Responsible User"
+msgstr "Người phụ trách"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__right_eye
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Right Eye"
+msgstr "Mắt phải"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Lỗi gửi SMS"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "SP Code"
+msgstr "Mã SP"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "SP Name"
+msgstr "Tên SP"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Select examiner"
+msgstr "Chọn người khám"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+msgid "Select optometrist"
+msgstr "Chọn người đo"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__single_vision
+#: model_terms:ir.ui.view,arch_db:z_glass_order.report_glass_order
+msgid "Single Vision"
+msgstr "Đơn tròng"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_form_view
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_glass_order_search_view
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__state
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Trạng thái dựa trên hoạt động\n"
+"Quá hạn: Hạn chót hạn đã qua\n"
+"Hôm nay: Hôm nay là ngày phải thực hiện\n"
+"Kế hoạch: Cần thực hiện trong tương lai."
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__technician_id
+msgid "Technician"
+msgstr "Người đo"
+
+#. module: z_glass_order
+#. odoo-python
+#: code:addons/z_glass_order/models/glass_order.py:0
+#, python-format
+msgid ""
+"The glasses order cannot be deleted because it has been added to the "
+"invoice."
+msgstr "Đơn kính không thể xoá do đã thêm vào hoá đơn."
+
+#. module: z_glass_order
+#. odoo-python
+#: code:addons/z_glass_order/models/glass_order.py:0
+#, python-format
+msgid "The quantity of each product must be greater than 0."
+msgstr "Số lượng sản phẩm phải lớn hơn 0."
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__title
+msgid "Title"
+msgstr ""
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Loại hoạt động ngoại lệ trong tập dữ liệu."
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__visit_id
+msgid "Visit"
+msgstr "Lượt khám"
+
+#. module: z_glass_order
+#: model:ir.model.fields,field_description:z_glass_order.field_z_glass_order__website_message_ids
+msgid "Website Messages"
+msgstr "Thông báo trên trang web"
+
+#. module: z_glass_order
+#: model:ir.model.fields,help:z_glass_order.field_z_glass_order__website_message_ids
+msgid "Website communication history"
+msgstr "Lịch sử trao đổi qua trang web"
+
+#. module: z_glass_order
+#: model:ir.model,name:z_glass_order.model_z_glass_order
+msgid "zen8labs glass order"
+msgstr ""
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_partner_form_view
+#: model:ir.model.fields,field_description:z_glass_order.field_res_partner__glass_order_ids
+msgid "Glass Order"
+msgstr "Đơn kính"
+
+#. module: z_glass_order
+#: model_terms:ir.ui.view,arch_db:z_glass_order.z_partner_form_view
+msgid "Order date"
+msgstr "Ngày hẹn lấy kính"
+
+#. module: z_glass_order
+#: model:ir.model.fields.selection,name:z_glass_order.selection__z_glass_order__state__pending
+msgid "Pending"
+msgstr "Chờ cắt"

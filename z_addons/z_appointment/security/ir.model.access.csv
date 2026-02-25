@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_appointment_manager,z.appointment.manager,model_z_appointment_appointment,base.group_system,1,1,1,1
+access_z_appointment_user,z.appointment.user,model_z_appointment_appointment,base.group_system,1,0,0,0
+access_z_examination_count_user,z.appointment.user,model_z_appointment_examination_count,base.group_system,1,1,1,1

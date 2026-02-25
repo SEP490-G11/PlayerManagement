@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_usage,access_z_usage,model_z_usage,base.group_system,1,1,1,1
+access_stock_inventory_report_wizard,access_stock_inventory_report_wizard,model_stock_inventory_report_wizard,stock.group_stock_user,1,1,1,1
+

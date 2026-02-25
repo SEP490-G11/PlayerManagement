@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_report_account_payment_document" model="ir.actions.report">
+            <field name="name">Payment Document (VN)</field>
+            <field name="model">account.payment</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">z_invoice.report_account_payment_document</field>
+            <field name="report_file">z_invoice.report_account_payment_document</field>
+            <field name="attachment"/>
+            <field name="binding_model_id" ref="model_account_payment"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'%s'%(object.name)</field>
+        </record>
+
+        <template id="report_account_payment_document">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page" style="font-size: 13pt; font-family: Arial, sans-serif;">
+                            <style>
+                  .payment-header {
+                    font-weight: bold;
+                    font-size: 16pt;
+                    margin-bottom: 10px;
+                    text-align: center;
+                  }
+                  .payment-label {
+                    min-width: 160px;
+                    display: inline-block;
+                  }
+                  .payment-row {
+                    margin-bottom: 6px;
+                  }
+                  .payment-signature {
+                    margin-top: 40px;
+                    display: flex;
+                    justify-content: space-between;
+                  }
+                  .payment-signature div {
+                    min-width: 220px;
+                  }
+                  .payment-highlight {
+                    color: #3b999e;
+                    font-weight: bold;
+                  }
+                            </style>
+                            <!-- Title -->
+                            <div class="payment-header">
+                  PHIẾU THANH TOÁN KHÁCH HÀNG
+                            </div>
+                            <!-- Payment Info -->
+                            <div class="d-flex mt-5 fw-bold">
+                                <div style="width:70%"></div>
+                                <div class="payment-row">
+                                    <span class="">Mã phiếu:</span>
+                                    <span class="">
+                                        <t t-esc="doc.name"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-5 fw-bold">
+                                <div style="width:70%"></div>
+
+                                <div class="payment-row">
+                                    <span class="">Ngày thanh toán:</span>
+                                    <span class="">
+                                        <t t-esc="doc.date"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label payment-highlight">Họ tên:</span>
+                                <span class="payment-highlight">
+                                    <t t-esc="doc.partner_id.name"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Mã KH:</span>
+                                <span>
+                                    <t t-esc="doc.partner_id.code"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">SDT:</span>
+                                <span>
+                                    <t t-esc="doc.partner_id.mobile"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Địa chỉ:</span>
+                                <span>
+                                    <t t-esc="doc.partner_id.street"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Số tiền:</span>
+                                <span>
+                                    <t t-esc="'{:,.0f}'.format(doc.amount)"/>
+ đ</span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Hình thức thanh toán:</span>
+                                <span>
+                                    <t t-esc="doc.journal_id.name"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Loại thanh toán:</span>
+                                <span>
+                                    <t t-esc="doc.payment_method_line_id.name or 'Thủ công'"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Mã đối chiếu VietQR:</span>
+                                <span>
+                                    <t t-esc="doc.viet_qr_transaction_id.name if doc.viet_qr_transaction_id else ''"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Mã hóa đơn:</span>
+                                <span>
+                                    <t t-esc="doc.reconciled_invoice_code"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Số giao dịch:</span>
+                                <span>
+                                    <t t-esc="doc.ref"/>
+                                </span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Diễn giải:</span>
+                                <span>
+                                    <t t-esc="doc.explanation"/>
+                                </span>
+                            </div>
+                            <!-- Signature -->
+                            <div class="payment-signature">
+                                <div class="d-flex align-items-start">
+                                    <span>Người lập phiếu:</span>
+                                    <div style="margin-left: 20px">.......................................................</div>
+                                </div>
+                                <div class="d-flex mt-4">
+                                    <span>Khách hàng:</span>
+                                    <div style="margin-left: 20px">.......................................................</div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

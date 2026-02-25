@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+        <record id="z_obstetric_gynecological_ultrasound_form_view" model="ir.ui.view">
+            <field name="name">gyn_ult.form</field>
+            <field name="model">z_obstetric.gyn_ult</field>
+            <field name="arch" type="xml">
+                <form string="Gynencological Ultrasound"
+                    js_class="form_with_toast"
+                    name="Gynencological Ultrasound Template"
+                    delete="False"
+                    duplicate="False" create="False">
+                    <sheet string="Gynencological Ultrasound">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examiner</div>
+                                        <field name="examiner_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label mb-1">Ultrasonographer</div>
+                                        <field name="optometrist_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examination date</div>
+                                        <field name="examination_date" string=""
+                                            class="form-control trans-input w-100"
+                                            readonly="id" />
+                                    </div>
+                                    <h3 class="col-12 mt-4 mb-3 fw-bolder">Examination results</h3>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h4 class="col-12 mt-4 mb-3">1. Uterus</h4>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Position</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="position" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Size</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="size" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Structure</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="structure" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Endometrium</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="endometrium" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Other image</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="other_image_uterus" />
+                                            </div>
+                                            <h4 class="col-12 mt-4 mb-3">2. Extra</h4>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Right ovary</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="right_ovary" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Left ovary</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="left_ovary" />
+                                            </div>
+                                            <h4 class="col-12 mt-4 mb-3">3. Douglas</h4>
+                                            <field rows="3" name="douglas"
+                                                widget="text_field_bs"
+                                                class="w-100 fw-bolder"
+                                                placeholder="Enter description" />
+                                            <h4 class="col-12 mt-4 mb-3">4. Other image</h4>
+                                            <field rows="3" name="other_image"
+                                                widget="text_field_bs"
+                                                class="w-100 fw-bolder"
+                                                placeholder="Enter description" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

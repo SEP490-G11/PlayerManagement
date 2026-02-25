@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_web.Filter" owl="1">
+        <Dropdown togglerClass="`btn-filter-table outline btn d-flex align-items-center gap-2 ${classActive}`">
+            <t t-set-slot="toggler">
+                <!-- "toggler" slot content is rendered inside a button -->
+
+                <t t-if="state.selectedValue" t-call="z_web.IconFilterBlue"/>
+                <t t-else="" t-call="z_web.IconFilter"/>
+                Bộ lọc
+            </t>
+            <DropdownItem class="dropdown-item" onSelected="(() => this.onSelect(null))">
+                <div class="d-flex w-100 justify-content-between">
+                    <span t-att-class="{'active': !state.selectedValue}" class="option" style="font-size:13px">Tất cả
+                    </span>
+                    <div class="icon-size-sm" t-if="!state.selectedValue">
+                        <t t-call="z_web.IconLightGreenChecked"/>
+                    </div>
+                </div>
+            </DropdownItem>
+            <DropdownItem class="dropdown-item" t-foreach="props.options" onSelected="(() => this.onSelect(option.id))" t-as="option" t-key="option.id">
+                <div class="d-flex w-100 justify-content-between filter-item">
+                    <span t-att-class="{'active': state.selectedValue == option.id}" class="option" style="font-size:13px" t-esc="option.name"></span>
+                    <div t-if="state.selectedValue == option.id" style="padding-left: 10px">
+                        <t t-call="z_web.IconLightGreenChecked"/>
+                    </div>
+                </div>
+            </DropdownItem>
+        </Dropdown>
+    </t>
+</templates>

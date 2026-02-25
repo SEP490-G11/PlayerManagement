@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-inherit="z_appointment.MedicalSlot" t-inherit-mode="extension" owl="1">
+        <xpath expr="(//label[@for='technician_id'])[1]" position="replace">
+            <label for="technician_id" class="label">Ultrasonographer<span class="require">*</span>
+            </label>
+        </xpath>
+        <xpath expr="(//label[@for='technician_id'])[2]" position="replace">
+            <label for="technician_id" class="label">Ultrasonographer</label>
+        </xpath>
+        <xpath expr="(//select[@id='technician_id'])[1]/option[1]" position="replace">
+            <option value="">Select ultrasonographer</option>
+        </xpath>
+        <xpath expr="(//select[@id='technician_id'])[2]/option[1]" position="replace">
+            <option value="">Select ultrasonographer</option>
+        </xpath>
+        <xpath expr="(//div[@class='col-12'])[2]" position="after">
+            <div class="col-12 mb-2">
+                <label for="approach_channel" class="label"> Approach Channel</label>
+                <select id="technician_id" t-model="state.appointment.approach_channel"  t-att-disabled="!state.canEdit" class="input form-control select-custom">
+                    <option t-foreach="this.appointmentApproachChannels" t-as="approachChannel" 
+                    t-key="'appointment_approach_channel_' + approachChannel.value"
+                    t-esc="approachChannel.label" t-att-value="approachChannel.value"></option>
+                </select>
+            </div>
+        </xpath>
+    </t>
+    <t t-inherit="z_appointment.ScheduleForm" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='modal-dialog']" position="attributes">
+            <attribute name="class">modal-dialog custom-modal-dialog</attribute>
+        </xpath>
+    </t>
+</templates>

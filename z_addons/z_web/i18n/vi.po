@@ -1,0 +1,256 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_web
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-09 13:37+0000\n"
+"PO-Revision-Date: 2024-05-09 13:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_web
+#: model_terms:ir.ui.view,arch_db:z_web.custom_report_obstetric_external_layout
+msgid "- Email:"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/utils/toast.js:0
+#, python-format
+msgid "Add"
+msgstr "Thêm mới"
+
+#. module: z_web
+#: model_terms:ir.ui.view,arch_db:z_web.custom_report_external_layout
+#: model_terms:ir.ui.view,arch_db:z_web.custom_report_obstetric_external_layout
+msgid "Address:"
+msgstr "Địa chỉ:"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/form_with_toast/index.js:0
+#: code:addons/z_web/static/src/shared/tree_with_toast/index.js:0
+#, python-format
+msgid "Are you sure to delete the ${nameForm}?"
+msgstr "Bạn có chắc chắn xoá ${nameForm}?"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/tree_with_toast/index.js:0
+#, python-format
+msgid "Are you sure you want to delete these records?"
+msgstr "Bạn có chắc chắn muốn xóa các bản ghi này không?"
+
+#. module: z_web
+#. odoo-python
+#: code:addons/z_web/helpers/validation.py:0
+#, python-format
+msgid "Birthday must be earlier than the current date."
+msgstr "Không thể nhập ngày sinh là ngày trong tương lai, vui lòng nhập lại"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/form_with_toast/index.js:0
+#: code:addons/z_web/static/src/shared/tree_with_toast/index.js:0
+#, python-format
+msgid "Bye-bye, record!"
+msgstr "Tạm biệt, dữ liệu!"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/filter/filter.xml:0
+#: code:addons/z_web/static/src/shared/filter/nested_filter.xml:0
+#, python-format
+msgid "Bộ lọc"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/confirm_dialog/confirm_dialog.xml:0
+#, python-format
+msgid "Close"
+msgstr ""
+
+#. module: z_web
+#: model:ir.model,name:z_web.model_res_company
+msgid "Companies"
+msgstr "Công ty"
+
+#. module: z_web
+#: model:ir.model.fields,field_description:z_web.field_res_company__code
+msgid "Company Code"
+msgstr "Mã công ty"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/form_with_toast/index.js:0
+#: code:addons/z_web/static/src/shared/tree_with_toast/index.js:0
+#: code:addons/z_web/static/src/utils/toast.js:0
+#, python-format
+msgid "Delete"
+msgstr "Xoá"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/paging/paging.xml:0
+#, python-format
+msgid "Hiển thị"
+msgstr ""
+
+#. module: z_web
+#. odoo-python
+#: code:addons/z_web/helpers/validation.py:0
+#, python-format
+msgid "Invalid phone number format, please enter again."
+msgstr "Sai định dạng số điện thoại, vui lòng nhập lại."
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/custom_select/index.xml:0
+#, python-format
+msgid "Không có dữ liệu"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/custom_select/index.xml:0
+#, python-format
+msgid "Không có tìm thấy kết quả"
+msgstr ""
+
+#. module: z_web
+#: model_terms:ir.ui.view,arch_db:z_web.custom_report_external_layout
+#: model_terms:ir.ui.view,arch_db:z_web.custom_report_obstetric_external_layout
+msgid "Logo"
+msgstr ""
+
+#. module: z_web
+#: model_terms:ir.ui.view,arch_db:z_web.custom_report_external_layout
+msgid "Mobile:"
+msgstr "Điện thoại:"
+
+#. module: z_web
+#: model_terms:ir.ui.view,arch_db:z_web.custom_report_obstetric_external_layout
+msgid "Mobile:"
+msgstr "ĐT:"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/form_with_toast/index.js:0
+#: code:addons/z_web/static/src/shared/tree_with_toast/index.js:0
+#, python-format
+msgid "No, keep it"
+msgstr "Không. Hãy giữ lại"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/form_with_toast/index.js:0
+#: code:addons/z_web/static/src/shared/tree_with_toast/index.js:0
+#, python-format
+msgid "Note: All ${nameForm} information will be deleted from the system."
+msgstr "Lưu ý: Toàn bộ thông tin ${nameForm} sẽ bị xoá khỏi hệ thống."
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/fields/product_glass_order_field_bs/product_list_field.xml:0
+#, python-format
+msgid "QT:"
+msgstr "SL:"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/sort/sort.xml:0
+#, python-format
+msgid "Sắp xếp"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/filter/filter.xml:0
+#, python-format
+msgid "Tất cả"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/utils/toast.js:0
+#, python-format
+msgid "Update"
+msgstr "Cập nhật"
+
+#. module: z_web
+#: model_terms:ir.ui.view,arch_db:z_web.custom_report_external_layout
+msgid "Website:"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/paging/paging.xml:0
+#, python-format
+msgid "Xuất ra Excel"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/breadcrumb/breadcrumb.xml:0
+#, python-format
+msgid "breadcrumb"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/time_range/time_range.xml:0
+#: code:addons/z_web/static/src/shared/time_range/time_range.xml:0
+#, python-format
+msgid "dd/mm/yyyy"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/utils/toast.js:0
+#, python-format
+msgid "error"
+msgstr "thất bại"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/form_with_toast/index.js:0
+#: code:addons/z_web/static/src/shared/tree_with_toast/index.js:0
+#, python-format
+msgid "object"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/utils/toast.js:0
+#, python-format
+msgid "success"
+msgstr "thành công"
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/paging/paging.xml:0
+#, python-format
+msgid "trên"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/shared/paging/paging.xml:0
+#, python-format
+msgid "Đi tới trang"
+msgstr ""
+
+#. module: z_web
+#. odoo-javascript
+#: code:addons/z_web/static/src/fields/many2many_binary_preview/many2many_binary_preview.js:0
+#, python-format
+msgid "Add"
+msgstr "Thêm mới"

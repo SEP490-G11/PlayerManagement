@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <record id="z_obstetric_gynecological_form_view" model="ir.ui.view">
+            <field name="name">z_obstetric.gynecological.form</field>
+            <field name="model">z_obstetric.gynecological</field>
+            <field name="arch" type="xml">
+                <form string="Gynecological indicated"
+                    js_class="form_with_toast"
+                    name="Gynecological Template"
+                    delete="False"
+                    duplicate="False" create="False">
+                    <sheet string="Gynencological">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examiner</div>
+                                        <field name="examiner_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label mb-1">Ultrasonographer</div>
+                                        <field name="optometrist_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examination date</div>
+                                        <field name="examination_date" string=""
+                                            class="form-control trans-input w-100"
+                                            readonly="id" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mt-4 mb-3 fw-bolder">Medical
+                                                examination
+                                                results</h3>
+                                            <div class="col-1">
+                                                <div class="o_form_label mb-1">AH</div>
+                                            </div>
+                                            <div class="col-11">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="ah" />
+                                            </div>
+                                            <div class="col-1">
+                                                <div class="o_form_label mb-1">AD</div>
+                                            </div>
+                                            <div class="col-11">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="ad" />
+                                            </div>
+                                            <div class="col-1">
+                                                <div class="o_form_label mb-1">CTC</div>
+                                            </div>
+                                            <div class="col-11">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="ctc" />
+                                            </div>
+                                            <div class="col-1">
+                                                <div class="o_form_label mb-1">TC</div>
+                                            </div>
+                                            <div class="col-11">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="tc" />
+                                            </div>
+                                            <div class="col-1">
+                                                <div class="o_form_label mb-1">2PP</div>
+                                            </div>
+                                            <div class="col-11">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="two_pp" />
+                                            </div>
+                                            
+                                            
+                                            <div class="col-1">
+                                                <div class="o_form_label mb-1">Other</div>
+                                            </div>
+                                            <div class="col-11">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="other" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Image</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field name="image_result_upload" widget="many2many_binary_preview"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

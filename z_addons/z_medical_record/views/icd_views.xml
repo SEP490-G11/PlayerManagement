@@ -1,0 +1,49 @@
+<odoo>
+    <record id="view_z_icd_10_tree" model="ir.ui.view">
+        <field name="name">z_icd_10.tree</field>
+        <field name="model">z_medical_record.icd_10</field>
+        <field name="arch" type="xml" >
+            <tree string="ICD 10 List" create="false" edit="false" js_class="button_near_create_button">
+                <field name="no"/>
+                <field name="uid"/>
+                <field name="title"/>
+            </tree>
+        </field>
+    </record>
+  
+  
+    <record id="view_z_icd_10_form" model="ir.ui.view">
+      <field name="name">z_icd_10.form</field>
+      <field name="model">z_medical_record.icd_10</field>
+      <field name="arch" type="xml">
+          <form string="ICD 10 Form">
+              <sheet>
+                  <group>
+                      <field name="no" readonly="1"/>
+                      <field name="uid" readonly="1"/>
+                      <field name="title" readonly="1"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+    </record>
+  
+    <record id="action_z_icd_10" model="ir.actions.act_window">
+          <field name="name">ICD 10</field>
+          <field name="res_model">z_medical_record.icd_10</field>
+          <field name="view_mode">tree</field>
+          <field name="view_id" ref="view_z_icd_10_tree"/>
+      </record>
+  
+      <record id="view_z_icd_10_search" model="ir.ui.view">
+          <field name="name">z_icd_10.search</field>
+          <field name="model">z_medical_record.icd_10</field>
+          <field name="arch" type="xml">
+              <search string="Search ICD 10">
+                  <field name="title"/>
+                  <field name="no"/>
+                  <field name="uid"/>
+              </search>
+          </field>
+      </record>
+  </odoo>

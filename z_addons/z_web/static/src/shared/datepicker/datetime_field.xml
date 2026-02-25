@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_web.DateTimeField">
+        <t t-set="showSeparator" t-value="shouldShowSeparator()" />
+        <div class="d-flex gap-2 align-items-center o_datepicker w-100 position-relative" t-ref="root">
+            <!-- Start date -->
+            <t t-if="props.readonly">
+                <input type="text" class="form-control mt-0" t-att-placeholder="props.placeholder" t-att-disabled="true" t-att-value="getFormattedValue(0)"/>
+            </t>
+            <t t-elif="props.isInput">
+                <input t-ref="start-date" type="text" class="form-control cursor-pointer mt-0" autocomplete="off" t-att-placeholder="props.placeholder" t-att-id="props.id"/>
+            </t>
+            <t t-else="">
+                <div t-ref="start-date" type="text" class="form-control cursor-pointer mt-0" autocomplete="off" t-att-placeholder="props.placeholder" t-att-id="props.id"/>
+            </t>
+            <span class="o_datepicker_button position-absolute"></span>
+        </div>
+    </t>
+</templates>

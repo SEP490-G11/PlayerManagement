@@ -1,0 +1,719 @@
+<odoo>
+    <data>
+        <record id="z_comprehensive_form_view" model="ir.ui.view">
+            <field name="name">z_ophthalmology.comprehensive.form</field>
+            <field name="model">z_ophthalmology.comprehensive</field>
+            <field name="arch" type="xml">
+                <form string="Comprehensive examination" name="Comprehensive Template"
+                    js_class="form_with_toast"
+                    delete="False" duplicate="False" create="False">
+                    <style>
+                        .pre-myopia {
+                        width: 100%;
+                        border-collapse: collapse;
+                        }
+                        .pre-myopia th, .pre-myopia td {
+                        border: 1px solid #000;
+                        text-align: left;
+                        padding: 8px;
+                        }
+                        .pre-myopia th {
+                        background-color: #f2f2f2;
+                        }
+                    </style>
+                    <field name="code" invisible="1" />
+                    <field name="is_editable" invisible="1"/>
+                    <field name="examination_type" invisible="1" />
+                    <field name="is_valid_for_research" invisible="1"/>
+                    <field name="customer_age" invisible="1"/>
+                    <sheet string="Comprehensive">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Optometrist</div>
+                                        <field name="optometrist_id" string="" class="w-100" readonly="not is_editable"/>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Examiner</div>
+                                        <field name="examiner_id" string="" class="w-100" readonly="not is_editable"/>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Examination date</div>
+                                        <field name="examination_date" string="" class="w-100" readonly="1" force_save="1"/>
+                                    </div>
+                                    <div class="col-3" style="pointer-events: none;opacity: 0.5;">
+                                        <div class="o_form_label mb-1">Code</div>
+                                        <field name="code" string="" class="w-100" readonly="1" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1"> Reason<span
+                                                class="text-danger">*</span>
+                                        </div>
+                                        <field rows="3" name="reason" widget="text_field_bs" readonly="not is_editable"
+                                            class="w-100" placeholder="Input reason" required="True" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Note medical exam</div>
+                                        <field rows="3" name="note_medical_exam" widget="text_field_bs" readonly="not is_editable"
+                                            class="w-100" placeholder="Input note" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Biometrics</div>
+                                        <table class="examination-form w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th />
+                                                    <th>Right eye</th>
+                                                    <th>Left eye</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Eyeball axis length (mm)</td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs" readonly="not is_editable"
+                                                            name="right_eye_eyeball_axis_length" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs" readonly="not is_editable"
+                                                            name="left_eye_eyeball_axis_length" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Central GM thickness (µm)</td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs" readonly="not is_editable"
+                                                            name="right_eye_gm_thickness" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs" readonly="not is_editable"
+                                                            name="left_eye_gm_thickness" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pupil size (mm)</td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs" readonly="not is_editable"
+                                                            name="right_eye_pupil_size" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs" readonly="not is_editable"
+                                                            name="left_eye_pupil_size" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ACD (mm)</td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs" readonly="not is_editable"
+                                                            name="right_eye_acd" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs" readonly="not is_editable"
+                                                            name="left_eye_acd" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Steep K / Flat K (D)</td>
+                                                    <td>
+                                                        <div class="d-flex">
+                                                                <field widget="decimal_field_bs" readonly="not is_editable" 
+                                                                    name="right_eye_steep_or_flat_k_first" />
+                                                                <field widget="decimal_field_bs" readonly="not is_editable"
+                                                                    name="right_eye_steep_or_flat_k_second" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <field widget="decimal_field_bs" readonly="not is_editable"
+                                                                name="left_eye_steep_or_flat_k_first" />
+                                                            <field widget="decimal_field_bs" readonly="not is_editable"
+                                                                name="left_eye_steep_or_flat_k_second" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Steep K / Flat K (mm)</td>
+                                                    <td>
+                                                       <div class="d-flex">
+                                                        <field widget="decimal_field_bs" show_default="False"
+                                                        name="right_eye_steep_or_flat_k_mm_first"
+                                                         />
+                                                    <field widget="decimal_field_bs"
+                                                        name="right_eye_steep_or_flat_k_mm_second"
+                                                         />
+                                                    <field widget="decimal_field_bs"
+                                                        name="right_eye_steep_or_flat_k_mm_third"
+                                                         />
+                                                       </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <field widget="decimal_field_bs"
+                                                            name="left_eye_steep_or_flat_k_mm_first"
+                                                             />
+                                                        <field widget="decimal_field_bs"
+                                                            name="left_eye_steep_or_flat_k_mm_second"
+                                                             />
+                                                        <field widget="decimal_field_bs"
+                                                            name="left_eye_steep_or_flat_k_mm_third"
+                                                             />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ocular axial length/GM radius of curvature
+                                                        (AL/CR)</td>
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <field widget="decimal_field_bs"
+                                                                name="right_ocular_axial_length_GM_radius_of_curvature_first"
+                                                            />
+                                                            <field widget="decimal_field_bs"
+                                                                name="right_ocular_axial_length_GM_radius_of_curvature_second"
+                                                            />
+                                                            <field widget="decimal_field_bs"
+                                                                name="right_ocular_axial_length_GM_radius_of_curvature_third"
+                                                            />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex">
+                                                            <field widget="decimal_field_bs"
+                                                                name="left_ocular_axial_length_GM_radius_of_curvature_first"
+                                                            />
+                                                            <field widget="decimal_field_bs"
+                                                                name="left_ocular_axial_length_GM_radius_of_curvature_second"
+                                                            />
+                                                            <field widget="decimal_field_bs"
+                                                                name="left_ocular_axial_length_GM_radius_of_curvature_third"
+                                                            />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Family history of myopia</td>
+                                                    <td colspan="2">
+                                                        <field name="family_history_of_myopia" readonly="not is_editable"
+                                                            widget="radio" class="myopia_container"
+                                                            options="{'horizontal': true}" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div invisible="not is_valid_for_research" class="col-12">
+                                        <div class="o_form_label mb-1">Pre myopia</div>
+                                        <table class="examination-form pre-myopia w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2">Item</th>
+                                                    <th colspan="2">Value</th>
+                                                    <th colspan="2">Point</th>
+                                                    <th colspan="2">Classify (1) + (2) + (3)</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Right eye</th>
+                                                    <th>Left eye</th>
+                                                    <th>Right eye point</th>
+                                                    <th>Left eye point</th>
+                                                    <th>Right eye classification</th>
+                                                    <th>Left eye classification</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Axial length of eyeball (1)</td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs"
+                                                            name="right_eye_eyeball_axis_length"
+                                                            readonly="1" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs"
+                                                            name="left_eye_eyeball_axis_length"
+                                                            readonly="1" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs"
+                                                            name="right_eyeball_axis_length_point" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs"
+                                                            name="left_eyeball_axis_length_point" />
+                                                    </td>
+                                                    <td rowspan="3">
+                                                        <field widget="char_field_bs"
+                                                            name="right_eye_classification" />
+                                                    </td>
+                                                    <td rowspan="3">
+                                                        <field widget="char_field_bs"
+                                                            name="left_eye_classification" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Family history of myopia (2)</td>
+                                                    <td colspan="2">
+                                                        <field widget="char_field_bs"
+                                                            name="family_history_of_myopia_value" />
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <field widget="decimal_field_bs"
+                                                            name="family_history_of_myopia_point" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Refractive error (3)</td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs"
+                                                            name="pre_myopia_refractive_error_right_eye_value"/>
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs"
+                                                            name="pre_myopia_refractive_error_left_eye_value"/>
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs"
+                                                            name="pre_myopia_refractive_error_right_eye_point"/>
+                                                    </td>
+                                                    <td>
+                                                        <field widget="decimal_field_bs"
+                                                            name="pre_myopia_refractive_error_left_eye_point"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Eye sight</div>
+                                        <table class="examination-form w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th />
+                                                    <th>Right eye</th>
+                                                    <th>Left eye</th>
+                                                    <th>2 eyes</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center">Without glasses</td>
+                                                    <td>
+                                                        <field widget="char_field_bs" readonly="not is_editable"
+                                                            name="right_eye_without_glasses" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="char_field_bs" readonly="not is_editable"
+                                                            name="left_eye_without_glasses" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="char_field_bs" readonly="not is_editable"
+                                                            name="eyes_without_glasses" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">Old glasses</td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-9" readonly="not is_editable"
+                                                                name="right_eye_old_glasses" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_old_glasses_unit" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-9" readonly="not is_editable"
+                                                                name="left_eye_old_glasses" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_old_glasses_unit" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-9" readonly="not is_editable"
+                                                                name="eyes_old_glasses" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="eyes_old_glasses_unit" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Near vision</div>
+                                        <field name="measurement_type" widget="radio" readonly="not is_editable"
+                                            options="{'horizontal': true}" />
+                                        <table class="examination-form w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>Right eye</th>
+                                                    <th>Left eye</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <field widget="char_field_bs" readonly="not is_editable"
+                                                            name="oculus_dexter" />
+                                                    </td>
+                                                    <td>
+                                                        <field widget="char_field_bs" readonly="not is_editable"
+                                                            name="oculus_sinister" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Convergence and oculomotor
+                                            system</div>
+                                        <table class="examination-form w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>CT (cm)</th>
+                                                    <th>NPC (cm)</th>
+                                                    <th>EOM (cm)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <field widget="char_field_bs" name="ct" readonly="not is_editable"/>
+                                                    </td>
+                                                    <td>
+                                                        <field widget="char_field_bs" name="npc" readonly="not is_editable"/>
+                                                    </td>
+                                                    <td>
+                                                        <field widget="char_field_bs" name="eom" readonly="not is_editable"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Amsler test</div>
+                                        <table class="examination-form w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>Right eye</th>
+                                                    <th>Left eye</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <field widget="char_field_bs" name="right_amsler_test" readonly="not is_editable"/>
+                                                    </td>
+                                                    <td>
+                                                        <field widget="char_field_bs" name="left_amsler_test" readonly="not is_editable"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Intraocular pressure iCare(mmHg)</div>
+                                        <table class="examination-form w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th>Right eye</th>
+                                                    <th>Left eye</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <field widget="char_field_bs" name="right_intraocular_pressure" readonly="not is_editable"/>
+                                                    </td>
+                                                    <td>
+                                                        <field widget="char_field_bs" name="left_intraocular_pressure" readonly="not is_editable"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!--Khúc
+                                    xạ trước liệt-->
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Refractive error - Before
+                                            paralysis</div>
+                                        <table class="examination-form w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th />
+                                                    <th>Right eye</th>
+                                                    <th>Left eye</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width: 32%">Objective</td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_objective_anterior_refraction_first" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_objective_anterior_refraction_second" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_objective_anterior_refraction_third" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_objective_anterior_refraction_unit" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_objective_anterior_refraction_first" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_objective_anterior_refraction_second" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_objective_anterior_refraction_third" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_objective_anterior_refraction_unit" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 32%">Subjective</td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-9" readonly="not is_editable"
+                                                                name="right_eye_subjective_anterior_refraction" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_subjective_anterior_refraction_unit" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-9" readonly="not is_editable"
+                                                                name="left_eye_subjective_anterior_refraction" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_subjective_anterior_refraction_unit" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 32%">Add</td>
+                                                    <td colspan="2">
+                                                        <field widget="char_field_bs" name="add" readonly="not is_editable"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!--Khúc
+                                    xạ sau liệt-->
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Refractive error - Post
+                                            paralysis</div>
+                                        <field name="cyclogyl"  readonly="not is_editable"/>
+                                        <label for="cyclogyl" string="Cyclogyl 1%" />
+                                        <field name="atropin"  readonly="not is_editable"/>
+                                        <label for="atropin" string="Atropin 0.5%" />
+                                        <table class="examination-form w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th />
+                                                    <th>Right eye</th>
+                                                    <th>Left eye</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="" style="width: 32%">Objective</td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_objective_paralytic_refraction_first" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_objective_paralytic_refraction_second" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_objective_paralytic_refraction_third" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_objective_paralytic_refraction_unit" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_objective_paralytic_refraction_first" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_objective_paralytic_refraction_second" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_objective_paralytic_refraction_third" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_objective_paralytic_refraction_unit" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="" style="width: 32%">Subjective</td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-9" readonly="not is_editable"
+                                                                name="right_eye_subjective_paralytic_refraction" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="right_eye_subjective_paralytic_refraction_unit" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="grid gap-5-odoo">
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-9" readonly="not is_editable"
+                                                                name="left_eye_subjective_paralytic_refraction" />
+                                                            <field widget="char_field_bs"
+                                                                class="g-col-3" readonly="not is_editable"
+                                                                name="left_eye_subjective_paralytic_refraction_unit" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Eye health</div>
+                                        <field rows="3" name="eye_health" widget="text_field_bs" readonly="not is_editable"
+                                            class="w-100" placeholder="Input information" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">CLS designation</h3>
+                                            <div class="col-12">
+                                                <field  name="cls_ids" widget="many2many_checkboxes" readonly="not is_editable"/>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Diagnose</div>
+                                                <field name="diagnose" string="" class="w-100"
+                                                    widget="text_field_bs" readonly="not is_editable"
+                                                    placeholder="Input diagnose" />
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">ICD-10</div>
+                                                <div class ="mt-4">
+                                                    <field name="icd_ids" readonly="not is_editable">
+                                                        <tree string="ICD Codes" create="0" editable="bottom" >
+                                                            <field name="no"/>
+                                                            <field name="uid"/>
+                                                            <field name="title"/>
+                                                        </tree>
+                                                    </field>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Solution</div>
+                                                <field name="solution" string="" class="w-100"
+                                                    widget="text_field_bs" readonly="not is_editable"
+                                                    placeholder="Input solution" />
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Glass order</div>
+                                                <div class="row">
+                                                    <field placeholder="Right eye" readonly="not is_editable"
+                                                        name="right_eye_glasses_prescription"
+                                                        widget="char_field_bs" class="col-4" />
+                                                    <field placeholder="Left eye" readonly="not is_editable"
+                                                        name="left_eye_glasses_prescription"
+                                                        widget="char_field_bs" class="col-4" />
+                                                    <field placeholder="Add" readonly="not is_editable"
+                                                        name="add_glasses_prescription"
+                                                        widget="char_field_bs" class="col-4" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">Next visit</h3>
+                                            <div class="col-3">
+                                                <div class="o_form_label mb-1">Reexamination date</div>
+                                                <field name="reexamination_date" string=""  readonly="not is_editable"
+                                                    class="d-block form-control trans-input"
+                                                    placeholder="Select reexamination date" />
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Note</div>
+                                                <field rows="3" name="note" widget="text_field_bs" readonly="not is_editable"
+                                                    class="w-100" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                            <page string="Prescription" name="prescription">
+                                <field name="drug_ids" readonly="not is_editable">
+                                    <tree editable="bottom">
+                                        <field name="product_id" can_create="True" can_write="True"/>
+                                        <field name="quantity"/>
+                                        <field name="unit"/>
+                                        <field name="usage_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids" />
+                                <field name="activity_ids" />
+                                <field name="message_ids" />
+                            </div>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="z_comprehensive_list_view" model="ir.ui.view">
+            <field name="name">z_ophthalmology.comprehensive.list</field>
+            <field name="model">z_ophthalmology.comprehensive</field>
+            <field name="arch" type="xml">
+                <tree string="Comprehensive" js_class="no_selector_tree">
+                    <field name="examination_date" />
+                    <field name="reason" />
+                    <field name="optometrist_id" />
+                    <field name="examiner_id" />
+                    <field name="diagnose" />
+                    <field name="reexamination_date" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="z_comprehensive_action" model="ir.actions.act_window">
+            <field name="name">Comprehensive examination</field>
+            <field name="view_mode">tree,form</field>
+            <field name="res_model">z_ophthalmology.comprehensive</field>
+            <field name="domain">[('customer_id','=',active_id)]</field>
+            <field name="context">{'create': False}</field>
+        </record>
+    </data>
+</odoo>

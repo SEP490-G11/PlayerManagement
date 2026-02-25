@@ -1,0 +1,26 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- preproduction-obstetrics
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: none
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: '18.140.68.179'
+    sshKeySecureFile: 'iCare-dev-key-pair'
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'SSH PRE-Obstetric env 18.140.68.179'
+    runOptions: 'commands'
+    commands: |
+      cd zen8labs/ && sudo ./deploy.sh
+    readyTimeout: '20000'
+    failOnStdErr: false

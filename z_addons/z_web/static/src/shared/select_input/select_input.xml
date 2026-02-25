@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_web.SelectInput" owl="1">
+        <div>
+            <label class="label" t-esc="label">
+            </label>
+            <select id="group_id" t-att-disabled="props.isDisable" t-model="props.selected" t-on-change="(e)=>{this.onChange(e)}" class="input form-control select-custom">
+                <option t-foreach="this.options" t-as="option" t-key="option.id" t-esc="option.name" t-att-value="option.id"></option>
+            </select>
+        </div>
+    </t>
+</templates>

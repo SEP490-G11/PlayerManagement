@@ -1,0 +1,41 @@
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main-obstetrics
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+  displayName: 'Install Python'
+
+- script: |
+    echo "Setting up AWS credentials"
+    export AWS_ACCESS_KEY_ID=$(AWS_ACCESS_KEY_ID)
+    export AWS_SECRET_ACCESS_KEY=$(AWS_SECRET_ACCESS_KEY)
+    export AWS_DEFAULT_REGION=ap-southeast-1
+
+    echo "Sending SSM command to EC2 instance in private subnet"
+    INSTANCE_ID=$(INSTANCE_ID)
+
+    aws ssm send-command \
+      --instance-ids "$INSTANCE_ID" \
+      --document-name "AWS-RunShellScript" \
+      --parameters "commands=['sudo -u ubuntu bash -c \"cd /src && sh deploy.sh\"']" \
+      --output text
+  displayName: 'Run SSM Command on EC2 in Private Subnet'

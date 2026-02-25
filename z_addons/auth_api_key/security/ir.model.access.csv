@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_auth_api_key_user,access_auth_api_key_user,model_auth_api_key,auth_api_key.group_access_api_key_user,1,0,0,0
+access_auth_api_key_manager,access_auth_api_key_manager,model_auth_api_key,auth_api_key.group_access_api_key_manager,1,1,1,1

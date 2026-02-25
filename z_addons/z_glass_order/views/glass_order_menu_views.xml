@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_z_glass_order_root" name="Glass Order" action="z_glass_order.z_glass_order_action" web_icon="z_glass_order,static/description/icon.png"/>
+</odoo>

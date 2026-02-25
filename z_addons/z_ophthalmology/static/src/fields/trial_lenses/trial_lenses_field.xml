@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="z_ophthalmology.TrialLenses">
+        <div class="row gy-3 gx-3">
+            <div class="col-6" t-foreach="state.data" t-as="item" t-key="item.position">
+                <div class="o_form_label mb-1" t-esc="item.label"></div>
+                <table class="w-100 examination-form">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>BC</th>
+                            <th>P</th>
+                            <th>DIA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input t-on-input="onUpdate" class="form-control" t-model.trim="item.type" t-att-disabled="isReadonly"/>
+                            </td>
+                            <td>
+                                <input t-on-input="onUpdate" class="form-control" t-model.trim="item.bc" t-att-disabled="isReadonly"/>
+                            </td>
+                            <td>
+                                <input t-on-input="onUpdate" class="form-control" t-model.trim="item.p" t-att-disabled="isReadonly"/>
+                            </td>
+                            <td>
+                                <input t-on-input="onUpdate" class="form-control" t-model.trim="item.dia" t-att-disabled="isReadonly"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Fitting:
+                            </td>
+                            <td colspan="3">
+                                <input t-on-input="onUpdate" class="form-control" t-model.trim="item.fitting" t-att-disabled="isReadonly"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Vision:
+                            </td>
+                            <td colspan="3">
+                                <input t-on-input="onUpdate" class="form-control" t-model.trim="item.vision" t-att-disabled="isReadonly"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Over Rx:
+                            </td>
+                            <td colspan="3">
+                                <input t-on-input="onUpdate" class="form-control" t-model.trim="item.over_rx" t-att-disabled="isReadonly"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            Feeling with glasses:
+                            </td>
+                            <td colspan="3">
+                                <input t-on-input="onUpdate" class="form-control" t-model.trim="item.feeling" t-att-disabled="isReadonly"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-inherit="z_appointment.ScheduleTable" t-inherit-mode="extension" owl="1">
+        <xpath expr="//DropdownItem[@t-as='state']" position="replace">
+            <DropdownItem
+                t-foreach="stateList"
+                t-as="state" t-key="state.value"
+                class="'p-0'">
+                <div t-esc="state.label" class="padding_dropdown_schedule"
+                    t-on-click="()=>this.updateAppointmentState(schedule.id,state.value, false)"></div>
+            </DropdownItem>
+        </xpath>
+        <xpath expr="//thead/tr/th[8]" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//tbody/tr/td[8]" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+
+        <xpath expr="//thead/tr/th[12]" position="replace">
+            <th>Ultrasonographer</th>
+        </xpath>
+    </t>
+
+    <t t-inherit="z_appointment.ScheduleList" t-inherit-mode="extension" owl="1">
+        <xpath expr="//ScheduleForm" position="after">
+            <ConfirmStatusSchedule />
+        </xpath>
+    </t>
+</templates>

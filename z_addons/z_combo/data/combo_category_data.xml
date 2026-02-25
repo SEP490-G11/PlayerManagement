@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="combo_category_1" model="z_combo.combo.category">
+            <field name="name">Liệu trình Viễn Thị (6 tháng)</field>
+        </record>
+        <record id="combo_category_2" model="z_combo.combo.category">
+            <field name="name">Liệu trình Viễn Thị (3 tháng)</field>
+        </record>
+        <record id="combo_category_3" model="z_combo.combo.category">
+            <field name="name">Liệu trình Cận Thị (6 tháng)</field>
+        </record>
+        <record id="combo_category_4" model="z_combo.combo.category">
+            <field name="name">Liệu trình Cận Thị (3 tháng)</field>
+        </record>
+        <record id="combo_category_5" model="z_combo.combo.category">
+            <field name="name">Khuyến Mại</field>
+        </record>
+        <record id="combo_category_6" model="z_combo.combo.category">
+            <field name="name">Khai Trương</field>
+        </record>
+    </data>
+</odoo>

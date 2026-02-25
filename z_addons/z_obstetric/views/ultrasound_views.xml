@@ -1,0 +1,138 @@
+<odoo>
+    <data>
+        <record id="z_obstetric_ultra_sound_form_view" model="ir.ui.view">
+            <field name="name">z_obstetric.ultra_sound.form</field>
+            <field name="model">z_obstetric.ultra_sound</field>
+            <field name="arch" type="xml">
+                <form string="Pre first trimester pregnant"
+                    name="Pre first trimester pregnant Template"
+                    delete="False"
+                    duplicate="False" create="False">
+                    <style>
+                        .w-220{
+                        width: 220px !important;
+                        }
+                    </style>
+                    <sheet string="Pre first trimester pregnant">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examiner</div>
+                                        <field name="examiner_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label mb-1">Ultrasonographer</div>
+                                        <field name="optometrist_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examination date</div>
+                                        <field name="examination_date" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mt-4 mb-3 fw-bolder">Medical
+                                                examination
+                                                results</h3>
+                                            <p class="col-12 mb-0 fw-bolder">1. Diagnose</p>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Menstrual</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="menstrual" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Cycle</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="menstrual_cycle" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Menstrual Day</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="menstrual_day" />
+                                            </div>
+                                            <p class="col-12 mb-0 fw-bolder">2. Uterus</p>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Position</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="position" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Size(mm)</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="size" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Other Image</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="other_image" />
+                                            </div>
+                                            <p class="col-12 mb-0 fw-bolder">3. Monitoring ovulation</p>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Date</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field
+                                                    name="date"
+                                                    class="form-control trans-input w-220" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Ovulation Date</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="ovulation_date" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Mucosa</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="mucosa" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Left ovary</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="left_ovary" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Right ovary</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="right_ovary" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Mocous Douglas</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="mocous_douglas" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

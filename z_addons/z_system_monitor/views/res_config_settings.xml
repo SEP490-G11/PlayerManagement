@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="z_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">z.res.config.settings.view.form.inherit.hr</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='performance']" position="after">
+                <block title="System monitoring webhook" name="system_monitor_webhook">
+                    <setting id="system_monitor_webhook_setting"
+                             help="Webhook for MS Teams to get message about system's error">
+                        <field name="z_system_monitor_webhook" field_id="z_system_monitor_webhook"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

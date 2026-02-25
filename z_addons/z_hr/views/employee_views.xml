@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_hr_employee_form_view_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="required">True</attribute>
+            </xpath>
+            <xpath expr="//form" position="attributes">
+                <attribute name="js_class">hr_form</attribute>
+            </xpath>
+            <xpath expr="//field[@name='job_title']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_ids']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='work_phone']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='mobile_phone']" position="before">
+                <field name="gender" widget="employee_gender_radio" options="{'horizontal': true}"/>
+                <field name="birthday"/>
+            </xpath>
+<!--            <xpath expr="//field[@name='work_email']" position="after">-->
+<!--                <field name="bookable" readonly="id"/>-->
+<!--                <field name="is_doctor" readonly="id"/>-->
+<!--            </xpath>-->
+            <xpath expr="//field[@name='coach_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='department_id']" position="before">
+                <label for="user_id" string="User Account" class="oe_asterisk"/>
+                <field name="user_id" widget="many2one_avatar_user" string="User Account" nolabel="1" required="1"/>
+                <field name="code"/>
+            </xpath>
+            <xpath expr="//field[@name='avatar_128']" position="after">
+                <label for="name" string="Name" class="oe_asterisk"/>
+                <field name="name" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='mobile_phone']" position="attributes">
+                <attribute name="nolabel">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='mobile_phone']" position="before">
+                <label for="mobile_phone" string="Mobile Phone" class="oe_asterisk"/>
+            </xpath>
+            <xpath expr="//field[@name='birthday']" position="attributes">
+                <attribute name="nolabel">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='birthday']" position="before">
+                <label for="birthday" string="Birthday" class="oe_asterisk"/>
+            </xpath>
+            <xpath expr="//field[@name='work_email']" position="after">
+                <label for="place_ids" string="Places" class="oe_asterisk"/>
+                <field name="place_ids" widget="many2many_checkboxes" nolabel="1"/>
+            </xpath>
+            <xpath expr="//field[@name='job_id']" position="attributes">
+                <attribute name="nolabel">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='job_id']" position="before">
+                <label for="job_id" string="Job Position" class="oe_asterisk"/>
+            </xpath>
+            <xpath expr="//field[@name='resource_calendar_id']" position="after">
+                <field name="resource_calendar_employee_id"/>
+            </xpath>
+            <xpath expr="//field[@name='resource_calendar_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="z_hr_employee_kanban_view_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.kanban.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_kanban_details')]" position="inside">
+                <div>
+                    <field name="code"/>
+                </div>
+                <div>
+                    <field name="gender"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_hr_employee_tree_view_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.kanban.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="code"/>
+                <field name="gender"/>
+                <field name="birthday"/>
+                <field name="mobile_phone"/>
+            </xpath>
+            <xpath expr="//field[@name='work_phone']" position="attributes">
+                <attribute name="column_invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,100 @@
+"@startuml K1 Create Incoming Picking Sequence
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam sequenceParticipantBackgroundColor #E3F2FD
+skinparam sequenceActivationBackgroundColor #BBDEFB
+skinparam sequenceArrowColor #1976D2
+skinparam sequenceLifeLineBorderColor #1976D2
+skinparam sequenceMessageBackgroundColor #E3F2FD
+
+title K1: Create Incoming Picking Flow
+
+actor "Frontend" as Frontend #E8F5E9
+participant "ZStockPicking\n(models/stock_picking.py)" as PickingModel #FFF3E0
+participant "stock.picking.type" as PickingType #FCE4EC
+participant "stock.location" as Location #E1F5FE
+participant "z_place.place" as Place #F3E5F5
+participant "res.users" as User #E0F7FA
+
+== Incoming Picking: Receipt of goods from supplier ==
+
+Frontend ->> PickingModel: CREATE stock.picking\n(picking_type_code='incoming', location_dest_id, ...)
+activate PickingModel
+
+Note over PickingModel
+  Entry point: _default_picking_type_id()
+  Context: {'restricted_picking_type_code': 'incoming'}
+end Note
+
+Note over PickingModel
+  Step 1: Check user permission
+end Note
+PickingModel ->> User: Check place_ids
+alt No place assigned
+  PickingModel -->> Frontend: ERROR: "You are not allowed to create a picking in any branch."
+end
+
+Note over PickingModel
+  Step 2: Get default picking type for INCOMING
+end Note
+PickingModel ->> PickingType: search([
+  ('code', '=', 'incoming'),
+  ('company_id', '=', env.company.id),
+  ('warehouse_id.place_id', 'in', user_place_ids)
+])
+PickingType --> PickingModel: picking_type (incoming)
+
+Note over PickingModel
+  Step 3: Validate location_dest_id for INCOMING
+  - For incoming: check location_dest_id.place_id is in user_place_ids
+end Note
+PickingModel ->> Location: browse(location_dest_id)
+Location --> PickingModel: location
+
+alt incoming picking
+  Note over PickingModel
+    Validate: location_dest_id.place_id must be in user_place_ids
+    (Supplier sends TO this location)
+  end Note
+  Location ->> Place: Get place_id
+  Place --> Location: place
+  
+  Location --> PickingModel: location.place_id
+  
+  alt location.place_id NOT in user_place_ids
+    PickingModel -->> Frontend: ERROR: "You are not allowed to create a picking in this branch."
+  end
+end
+
+Note over PickingModel
+  Step 4: Set place_id from location_dest_id
+end Note
+PickingModel ->> PickingModel: create({
+  place_id: location_dest_id.place_id.id,
+  picking_type_id: picking_type.id,
+  location_id: ...,
+  location_dest_id: ...,
+  ...
+})
+
+Note over PickingModel
+  Incoming Picking States:
+  - draft → confirmed → assigned → done
+  - Products flow: Supplier → Warehouse
+end Note
+
+PickingModel --> PickingModel: picking created (draft)
+PickingModel -->> Frontend: 200 OK\n{picking.id, state='draft'}
+
+== Post-Create Actions ==
+
+Note over Frontend
+  Next steps (handled by Odoo standard flow):
+  1. User adds move lines (products, quantities)
+  2. User clicks "Confirm"
+  3. System validates and changes state to 'assigned'
+  4. User receives goods and clicks "Validate"
+end Note
+
+@enduml
+"

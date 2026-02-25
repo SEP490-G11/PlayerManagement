@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="z_crm_task_template_list_view" model="ir.ui.view">
+            <field name="name">z_crm_task_template_list_view</field>
+            <field name="model">z.crm.task.template</field>
+            <field name="arch" type="xml">
+                <tree string="Task Templates" editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="content"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="z_crm_task_template_action" model="ir.actions.act_window">
+            <field name="name">Task Template</field>
+            <field name="res_model">z.crm.task.template</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+</odoo>

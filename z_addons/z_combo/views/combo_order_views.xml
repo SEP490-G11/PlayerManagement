@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_combo_order_form_view" model="ir.ui.view">
+        <field name="name">z_combo.combo.order.form</field>
+        <field name="model">z_combo.combo.order</field>
+        <field name="arch" type="xml">
+            <form string="Combo Order" name="Combo Order Template" js_class="form_with_toast"
+                duplicate="0">
+                <header>
+                </header>
+                <sheet name="product_form">
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title">
+                    </div>
+                    <group>
+                        <group name="group_general">
+                            <label for="customer_id" string="Customer" class="oe_asterisk" />
+                            <field nolabel="1" name="customer_id"
+                                readonly="is_done"
+                                context="{'form_view_ref': 'z_partner.view_partner_form'}"
+                                options="{ 'no_create': True , 'no_edit': True}"
+                            />
+                            <label for="invoice_code" string="Invoice Code" class="oe_asterisk" />
+                            <field nolabel="1" name="invoice_code" readonly="is_done" />
+                            <field name="start_date" />
+                            <field name="last_expiration_date" />
+                            <field name="status" required="1" />
+                        </group>
+                        <group name="group_standard_price">
+                            <label for="combo_id" string="Combo" class="oe_asterisk" />
+                            <field nolabel="1" name="combo_id" readonly="is_done"
+                                options="{ 'no_create': True}" />
+                            <label for="registration_date" string="Registration Date"
+                                class="oe_asterisk" />
+                            <field nolabel="1" name="registration_date" />
+                            <field name="end_date" />
+                            <field name="session_count" />
+                            <field name="tracking_date"/>
+                        </group>
+                    </group>
+                    <field name="is_done" invisible="1" />
+                    <label for="note" string="Note" />
+                    <field name="note" nolabel="1" />
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="z_combo_order_search_view" model="ir.ui.view">
+        <field name="name">z_combo.combo.order.search</field>
+        <field name="model">z_combo.combo.order</field>
+        <field name="arch" type="xml">
+            <search string="Combo Order">
+                <field name="customer_id"
+                    filter_domain="['|', ('customer_id.name', 'ilike', self), ('customer_id.code', 'ilike', self)]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="z_combo_order_list_view" model="ir.ui.view">
+        <field name="name">z_combo.combo.order.list</field>
+        <field name="model">z_combo.combo.order</field>
+        <field name="arch" type="xml">
+            <tree string="Combo Order" default_order="registration_date desc"
+                js_class="tree_with_toast">
+                <field name="customer_id" widget="many2one_tags"
+                    context="{'form_view_ref': 'z_partner.view_partner_form'}" />
+                <field name="combo_id" widget="many2one_tags" />
+                <field name="invoice_code" />
+                <field name="registration_date" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="last_expiration_date" />
+                <field name="session_count" />
+                <field name="status" widget="z_medical_record_state_selection" />
+                <field name="note" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="z_combo_order_action_form" model="ir.actions.act_window">
+        <field name="name">Combo Order</field>
+        <field name="res_model">z_combo.combo.order</field>
+        <field name="search_view_id" ref="z_combo_order_search_view" />
+        <field name="view_id" ref="z_combo_order_list_view" />
+    </record>
+</odoo>

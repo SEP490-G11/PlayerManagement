@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="z_helpdesk_ticket_search" model="ir.ui.view">
+        <field name="name">z.helpdesk.ticket.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="/search" position="inside">
+                <separator/>
+                <filter string="Chăm sóc đặt lịch" name="csdl" domain="[('z_ticket_type', '=', 'ab')]"/>
+                <filter string="Chăm sóc đơn kính" name="csdk" domain="[('z_ticket_type', '=', 'gotc')]"/>
+                <filter string="Chăm sóc phần mềm" name="cspm" domain="[('z_ticket_type', '=', 'sm')]"/>
+                <filter string="Ngày đến hạn nhiệm vụ" name="deadline_task" date="deadline_task"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

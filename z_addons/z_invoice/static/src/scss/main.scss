@@ -1,0 +1,41 @@
+.o_field_account-tax-totals-field {
+  table {
+    width: 100%;
+  }
+}
+
+.o_form_view .o_inner_group.oe_subtotal_footer .oe_subtotal_footer_separator {
+  width: 100%;
+  text-align: right;
+  border-top: 1px solid var(--border-color, #dee2e6);
+  font-weight: 500;
+  font-size: 1em;
+}
+
+
+
+.o_list_view td, .o_list_view th{
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
+.o_list_view th[data-name="code"] {
+    min-width: 141px !important;
+    width: 141px !important;
+    max-width: 141px !important;
+}
+
+.o_list_view th[data-name="partner_id"] {
+    min-width: 140px !important;
+    width: 140px !important;
+}
+
+.o_list_view td > .partner_id > a {
+  position: relative !important;
+  display: block !important;
+}
+
+.o_list_view td > .partner_id > a > span {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}

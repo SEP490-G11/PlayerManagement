@@ -1,0 +1,102 @@
+<odoo>
+    <data>
+        <record id="z_obstetric_post_pregnant_form_view" model="ir.ui.view">
+            <field name="name">z_obstetric.post_pregnant.form</field>
+            <field name="model">z_obstetric.post_pregnant</field>
+            <field name="arch" type="xml">
+                <form string="Post first pregnant"
+                    js_class="form_with_toast"
+                    name="Post first pregnant Template"
+                    delete="False"
+                    duplicate="False" create="False">
+                    <sheet string="Post first pregnant">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examiner</div>
+                                        <field name="examiner_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label mb-1">Ultrasonographer</div>
+                                        <field name="optometrist_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examination date</div>
+                                        <field name="examination_date" string=""
+                                            class="form-control trans-input w-100"
+                                            readonly="id" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mt-4 mb-3 fw-bolder">Medical
+                                                examination
+                                                results</h3>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Blood pressure</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="blood_pressure" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Pulse</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="pulse" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Cardiopulmonary</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="cardiopulmonary" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Edema</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="edema" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Cervical Length</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="cervical_length" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Fetal Position</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="fetal_position" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Fetal heart</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="fetal_heart" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Image</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field name="image_result_upload" widget="many2many_binary_preview" options="{'reload': false }"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_combo_form_view" model="ir.ui.view">
+        <field name="name">z_combo.combo.form</field>
+        <field name="model">z_combo.combo</field>
+        <field name="arch" type="xml">
+            <form string="Combo" name="Combo Template" js_class="form_with_toast" duplicate="0">
+                <sheet name="product_form">
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Combo name" class="oe_asterisk" />
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="name"
+                                    options="{'line_breaks': False}" widget="text"
+                                    placeholder="E.g. Opening celebration combo" on_change="1"
+                                    field_id="name_0" />
+                            </div>
+                        </h1>
+                    </div>
+                    <field name="is_created" invisible="1"/>
+                    <group>
+                        <group name="group_general">
+                            <label for="code" string="Code" class="oe_asterisk" />
+                            <field name="code" nolabel="1" readonly="is_created"/>
+                            <label for="category_id" string="Category" class="oe_asterisk" />
+                            <field name="category_id" nolabel="1" />
+                        </group>
+                        <group name="group_standard_price">
+                            <label for="validity_days" string="Valid Days" class="oe_asterisk" />
+                            <field name="validity_days" nolabel="1" />
+                            <label for="attach_combo_ids" string="Components Combo"/>
+                            <field name="attach_combo_ids" nolabel="1" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="List of products" name="general_information">
+                            <field name="combo_line_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id"
+                                        domain="[('is_combo', '=', False)]"
+                                        context="{'default_available_in_pos': True}">
+                                    </field>
+
+                                    <field name="sub_combo_id" readonly="1" />
+                                    <field name="price" string="Price (VND)" />
+                                    <field name="discounts" />
+                                    <field name="discount_percent" />
+                                    <field name="price_after_discount" />
+                                    <field name="quantity" />
+                                    <field name="amount" string="Total (VND)" />
+                                </tree>
+                            </field>
+                            <group>
+                            </group>
+                            <group col="12" class="oe_invoice_lines_tab">
+                                <group colspan="6">
+                                </group>
+                                <group colspan="6">
+                                    <group class="oe_subtotal_footer">
+                                        <field name="amount_without_discount"
+                                            string="Amount without discount (VND)"
+                                            on_change="1" field_id="tax_totals_0" />
+                                        <field name="discount_on_products"
+                                             string="Tổng giảm trên sản phẩm (VND)" />
+                                        <field name="amount_after_discount_on_products"
+                                            string="Amount (VND)"
+                                            class="oe_subtotal_footer_separator"
+                                            field_id="amount-0" />
+                                        <field name="discount_all_percent" string="Giảm giá (%)" />
+                                        <field name="amount"
+                                            string="Amount (VND)"
+                                            class="oe_subtotal_footer_separator"
+                                            field_id="amount-0" />
+                                    </group>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="z_combo_list_view" model="ir.ui.view">
+        <field name="name">z_combo.combo.list</field>
+        <field name="model">z_combo.combo</field>
+        <field name="arch" type="xml">
+            <tree string="Combo" js_class="tree_with_toast">
+                <field name="code" />
+                <field name="name" />
+                <field name="category_id" />
+                <field name="validity_days" />
+                <field name="discount" string="Discount (VND)" />
+                <field name="amount" string="Amount (VND)" />
+                <field name="num_of_products" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="z_combo_search_view" model="ir.ui.view">
+        <field name="name">z_combo.combo.search</field>
+        <field name="model">z_combo.combo</field>
+        <field name="arch" type="xml">
+            <search string="Combo Categories">
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="z_combo_action_form" model="ir.actions.act_window">
+        <field name="name">Combo</field>
+        <field name="res_model">z_combo.combo</field>
+        <field name="search_view_id" ref="z_combo_search_view" />
+        <field name="view_id" ref="z_combo_list_view" />
+        <field name="context">{'delete_title': 'Bạn có chắc chắn xoá gói combo?','delete_body':'Lưu ý: Toàn bộ thông tin gói combo sẽ bị xoá khỏi hệ thống.'}</field>
+    </record>
+</odoo>

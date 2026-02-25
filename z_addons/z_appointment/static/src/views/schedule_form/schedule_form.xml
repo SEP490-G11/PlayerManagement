@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_appointment.ScheduleForm" owl="1">
+        <div class="modal fade schedule-form" id="scheduleFormModal"
+            aria-labelledby="scheduleFormModalLabel" aria-hidden="true" data-bs-backdrop='static'>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 t-if="!state.isEdit" class="modal-title fs-5"
+                            id="scheduleFormModalLabel"> Book an appointment
+                        </h1>
+                        <h1 t-if="state.isEdit" class="modal-title fs-5" id="scheduleFormModalLabel">Edit
+                            appointment
+                        </h1>
+                        <button data-bs-dismiss="modal" class="close btn" aria-label="Close"
+                            t-on-click="this.resetForm">
+                            <t t-call="z_web.IconClose"></t>
+                        </button>
+                    </div>
+                    <div class="modal-body form" style="background-color:#ebebeb">
+                        <div class="row">
+                            <div class="col-4" style="padding-right: 0">
+                                <CustomerForm isEdit="state.isEdit" />
+                            </div>
+                            <div class="col-8">
+                                <t t-call="z_appointment.MedicalSlot"></t>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-bs-dismiss="modal"
+                            class="btn btn-secondary cancel" t-on-click="this.resetForm">Cancel
+                        </button>
+
+                        <button type="button" class="btn btn-primary save"
+                            t-att-disabled="state.isLoading" t-on-click="this.saveAppointment">
+                            <span t-if="!state.isLoading">Save</span>
+                            <div t-if="state.isLoading" class="donut"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="z_appointment.MedicalSlot" owl="1">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="h3 fw-bolder">2. Appointment details</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <!--Cơ
+                        sở-->
+                        <div class="col-12">
+                            <label for="place_id" class="label"> Cơ sở<span class="require">*</span>
+                            </label>
+                            <div class="g-col-12 ralative d-flex align-center mb-3"
+                                t-foreach="state.places" t-as="place"
+                                t-key="place.id">
+                                <input type="radio" t-att-id="place.id"
+                                    name="place"
+                                    t-att-disabled="!(!this.state.isEdit or (this.state.isNotYetArrived and this.state.isEdit))"
+                                    t-att-value="place.id"
+                                    t-att-checked="state.appointment.place_id == place.id"
+                                    t-on-change="(ev)=>this.onSelectPlace(ev.target.value)"
+                                    class="form-check-input" />
+                                <label style="font-weight: 400" t-att-for="place"
+                                    t-esc="place.name"></label>
+                            </div>
+                        </div>
+                        <!-- Schedule type -->
+                        <div class="row gy-3">
+                            <div class="col-12">
+                                <label for="appointment-type" class="label">Appointment type<span
+                                        class="require">*</span>
+                                </label>
+                                <div class="grid radio-selector pt-2">
+                                    <div class="g-col-6 ralative d-flex align-center"
+                                        t-foreach="state.appointmentTypes" t-as="appointmentType"
+                                        t-key="appointmentType.value">
+                                        <input type="radio" t-att-id="appointmentType"
+                                            name="appointmentType" t-att-disabled="!state.canEdit"
+                                            t-att-value="appointmentType.value"
+                                            t-model="state.appointment.type"
+                                            class="form-check-input"
+                                            t-on-change="()=>this.handleOnChange('type',false)" />
+                                        <label style="font-weight: 400" t-att-for="appointmentType"
+                                            t-esc="appointmentType.label"></label>
+                                    </div>
+                                </div>
+                                <span t-if="state.error.type" t-esc="state.error.type"
+                                    class="invalid-message"></span>
+                            </div>
+                            <div class="col-12">
+                                <label for="dob" class="label">Schedule prioritized by<span
+                                        class="require">*</span>
+                                </label>
+                                <div
+                                    class="d-flex justify-content-between priority-appointment-group">
+                                    <t t-foreach="typeAppointments" t-as="type" t-key="type.value">
+                                        <button
+                                            t-att-class="{'btn-secondary': state.appointment.booking_type != type.value}"
+                                            t-on-click="() => this.onSelectBookingType(type.value)"
+                                            class="btn btn-primary d-flex gap-1 align-items-center"
+                                            t-att-disabled="!state.canEdit">
+                                            <img t-att-src="type.icon"
+                                                t-att-class="{'svg-white': state.appointment.booking_type == type.value}" />
+                                            <span t-esc="type.label"></span>
+                                        </button>
+                                    </t>
+                                </div>
+                            </div>
+                            <!--Kỹ
+                            thuật viên-->
+                            <div class="col-12"
+                                t-if="this.state.appointment.booking_type == bookingType.technician">
+                                <label for="technician_id" class="label"> Technician<span
+                                        class="require">*</span>
+                                </label>
+                                <select id="technician_id" class="input form-control select-custom"
+                                    t-model="state.appointment.technician_id"
+                                    t-att-disabled="!state.canEdit or !state.isNotYetOccurred"
+                                    t-on-change="()=>this.handleOnChange('technician_id')">
+                                    <option value="">Select technician</option>
+                                    <option t-foreach="state.technicians" t-as="technician"
+                                        t-key="technician.id" t-esc="technician.name"
+                                        t-att-value="technician.id"></option>
+                                </select>
+                                <span t-if="state.error.technician_id"
+                                    t-esc="state.error.technician_id" class="invalid-message"></span>
+                                <span
+                                    t-if="isNotHaveTimeSlot('technician_id') and !state.isFetching"
+                                    class="invalid-message">
+                                    The technician doesn't have working hours on this day</span>
+                            </div>
+                            <!--Doctor-->
+                            <div class="col-12"
+                                t-if="this.state.appointment.booking_type == bookingType.doctor">
+                                <label for="doctor" class="label"> Doctor<span class="require">*</span>
+                                </label>
+                                <select id="doctor_id_required"
+                                    class="input form-control select-custom"
+                                    t-att-disabled="!state.canEdit or !state.isNotYetOccurred"
+                                    t-model="state.appointment.doctor_id"
+                                    t-on-change="()=>this.handleOnChange('doctor_id')">
+                                    <option value="">Select doctor</option>
+                                    <option t-foreach="state.doctors" t-as="doctor"
+                                        t-key="doctor.id" t-esc="doctor.name"
+                                        t-att-value="doctor.id"></option>
+                                </select>
+                                <span t-if="state.error.doctor_id" t-esc="state.error.doctor_id"
+                                    class="invalid-message"></span>
+                                <span t-if="isNotHaveTimeSlot('doctor_id') and !state.isFetching"
+                                    class="invalid-message">
+                                    The doctor is not available on this day</span>
+                            </div>
+                            <!-- Date  -->
+                            <div class="col-12">
+                                <label for="dob" class="label" style="margin-bottom: 6px">
+                                    Preferred appointment date<span class="require">*</span>
+                                </label>
+                                <CustomDatePicker onChange="onSelectDate.bind(this)"
+                                    placeholder="'Chọn ngày khám'"
+                                    value="state.appointment.booking_date" maxDate="state.maxDate"
+                                    minDate="state.minDate" name="'booking_date'"
+                                    readonly="!state.isNotYetOccurred || isDisableInputDate  || !state.canEdit" />
+                                <span t-if="state.error.booking_date"
+                                    t-esc="state.error.booking_date" class="invalid-message"></span>
+                                <span t-if="isNotHaveTimeSlot() and !state.isFetching"
+                                    class="invalid-message">
+                                    There are no doctors or technicians available on this day</span>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex justify justify-content-between">
+                                    <label for="dob" class="label">Preferred appointment time<span
+                                            class="require">*</span>
+                                    </label>
+                                    <div class="d-flex align-items-center">
+                                        <input type="checkbox" value="" id="flexCheckDefault"
+                                            style="width: 15px; height: 15px"
+                                            class="p-0 m-0 custom-check-input form-check-input"
+                                            t-att-disabled="!state.canEdit or !state.isNotYetOccurred or checkDisabledOverbook()"
+                                            t-model="state.appointment.overbook"
+                                            t-on-change="()=>this.handleOnChange('overbook')" />
+                                        <label style="font-weight: 400"
+                                            class="form-check-label ms-1" for="flexCheckDefault">
+                                            Overbook</label>
+                                    </div>
+                                </div>
+                                <!-- Time table -->
+                                <span t-if="state.error.booking_time and !isNotHaveTimeSlot()"
+                                    t-esc="state.error.booking_time" class="invalid-message"></span>
+                                <div t-if="state.isNotYetOccurred and state.isNotYetArrived"
+                                    class="schedule-time-select">
+                                    <t t-if="!state.appointment.overbook">
+                                        <div t-on-click="() => this.onSelectTimeSlot(item)"
+                                            class="schedule-time-select-item"
+                                            t-att-class="{'active': getActiveTimeSlot(item)}"
+                                            t-foreach="state.times" t-as="item"
+                                            t-key="item.start_time" t-esc="item.start_time"></div>
+                                    </t>
+                                    <t t-else="">
+                                        <div t-on-click="() => this.onSelectTimeSlot(item)"
+                                            class="schedule-time-select-item"
+                                            t-att-class="{'active': getActiveTimeSlot(item)}"
+                                            t-foreach="state.overbookTimes" t-as="item"
+                                            t-key="item.start_time" t-esc="item.start_time"></div>
+                                    </t>
+                                </div>
+                                <div t-else="" class="schedule-time-select">
+                                    <div t-esc="state.appointment.booking_time"
+                                        class="schedule-time-select-item active"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row gy-3">
+                            <!--Kỹ
+                            thuật viên-->
+                            <div class="col-12"
+                                t-att-class="{'d-none':state.appointment.booking_type == bookingType.technician }">
+                                <label for="technician_id" class="label">Technician</label>
+                                <select
+                                    t-att-disabled="!state.technicianList.length or !state.canEdit or !state.isNotYetOccurred or !state.appointment.booking_time"
+                                    id="technician_id" class="input form-control select-custom"
+                                    t-model="state.appointment.technician_id"
+                                    t-on-change="()=>this.handleOnChange('doctor_id',false)">
+                                    <option value="">Select technician</option>
+                                    <option t-foreach="state.technicianList" t-as="technician"
+                                        t-key="technician.id" t-esc="technician.name"
+                                        t-att-value="technician.id"></option>
+                                </select>
+                                <span t-if="state.error.technician_id"
+                                    t-esc="state.error.technician_id" class="invalid-message"></span>
+                            </div>
+                            <!--Doctor-->
+                            <div class="col-12"
+                                t-att-class="{'d-none':state.appointment.booking_type == bookingType.doctor }">
+                                <label for="dob" class="label"> Doctor<span class="require">*</span>
+                                </label>
+                                <select
+                                    t-att-disabled="!state.doctorList.length or !state.canEdit or !state.isNotYetOccurred or !state.appointment.booking_time"
+                                    id="doctor_id" class="input form-control select-custom"
+                                    t-model="state.appointment.doctor_id"
+                                    t-on-change="()=>this.handleOnChange('doctor_id',false)">
+                                    <option value="">Select doctor</option>
+                                    <option t-foreach="state.doctorList" t-as="doctor"
+                                        t-key="doctor.id" t-esc="doctor.name"
+                                        t-att-value="doctor.id"></option>
+                                </select>
+                                <span t-if="state.error.doctor_id" t-esc="state.error.doctor_id"
+                                    class="invalid-message"></span>
+                            </div>
+                            <div class="col-12">
+                                <label for="reason" class="label">Reason</label>
+                                <textarea placeholder="Enter reason" rows="5" type="text"
+                                    t-att-disabled="checkDisabledMoreInfoAppointment()"
+                                    class="form-control no-resize"
+                                    style="height: 100px;resize: none" name="note"
+                                    t-model.trim="state.appointment.examination_reason"
+                                    t-att-value="state.appointment.examination_reason" />
+                            </div>
+                            <div class="col-12">
+                                <label for="reason" class="label">Note</label>
+                                <textarea placeholder="Enter note" rows="5" type="text"
+                                    t-att-disabled="checkDisabledMoreInfoAppointment()"
+                                    class="form-control no-resize"
+                                    style="height: 100px;resize: none" name="note"
+                                    t-model.trim="state.appointment.note"
+                                    t-att-value="state.appointment.note" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

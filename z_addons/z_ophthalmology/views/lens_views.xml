@@ -1,0 +1,302 @@
+<odoo>
+    <data>
+        <record id="z_lens_form_view" model="ir.ui.view">
+            <field name="name">z_ophthalmology.lens.form</field>
+            <field name="model">z_ophthalmology.lens</field>
+            <field name="arch" type="xml">
+                <form string="Contact lens examination" name="Lens Template" delete="False" duplicate="False" create="False">
+                    <field name="code" invisible="1"/>
+                    <field name="examination_type" invisible="1"/>
+                    <field name="is_editable" invisible="1"/>
+                    <sheet string="Lens">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Optometrist</div>
+                                        <field name="optometrist_id" string="" class="w-100" readonly="not is_editable"/>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Examiner</div>
+                                        <field name="examiner_id" string="" class="w-100" readonly="not is_editable"/>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Examination date</div>
+                                        <field name="examination_date" string="" class="w-100" readonly="1" force_save="1"/>
+                                    </div>
+                                    <div class="col-3" style="pointer-events: none;opacity: 0.5;">
+                                        <div class="o_form_label mb-1">Code</div>
+                                        <field name="code" string="" class="w-100" readonly="1"/>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Reason<span class="text-danger">*</span>
+                                        </div>
+                                        <field rows="3" name="reason" widget="text_field_bs" class="w-100" placeholder="Input reason" required="True" readonly="not is_editable"/>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Note medical exam</div>
+                                        <field rows="3" name="note_medical_exam" widget="text_field_bs" readonly="not is_editable"
+                                            class="w-100" placeholder="Input note" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="o_form_label mb-1">Subjective refraction</div>
+                                            <div class="col-3">
+                                                <field readonly="not is_editable" name="right_eye_subjective_refraction" string="" placeholder="Right eye: 0,00" class="w-100" widget="char_field_bs" />
+                                            </div>
+                                            <div class="col-3">
+                                                <field readonly="not is_editable" name="left_eye_subjective_refraction" string="" placeholder="Left eye: 0,00" class="w-100" widget="char_field_bs" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">Corneal curvature &amp; diameter</h3>
+                                            <div class="col-6">
+                                                <div class="o_form_label mb-1">Right eye curvature</div>
+                                                <div class="d-flex align-items-center pb-2 gap-2">
+                                                    <div class="text-end text-nowrap" style="min-width: 60px">Flat K:</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="right_eye_flat_k_first" />
+                                                    </div>
+                                                    <div class="text-center text-nowrap">D /</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="right_eye_flat_k_second" />
+                                                    </div>
+                                                    <div class="text-center text-nowrap">mm @</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="right_eye_flat_k_third" />
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="text-end text-nowrap" style="min-width: 60px">Steep K:</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="right_eye_steep_k_first" />
+                                                    </div>
+                                                    <div class="text-center text-nowrap">D /</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="right_eye_steep_k_second" />
+                                                    </div>
+                                                    <div class="text-center text-nowrap">mm @</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="right_eye_steep_k_third" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="o_form_label mb-1">Left eye curvature</div>
+                                                <div class="d-flex align-items-center pb-2 gap-2">
+                                                    <div class="text-end text-nowrap" style="min-width: 60px">Flat K:</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="left_eye_flat_k_first" />
+                                                    </div>
+                                                    <div class="text-center text-nowrap">D /</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="left_eye_flat_k_second" />
+                                                    </div>
+                                                    <div class="text-center text-nowrap">mm @</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="left_eye_flat_k_third" />
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="text-end text-nowrap" style="min-width: 60px">Steep K:</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="left_eye_steep_k_first" />
+                                                    </div>
+                                                    <div class="text-center text-nowrap">D /</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="left_eye_steep_k_second" />
+                                                    </div>
+                                                    <div class="text-center text-nowrap">mm @</div>
+                                                    <div>
+                                                        <field readonly="not is_editable" widget="char_field_bs" name="left_eye_steep_k_third" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="o_form_label mb-1">Corneal diameter (mm)</div>
+                                                <div class="row">
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Right eye: 0,00" name="right_eye_corneal_diameter" />
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Left eye: 0,00" name="left_eye_corneal_diameter" />
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="o_form_label mb-1">Iris diameter (mm)</div>
+                                                <div class="row">
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Right eye: 0,00" name="right_eye_iris_diameter" />
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Left eye: 0,00" name="left_eye_iris_diameter" />
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="o_form_label mb-1">Pupil size (mm)</div>
+                                                <div class="row">
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Right eye: 0,00" name="right_eye_pupil_size" />
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Left eye: 0,00" name="left_eye_pupil_size" />
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="o_form_label mb-1">Anterior chamber depth (mm)</div>
+                                                <div class="row">
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Right eye: 0,00" name="right_eye_anterior_chamber_depth" />
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Left eye: 0,00" name="left_eye_anterior_chamber_depth" />
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="o_form_label mb-1">Eyeball axis length (mm)</div>
+                                                <div class="row">
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Right eye: 0,00" name="right_eye_eyeball_axis_length" />
+                                                    <field readonly="not is_editable" class="col-6" widget="char_field_bs" placeholder="Left eye: 0,00" name="left_eye_eyeball_axis_length" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Microscopic biology</div>
+                                                <field readonly="not is_editable" rows="3" name="biomicroscopy" widget="text_field_bs" class="w-100"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">Test glasses</h3>
+                                            <div class="col-12">
+                                                <field readonly="not is_editable" name="trial_lenses" string="" class="w-100" widget="trial_lenses" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">Glass order</h3>
+                                            <div class="col-12">
+                                                <table class="w-100 examination-form">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Glasses brand</th>
+                                                            <th>BC (mm)</th>
+                                                            <th>P (D)</th>
+                                                            <th>DIA (mm)</th>
+                                                            <th>Eye sight</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                               Right eye
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="right_eye_glasses_brand" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="right_eye_bc" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="right_eye_p" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="right_eye_dia" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="right_eye_vision" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                               Left eye
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="left_eye_glasses_brand" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="left_eye_bc" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="left_eye_p" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="left_eye_dia" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                            <td>
+                                                                <field readonly="not is_editable" name="left_eye_vision" string="" class="w-100" widget="char_field_bs" />
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Result</div>
+                                                <field readonly="not is_editable" rows="3" name="result" widget="text_field_bs" class="w-100" placeholder="Input result"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">CLS designation</h3>
+                                            <div class="col-12">
+                                                <field readonly="not is_editable" name="cls_ids" widget="many2many_checkboxes"/>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Solution</div>
+                                                <field readonly="not is_editable" name="solution" string="" class="w-100" widget="text_field_bs" placeholder="Input solution"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">Next visit</h3>
+                                            <div class="col-3">
+                                                <div class="o_form_label mb-1">Reexamination date</div>
+                                                <field readonly="not is_editable" name="reexamination_date" string="" class="d-block form-control trans-input" placeholder="Select reexamination date" />
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Note</div>
+                                                <field readonly="not is_editable" rows="3" name="note" widget="text_field_bs" class="w-100" placeholder="Input content"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                            <page string="Prescription" name="prescription">
+                                <field name="drug_ids" readonly="not is_editable">
+                                    <tree editable="bottom">
+                                        <field name="product_id" can_create="True" can_write="True"/>
+                                        <field name="quantity"/>
+                                        <field name="unit"/>
+                                        <field name="usage_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids" />
+                                <field name="activity_ids" />
+                                <field name="message_ids" />
+                            </div>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="z_lens_list_view" model="ir.ui.view">
+            <field name="name">z_ophthalmology.lens.list</field>
+            <field name="model">z_ophthalmology.lens</field>
+            <field name="arch" type="xml">
+                <tree string="Lens" js_class="no_selector_tree">
+                    <field name="examination_date"/>
+                    <field name="reason"/>
+                    <field name="eye_eyeball_axis_length" widget="html"/>
+                    <field name="result"/>
+                    <field name="optometrist_id"/>
+                    <field name="examiner_id"/>
+                    <field name="reexamination_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="z_lens_action" model="ir.actions.act_window">
+            <field name="name">Lens examination</field>
+            <field name="view_mode">tree,form</field>
+            <field name="res_model">z_ophthalmology.lens</field>
+            <field name="domain">[('customer_id','=',active_id)]</field>
+            <field name="context">{'create': False}</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,93 @@
+<odoo>
+    <record id="z_sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">z_sale_order_form_inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+<!--            <xpath expr="//button[@name='action_view_invoice']" position="attributes">-->
+<!--                <attribute name="invisible">invoice_count == 0 and move_count == 0</attribute>-->
+<!--            </xpath>-->
+            <xpath expr="//button[@id='create_invoice']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@id='create_invoice_percentage']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='order_lines']" position="after">
+                <page id="combo_tab" name="combo_tab" string="Combo" >
+                    <field name="combo_line_ids" readonly="state=='sale'">
+                        <tree string="Combo" editable="bottom">
+                            <field name="name"/>
+                            <field name="code"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='order_line']" position="attributes">
+                <attribute name="readonly">state=='sale'</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="invisible">state not in ['draft', 'sent', 'sale'] or not id or locked or invoice_count == 1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_template_id']" position="after">
+                <field name="combo_id"/>
+                <field name="sub_combo_id"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_draft']" position="attributes">
+                <attribute name="invisible">state == 'cancel'</attribute>
+            </xpath>
+            <xpath expr="//button[@id='create_invoice_percentage']" position="after">
+                <field name="from_invoice_order" invisible="1"/>
+                <field name="show_create_invoice_button" invisible="1"/>
+                <field name="move_count" invisible="1"/>
+            </xpath>
+            <xpath expr="//button[@id='create_invoice']" position="after">
+                <button name="action_create_invoice" type="object" string="Tạo hoá đơn nháp" class="btn-primary"
+                        invisible="show_create_invoice_button"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="partner_dob" widget="date" nolabel="0" />
+                    <field name="partner_code" nolabel="0" />
+                    <field name="partner_gender" nolabel="0" invisible="partner_id == False" />
+                    <field name="partner_mobile" nolabel="0" />
+                    <field name="partner_group" nolabel="0" />
+                    <field name="partner_address" nolabel="0" />
+                    <field name="partner_job" nolabel="0" />
+            </xpath>
+            <xpath expr="//field[@name='validity_date']" position="before">
+                    <field name="appointment_place" invisible="1"/>
+                    <label for="place_id" class="oe_asterisk" string="Cơ sở"/>
+                    <field name="place_id" nolabel="1" readonly="appointment_place or state == 'sale'" force_save="1"/>
+                    <field name="z_appointment_id" readonly="state == 'sale'" domain="[('customer_id', '=', partner_id)]"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="context">
+                        {'res_partner_search_mode': 'customer', 'show_address': 0, 'show_vat': False}
+                    </attribute>
+            </xpath>
+        </field>
+    </record>
+      
+    <record id="z_sale_order_form_view" model="ir.actions.act_window">
+        <field name="name">Báo giá dịch vụ</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_place_id': 1}</field>
+        <field name="view_ids"
+        eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('z_sale.z_sale_order_form_inherit')})]"/>
+    </record>
+<!--    <record id="z_sale_account_invoice_form_inherit" model="ir.ui.view">-->
+<!--        <field name="name">z_sale_account_invoice_form_inherit</field>-->
+<!--        <field name="model">account.move</field>-->
+<!--        <field name="inherit_id" ref="sale.account_invoice_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//button[@name='action_view_source_sale_orders']" position="attributes">-->
+<!--                <attribute name="invisible">sale_order_count == 0 and not so_id</attribute>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+</odoo>

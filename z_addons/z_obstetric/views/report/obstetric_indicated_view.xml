@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <template id="report_obstetric_indicated">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <style>
+                        .justify-content-center {
+                        -webkit-box-pack: center;
+                        justify-content: center;
+                        }
+                        .flex-1 {
+                        -webkit-box-flex: 1;
+                        -webkit-flex: 1;
+                        flex: 1;
+                        }
+                        @media print, screen {
+                        .page-break {
+                        break-inside: avoid;
+                        page-break-inside: avoid;
+                        }
+                        div {
+                        line-height: 1.5;
+                        }
+                        div.text-nowrap {
+                        white-space: nowrap !important;
+                        }
+                        }
+                    </style>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page" style="font-family: 'Times New Roman', serif">
+                            <h6 class="text-center text-uppercase fw-bolder">
+                                CLS SPECIFIER AND TEST LIST
+                            </h6>
+                            <p class="mb-5 text-center"
+                                t-esc="'CLS'+doc.format_obs_examination_code" />
+                            <div class="row mb-2">
+                                <div class="col-3 d-flex">
+                                    <div class="flex-1">
+                                        Patient full name:
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <strong>
+                                        <span t-field="doc.customer_id" />
+                                    </strong>
+                                </div>
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Gender:
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <span t-if="doc.customer_id.gender == 'male'">Male</span>
+                                    <span t-if="doc.customer_id.gender == 'female'">Female</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-3 d-flex">
+                                    <div class="flex-1">
+                                        Communications:
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.mobile" />
+                                </div>
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Date of birth:
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <strong>
+                                        <span t-field="doc.customer_id.date" />
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Address:
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <span t-field="doc.customer_id.street" />
+                                </div>
+                            </div>
+                            <div class="mt-6 mb-6">
+                                <h4>
+                                    <b>I. Chỉ định CLS</b>
+                                </h4>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 15% !important;">STT</th>
+                                            <th class="text-start">Designated name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-set="stt" t-value="0" />
+                                        <tr t-if="doc.include_ovulation_indicated">
+                                            <t t-set="stt" t-value="stt + 1" />
+                                            <td class="text-center" t-esc="stt" />
+                                            <td>Include Ovulation Indicated</td>
+                                        </tr>
+                                        <tr t-if="doc.include_pre_first_indicated">
+                                            <t t-set="stt" t-value="stt + 1" />
+                                            <td class="text-center" t-esc="stt" />
+                                            <td>Include Pre First Indicated</td>
+                                        </tr>
+                                        <tr t-if="doc.include_post_first_indicated">
+                                            <t t-set="stt" t-value="stt + 1" />
+                                            <td class="text-center" t-esc="stt" />
+                                            <td>Include Post First Indicated</td>
+                                        </tr>
+                                        <tr t-if="doc.include_gynecological_indicated">
+                                            <t t-set="stt" t-value="stt + 1" />
+                                            <td class="text-center" t-esc="stt" />
+                                            <td>Include Gynecological Indicated</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-6 mb-6">
+                                <h4>
+                                    <b>II. Xét nghiệm</b>
+                                </h4>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 15% !important;">STT</th>
+                                            <th class="text-start">Test name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-set="stt" t-value="0" />
+                                        <t t-foreach="doc.medical_test_line_ids" t-as="line">
+                                            <t t-set="stt" t-value="stt + 1" />
+                                            <tr>
+                                                <td class="text-center" t-esc="stt" />
+                                                <td>
+                                                    <t t-esc="line.service_id.name" />
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row mb-2 page-break">
+                                <div class="col-6">
+                                    <div class="d-inline-block"></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="justify-content-center d-flex">Day <span
+                                            t-field="doc.date_assign_day" /> Month <span
+                                            t-field="doc.date_assign_month" /> Year <span
+                                            t-field="doc.date_assign_year" /></div>
+                                </div>
+                            </div>
+                            <div class="row mb-2 page-break">
+                                <div class="col-6">
+                                    <div class="d-inline-block"></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="justify-content-center d-flex">
+                                        <div class="d-inline-block">Doctor</div>
+                                    </div>
+                                    <div style="height:50px" />
+                                    <div class="justify-content-center d-flex">
+                                        <strong>
+                                            <span class="d-inline-block text-nowrap"
+                                                t-field="doc.doctor_id.display_name" />
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

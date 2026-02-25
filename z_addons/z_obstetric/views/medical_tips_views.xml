@@ -1,0 +1,65 @@
+<odoo>
+    <record id="z_obstetric_tips_form_view" model="ir.ui.view">
+        <field name="name">z_appointment.appointment.tips.list</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Tips"
+                name="Tips Template">
+                <sheet string="Tips">
+                    <style>
+                        .w-300 {
+                        width: 300px;
+                        }
+                    </style>
+                    <div>
+                        <div class="d-flex gap-4 mb-4">
+                            <div class="flex-grow-1">
+                                <div class="row gy-3">
+                                    <div class="col-3">
+                                        <h2 class="fw-bold mb-3">Medical Tips</h2>
+                                    </div>
+
+                                    <div class="col-4 d-flex flex-row">
+                                        <h5 class="mb-1 mt-1 me-3">Date assign</h5>
+                                        <field name="date_assign" string=""
+                                            options="{'datepicker': {'format': 'DD/MM/YYYY'}}" />
+                                    </div>
+                                </div>
+
+                                <group>
+                                    <group>
+                                        <field name="medical_tips_line_ids" string="">
+                                            <tree editable="bottom" js_class="medical_record_tree">
+                                                <field name="service_id" can_create="False"
+                                                    can_write="True" options="{'no_create': True}" />
+                                                <field name="result" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                    <group></group>
+                                </group>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <!-- QWeb Reports -->
+    <record id="action_report_obstetric_tips" model="ir.actions.report">
+        <field name="name">Print medical tips list</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">z_obstetric.report_obstetric_tips</field>
+        <field name="report_file">z_obstetric.report_obstetric_tips</field>
+        <field name="attachment" />
+        <field name="binding_model_id" ref="model_z_appointment_appointment" />
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s'%(object.pdf_title)</field>
+    </record>
+</odoo>

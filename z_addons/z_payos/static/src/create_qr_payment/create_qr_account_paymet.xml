@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_payos.CreateQRAccountPayment">
+        <div class="payment-form row" style="margin: 15px;">
+            <div class="col-6" style="boder-right: 1px solid #ccc;">
+                <div class="input-field mt-2">
+                    <label for="amount">Amount</label>
+                    <input type="text" t-on-change="(e)=>{ this.onChangeAmount.bind(this)(e) }" t-model="state.formatAmount" class="form-control" disabled="true"/>
+                    <span t-esc="state.error.amount" class="invalid-message"></span>
+                </div>
+                <div class="input-field mt-2">
+                    <label for="transferInfo">Transaction Code</label>
+                    <input type="text" class="form-control" t-model="state.transactionCode" disabled="true" />
+                </div>
+                <div style="height: 100px;"></div>
+                <t t-if="!state.isGotQR">
+                    <button t-on-click="this.createPaymentQR.bind(this)" t-att-disabled="this.state.isGotQR or state.isLoading" class="btn btn-primary ml-3 mt-3">
+                        <span t-if="!state.isLoading">Create Payment QR</span>
+                        <div t-if="state.isLoading" class="donut"></div>
+                    </button>
+                </t>
+                <t t-if="state.isGotQR and !state.isPaid">
+                    <button t-on-click="(e)=>{ this.onClickCancel.bind(this)(e)}" t-att-disabled="state.isPaid" class="btn btn-secondary  ml-3 mt-3">Cancel</button>
+                </t>
+                 <t t-if="state.isGotQR and !state.isPaid">
+                    <button t-on-click="(e)=>{ this.showQrCounter.bind(this)(e)}" t-att-disabled="state.isPaid" class="btn btn-secondary  mx-3 mt-3">Show QR</button>
+                </t>
+            </div>
+            <div class="col-6" id="iframe-qr-zen9" style="display: flex; align-items: center; justify-content: center;">
+                <t t-if="state.isPaid">
+                    <img src="/z_web/static/image/payment_done.svg" alt="Payment QR" style="width: 120px; height: 120px; margin-auto; object-fit: contain;"/>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_payos_qr_logs,z_payos.qr.logs all,model_z_payos_qr_logs,,1,1,1,1
+access_z_payos_counter_settings,z_payos.counter.settings all,model_z_payos_counter_settings,,1,1,1,1
+
+
+

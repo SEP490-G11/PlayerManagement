@@ -1,0 +1,43 @@
+.o_field_misa_template {
+    .o_field_loading {
+        padding: 8px;
+        color: #666;
+        font-style: italic;
+    }
+    
+    .o_field_error {
+        padding: 8px;
+        border: 1px solid #dc3545;
+        border-radius: 4px;
+        background-color: #f8d7da;
+    }
+    
+    .o_field_template_dropdown {
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: white;
+            
+            &:focus {
+                outline: none;
+                border-color: #80bdff;
+                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            }
+            
+            &:disabled {
+                background-color: #e9ecef;
+                cursor: not-allowed;
+            }
+        }
+        
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+        
+        .text-muted {
+            color: #6c757d;
+        }
+    }
+} 

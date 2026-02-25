@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_lens">
+            <t t-set="dataAppointment" t-value="docs.visit_id"></t>
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <style>
+                @media print, screen {
+                  .page-break {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                  }
+                  div {
+                    line-height: 1.5;
+                  }
+                  div.text-nowrap {
+                    white-space: nowrap !important;
+                  }
+                }
+                    </style>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page" style="margin-top: 20px !important;">
+                            <div class="text-center" style="font-weight: bold;line-height: 28px;">
+                                <h2>LENS OPHTHAMOLOGY</h2>
+                                <p class="text-center fw-bolder">Code: <span t-esc="doc.code"/>
+                                </p>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    Name:
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id" class="text-uppercase fw-bold"></span>
+                                </div>
+                                <div class="col-2">
+                                    Age:
+                                </div>
+                                <div class="col-4">
+                                    <span t-if="doc.customer_id.age" t-field="doc.customer_id.age" class="fw-bold"></span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    Phone number:
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.mobile"></span>
+                                </div>
+                                <div class="col-2">
+                                    Gender:
+                                </div>
+                                <div class="col-4">
+                                    <span t-if="doc.customer_id.gender == 'male'">Male</span>
+                                    <span t-if="doc.customer_id.gender == 'female'">Female</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    Reason:
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.reason"></span>
+                                </div>
+                            </div>
+                            <table class="table mt-3" t-if="doc.right_eye_subjective_refraction or doc.left_eye_subjective_refraction
+                                                            or doc.right_eye_flat_k_first 
+                                                            or doc.right_eye_flat_k_second 
+                                                            or doc.right_eye_flat_k_third 
+                                                            or doc.right_eye_steep_k_second 
+                                                            or doc.right_eye_steep_k_first 
+                                                            or doc.right_eye_steep_k_third
+                                                            or doc.left_eye_flat_k_first
+                                                            or doc.left_eye_flat_k_second
+                                                            or doc.left_eye_flat_k_third
+                                                            or doc.left_eye_steep_k_first
+                                                            or doc.left_eye_steep_k_second
+                                                            or doc.left_eye_steep_k_third
+                                                            or doc.right_eye_corneal_diameter or doc.left_eye_corneal_diameter">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Right Eye</th>
+                                        <th>Left Eye</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-if='doc.right_eye_subjective_refraction or doc.left_eye_subjective_refraction'>
+                                        <td>
+                                            Subjective refraction
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="doc.right_eye_subjective_refraction" />
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="doc.left_eye_subjective_refraction" />
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.right_eye_flat_k_first 
+                                    or doc.right_eye_flat_k_second 
+                                    or doc.right_eye_flat_k_third 
+                                    or doc.right_eye_steep_k_second 
+                                    or doc.right_eye_steep_k_first 
+                                    or doc.right_eye_steep_k_third
+                                    or doc.left_eye_flat_k_first
+                                    or doc.left_eye_flat_k_second
+                                    or doc.left_eye_flat_k_third
+                                    or doc.left_eye_steep_k_first
+                                    or doc.left_eye_steep_k_second
+                                    or doc.left_eye_steep_k_third">
+                                        <td>
+                                            Corneal curvature
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-inline-block">Flat K: </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.right_eye_flat_k_first" />
+                                            </span>
+                                            <div class="d-inline-block"> D / </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.right_eye_flat_k_second" />
+                                            </span>
+                                            <div class="d-inline-block text-nowrap"> mm @ </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.right_eye_flat_k_third" />
+                                            </span>
+                                            <br />
+                                            <div class="d-inline-block">Steep K: </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.right_eye_steep_k_first" />
+                                            </span>
+                                            <div class="d-inline-block"> D / </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.right_eye_steep_k_second" />
+                                            </span>
+                                            <div class="d-inline-block text-nowrap"> mm @ </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.right_eye_steep_k_third" />
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-inline-block">Flat K: </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.left_eye_flat_k_first" />
+                                            </span>
+                                            <div class="d-inline-block"> D / </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.left_eye_flat_k_second" />
+                                            </span>
+                                            <div class="d-inline-block text-nowrap"> mm @ </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.left_eye_flat_k_third" />
+                                            </span>
+                                            <br />
+                                            <div class="d-inline-block">Steep K: </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.left_eye_steep_k_first" />
+                                            </span>
+                                            <div class="d-inline-block"> D / </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.left_eye_steep_k_second" />
+                                            </span>
+                                            <div class="d-inline-block text-nowrap"> mm @ </div>
+                                            <span style="color: #0707f5;">
+                                                <t t-esc="doc.left_eye_steep_k_third" />
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.right_eye_corneal_diameter or doc.left_eye_corneal_diameter">
+                                        <td>
+                                            Corneal diameter (mm)
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="doc.right_eye_corneal_diameter" />
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="doc.left_eye_corneal_diameter" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h3 t-if="doc.right_eye_glasses_brand or doc.right_eye_bc or doc.right_eye_p or doc.right_eye_dia
+                            or doc.left_eye_glasses_brand or doc.left_eye_bc or doc.left_eye_p or doc.left_eye_dia" class="pt-5">GLASS ORDER</h3>
+                            <table class="table mt-3 text-center" t-if="doc.right_eye_glasses_brand or doc.right_eye_bc or doc.right_eye_p or doc.right_eye_dia
+                                                                        or doc.left_eye_glasses_brand or doc.left_eye_bc or doc.left_eye_p or doc.left_eye_dia">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Glass Company</th>
+                                        <th>BC (mm)</th>
+                                        <th>P (D)</th>
+                                        <th>DIA (mm)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-if="doc.right_eye_glasses_brand or doc.right_eye_bc or doc.right_eye_p or doc.right_eye_dia">
+                                        <td>
+                                            Right Eye
+                                        </td>
+                                        <td style="color: #0707f5;">
+                                            <t t-esc="doc.right_eye_glasses_brand" />
+                                        </td>
+                                        <td style="color: #0707f5;">
+                                            <t t-esc="doc.right_eye_bc" />
+                                        </td>
+                                        <td style="color: #0707f5;">
+                                            <t t-esc="doc.right_eye_p" />
+                                        </td>
+                                        <td style="color: #0707f5;">
+                                            <t t-esc="doc.right_eye_dia" />
+                                        </td>
+                                    </tr>
+                                    <tr t-if="doc.left_eye_glasses_brand or doc.left_eye_bc or doc.left_eye_p or doc.left_eye_dia">
+                                        <td>
+                                            Left Eye
+                                        </td>
+                                        <td style="color: #0707f5;">
+                                            <t t-esc="doc.left_eye_glasses_brand" />
+                                        </td>
+                                        <td style="color: #0707f5;">
+                                            <t t-esc="doc.left_eye_bc" />
+                                        </td>
+                                        <td style="color: #0707f5;">
+                                            <t t-esc="doc.left_eye_p" />
+                                        </td>
+                                        <td style="color: #0707f5;">
+                                            <t t-esc="doc.left_eye_dia" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table mt-5">
+                                <thead>
+                                    <tr t-if="doc.result">
+                                        <td class="w-25" style="font-weight: bold;line-height: 20px;">
+                                            EXAMINATION RESULT
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.result" />
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="mb-2 mt-4">
+                                <p class="mb-0">
+                                    Prescription:
+                                </p>
+                                <table class="table">
+                                    <tbody>
+                                        <tr t-foreach="doc.drug_ids" t-as="drug" t-key="drug.id">
+                                            <td class="text-center" style="width:50px">
+                                                <span t-esc="drug_index+1"/>
+                                                .
+                                            </td>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <div>
+                                                            <span t-field="drug.name" class="fw-bold"/>
+                                                        </div>
+                                                        <div>
+                                                            <span t-field="drug.usage_id.name"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        Quantity:
+                                                        <span t-field="drug.quantity" class="fw-bold"/>
+                                                        <span t-field="drug.unit"/>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row page-break">
+                                <div class="col-6">
+                                    <div class="fw-bold d-inline-block">Reexamination date:</div>
+                                    <span t-field="doc.reexamination_date"></span>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <div>
+                                        Day
+                                        <span t-field="doc.examination_date"></span>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold d-inline-block">Examiner</div>
+                                    </div>
+                                    <div style="height:70px"></div>
+                                    <div class="w-45" style="text-align:center !important">
+                                        <span class="fw-bold" t-field="doc.examiner_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

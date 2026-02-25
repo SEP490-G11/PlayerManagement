@@ -1,0 +1,142 @@
+<odoo>
+    <data>
+        <record id="z_visit_filter_view" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.select</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title"
+                           filter_domain="['|','|','|','|', '|','|', ('customer_id.complete_name', 'ilike', self), ('customer_id.code', 'ilike', self), ('customer_id.mobile', 'ilike', self),('customer_id.z_mobile', 'ilike', self),('examination_code', 'ilike', self),('doctor_id.name', 'ilike', self),('technician_id.name', 'ilike', self)]"/>
+                    <filter string="Not Yet Arrived" domain="[('state', '=', '1')]"
+                            name="state_not_yet"/>
+                    <filter string="Waiting" domain="[('state', '=', '2')]" name="state_waiting"/>
+                    <filter string="Examining" domain="[('state', '=', '3')]" name="state_exam"/>
+                    <filter string="Consult" domain="[('state', '=', '4')]" name="state_consult"/>
+                    <filter string="Finished" domain="[('state', '=', '5')]" name="state_finished"/>
+                    <filter string="Waiting for conclude" domain="[('state', '=', '6')]"
+                            name="state_wait_conclude"/>
+                    <filter string="Cyclogyl" domain="[('state', '=', '7')]"
+                            name="state_wait_cyclogyl"/>
+                    <filter string="Subclinical" domain="[('state', '=', '8')]"
+                            name="state_subclinical"/>
+                    <filter string="Expired" domain="[('state', '=', '9')]" name="state_expired"/>
+                    <separator/>
+                    <filter string="Today"
+                            domain="[('booking_date', '&gt;=', context_today().strftime('%Y-%m-%d 00:00:00')),('booking_date', '&lt;=', context_today().strftime('%Y-%m-%d 23:59:00'))]"
+                            name="booking_date"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="z_visit_form_view" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.form</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="arch" type="xml">
+                <form string="Visit" js_class="form_with_toast">
+                    <group>
+                        <group name="customer_information">
+                            <field name="overbook" readonly="1"/>
+                            <field name="customer_id" readonly="1"
+                                   context="{'default_is_customer':True,'form_view_ref': 'z_partner.view_partner_form'}"/>
+                            <field name="type" readonly="1"/>
+                            <field name="state" widget="visit_state_selection"/>
+                            <field name="booking_type" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="doctor_id" readonly="1"/>
+                            <field name="technician_id" readonly="1"/>
+                            <field name="display_start_time" readonly="1"/>
+                            <field name="examination_reason"/>
+                            <field name="note" string="Note"/>
+                        </group>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="z_visit_list_view" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.list</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Visit" js_class="medical_record_tree"
+                      default_order="time_slot_start_time des" multi_edit="1">
+                    <field name="examination_code" widget="block_advance_search"/>
+                    <field name="customer_detail_widget" widget="customer_detail_field_bs"/>
+                    <field name="printing_type" widget="printing_type_selection"/>
+                    <field name="place_id"/>
+                    <field name="state" widget="visit_state_selection" />
+                    <field name="booking_date" />
+                    <field name="booking_time" />
+                    <field name="doctor_id"  class="doctor_id" widget="block_advance_search"/>
+                    <field name="technician_id" string="Optometrist" widget="block_advance_search"/>
+                    <field name="note" string="Note" widget="tex_fixed_width_field_bs"/>
+                    <field name="booking_type" optional="hide" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="kanban_view_z_appointment" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.kanban</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="customer_id"/>
+                    <field name="booking_date"/>
+                    <field name="time_slot_start_time"/>
+                    <field name="customer_mobile"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="o_text_overflow">
+                                        <field name="customer_id"/>
+                                    </li>
+                                    <br/>
+                                    <li class="o_text_overflow">
+                                        <!--                                        không format-->
+                                        <strong><span>Date: </span></strong>
+                                        <field name="booking_date"/>
+
+                                    </li>
+                                    <br/>
+                                    <li class="o_text_overflow">
+<!--                                        không format-->
+                                        <strong><span>Hour: </span></strong>
+                                        <field name="time_slot_start_time" string="Time" widget="time_field"/>
+                                    </li>
+                                    <br/>
+                                    <li class="o_text_overflow">
+                                        <span>Phone: </span>
+                                        <field name="customer_mobile"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="z_visit_action" model="ir.actions.act_window">
+            <field name="name">Visit</field>
+            <field name="res_model">z_appointment.appointment</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="z_visit_filter_view" />
+            <field name="domain">[('state','!=', 1)]</field>
+            <field name="context">{'create': False, 'search_default_place_id': 1}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="z_appointment_action_view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="z_visit_list_view"/>
+            <field name="act_window_id" ref="z_visit_action"/>
+        </record>
+    </data>
+</odoo>

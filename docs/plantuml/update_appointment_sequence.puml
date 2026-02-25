@@ -1,0 +1,125 @@
+"@startuml Update Appointment Sequence
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam sequenceParticipantBackgroundColor #E3F2FD
+skinparam sequenceActivationBackgroundColor #BBDEFB
+skinparam sequenceArrowColor #1976D2
+skinparam sequenceLifeLineBorderColor #1976D2
+skinparam sequenceMessageBackgroundColor #E3F2FD
+
+title Update Appointment Flow
+
+actor "Frontend" as Frontend #E8F5E9
+participant "ZAppointmentController\n(appointment_controllers.py)" as Controller #FFF3E0
+participant "ZAppointmentUtils\n(helpers/utils.py)" as Utils #FCE4EC
+participant "ZAppointmentUtilsExtend\n(z_obstetric/helpers/utils.py)" as UtilsExtend #E1F5FE
+participant "z_appointment.appointment\n(Model)" as AppointmentModel #F3E5F5
+participant "z_hr.time_slot\n(Model)" as TimeSlot #E0F7FA
+participant "hr.employee\n(Model)" as Employee #EFEBE9
+participant "res.partner\n(Customer)" as Customer #F1F8E9
+
+== Update Appointment API ==
+Frontend ->> Controller: PUT /z_appointment/appointment
+{booking_type, customer, time_slot_id, doctor_id, technician_id, id, ...}
+activate Controller
+
+Controller ->> UtilsExtend: create_or_update(instance, values, is_update=True)
+activate UtilsExtend
+
+Note over UtilsExtend
+  Step 1: Validate required fields
+  - id (required for update)
+  - booking_type, customer, time_slot_id, doctor_id
+end Note
+
+UtilsExtend ->> Utils: validate_required_field(values, is_update=True)
+Utils --> UtilsExtend: validated values
+
+Note over UtilsExtend
+  Step 2: Get existing appointment
+end Note
+UtilsExtend ->> AppointmentModel: _get_appointment_by_id(values[id])
+AppointmentModel --> UtilsExtend: appointment (existing)
+
+Note over UtilsExtend
+  Step 3: Check if can reschedule
+  - If time_slot changed AND appointment time is past
+  - Raise error: "Past the rescheduling time"
+end Note
+UtilsExtend ->> Utils: check_valid_appointment(time_slot, appointment)
+alt appointment.time_slot != new_time_slot AND old_time_slot.start_time <= now
+  AppointmentModel -->> UtilsExtend: ERROR: "Past the rescheduling time"
+end
+
+Note over UtilsExtend
+  Step 4: Validate Time Slot & Overbook
+end Note
+UtilsExtend ->> TimeSlot: _get_enable_time_slot_by_id(time_slot_id, True)
+TimeSlot --> UtilsExtend: time_slot
+
+UtilsExtend ->> Utils: check_overbook(overbook, time_slot, appointment)
+
+Note over UtilsExtend
+  Step 5: Validate Doctor & Technician
+end Note
+UtilsExtend ->> Employee: _get_employee_by_id(doctor_id)
+Employee --> UtilsExtend: doctor
+
+alt technician_id exists
+  UtilsExtend ->> Employee: _get_employee_by_id(technician_id)
+  Employee --> UtilsExtend: technician
+end
+
+Note over UtilsExtend
+  Step 6: Validate Time Slot by Booking Type
+end Note
+UtilsExtend ->> Utils: validate_time_slot_by_booking_type(...)
+
+Note over UtilsExtend
+  Step 7: Get or Update Customer
+end Note
+UtilsExtend ->> Utils: get_customer_info(instance, customer_id, customer_info)
+
+Note over UtilsExtend
+  Step 8: Check if resources changed
+  - time_slot changed?
+  - doctor changed?
+  - technician changed?
+end Note
+alt time_slot changed OR doctor changed OR technician changed
+  Note over UtilsExtend
+    Step 8a: Release old slots
+  end Note
+  UtilsExtend ->> Utils: release_slots(time_slot_instance, old_appointment)
+  TimeSlot ->> TimeSlot: write({booked: False}) for old doctor/technician
+  
+  Note over UtilsExtend
+    Step 8b: Update appointment record
+  end Note
+  UtilsExtend ->> AppointmentModel: write(new_payload)
+  AppointmentModel --> UtilsExtend: updated appointment
+  
+  Note over UtilsExtend
+    Step 8c: Book new slots
+  end Note
+  UtilsExtend ->> Utils: booking_slots(time_slot_instance, appointment)
+  TimeSlot ->> TimeSlot: write({booked: True}) for new doctor/technician
+else
+  Note over UtilsExtend
+    Step 8d: Just update fields
+  end Note
+  UtilsExtend ->> AppointmentModel: write(new_payload)
+  AppointmentModel --> UtilsExtend: updated appointment
+end
+
+UtilsExtend --> Controller: appointment
+deactivate UtilsExtend
+
+Controller ->> Utils: format_detail(appointment)
+Utils --> Controller: formatted response
+
+Controller -->> Frontend: 200 OK\n{appointment details, "Đổi lịch thành công"}
+deactivate Controller
+
+@enduml
+"

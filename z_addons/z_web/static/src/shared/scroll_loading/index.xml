@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_web.ScrollLoading" owl="1">
+        <div t-on-scroll="this.handleScroll.bind(this)" class="overflow-auto" t-ref="boxItem" t-att-class="props.className" t-att-style="`height: calc(${props.height})`">
+            <t t-slot="default" />
+        </div>
+    </t>
+</templates>

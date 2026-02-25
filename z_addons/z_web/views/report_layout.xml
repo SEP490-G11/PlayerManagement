@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_report_external_layout">
+        <style>
+            .inner-html p {
+            margin-bottom: 0rem;
+            }
+            .inner-html p:last-child {
+            margin-bottom: 0rem;
+            }
+            .header {
+            margin-bottom: 2rem !important;
+            }
+        </style>
+        <div class="header o_report_layout_standard o_company_#{company.id}_layout" style="max-height: 45px;">
+            <div style="height:0.5rem"/>
+            <div class="d-flex align-items-center justify-content-between">
+                <div style="width: 75%">
+                    <h5 t-if="dataAppointment and dataAppointment.printing_type == 'Vivision'" class="fw-bolder">
+                        HỆ THỐNG PHÒNG KHÁM MẮT QUỐC TẾ VIỆT NAM VIVISION
+                    </h5>
+                    <h5 t-elif="dataAppointment and dataAppointment.printing_type == 'Vivision Kid'" class="fw-bolder">
+                        HỆ THỐNG PHÒNG KHÁM MẮT TRẺ EM VIVISION KID
+                    </h5>
+
+                    <h5 t-else="" class="fw-bolder">HỆ THỐNG PHÒNG KHÁM MẮT TRẺ EM VIVISION KID</h5>
+                    <div style="height:0.25rem"/>
+                    <ul>
+                        <li class="fw-bolder" style="margin-bottom:0.125rem; line-height: 20px">
+                            Address:
+                            <span t-if="dataAppointment and dataAppointment.printing_type == 'Vivision'">
+                                <span>514 Bạch Mai, Trương Định, Hai Bà Trưng, Hà Nội</span>
+                            </span>
+                            <span t-elif="dataAppointment and dataAppointment.printing_type == 'Vivision Kid'">
+                                <span>213 Tôn Đức Thắng, Hàng Bột, Đống Đa, Hà Nội</span>
+                                <div style="margin-left: 3.7em;">514 Bạch Mai, Trương Định, Hai Bà Trưng, Hà Nội</div>
+                            </span>
+                            <span t-else="">
+                                <span>213 Tôn Đức Thắng, Hàng Bột, Đống Đa, Hà Nội</span>
+                                <div style="margin-left: 3.7em;">514 Bạch Mai, Trương Định, Hai Bà Trưng, Hà Nội</div>
+                            </span>
+                        </li>
+
+
+                        <li class="fw-bolder" style="margin-bottom:0.125rem; line-height: 20px">
+                            Mobile: 033 4141213 - Website: https://vivision.vn/
+                        </li>
+                        <li t-if="dataAppointment and dataAppointment.printing_type == 'Vivision Kid'" class="fw-bolder"
+                            style="margin-bottom:0.125rem; line-height: 20px">
+                            Fanpage: Hệ thống phòng khám mắt trẻ em
+                        </li>
+                        <li t-if="dataAppointment and dataAppointment.printing_type == 'Vivision'" class="fw-bolder"
+                            style="margin-bottom:0.125rem; line-height: 20px">
+                            Fanpage: Hệ thống phòng khám mắt Quốc tế Việt Nam
+                        </li>
+                        <li t-if="not dataAppointment" class="fw-bolder"
+                            style="margin-bottom:0.125rem; line-height: 20px">
+                            Fanpage: Hệ thống phòng khám mắt trẻ em
+                        </li>
+                    </ul>
+                </div>
+                <div style="width: 5%"/>
+                <div style="width: 20%" t-if="dataAppointment and dataAppointment.printing_type == 'Vivision Kid'">
+                    <img src="z_web/static/image/vivisionkid-TV.jpg" alt="Logo" style="width: 100%"/>
+                </div>
+                <div style="width: 20%" t-else="">
+                    <img src="z_web/static/image/vivisionkid-TV.jpg" alt="Logo" style="width: 100%"/>
+                </div>
+            </div>
+        </div>
+        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout {{  'o_report_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}"
+             t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' if company.layout_background == 'Geometric' else ''}});"
+             t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+             t-att-data-oe-lang="o and o.env.context.get('lang')" style="margin-top: 10px !important;">
+            <div style="height:2rem"/>
+            <div>
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div style="height:0.5rem"/>
+            <div class="text-center" style="border-top: 1px solid black;">
+                <ul class="list-inline" style="margin-top:1rem">
+
+                    <div style="text-align: center;"
+                         t-if="dataAppointment and dataAppointment.printing_type == 'Vivision'">
+                        <p>vivision - New Vision. New Life.</p>
+                        <p>Hotline: 0393 794 066</p>
+                    </div>
+                    <div style="text-align: center;"
+                         t-elif="dataAppointment and dataAppointment.printing_type == 'Vivision Kid'">
+                        <p>vivision kid - Nâng niu ánh mắt trẻ thơ.</p>
+                        <p>Hotline: 0393 794 066</p>
+                    </div>
+                    <div t-else=""/>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="custom_report_obstetric_external_layout">
+        <style>
+            .inner-html p {
+            margin-bottom: 0rem;
+            }
+            .inner-html p:last-child {
+            margin-bottom: 0rem;
+            }
+            .header {
+            margin-bottom: 2rem !important;
+            }
+        </style>
+        <div class="header o_report_layout_standard o_company_#{company.id}_layout"
+             style="max-height: 45px; font-family: 'Times New Roman'">
+            <div style="height:0.5rem"></div>
+            <div class="d-flex align-items-center justify-content-between">
+                <div style="width: 75%">
+                    <h5 class="fw-bolder" t-field="company.name"></h5>
+                    <div style="height:0.25rem"></div>
+                    <ul>
+                        <li class="fw-bolder" style="margin-bottom:0.125rem; line-height: 20px">
+                            Address:
+                            <span t-field="company.partner_id.street"/>
+                        </li>
+                        <li class="fw-bolder" style="margin-bottom:0.125rem; line-height: 20px">
+                            Mobile: 0868 555 168 - Email: phusan1.datlich@gmail.com
+                        </li>
+                        <li class="fw-bolder" style="margin-bottom:0.125rem; line-height: 20px">
+                            Website: phusan1.vn
+                        </li>
+                    </ul>
+                </div>
+                <div style="width: 10%"></div>
+                <div style="width: 20%">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"
+                         style="width: 50%"/>
+                </div>
+            </div>
+        </div>
+        <div
+                t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout {{  'o_report_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}"
+                t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' if company.layout_background == 'Geometric' else ''}});"
+                t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+                t-att-data-oe-lang="o and o.env.context.get('lang')"
+                style="margin-top: 10px !important;"
+        >
+            <div style="height:2rem"></div>
+            <div>
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+        </div>
+
+    </template>
+</odoo>

@@ -1,0 +1,138 @@
+"@startuml Check-in / Update State Sequence
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam sequenceParticipantBackgroundColor #E3F2FD
+skinparam sequenceActivationBackgroundColor #BBDEFB
+skinparam sequenceArrowColor #1976D2
+skinparam sequenceLifeLineBorderColor #1976D2
+skinparam sequenceMessageBackgroundColor #E3F2FD
+
+title Check-in / Update State Appointment Flow
+
+actor "Frontend" as Frontend #E8F5E9
+participant "ZAppointmentControllerExtend\n(z_obstetric/controllers)" as Controller #FFF3E0
+participant "ZAppointmentUtilsExtend\n(z_obstetric/helpers/utils.py)" as UtilsExtend #E1F5FE
+participant "ZAppointmentUtils\n(z_appointment/helpers/utils.py)" as Utils #FCE4EC
+participant "z_appointment.appointment\n(Model)" as AppointmentModel #F3E5F5
+
+== Check-in / Update State API ==
+Frontend ->> Controller: PUT /z_appointment/appointment/update_state/<int:id>
+{state, is_visit}
+activate Controller
+
+Note over Controller
+  State Values (APPOINTMENT_STATE_VALUES):
+  - "1": NOT_YET_ARRIVED
+  - "2": WAITING  
+  - "3": EXAMINING
+  - "4": FINISHED
+  - "5": CANCELLED
+  
+  State Values (VISIT_STATE_LIST):
+  - "3": EXAMINING
+  - "4": FINISHED
+  - "5": CANCELLED
+end Note
+
+Note over Controller
+  Step 1: Parse & Validate Payload
+end Note
+Controller ->> UtilsExtend: validate_appointment_state(state, is_visit)
+activate UtilsExtend
+
+alt state NOT in valid_state_list
+  UtilsExtend -->> Controller: ERROR: "State is invalid."
+end
+
+deactivate UtilsExtend
+
+Note over Controller
+  Step 2: Get Appointment by ID
+end Note
+Controller ->> AppointmentModel: _get_appointment_by_id(payload.get("id"))
+AppointmentModel --> Controller: appointment
+
+Note over Controller
+  Step 3: Check Business Rules
+end Note
+Controller ->> AppointmentModel: write({state: state})
+activate AppointmentModel
+
+Note over AppointmentModel
+  Inherited write() from appointment.py:
+  - If state == "1" (NOT_YET_ARRIVED)
+  - AND appointment has comprehensive/lens/re_lens/vision/binocular_vision/glass_order/invoice
+  - THEN raise ValidationError
+end Note
+
+alt attempt to set NOT_YET_ARRIVED on completed visit
+  AppointmentModel -->> Controller: ERROR: "Không thể cập nhật trạng thái chưa đến cho lượt khám đã đến khám"
+end
+
+AppointmentModel --> Controller: write successful
+deactivate AppointmentModel
+
+Note over Controller
+  Step 4: Generate Examination Code (on first check-in)
+end Note
+alt appointment.examination_code is empty
+  Note over Controller
+    Generate unique code:
+    - Format: LK{yyyyMMdd}{count:04d}
+    - Example: LK2501150001
+    - Increment examination_count record
+  end Note
+  Controller ->> Utils: generate_examination_code(instance, booking_date)
+  activate Utils
+  Utils ->> AppointmentModel: search([(prefix, =, prefix)])
+  AppointmentModel --> Utils: examination_count_record
+  
+  alt record exists
+    Utils ->> AppointmentModel: write({count: count + 1})
+  else
+    Utils ->> AppointmentModel: create({prefix, count: 1})
+  end
+  
+  Utils --> Controller: examination_code
+  Utils --> Controller: has_took_examination = True
+  deactivate Utils
+  
+  Controller ->> AppointmentModel: write({examination_code, has_took_examination})
+end
+
+Note over Controller
+  Step 5: Format Response
+end Note
+Controller ->> Utils: format_detail(appointment)
+Utils --> Controller: formatted response
+
+Note over Controller
+  Step 6: Return Result
+end Note
+alt is_visit == True
+  Controller -->> Frontend: 200 OK\n{appointment, "Đổi trạng thái lượt khám thành công"}
+else
+  Controller -->> Frontend: 200 OK\n{appointment, "Đổi trạng thái lịch hẹn thành công"}
+end
+
+deactivate Controller
+
+== State Transition Diagram ==
+
+note right of AppointmentModel
+  Valid State Transitions:
+  
+  NOT_YET_ARRIVED ("1") → WAITING ("2")
+  WAITING ("2") → EXAMINING ("3")
+  EXAMINING ("3") → FINISHED ("4")
+  EXAMINING ("3") → CANCELLED ("5")
+  FINISHED ("4") → (terminal state)
+  CANCELLED ("5") → (terminal state)
+  
+  Cannot transition back to:
+  - NOT_YET_ARRIVED from any state
+  - States with completed services
+end note
+
+@enduml
+"

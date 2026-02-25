@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_web.TextFixedWidthField">
+        <div t-esc="value" style="max-width: 200px; word-wrap: break-word; ">
+        </div>
+    </t>
+</templates>

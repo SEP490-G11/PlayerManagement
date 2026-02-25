@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="z_web.Icon" owl="1">
+    <img t-att-class="state.size" t-att-src='this.state.name'></img>
+  </t>
+</templates>

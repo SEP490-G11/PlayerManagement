@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="z_stock_report_picking_template_inherited" inherit_id="stock.report_picking">
+         <xpath expr="//div[hasclass('page')]" position="inside">
+                <div class="row page-break">
+                <div class="col-9"></div>
+                <div class="col-3">
+                  <div class="justify-content-center d-flex">
+                    <div class="fw-bold d-inline-block">Created by</div>
+                  </div>
+                  <div style="height:70px"/>
+                  <div class="justify-content-center d-flex">
+                      <t t-out="o.create_uid.name or ''"></t>
+                  </div>
+                </div>
+              </div>
+        </xpath>
+    </template>
+
+
+    <template id="z_stock_report_delivery_template_inherited" inherit_id="stock.report_delivery_document">
+         <xpath expr="//div[hasclass('page')]" position="inside">
+                <div class="row page-break">
+                <div class="col-9"></div>
+                <div class="col-3">
+                  <div class="justify-content-center d-flex">
+                    <div class="fw-bold d-inline-block">Created by</div>
+                  </div>
+                  <div style="height:70px"/>
+                  <div class="justify-content-center d-flex">
+                      <t t-out="o.create_uid.name or ''"></t>
+                  </div>
+                </div>
+              </div>
+        </xpath>
+    </template>
+
+
+
+</odoo>

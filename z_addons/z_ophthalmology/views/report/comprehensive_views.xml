@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <template id="report_comprehensive">
+      <t t-set="dataAppointment" t-value="docs.visit_id"></t>
+      <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+          <style>
+                .justify-content-center {
+                    -webkit-box-pack: center;
+                    justify-content: center;
+                }
+                .flex-1 {
+                   -webkit-box-flex: 1;
+                    -webkit-flex: 1;
+                    flex: 1;
+                }
+                @media print, screen {
+                  .page-break {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                  }
+                  div {
+                    line-height: 1.5;
+                  }
+                  div.text-nowrap, span.text-nowrap {
+                    white-space: nowrap !important;
+                  }
+                }
+          </style>
+          <t t-foreach="docs" t-as="doc">
+            <div class="page" style="margin-top: 20px !important;">
+              <h3 class="text-center fw-bold">EYE EXAMINATION RESULT</h3>
+              <p class="text-center fw-bolder">Code: <span t-esc="doc.code"/>
+              </p>
+              <div class="row mb-2">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Name
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-field="doc.customer_id" class="text-uppercase fw-bold"/>
+                </div>
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Age
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-if="doc.customer_id.age" t-field="doc.customer_id.age" class="fw-bold"/>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Phone number
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-field="doc.customer_id.mobile"/>
+                </div>
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Gender
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-if="doc.customer_id.gender == 'male'">Male</span>
+                  <span t-if="doc.customer_id.gender == 'female'">Female</span>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Address
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-field="doc.customer_id.street"/>
+                </div>
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Customer Code
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-field="doc.customer_id.code"/>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Reason
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-field="doc.reason"/>
+                </div>
+                <div class="col-6"/>
+              </div>
+              <div class="mt-4">
+                <table class="table" t-if="doc.right_eye_eyeball_axis_length or doc.left_eye_eyeball_axis_length
+                                        or doc.right_eye_gm_thickness or doc.left_eye_gm_thickness
+                                        or doc.right_eye_pupil_size or doc.left_eye_pupil_size
+                                        or doc.right_eye_acd or doc.left_eye_acd
+                                        or doc.right_eye_old_glasses or doc.left_eye_old_glasses
+                                        or doc.right_eye_steep_or_flat_k_first 
+                                        or doc.right_eye_steep_or_flat_k_second 
+                                        or doc.left_eye_steep_or_flat_k_first 
+                                        or doc.left_eye_steep_or_flat_k_second
+                                        or doc.right_eye_without_glasses
+                                        or doc.left_eye_without_glasses
+                                        or doc.right_eye_subjective_anterior_refraction or doc.left_eye_subjective_anterior_refraction
+                                        or doc.right_eye_objective_paralytic_refraction_first 
+                                        or doc.right_eye_objective_paralytic_refraction_second 
+                                        or doc.right_eye_objective_paralytic_refraction_third
+                                        or doc.left_eye_objective_paralytic_refraction_first 
+                                        or doc.left_eye_objective_paralytic_refraction_second 
+                                        or doc.left_eye_objective_paralytic_refraction_third
+                                        or doc.right_eye_subjective_paralytic_refraction or left_eye_subjective_paralytic_refraction
+                                        ">
+                  <thead>
+                    <tr>
+                      <th/>
+                      <th>Right eye</th>
+                      <th>Left eye</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr t-if="doc.right_eye_eyeball_axis_length or doc.left_eye_eyeball_axis_length">
+                      <td>Eyeball axis length (mm)</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_eyeball_axis_length"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_eyeball_axis_length"/>
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_gm_thickness or doc.left_eye_gm_thickness">
+                      <td>GM thickness (µm)</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_gm_thickness"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_gm_thickness"/>
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_pupil_size or doc.left_eye_pupil_size">
+                      <td>Pupil size (mm)</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_pupil_size"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_pupil_size"/>
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_acd or doc.left_eye_acd">
+                      <td>ACD (mm)</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_acd"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_acd"/>
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_steep_or_flat_k_first 
+                          or doc.right_eye_steep_or_flat_k_second 
+                          or doc.left_eye_steep_or_flat_k_first 
+                          or doc.left_eye_steep_or_flat_k_second">
+                      <td>Steep K / Flat K (D)</td>
+                      <td class="text-center">
+                        <span t-esc="doc.right_eye_steep_or_flat_k_first"/>
+                        <span t-if="doc.right_eye_steep_or_flat_k_second">/</span>
+                        <span t-esc="doc.right_eye_steep_or_flat_k_second"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-esc="doc.left_eye_steep_or_flat_k_first"/>
+                        <span t-if="doc.left_eye_steep_or_flat_k_second">/</span>
+                        <span t-esc="doc.left_eye_steep_or_flat_k_second"/>
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_without_glasses
+                    or doc.left_eye_without_glasses">
+                      <td>Far vision without glasses</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_without_glasses"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_without_glasses"/>
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_old_glasses
+                           or doc.left_eye_old_glasses">
+                      <td>Old glasses</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_old_glasses"/>
+                        (<span t-field="doc.right_eye_old_glasses_unit"/>)
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_old_glasses"/>
+                        (<span t-field="doc.left_eye_old_glasses_unit"/>)
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_subjective_anterior_refraction or doc.left_eye_subjective_anterior_refraction">
+                      <td>Preoperative subjective diagnosis result</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_subjective_anterior_refraction"/>
+                        (
+                        <span t-field="doc.right_eye_subjective_anterior_refraction_unit"/>
+                        )
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_subjective_anterior_refraction"/>
+                        (
+                        <span t-field="doc.left_eye_subjective_anterior_refraction_unit"/>
+                        )
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_objective_paralytic_refraction_first 
+                          or doc.right_eye_objective_paralytic_refraction_second 
+                          or doc.right_eye_objective_paralytic_refraction_third
+                          or doc.left_eye_objective_paralytic_refraction_first 
+                          or doc.left_eye_objective_paralytic_refraction_second 
+                          or doc.left_eye_objective_paralytic_refraction_third
+                          ">
+                      <td>
+                        Postoperative objective diagnosis result
+                        <t t-if="doc.cyclogyl">
+                          <br>(Cyclogyl 1%)</br>
+                        </t>
+                        <t t-if="doc.atropin">
+                          <br>(Atropin 0.5%)</br>
+                        </t>
+                      </td>
+                      <td t-if="doc.cyclogyl or doc.atropin" class="text-center">
+                        <span t-field="doc.right_eye_objective_paralytic_refraction_first"/>
+                        <span t-if="doc.right_eye_objective_paralytic_refraction_second">/</span>
+                        <span t-field="doc.right_eye_objective_paralytic_refraction_second"/>
+                        <span t-if="doc.right_eye_objective_paralytic_refraction_third">x</span>
+                        <span t-field="doc.right_eye_objective_paralytic_refraction_third"/>
+                        (
+                        <span t-field="doc.right_eye_objective_paralytic_refraction_unit"/>
+                        )
+                      </td>
+                      <td t-else=""/>
+                      <td t-if="doc.cyclogyl or doc.atropin" class="text-center">
+                        <span t-field="doc.left_eye_objective_paralytic_refraction_first"/>
+                        <span t-if="doc.left_eye_objective_paralytic_refraction_second">/</span>
+                        <span t-field="doc.left_eye_objective_paralytic_refraction_second"/>
+                        <span t-if="doc.left_eye_objective_paralytic_refraction_third">x</span>
+                        <span t-field="doc.left_eye_objective_paralytic_refraction_third"/>
+                        (
+                        <span t-field="doc.left_eye_objective_paralytic_refraction_unit"/>
+                        )
+                      </td>
+                      <td t-else=""/>
+                    </tr>
+                    <tr t-if="doc.right_eye_subjective_paralytic_refraction or left_eye_subjective_paralytic_refraction">
+                      <td>
+                        Postoperative subjective diagnosis result
+                        <t t-if="doc.cyclogyl">
+                          <br>(Cyclogyl 1%)</br>
+                        </t>
+                        <t t-if="doc.atropin">
+                          <br>(Atropin 0.5%)</br>
+                        </t>
+                      </td>
+                      <td t-if="doc.cyclogyl or doc.atropin" class="text-center">
+                        <span t-field="doc.right_eye_subjective_paralytic_refraction"/>
+                        (
+                        <span t-field="doc.right_eye_subjective_paralytic_refraction_unit"/>
+                        )
+                      </td>
+                      <td t-else=""/>
+                      <td t-if="doc.cyclogyl or doc.atropin" class="text-center">
+                        <span t-field="doc.left_eye_subjective_paralytic_refraction"/>
+                        (
+                        <span t-field="doc.left_eye_subjective_paralytic_refraction_unit"/>
+                        )
+                      </td>
+                      <td t-else=""/>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mt-4" t-if="doc.right_intraocular_pressure or doc.left_intraocular_pressure">
+                <div class="o_form_label mb-1">Intraocular pressure iCare(mmHg)</div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Right eye</th>
+                      <th>Left eye</th>
+                    </tr>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <span t-field="doc.right_intraocular_pressure"/>
+                        </td>
+                        <td>
+                          <span t-field="doc.left_intraocular_pressure"/>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </thead>
+                </table>
+              </div>
+              <div class="row mt-4 mb-2" t-if="doc.diagnose">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    <div class="fw-bold d-inline-block">Diagnose</div>
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-field="doc.diagnose"/>
+                </div>
+              </div>
+              <div class="row mb-2" t-if="doc.solution">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    <div class="fw-bold d-inline-block text-nowrap">Handling Consultation</div>
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-field="doc.solution"/>
+                </div>
+              </div>
+              <div class="row mb-2" t-if="doc.right_eye_glasses_prescription or doc.left_eye_glasses_prescription or doc.add_glasses_prescription">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    <div class="fw-bold d-inline-block text-nowrap">Glass order</div>
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <div t-if="doc.right_eye_glasses_prescription">Right eye: <span t-field="doc.right_eye_glasses_prescription"/></div>
+                  <div t-if="doc.left_eye_glasses_prescription">Left eye: <span t-field="doc.left_eye_glasses_prescription"/></div>
+                  <div t-if="doc.add_glasses_prescription">Add: <span t-field="doc.add_glasses_prescription"/></div>
+                </div>
+              </div>
+              <div class="mb-2 mt-4" t-if="doc.drug_ids">
+                <p class="mb-0 fw-bold">
+                  Prescription:
+                </p>
+                <table class="table">
+                  <tbody>
+                    <tr t-foreach="doc.drug_ids" t-as="drug" t-key="drug.id">
+                      <td class="text-center" style="width:50px">
+                        <span t-esc="drug_index+1"/>
+.
+                      </td>
+                      <td>
+                        <div class="row">
+                          <div class="col-8">
+                            <div>
+                              <span t-field="drug.name" class="fw-bold"/>
+                            </div>
+                            <div>
+                              <span t-field="drug.usage_id.name"/>
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            Quantity:
+                            <span t-field="drug.quantity" class="fw-bold"/>
+                            <span t-field="drug.unit"/>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div t-if="doc.note == ''" class="d-flex mt-4 mb-2">
+                <div>Note:</div>
+                <div t-field="doc.note" class="ms-1"/>
+              </div>
+              <div class="row page-break">
+                <div class="col-6">
+                  <div class="fw-bold d-inline-block">Reexamination date:</div>
+                  <span t-field="doc.reexamination_date"/>
+                </div>
+                <div class="col-6">
+                  <div class="justify-content-center d-flex">
+                    Day
+                    <span t-field="doc.examination_date"/>
+                  </div>
+                  <div class="justify-content-center d-flex">
+                    <div class="fw-bold d-inline-block">Examiner</div>
+                  </div>
+                  <div style="height:70px"/>
+                  <div class="justify-content-center d-flex">
+                    <span t-field="doc.examiner_id" class="fw-bold d-inline-block text-nowrap"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </t>
+      </t>
+    </template>
+  </data>
+</odoo>

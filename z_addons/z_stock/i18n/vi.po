@@ -1,0 +1,79 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-15 10:03+0000\n"
+"PO-Revision-Date: 2024-05-15 10:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_stock
+#: model:ir.ui.menu,name:z_stock.menu_sub_z_combo_in_stock
+#: model:ir.ui.menu,name:z_stock.menu_z_combo_in_config_stock
+#: model:ir.ui.menu,name:z_stock.menu_z_combo_in_stock
+msgid "Combo"
+msgstr "Gói combo"
+
+#. module: z_stock
+#: model:ir.ui.menu,name:z_stock.menu_z_combo_category_config_inventory
+msgid "Combo Categories"
+msgstr "Danh mục gói Combo"
+
+#. module: z_stock
+#: model:ir.ui.menu,name:z_stock.menu_sub_z_order_combo_in_stock
+msgid "Combo Order"
+msgstr "Theo dõi gói combo"
+
+#. module: z_stock
+#: model_terms:ir.ui.view,arch_db:z_stock.z_stock_report_picking_template_inherited
+msgid "Created by"
+msgstr "Người tạo"
+
+#. module: z_stock
+#: model_terms:ir.ui.view,arch_db:z_stock.z_stock_report_delivery_template_inherited
+msgid "Created by"
+msgstr "Người tạo"
+
+#. module: z_stock
+#: model:ir.model.fields,field_description:z_stock.field_z_usage__name
+msgid "Name"
+msgstr "Cách dùng"
+
+#. module: z_stock
+#. odoo-python
+#: model:ir.actions.act_window,name:z_stock.z_usage_action
+#: model:ir.model,name:z_stock.model_z_usage
+#: model_terms:ir.ui.view,arch_db:z_stock.z_usage_list_view
+#: model:ir.ui.menu,name:z_stock.z_usage_menu
+#, python-format
+msgid "Usage"
+msgstr "Cách dùng"
+
+#. module: z_stock
+#: model:ir.model.fields,field_description:z_stock.field_product_template__usage_id
+msgid "Usage"
+msgstr "Cách dùng"
+
+#. module: z_stock
+#: model:ir.model.fields,field_description:z_stock.field_product_template__supplier_ids
+msgid "Suppliers"
+msgstr "Nhà cung cấp"
+
+#. module: z_stock
+#: model:ir.model.fields,field_description:z_stock.field_product_product__supplier_ids
+msgid "Suppliers"
+msgstr "Nhà cung cấp"
+
+
+#. module: z_stock
+#: model:ir.model.fields,field_description:z_stock.field_stock_picking__place_id
+msgid "Place"
+msgstr "Cơ sở"

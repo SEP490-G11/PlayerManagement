@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_resource_form_view_inherit" model="ir.ui.view">
+        <field name="name">resource.resource.form.inherit</field>
+        <field name="model">resource.resource</field>
+        <field name="inherit_id" ref="resource.resource_resource_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="required">False</attribute>
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='resource_type']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='time_efficiency']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//form" position="attributes">
+                <attribute name="create">False</attribute>
+            </xpath>
+            <xpath expr="//form" position="attributes">
+                <attribute name="delete">False</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_resource_view_resource_resource_search_inherit" model="ir.ui.view">
+        <field name="name">resource.resource.search.inherit</field>
+        <field name="model">resource.resource</field>
+        <field name="inherit_id" ref="resource.view_resource_resource_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='human']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='material']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='user']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='type']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_resource_tree_view_inherit" model="ir.ui.view">
+        <field name="name">resource.resource.tree.inherit</field>
+        <field name="model">resource.resource</field>
+        <field name="inherit_id" ref="resource.resource_resource_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="column_invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='resource_type']" position="after">
+                <field name="write_date"/>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">no_selector_tree</attribute>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="create">0</attribute>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="delete">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='resource_type']" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='time_efficiency']" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_resource_calendar_attendance_tree_view_inherit" model="ir.ui.view">
+        <field name="name">resource.calendar.attendance.tree.inherit</field>
+        <field name="model">resource.calendar.attendance</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='week_type']" position="after">
+                <field name="enable"/>
+            </xpath>
+            <xpath expr="//field[@name='week_type']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_from']" position="attributes">
+                <attribute name="required">1</attribute>
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_to']" position="attributes">
+                <attribute name="required">1</attribute>
+                <attribute name="optional">show</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_resource_action_from_calendar" model="ir.actions.act_window">
+        <field name="name">Resources</field>
+        <field name="res_model">resource.resource</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="resource.view_resource_resource_search"/>
+        <field name="help">Resources allow you to create and manage resources that should be involved in a specific project phase. You can also set their efficiency level and workload based on their weekly working hours.</field>
+    </record>
+</odoo>

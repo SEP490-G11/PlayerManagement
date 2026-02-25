@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+{
+    "name": "Bán hàng",
+    "version": "1.0",
+    "summary": "zen8labs sale module",
+    "description": "zen8labs sale module",
+    "category": "zen8labs/zen8labs",
+    "author": "zen8labs",
+    "website": "https://www.zen8labs.com",
+    "sequence": 10,
+    "depends": [
+        "sale_management",
+        "sale_stock",
+        "z_web",
+        "z_appointment",
+        "z_medical_record",
+        "z_place",
+        "z_invoice",
+        "z_product",
+        "z_combo",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "data/ir_cron_data.xml",
+        "views/visit_views.xml",
+        "views/sale_views.xml",
+        "views/invoice_views.xml",
+        "wizard/sale_views.xml",
+    ],
+    "installable": True,
+    "assets": {},
+    "license": "LGPL-3",
+}

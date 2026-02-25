@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+        <record id="action_report_vision" model="ir.actions.report">
+            <field name="name">Print low vision examination result</field>
+            <field name="model">z_ophthalmology.vision</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">z_ophthalmology.report_vision</field>
+            <field name="report_file">z_ophthalmology.report_vision</field>
+            <field name="attachment" />
+            <field name="binding_model_id" ref="model_z_ophthalmology_vision" />
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'%s'%(object.pdf_title)</field>
+        </record>
+    </data>
+</odoo>

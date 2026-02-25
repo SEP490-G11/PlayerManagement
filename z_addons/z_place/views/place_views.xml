@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="z_place_place_form_view" model="ir.ui.view">
+            <field name="name">z_place.place.form</field>
+            <field name="model">z_place.place</field>
+            <field name="arch" type="xml">
+                <form string="Place" js_class="form_with_toast">
+                    <field name="active" invisible="1" />
+                    <div>
+                        <div class="mb-4"> 
+                            <label for="name" string="Name" class="oe_asterisk ml-3"></label>
+                            <h1>
+                                <field name="name" options="{'line_breaks': False}" widget="text"
+                                    placeholder="e.g. Ba Trieu Place" />
+                            </h1>
+                        </div>
+                        <div>
+                            <label for="name" string="Address" ></label>
+                            <field name="address"  />
+                        </div>
+                        <notebook>
+                            <page string="PayOS" groups="base.group_system">
+                               <group>
+                                <field name="z_system_payos_client_id" string="Client ID"/>
+                                <field name="z_system_payos_api_key" string="API Key" widget="password" />
+                                <field name="z_system_payos_checksum_key" string="Checksum Key" widget="password" />
+                                <field name="z_system_payos_return_url" string="Return URL" />
+                                <field name="z_system_payos_cancel_url" string="Cancel URL" />
+                               </group>
+                            </page>
+                        </notebook>
+                    </div>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" />
+                        <field name="activity_ids" />
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="z_place_place_list_view" model="ir.ui.view">
+            <field name="name">z_place.place.list</field>
+            <field name="model">z_place.place</field>
+            <field name="arch" type="xml">
+                <tree string="Places" js_class="tree_with_toast">
+                    <field name="name" />
+                    <field name="address" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="z_place_place_action" model="ir.actions.act_window">
+            <field name="name">Place</field>
+            <field name="res_model">z_place.place</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

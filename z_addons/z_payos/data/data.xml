@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="default_account_partner" model="res.partner">
+        <field name="name">Chủ tài khoản mặc định</field>
+        <field name="is_customer">False</field>
+    </record>
+</odoo>

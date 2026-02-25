@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_invoice.MisaUrlWidget">
+        <div class="misa-url-widget">
+            <t t-if="misaUrl">
+                <div t-if="state.isLoading" class="misa-loading-container">
+                    <div class="donut"></div>
+                    <p class="mt-2">Loading MISA invoice...</p>
+                </div>
+                <iframe t-att-src="misaUrl"
+                        width="100%" 
+                        height="600px" 
+                        frameborder="0" 
+                        style="border:1px solid #ccc; margin-top: 16px;"
+                        t-on-load="onLoad"
+                        t-on-error="onError"
+                        t-att-style="state.isLoading ? 'display: none;' : 'border:1px solid #ccc; margin-top: 16px;'">
+                </iframe>
+            </t>
+            <t t-else="">
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle"></i>
+                    <span>No MISA invoice URL available</span>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates> 

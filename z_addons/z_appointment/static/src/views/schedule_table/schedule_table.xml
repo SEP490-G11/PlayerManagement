@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_appointment.ScheduleList" owl="1">
+        <div class="main-section">
+            <div class="o_action o_view_controller o_list_view schedule-table d-flex flex-column flex-wrap h-100">
+                <Breadcrumb/>
+                <div class="o_control_panel d-flex flex-column gap-3 gap-lg-1 px-3 py-2">
+                    <t t-call="z_appointment.ScheduleListHeader"/>
+                </div>
+                <div class="o_content w-100 overflow-auto" style="flex:1">
+                    <div class="o_list_renderer o_renderer table-responsive">
+                        <t t-call="z_appointment.ScheduleTable"></t>
+                    </div>
+                </div>
+                <Paging fetchData="this.fetchAppointments.bind(this)" exportData="this.exportData.bind(this)" pagingData="state.pagingData" />
+            </div>
+            <ScheduleForm onFetch="this.fetchAppointments.bind(this)" />
+            <!-- <CustomerDetails t-props="{customerId: state.customerId, canEdit: false}"/> -->
+            <Notify/>
+            <NotifyError/>
+            <ConfirmDialog id="'remove-confirm-modal'" t-props="propsConfirm">
+                <t t-set-slot="left-action">
+                    <button type="button" class="btn btn-secondary cancel" data-bs-dismiss="modal">
+                        Cancel</button>
+                </t>
+                <t t-set-slot="right-action">
+                    <button type="button" class="btn btn-primary save" t-on-click="() => this.removeSchedule()" t-att-disabled="state.isLoading">
+                        <span t-if="!state.isLoading">Delete</span>
+                        <div t-if="state.isLoading" class="donut"></div>
+                    </button>
+                </t>
+            </ConfirmDialog>
+        </div>
+    </t>
+
+    <!-- Schedule header table -->
+    <t t-name="z_appointment.ScheduleListHeader" owl="1">
+        <!-- Title of table -->
+        <div class="o_control_panel_main d-flex flex-wrap flex-lg-nowrap justify-content-between align-items-center gap-3 flex-grow-1">
+            <div class="d-flex gap-3 align-items-center">
+                <h2 class="mb-0 table-header">Danh sách lịch hẹn</h2>
+                <button class="btn btn-primary add-customer d-flex align-items-center"
+                    t-att-disabled="isDisableBooking" data-bs-toggle="modal"
+                    data-bs-target="#scheduleFormModal" t-on-click="this.addAppointment">
+                    <t t-call="z_web.IconPlusForButtonAdd"></t>
+                    <div class="ps-2">Book an appointment</div>
+                </button>
+            </div>
+            <div class="d-flex gap-3 align-items-center">
+                <div class="d-flex gap-2 align-items-center">
+                    <span>Cơ sở</span>
+                    <Dropdown
+                        togglerClass="`btn w-100 d-flex justify-content-between align-items-center outline align-items-center gap-2 place-box`">
+                        <t t-set-slot="toggler">
+                            <!-- "toggler" slot content is rendered inside a button -->
+                            <div class="d-flex justify-content-between w-100">
+                                <span t-esc="state.place?.name or ''"
+                                    class="primary-text-color"></span>
+                                <img src="z_web/static/image/arrow-down.svg" />
+                            </div>
+                        </t>
+                        <DropdownItem t-foreach="state.places" t-as="place" t-key="place.name"
+                            onSelected="()=>this.selectPlace(place)">
+                            <span t-esc="place.name" />
+                        </DropdownItem>
+                    </Dropdown>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                    <span>From</span>
+                    <div class="tab-date-picker">
+                        <CustomDatePicker onChange="this.onUpdateStartDate.bind(this)" value="state.queryParams.start_date" maxDate="state.queryParams.end_date" name="'start_date'"/>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                    <span>To</span>
+                    <div class="tab-date-picker">
+                        <CustomDatePicker onChange="this.onUpdateEndDate.bind(this)" value="state.queryParams.end_date" minDate="state.queryParams.start_date" name="'end_date'"/>
+                    </div>
+                </div>
+                <SearchInput class="'schedule'" onChange="this.onSearch.bind(this)" placeholder="'Tìm kiếm theo tên, số điện thoại'" value="state.queryParams.input"/>
+                <NestedFilter nestedOptions="nestedFilterOptions" onSelect="this.filterSchedule.bind(this)"/>
+                <Sort options="state.sortOptions" onSelect="this.onSort.bind(this)" default="state.defaultSort"/>
+
+            </div>
+        </div>
+    </t>
+
+    <!-- Schedule table -->
+    <t t-name="z_appointment.ScheduleTable" owl="1">
+        <table class="base-table table-sm table table-hover mb-0 o_list_table_ungrouped table-bordered">
+            <thead>
+                <tr>
+                    <th style="width: 5%">No.</th>
+                    <th>Customer group</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Place</th>
+                    <th>Customer name</th>
+                    <th>Phone number</th>
+                    <th>Printing type</th>
+                    <th>Re examination</th>
+                    <th>Overbook</th>
+                    <th>Doctor</th>
+                    <th>Optometrist</th>
+                    <th>State</th>
+                    <th>Note</th>
+                    <th>Reason</th>
+                    <th style="width: 5%">Edit</th>
+                    <th style="width: 5%">Delete</th>
+                </tr>
+            </thead>
+            <tbody t-if="state.appointmentList">
+                <tr t-foreach="state.appointmentList" t-as="schedule" t-key="schedule.id">
+                    <td class="center">
+                        <span t-esc="schedule.no"></span>
+                    </td>
+                    <td class="center">
+                        <span t-if="schedule.customer_group.label" t-esc="schedule.customer_group.label"></span>
+                        <span t-if="!schedule.customer_group.label"></span>
+                    </td>
+                    <td class="center">
+                        <span t-esc="schedule.format_booking_date"></span>
+                    </td>
+                    <td class="center">
+                        <span t-esc="schedule.booking_time"></span>
+                    </td>
+                    <td class="center">
+                        <span t-esc="schedule.place_name"></span>
+                    </td>
+                    <td class="customer-name">
+                        <a t-att-href="`#id=${schedule.customer_id}&amp;model=res.partner`" t-on-click.prevent="(e)=>this.onClick(e,schedule.customer_id)">
+                            <span t-esc="schedule.customer_name"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <span t-esc="schedule.customer_phone_number"></span>
+                    </td>
+                    <td>
+                        <Dropdown togglerClass="`btn w-100 d-flex justify-content-between align-items-center`">
+                            <t t-set-slot="toggler">
+                                <!-- "toggler" slot content is rendered inside a button -->
+                                <div class="d-flex justify-content-between w-100">
+                                    <span t-esc="getLabelPrintingType(schedule.printing_type)" class="primary-text-color"></span>
+                                    <img src="z_web/static/image/arrow-down.svg"/>
+                                </div>
+                            </t>
+                            <DropdownItem
+                                t-foreach="printingTypes"
+                                t-as="printingType" t-key="printingType.value"
+                                onSelected="()=>this.updateAppointmentPrintingType(schedule.id, printingType.value)">
+                                <span t-esc="printingType.label"></span>
+                            </DropdownItem>
+
+                        </Dropdown>
+                    </td>
+                    <td class="center">
+                        <img t-if="schedule.type == '2'" src="/z_web/static/image/checked.svg"/>
+                    </td>
+                    <td class="center">
+                        <img t-if="schedule.overbook" src="/z_web/static/image/checked.svg"/>
+                    </td>
+                    <td>
+                        <span t-esc="schedule.doctor?.name"></span>
+                    </td>
+                    <td>
+                        <span t-esc="schedule.technician?.name"></span>
+                    </td>
+                    <td>
+                        <Dropdown togglerClass="`btn w-100 d-flex justify-content-between align-items-center`">
+                            <t t-set-slot="toggler">
+                                <!-- "toggler" slot content is rendered inside a button -->
+                                <div class="d-flex justify-content-between w-100">
+                                    <span t-esc="getLabelState(schedule.state)" class="primary-text-color"></span>
+                                    <img src="z_web/static/image/arrow-down.svg"/>
+                                </div>
+                            </t>
+                            <DropdownItem
+                                t-foreach="stateList"
+                                t-as="state" t-key="state.value"
+                                onSelected="()=>this.updateAppointmentState(schedule.id,state.value, false)">
+                                <span t-esc="state.label"></span>
+                            </DropdownItem>
+
+                        </Dropdown>
+                    </td>
+                    <td>
+                        <span t-if="schedule.note" t-esc="schedule.note"></span>
+                    </td>
+                    <td>
+                        <span t-if="schedule.examination_reason" t-esc="schedule.examination_reason"></span>
+                    </td>
+                    <td class="center">
+                        <button class="btn edit" data-bs-toggle="modal" data-bs-target="#scheduleFormModal" t-on-click="() => this.editAppointment(schedule)">
+                            <t t-call="z_web.IconEdit"></t>
+                        </button>
+                    </td>
+                    <td class="center">
+                        <button class="btn delete" data-bs-toggle="modal" data-bs-target="#remove-confirm-modal" t-on-click="() => this.onRemoveSchedule(schedule)">
+                            <t t-call="z_web.IconDelete"></t>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div t-if="!state.appointmentList or state.appointmentList.length == 0" class="no-result">
+            No data
+        </div>
+    </t>
+</templates>

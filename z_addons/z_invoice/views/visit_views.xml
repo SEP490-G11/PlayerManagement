@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="z_visit_form_view_inherit" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.form.inherit</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="inherit_id" ref="z_medical_record.z_visit_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='examination_reason']" position="after">
+                    <field name="examination_code" invisible="1"/>
+                    <field name="get_examination_code" invisible="1"/>
+                    <field name="z_invoice_ids" class="block_advance_search" domain="[('state', '=', 'posted')]">
+                        <tree create="0" delete="0" class="block_advance_search">
+                            <field name="code" string="Code" widget="block_advance_search"/>
+                            <field name="payment_state" string="Payment State" widget="badge" decoration-danger="payment_state == 'not_paid'"
+                                   decoration-warning="payment_state in ('partial', 'in_payment')"
+                                   decoration-success="payment_state in ('paid', 'reversed')"/>
+                            <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'cancel'"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="z_visit_list_view_inherit" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.list</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="inherit_id" ref="z_medical_record.z_visit_list_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='booking_date']" position="before">
+<!--                    <field name="z_invoice_status" column_invisible="not z_invoice_status"/>-->
+                    <field name="z_invoice_status" invisible="not z_invoice_status" widget="badge" decoration-info="z_invoice_status == 'draft'" decoration-warning="z_invoice_status == 'half'" decoration-success="z_invoice_status == 'full'" decoration-danger="z_invoice_status == 'unpaid'"/>
+                </xpath>
+                <!-- <xpath expr="//field[@name='note']" position="after">
+                   <field name="z_invoice_status" column_invisible="not z_invoice_status"/>
+                    <button name="action_create_invoices" type="object" title="Payment">
+                    </button>
+                </xpath> -->
+            </field>
+        </record>
+    </data>
+</odoo>

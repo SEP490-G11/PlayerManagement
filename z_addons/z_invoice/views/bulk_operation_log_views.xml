@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Bulk Operation Log Tree View -->
+    <record id="view_bulk_operation_log_tree" model="ir.ui.view">
+        <field name="name">bulk.operation.log.tree</field>
+        <field name="model">bulk.operation.log</field>
+        <field name="arch" type="xml">
+            <tree string="Bulk Operation Logs">
+                <field name="name"/>
+                <field name="operation_type"/>
+                <field name="user_id"/>
+                <field name="total_records"/>
+                <field name="success_count"/>
+                <field name="error_count"/>
+                <field name="state" decoration-success="state == 'completed'" decoration-danger="state == 'failed'" decoration-warning="state == 'in_progress'"/>
+                <field name="start_time"/>
+                <field name="duration" widget="float_time"/>
+                <field name="avg_duration_per_record" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Bulk Operation Log Form View -->
+    <record id="view_bulk_operation_log_form" model="ir.ui.view">
+        <field name="name">bulk.operation.log.form</field>
+        <field name="model">bulk.operation.log</field>
+        <field name="arch" type="xml">
+            <form string="Bulk Operation Log">
+                <header>
+                    <button name="action_view_log_lines" type="object" string="View Details" class="oe_highlight" 
+                            invisible="not log_line_ids"/>
+                    <button name="action_retry_failed_operations" type="object" string="Retry Failed" 
+                            invisible="error_count == 0" class="btn-warning"/>
+                    <field name="state" widget="statusbar" statusbar_visible="in_progress,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Operation Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="operation_type"/>
+                            <field name="user_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="total_records"/>
+                            <field name="success_count"/>
+                            <field name="error_count"/>
+                            <field name="success_rate" widget="percentage"/>
+                            <field name="duration" widget="float_time"/>
+                            <field name="avg_duration_per_record" widget="float_time"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="start_time"/>
+                        </group>
+                        <group>
+                            <field name="end_time"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Operation Details" name="log_lines">
+                            <field name="log_line_ids" readonly="1">
+                                <tree>
+                                    <field name="record_name"/>
+                                    <field name="state" decoration-success="state == 'success'" decoration-danger="state == 'failed'"/>
+                                    <field name="error_message"/>
+                                    <field name="start_time"/>
+                                    <field name="duration" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Bulk Operation Log Search View -->
+    <record id="view_bulk_operation_log_search" model="ir.ui.view">
+        <field name="name">bulk.operation.log.search</field>
+        <field name="model">bulk.operation.log</field>
+        <field name="arch" type="xml">
+            <search string="Bulk Operation Logs">
+                <field name="name"/>
+                <field name="operation_type"/>
+                <field name="user_id"/>
+                <filter string="In Progress" name="in_progress" domain="[('state', '=', 'in_progress')]"/>
+                <filter string="Completed" name="completed" domain="[('state', '=', 'completed')]"/>
+                <filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+                <filter string="With Errors" name="with_errors" domain="[('error_count', '>', 0)]"/>
+                <separator/>
+                <filter string="Today" name="today" domain="[('start_time', '>=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
+                <filter string="This Week" name="this_week" domain="[('start_time', '>=', (context_today() - datetime.timedelta(days=context_today().weekday())).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Month" name="this_month" domain="[('start_time', '>=', context_today().strftime('%Y-%m-01'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Operation Type" name="group_operation_type" context="{'group_by': 'operation_type'}"/>
+                    <filter string="User" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'start_time:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Bulk Operation Log Line Tree View -->
+    <record id="view_bulk_operation_log_line_tree" model="ir.ui.view">
+        <field name="name">bulk.operation.log.line.tree</field>
+        <field name="model">bulk.operation.log.line</field>
+        <field name="arch" type="xml">
+            <tree string="Operation Details">
+                <field name="record_name"/>
+                <field name="state" decoration-success="state == 'success'" decoration-danger="state == 'failed'"/>
+                <field name="error_message"/>
+                <field name="start_time"/>
+                <field name="duration" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Bulk Operation Log Line Form View -->
+    <record id="view_bulk_operation_log_line_form" model="ir.ui.view">
+        <field name="name">bulk.operation.log.line.form</field>
+        <field name="model">bulk.operation.log.line</field>
+        <field name="arch" type="xml">
+            <form string="Operation Detail">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="log_id"/>
+                            <field name="record_id"/>
+                            <field name="record_name"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+                            <field name="start_time"/>
+                            <field name="end_time"/>
+                            <field name="duration" widget="float_time"/>
+                        </group>
+                    </group>
+                    <group string="Error Information" invisible="state != 'failed'">
+                        <field name="error_message"/>
+                        <field name="error_details"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Bulk Operation Logs -->
+    <record id="action_bulk_operation_log" model="ir.actions.act_window">
+        <field name="name">Bulk Operation Logs</field>
+        <field name="res_model">bulk.operation.log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_completed': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No bulk operation logs found
+            </p>
+            <p>
+                Bulk operation logs will appear here after running bulk operations on invoices.
+            </p>
+        </field>
+    </record>
+
+    <!-- Dashboard Action for Bulk Operation Logs -->
+    <record id="action_bulk_operation_log_dashboard" model="ir.actions.act_window">
+        <field name="name">Bulk Operations Dashboard</field>
+        <field name="res_model">bulk.operation.log</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_today': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No bulk operation logs found
+            </p>
+            <p>
+                Bulk operation logs will appear here after running bulk operations on invoices.
+            </p>
+        </field>
+    </record>
+
+    <!-- Kanban View for Bulk Operation Logs Dashboard -->
+    <record id="view_bulk_operation_log_kanban" model="ir.ui.view">
+        <field name="name">bulk.operation.log.kanban</field>
+        <field name="model">bulk.operation.log</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1">
+                <field name="name"/>
+                <field name="operation_type"/>
+                <field name="total_records"/>
+                <field name="success_count"/>
+                <field name="error_count"/>
+                <field name="state"/>
+                <field name="start_time"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <div class="o_kanban_record_top_right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'in_progress': 'info', 'completed': 'success', 'failed': 'danger'}}"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <strong>Type:</strong> <field name="operation_type"/>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong>Total:</strong> <field name="total_records"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-6">
+                                            <span class="text-success">✅ <field name="success_count"/></span>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="text-danger">❌ <field name="error_count"/></span>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <small class="text-muted">
+                                                <field name="start_time"/>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Menu Item for Bulk Operation Logs -->
+    <menuitem id="menu_bulk_operation_log"
+              name="Bulk Operation Logs"
+              parent="menu_publish_vat_invoice_root"
+              action="action_bulk_operation_log"
+              sequence="50"/>
+
+</odoo> 

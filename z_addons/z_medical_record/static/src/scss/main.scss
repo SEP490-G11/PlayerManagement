@@ -1,0 +1,48 @@
+.o_list_view th[data-name="customer_id"] {
+    min-width: 200px !important;
+}
+.o_list_view th[data-name="customer_mobile"] {
+  min-width: 130px !important;
+}
+.o_list_view th[data-name="doctor_id"] {
+  min-width: 105px !important;
+}
+.o_list_view th[data-name="customer_gender"] {
+  max-width: 50px !important;
+}
+
+.o_list_view td > .doctor_id, .o_list_view td[name="doctor_id"] {
+   white-space: normal !important;
+   word-wrap: break-word !important;
+}
+.o_list_view td > .customer_id > a {
+  position: relative !important;
+  display: block !important;
+}
+
+.o_list_view td > .customer_id > a > span{
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+.o_list_view th[data-name="customer_detail_widget"] {
+    min-width: 150px !important;
+}
+
+.o_list_view th[data-name="booking_date"] {
+    width: 80px !important;
+}
+
+.o_list_view th[data-name="printing_type"] {
+    width: 80px !important;
+}
+
+.o_list_view td > .o_field_printing_type_selection > select {
+   width: 80px !important;
+}
+.o_list_view td[data-name="printing_type"] {
+    width: 80px !important;
+}
+
+.o_list_view td > .doctor_id, .o_list_view td[name="state"], .o_list_view td[name="floor"] {
+  width: 120px;
+}

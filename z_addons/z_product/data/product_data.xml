@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record forcecreate="True" id="decimal_product" model="decimal.precision">
+        <field name="name">Product</field>
+        <field name="digits" eval="0" />
+    </record>
+
+    <record id="cls_category" model="product.category">
+        <field name="name">CLS</field>
+    </record>
+</odoo>

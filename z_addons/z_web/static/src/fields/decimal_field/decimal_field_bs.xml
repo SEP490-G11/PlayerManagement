@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_web.DecimalFieldBs">
+        <t t-if="props.readonly">
+            <input class="form-control"
+                t-att-value="formattedValue == 0 ? '' : formattedValue "
+                t-att-disabled='true' />
+        </t>
+        <t t-else="">
+            <input class="form-control"
+                t-att-value="this.props.record.data[this.props.name] == 0 ? '' : this.props.record.data[this.props.name] "
+                t-on-change="(e)=> this.onBlur.bind(this)(e)"
+                t-model="this.props.record.data[this.props.name]"
+                t-att-class="{'o_field_translate': isTranslatable}"
+                t-att-id="props.id" t-att-type="props.isPassword ? 'password' : 'text'"
+                t-att-autocomplete="props.autocomplete or (props.isPassword ? 'new-password' : 'off')"
+                t-att-maxlength="maxLength > 0 and maxLength" t-att-placeholder="props.placeholder" t-ref="input" />
+        </t>
+    </t>
+</templates>

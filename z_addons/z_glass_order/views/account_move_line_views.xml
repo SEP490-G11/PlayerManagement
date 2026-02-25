@@ -1,0 +1,16 @@
+<odoo>
+    <record id="z_account_move_lne" model="ir.ui.view">
+        <field name="name">z_account.account.move.line</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='quantity']" position="before">
+                <field name="is_glass_order" column_invisible="1"></field>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='quantity']"
+                position="attributes">
+                <attribute name="readonly">is_glass_order</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

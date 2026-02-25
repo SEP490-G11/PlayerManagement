@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_ophthalmology_cls,z_ophthalmology.cls all,model_z_ophthalmology_cls,base.group_system,1,1,1,1
+access_z_ophthalmology_comprehensive,z_ophthalmology.comprehensive all,model_z_ophthalmology_comprehensive,base.group_system,1,1,1,1
+access_z_ophthalmology_lens,z_ophthalmology.lens all,model_z_ophthalmology_lens,base.group_system,1,1,1,1
+access_z_ophthalmology_re_lens,z_ophthalmology.re_lens all,model_z_ophthalmology_re_lens,base.group_system,1,1,1,1
+access_z_ophthalmology_vision,z_ophthalmology.vision all,model_z_ophthalmology_vision,base.group_system,1,1,1,1
+access_z_ophthalmology_binocular_vision,z_ophthalmology.binocular_vision all,model_z_ophthalmology_binocular_vision,base.group_system,1,1,1,1
+access_z_ophthalmology_examination_count,z_ophthalmology.examination_count all,model_z_ophthalmonogy_examination_count,base.group_system,1,1,1,1

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <template id="report_re_lens">
+      <t t-set="dataAppointment" t-value="docs.visit_id"></t>
+      <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+          <style>
+                .justify-content-center {
+                    -webkit-box-pack: center;
+                    justify-content: center;
+                }
+                .flex-1 {
+                   -webkit-box-flex: 1;
+                    -webkit-flex: 1;
+                    flex: 1;
+                }
+
+                @media print, screen {
+                  .page-break {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                  }
+                  div {
+                    line-height: 1.5;
+                  }
+                  div.text-nowrap {
+                    white-space: nowrap !important;
+                  }
+                }
+          </style>
+          <t t-foreach="docs" t-as="doc">
+            <div class="page" style="margin-top: 20px !important;">
+              <h3 class="text-center">REEXAMINATION - CONTACT LENS</h3>
+              <p class="text-center fw-bolder">Code: <span t-esc="doc.code"/>
+              </p>
+              <div class="row mb-2">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Name
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <strong>
+                    <span t-field="doc.customer_id"/>
+                  </strong>
+                </div>
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Age
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <strong>
+                    <span t-if="doc.customer_id.age" t-field="doc.customer_id.age"/>
+                  </strong>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Phone number
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-field="doc.customer_id.mobile"/>
+                </div>
+                <div class="col-2 d-flex">
+                  <div class="flex-1">
+                    Gender
+                  </div>
+                  <span class="me-2">:</span>
+                </div>
+                <div class="col-4">
+                  <span t-if="doc.customer_id.gender == 'male'">Male</span>
+                  <span t-if="doc.customer_id.gender == 'female'">Female</span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <table class="table" t-if="doc.right_eye_ktx or doc.left_eye_ktx or doc.right_eye_shv or doc.left_eye_shv">
+                  <thead>
+                    <tr>
+                      <th/>
+                      <th class="text-center">Right eye</th>
+                      <th class="text-center">Left eye</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr t-if="doc.right_eye_ktx or doc.left_eye_ktx">
+                      <td>Visual acuity treated with KTX</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_ktx"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_ktx"/>
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_shv or doc.left_eye_shv">
+                      <td>SHV</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_shv"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_shv"/>
+                      </td>
+                    </tr>
+                    <tr t-if="doc.right_eye_eyeball_axis_length or doc.left_eye_eyeball_axis_length">
+                      <td>Eyeball axis length (mm)</td>
+                      <td class="text-center">
+                        <span t-field="doc.right_eye_eyeball_axis_length"/>
+                      </td>
+                      <td class="text-center">
+                        <span t-field="doc.left_eye_eyeball_axis_length"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="mt-4">
+                <table class="table" t-if="doc.result">
+                  <tbody>
+                    <tr>
+                      <td style="width: 20%">EXAMINATION RESULT</td>
+                      <td>
+                        <span t-field="doc.result"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+                <div class="mb-2 mt-4">
+                    <p class="mb-0">
+                        Prescription:
+                    </p>
+                    <table class="table">
+                        <tbody>
+                            <tr t-foreach="doc.drug_ids" t-as="drug" t-key="drug.id">
+                                <td class="text-center" style="width:50px">
+                                    <span t-esc="drug_index+1"/>
+                                    .
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div>
+                                                <span t-field="drug.name" class="fw-bold"/>
+                                            </div>
+                                            <div>
+                                                <span t-field="drug.usage_id.name"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            Quantity:
+                                            <span t-field="drug.quantity" class="fw-bold"/>
+                                            <span t-field="drug.unit"/>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row mb-2 page-break">
+                <div class="col-6">
+                  <div class="fw-bold d-inline-block">Reexamination date:</div>
+                  <span t-field="doc.reexamination_date"></span>
+                </div>
+                <div class="col-6">
+                  <div class="justify-content-center d-flex">
+                    Day
+                    <span t-field="doc.examination_date"/>
+                  </div>
+                  <div class="justify-content-center d-flex">
+                    <div class="fw-bold d-inline-block">Examiner</div>
+                  </div>
+                  <div style="height:70px"/>
+                  <div class="w-45" style="text-align:center !important">
+                    <span class="fw-bold" t-field="doc.examiner_id"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </t>
+      </t>
+    </template>
+  </data>
+</odoo>

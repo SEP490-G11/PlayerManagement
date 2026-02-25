@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_appointment.ScheduleCalendar" owl="1">
+        <div class="main-section schedule-calendar ">
+            <div class="o_action o_view_controller o_list_view h-100 d-flex flex-column">
+                <Breadcrumb/>
+                <div class="o_control_panel d-flex flex-column gap-3 gap-lg-1 px-3 py-2">
+                    <t t-call="z_appointment.ScheduleCalendarHeader"/>
+                </div>
+                <div class="guide">
+                    <t t-call="z_web.IconInfo"></t>
+                    <span>Instructions: To quickly create a new schedule, press the "+" icon in each time slot.</span>
+                </div>
+                <div class="o_content w-100 overflow-auto">
+                    <div class="o_list_renderer o_renderer table-responsive h-100 " t-on-scroll="() => this.selectAppointment(e, null)">
+                        <t t-call="z_appointment.ScheduleCalendarTable"></t>
+                    </div>
+                </div>
+            </div>
+            <t t-call="z_appointment.AppointmentCellGroup"></t>
+            <ScheduleForm onFetch="this.fetchAppointments.bind(this)" />
+        </div>
+        <Notify />
+        <NotifyError />
+        <ConfirmDialog id="'remove-confirm-modal'" t-props="propsConfirm">
+            <t t-set-slot="left-action">
+                <button type="button" class="btn btn-secondary cancel" data-bs-dismiss="modal">Cancel</button>
+            </t>
+            <t t-set-slot="right-action">
+                <button type="button" class="btn btn-primary" t-on-click="this.removeAppointment">Delete</button>
+            </t>
+        </ConfirmDialog>
+    </t>
+
+    <t t-name="z_appointment.ScheduleCalendarHeader" owl="1">
+        <div class="row head">
+            <!-- Title of table -->
+            <div class="col manage">
+                <div class="table-header">Appointment Management</div>
+                <div class="ms-3">
+                    <button class="btn btn-primary add-customer d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#scheduleFormModal" t-on-click="() => this.onCreateByDateAndTime()">
+                        <t t-call="z_web.IconPlusForButtonAdd"></t>
+                        <div class="ps-2">Book an appointment</div>
+                    </button>
+                    <div class="dropdown d-md-none ms-2">
+                            <ul class="dropdown-menu d-contents">
+                                <li>
+                                    <span class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown">Place</span>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item" t-foreach="state.places" t-as="place" t-key="place.name" t-on-click="() => this.selectPlace(place)">
+                                            <span t-esc="place.name"></span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" href="#">Date</span>
+                                    <ul class="dropdown-menu date-picker-mobile">
+                                        <li class="dropdown-item p-1">
+                                            <div class="range-date-picker ms-3 me-3">
+                                                <CustomDatePicker id="'2023124'" onChange="this.selectDate.bind(this)" value="state.selectedDate" name="'calendar_picker'" isInput="false"/>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+            <div class="col type">
+                <ul style="display: flex;">
+                    <li>
+                        <div class="pointer secondary secondary-highlight-color"></div>
+                        <span>Pre-booked appointments</span>
+                    </li>
+                    <li>
+                        <div class="pointer overbook"></div>
+                        <span>Overbooked appointments</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col date-selector">
+                <div class="d-flex gap-2 align-items-center mx-5">
+                    <span>Place</span>
+                    <Dropdown
+                        togglerClass="`btn w-100 d-flex justify-content-between align-items-center outline align-items-center gap-2 place-box place-dropdown-container `">
+                        <t t-set-slot="toggler">
+                            <!-- "toggler" slot content is rendered inside a button -->
+                            <div class="d-flex justify-content-between w-100">
+                                <span t-esc="state.place?.name or ''"
+                                    class="primary-text-color"></span>
+                                <img src="z_web/static/image/arrow-down.svg" />
+                            </div>
+                        </t>
+                        <DropdownItem t-foreach="state.places" t-as="place" t-key="place.name"
+                            onSelected="()=>this.selectPlace(place)">
+                            <span t-esc="place.name" />
+                        </DropdownItem>
+                    </Dropdown>
+                </div>
+                <div>
+                    <button t-on-click="()=>this.backToPreviousWeekCalendar()" class="btn">
+                        <t t-call="z_web.IconLeftArrow"></t>
+                    </button>
+                </div>
+                <div class="range-date-picker ms-3 me-3">
+                    <CustomDatePicker id="'2023123'" onChange="this.selectDate.bind(this)" value="state.selectedDate" name="'calendar_picker'" isInput="false"/>
+                </div>
+                <div>
+
+                    <button t-on-click="()=>this.goToForwardWeek()" class="btn">
+                        <t t-call="z_web.IconRightArrow"></t>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="z_appointment.ScheduleCalendarTable" owl="1">
+        <div class="cal-container table-sticky-header">
+            <table class="table calendar">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th t-foreach="state.dateOfWeeks" t-as="item" t-key="item.getDate()" t-att-class="{'active': this.getDateString(item) == this.getDateString(new Date())}">
+                            <div class="day-of-week" t-esc="this.getLabelByDate(item)"></div>
+                            <div class="date">
+                                <span t-esc="item.getDate()"></span>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr class="normal">
+                        <th>Pre-booked appointments</th>
+                        <th class="number" t-foreach="state.listQuantityOfAppointmentsPerDay" t-as="item" t-key="item.label">
+                            <span t-esc="item.normal"></span>
+                        </th>
+                    </tr>
+                    <tr class="overbook">
+                        <th>Overbooked appointments</th>
+                        <th class="number" t-foreach="state.listQuantityOfAppointmentsPerDay" t-as="item" t-key="item.label">
+                            <span t-esc="item.overbook"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody t-if="state.timeArray and state.timeArray.length != 0">
+                    <tr t-foreach="state.timeArray" t-as="time" t-key="time" t-att-id="genIdbyTime(time)">
+                        <td style=" color:#656870" t-esc="convertTimeToRangeTime(time) "></td>
+                        <td style="padding:3px" t-if="state.dateLabelList" t-foreach="state.dateLabelList" t-att-class="this.handleClassNameForCell(time, date)" class="position-relative heigh-200" t-as="date" t-key="date">
+                            <div t-if="!this.checkAvailableTime(time, date)">
+                                <div class="">No available schedule</div>
+                            </div>
+                            <t t-else="">
+                                <button class="button add-appointment" t-if="checkEnableAddAppointment(time,date)" data-bs-toggle="modal" data-bs-target="#scheduleFormModal" t-on-click="() => this.onCreateByDateAndTime(date, time)">
+                                    <img src="/z_web/static/image/grey-add.svg"/>
+                                </button>
+                                <div t-if="state.timeArray[time] and state.timeArray[time][date]" style="padding-top: 16px;">
+                                    <div t-foreach="state.timeArray[time][date]" t-as="appointment" t-key="appointment.id">
+                                        <t t-call="z_appointment.AppointmentsInWorkingTimeItem">
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </t>
+    <!-- Appointment time cell -->
+    <t t-name="z_appointment.AppointmentsInWorkingTimeItem" owl="1">
+        <div class="slot-time">
+            <div class="list-appointment d-flex flex-column align-items-start"
+                style="padding-left: 10px" t-att-class="{'overbook': appointment.overbook}">
+                <div t-on-click="(e) => this.selectAppointment(e, appointment)"
+                    class="position-relative title text-start d-flex flex-column working-time"
+                    data-bs-toggle="popover" data-bs-placement="bottom"
+                    data-bs-content-id="popover-content" tabindex="0" role="button">
+                    <span style='font-weight: 700' t-out="getLabelDoctor(appointment.doctor.name)" />
+                    <span style='font-weight: 700' t-if="appointment.technician.name"
+                        t-out="getLabelTechnician(appointment.technician.name)" />
+                </div>
+            </div>
+        </div>
+        <div id="popover-content" class="d-none"> Popover content with <strong>HTML</strong>. 
+        </div>
+    </t>
+    <!--Appointment
+    time cell group buttons-->
+    <t t-name="z_appointment.AppointmentCellGroup" owl="1">
+        <div class="appointment-group-button d-flex flex-column hide" id="appointment-preview" t-att-class="{'show': state.isShowPopover}">
+            <div class="header d-flex">
+                <span t-esc="state.popoverHeaderLabel"></span>
+                <div class="d-flex" style="gap: 16px">
+                    <button class="btn" data-bs-target="#scheduleFormModal" data-bs-toggle="modal" t-on-click="this.editAppointment">
+                        <img src="/z_web/static/image/edit-1.svg"></img>
+                    </button>
+                    <button class="btn" data-bs-target="#remove-confirm-modal" t-on-click="() => this.onRemoveSchedule(state.activeAppointment)" data-bs-toggle="modal">
+                        <img src="/z_web/static/image/grey-delete-2.svg"></img>
+                    </button>
+                    <button class="btn" t-on-click="(e) => this.selectAppointment(e, null)">
+                        <img src="/z_web/static/image/close.svg"></img>
+                    </button>
+                </div>
+            </div>
+            <div class="body d-flex primary-text-color" t-if="state.activeAppointment" style="gap:10px">
+                <div class="d-flex align-items-center">
+                    <img style="width:20px; height:20px" src="/z_web/static/image/normal-appointment-circle.svg" t-if="!state.activeAppointment.overbook"></img>
+                    <img style="width:20px; height:20px" src="/z_web/static/image/overbook-appointment-circle.svg" t-if="state.activeAppointment.overbook"></img>
+
+                    <span class="label-schedule-user">
+                        <b class="highlight">KH.</b>
+                        <span t-esc="state.activeAppointment.customer_name"></span>
+                        -
+                        <span t-esc="state.activeAppointment.customer_phone_number"></span>
+                    </span>
+                </div>
+                <div class="content d-flex align-items-center">
+                    <img style="width:20px; height:20px" src="/z_web/static/image/doctor.svg"></img>
+                    <span class="label-schedule-user">
+                        <b class="highlight">Dr.</b>
+                        <span t-if="state.activeAppointment.doctor" t-esc="state.activeAppointment.doctor.name"></span>
+                    </span>
+                </div>
+                <div class="d-flex align-items-center " t-if="state.activeAppointment.technician and state.activeAppointment.technician.name">
+                    <img style="width:20px; height:20px" src="/z_web/static/image/technician.svg"></img>
+                    <span class="label-schedule-user">
+                        <b class="highlight">TC.</b>
+                        <span t-if="state.activeAppointment.technician" t-esc="state.activeAppointment.technician.name"></span>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </t>
+</templates>

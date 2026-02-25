@@ -1,0 +1,71 @@
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="12" height="12" fill="#E5E5E5"/>
+<g id="Qu&#225;&#186;&#163;n l&#195;&#189; ph&#195;&#178;ng kh&#195;&#161;m">
+<path d="M-1594 -417C-1594 -418.105 -1593.1 -419 -1592 -419H6396C6397.1 -419 6398 -418.105 6398 -417V2819C6398 2820.1 6397.1 2821 6396 2821H-1592C-1593.1 2821 -1594 2820.1 -1594 2819V-417Z" fill="#EBEBEB"/>
+<path d="M-1592 -418H6396V-420H-1592V-418ZM6397 -417V2819H6399V-417H6397ZM6396 2820H-1592V2822H6396V2820ZM-1593 2819V-417H-1595V2819H-1593ZM-1592 2820C-1592.55 2820 -1593 2819.55 -1593 2819H-1595C-1595 2820.66 -1593.66 2822 -1592 2822V2820ZM6397 2819C6397 2819.55 6396.55 2820 6396 2820V2822C6397.66 2822 6399 2820.66 6399 2819H6397ZM6396 -418C6396.55 -418 6397 -417.552 6397 -417H6399C6399 -418.657 6397.66 -420 6396 -420V-418ZM-1592 -420C-1593.66 -420 -1595 -418.657 -1595 -417H-1593C-1593 -417.552 -1592.55 -418 -1592 -418V-420Z" fill="black" fill-opacity="0.1"/>
+<g id="Danh s&#195;&#161;ch nh&#195;&#162;n vi&#195;&#170;n" clip-path="url(#clip0_1669_200492)">
+<rect width="1440" height="900" transform="translate(-1264 -172)" fill="#EBEBEB"/>
+<g id="QL DS nh&#195;&#162;n vi&#195;&#170;n" clip-path="url(#clip1_1669_200492)">
+<rect width="1440" height="900" transform="translate(-1264 -172)" fill="#EBEBEB"/>
+<g id="DS B&#195;&#161;c s&#196;&#169;">
+<g clip-path="url(#clip2_1669_200492)">
+<rect x="-1256" y="-100" width="1424" height="828" rx="4" fill="white"/>
+<g id="Board / Kh&#195;&#161;ch h&#195;&#160;ng" clip-path="url(#clip3_1669_200492)">
+<g id="Board / Kh&#195;&#161;ch h&#195;&#160;ng_2" clip-path="url(#clip4_1669_200492)">
+<g id="Frame 118">
+<g id="Row / Kh&#195;&#161;ch h&#195;&#160;ng">
+<path d="M-1256 -12H168V36H-1256V-12Z" fill="#F7F7F7"/>
+<path d="M-1256 -11.75H168V-12.25H-1256V-11.75ZM168 35.75H-1256V36.25H168V35.75Z" fill="#CFCFCF"/>
+<g id="Frame 104">
+<g id="Frame 158">
+<g id="Col Name 37">
+<rect x="-347" y="-12" width="423" height="48" stroke="#CFCFCF" stroke-width="0.5"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g id="B&#225;&#187;&#153; l&#225;&#187;&#141;c" filter="url(#filter0_d_1669_200492)">
+<rect x="-115" y="-16" width="143" height="200" rx="4" fill="white"/>
+<rect x="-114.5" y="-15.5" width="142" height="199" rx="3.5" stroke="#F7F7F7"/>
+<g id="Frame 165">
+<g id="checkmark">
+<path id="Vector" d="M9.75 3L4.5 9L2.25 6.75" stroke="#27B9B1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_1669_200492" x="-135" y="-32" width="183" height="240" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="10"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1669_200492"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1669_200492" result="shape"/>
+</filter>
+<clipPath id="clip0_1669_200492">
+<rect width="1440" height="900" fill="white" transform="translate(-1264 -172)"/>
+</clipPath>
+<clipPath id="clip1_1669_200492">
+<rect width="1440" height="900" fill="white" transform="translate(-1264 -172)"/>
+</clipPath>
+<clipPath id="clip2_1669_200492">
+<rect x="-1256" y="-100" width="1424" height="828" rx="4" fill="white"/>
+</clipPath>
+<clipPath id="clip3_1669_200492">
+<rect width="1424" height="716" fill="white" transform="translate(-1256 -12)"/>
+</clipPath>
+<clipPath id="clip4_1669_200492">
+<rect width="1424" height="716" fill="white" transform="translate(-1256 -12)"/>
+</clipPath>
+</defs>
+</svg>

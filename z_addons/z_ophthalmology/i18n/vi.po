@@ -1,0 +1,3273 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_ophthalmology
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240624\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-15 03:34+0000\n"
+"PO-Revision-Date: 2024-08-15 03:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_ophthalmology
+#: model:ir.actions.report,print_report_name:z_ophthalmology.action_report_binocular_vision
+#: model:ir.actions.report,print_report_name:z_ophthalmology.action_report_comprehensive
+#: model:ir.actions.report,print_report_name:z_ophthalmology.action_report_lens
+#: model:ir.actions.report,print_report_name:z_ophthalmology.action_report_re_lens
+#: model:ir.actions.report,print_report_name:z_ophthalmology.action_report_vision
+msgid "'%s'%(object.pdf_title)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "2 eyes"
+msgstr "2 mắt"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "<span class=\"me-2\">:</span>"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "@Dcc:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "@Dsc:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "@Ncc:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "@Nsc:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "AA"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "ACD (mm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__add
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "ADD"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_needaction
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_needaction
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_needaction
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_needaction
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_needaction
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_needaction
+msgid "Action Needed"
+msgstr "Hành động cần thiết"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_ids
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_exception_decoration
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_exception_decoration
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_exception_decoration
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_exception_decoration
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_exception_decoration
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Hoạt động ngoại lệ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_state
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_state
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_state
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_state
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_state
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_type_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_type_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_type_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_type_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_type_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng loại hoạt động"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Add"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__add_glasses_prescription
+msgid "Add glasses prescription"
+msgstr "ADD đơn kính"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Add:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Age"
+msgstr "Tuổi"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Age:"
+msgstr "Tuổi:"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__allergies_history
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__allergies_history
+msgid "Allergies history"
+msgstr "Tiền sử dị ứng"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Anterior chamber depth (mm)"
+msgstr "Độ sâu tiền phòng (mm)"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_appointment_appointment
+msgid "Appointment"
+msgstr "Lịch hẹn"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__atropin
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Atropin 0.5%"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_attachment_count
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_attachment_count
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_attachment_count
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_attachment_count
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_attachment_count
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số lượng tệp đính kèm"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Axial length of eyeball (1)"
+msgstr "Chiều dài trục nhãn cầu (1)"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "BAF"
+msgstr ""
+
+#. module: z_ophthalmology
+#. odoo-javascript
+#: code:addons/z_ophthalmology/static/src/fields/trial_lenses/trial_lenses_field.xml:0
+#, python-format
+msgid "BC"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "BC (mm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#: model:ir.actions.act_window,name:z_ophthalmology.z_binocular_vision_action
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_view_partner_form_inherit
+#, python-format
+msgid "Binocular vision examination"
+msgstr "Khám thị giác hai mắt"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_visit_list_view_inherit
+msgid "Binocular vision examination"
+msgstr "TG2M"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_ophthalmology_binocular_vision
+msgid "Binocular vision examination result"
+msgstr "Kết quả khám thị giác hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_drug__binocular_vision_id
+msgid "Binocular vision examination result's drug"
+msgstr "Đơn thuốc của kết quả khám thị giác hai mắt"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#, python-format
+msgid "BinocularVisionExamination"
+msgstr "ThiGiacHaiMat"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Biometrics"
+msgstr "Sinh trắc học"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#, python-format
+msgid "Biometrics field must not be 0 or empty."
+msgstr ""
+"Trường Steep K / Flat K (D) không được để trống hoặc bằng 0 nhằm mục đích "
+"nghiên cứu"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__biomicroscopy
+msgid "Biomicroscopy"
+msgstr "Sinh hiển vi"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/controllers/research_utils.py:0
+#: code:addons/z_ophthalmology/controllers/research_utils.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: model:ir.model.fields.selection,name:z_ophthalmology.selection__z_ophthalmology_comprehensive__family_history_of_myopia__3
+#, python-format
+msgid "Both"
+msgstr "Cả hai"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Bright"
+msgstr "Sáng"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_form
+msgid "Bệnh sử"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields.selection,name:z_ophthalmology.selection__z_ophthalmology_comprehensive__measurement_type__cc
+msgid "CC"
+msgstr ""
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/cls.py:0
+#: code:addons/z_ophthalmology/models/cls.py:0
+#, python-format
+msgid "CLS"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.actions.act_window,name:z_ophthalmology.z_cls_action
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "CLS designation"
+msgstr "Chỉ định CLS"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__ct
+msgid "CT"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "CT (cm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/cls.py:0
+#, python-format
+msgid "Can not delete CLS"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Central GM thickness (µm)"
+msgstr "Chiều dày GM trung tâm (µm)"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Classify (1) + (2) + (3)"
+msgstr "Phân loại (1) + (2) + (3)"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Clinical examination"
+msgstr "Khám lâm sàng"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__close_up_tool_left_eye
+msgid "Close up tool left eye"
+msgstr "Trợ cụ nhìn gần mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__close_up_tool_name
+msgid "Close up tool name"
+msgstr "Tên trợ cụ nhìn gần"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__close_up_tool_right_eye
+msgid "Close up tool right eye"
+msgstr "Trợ cụ nhìn gần mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__close_up_tool_status
+msgid "Close up tool status"
+msgstr "Tình trạng trợ cụ nhìn gần"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__close_up_tool_wattage
+msgid "Close up tool wattage"
+msgstr "Công suất trợ cụ nhìn gần"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_ophthalmology_cls
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_medical_result__cls_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__cls_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__cls_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__cls_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__cls_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__cls_ids
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_cls_list_view
+msgid "Cls"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__name
+msgid "Cls Name"
+msgstr "Tên chỉ định"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "Clustering system"
+msgstr "Hệ phân tụ"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Code"
+msgstr "Mã chỉ định"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Code:"
+msgstr "Mã số:"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_research__color_tag
+msgid "Color Tag"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Color perception"
+msgstr "Sắc giác"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__color_sense_mp
+msgid "Color sense MP"
+msgstr "MP sắc giác"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__color_sense_mt
+msgid "Color sense MT"
+msgstr "MT sắc giác"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__color_sense_test
+msgid "Color sense test"
+msgstr "Test sắc giác"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__comprehensive_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__comprehensive_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__comprehensive_ids
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_list_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_ophthalmology_form
+#, python-format
+msgid "Comprehensive"
+msgstr "Khám toàn diện"
+
+#. module: z_ophthalmology
+#: model:ir.actions.act_window,name:z_ophthalmology.z_comprehensive_action
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_view_partner_form_inherit
+msgid "Comprehensive examination"
+msgstr "Khám toàn diện"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_visit_list_view_inherit
+msgid "Comprehensive examination"
+msgstr "TD"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_ophthalmology_comprehensive
+msgid "Comprehensive examination result"
+msgstr "Kết quả khám toàn diện"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_drug__comprehensive_id
+msgid "Comprehensive examination result's drug"
+msgstr "Thuốc của kết quả khám toàn diện"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#, python-format
+msgid "ComprehensiveType"
+msgstr "KhamToanDien"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#, python-format
+msgid "Contact lens examination"
+msgstr "Khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_visit_list_view_inherit
+#, python-format
+msgid "Contact lens examination"
+msgstr "KTX"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#, python-format
+msgid "Contact lens reexamination"
+msgstr "Tái khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_visit_list_view_inherit
+#, python-format
+msgid "Contact lens reexamination"
+msgstr "T-KKTX"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#, python-format
+msgid "ContactLensExamination"
+msgstr "KhamTiepXuc"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#, python-format
+msgid "ContactLensReexamination"
+msgstr "TaiKhamTiepXuc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Contrasting visual acuity"
+msgstr "Thị lực tương phản"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid ""
+"Convergence and oculomotor\n"
+"                                            system"
+msgstr "Hệ phân tụ và vận nhãn"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Corneal curvature"
+msgstr "Độ cong giác mạc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Corneal curvature &amp; diameter"
+msgstr "Độ cong &amp; đường kính giác mạc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Corneal diameter (mm)"
+msgstr "Đường kính giác mạc (mm)"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__cover_test
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Cover test"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__cover_test_dcc
+msgid "Cover test DCC"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__cover_test_dsc
+msgid "Cover test DSC"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__cover_test_ncc
+msgid "Cover test NCC"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__cover_test_nsc
+msgid "Cover test NSC"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__create_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__create_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__create_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__create_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__create_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_research__create_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__create_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmonogy_examination_count__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__create_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__create_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__create_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__create_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__create_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_research__create_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__create_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmonogy_examination_count__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__customer_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__customer_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__customer_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__customer_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__customer_id
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Customer Code"
+msgstr "Mã KH"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__customer_age
+msgid "Customer age"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__cyclogyl
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Cyclogyl 1%"
+msgstr ""
+
+#. module: z_ophthalmology
+#. odoo-javascript
+#: code:addons/z_ophthalmology/static/src/fields/trial_lenses/trial_lenses_field.xml:0
+#, python-format
+msgid "DIA"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "DIA (mm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Dark"
+msgstr "Tối"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__dark_perrl
+msgid "Dark perrl"
+msgstr "Perrl tối"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__date_join_rs
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__date_join_rs
+msgid "Date join research"
+msgstr "Ngày tham gia NC"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Day"
+msgstr "Ngày"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__diagnose
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Diagnose"
+msgstr "Chẩn đoán"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__display_name
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__display_name
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__display_name
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__display_name
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__display_name
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_research__display_name
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__display_name
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmonogy_examination_count__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_medical_record_drug
+msgid "Drug"
+msgstr "Thuốc"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__eom
+msgid "EOM"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "EOM (cm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eoms
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "EOMs"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+msgid "EXAMINATION RESULT"
+msgstr "KẾT QUẢ KHÁM"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "EYE EXAMINATION RESULT"
+msgstr "KẾT QUẢ KHÁM MẮT"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__examination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__examination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__examination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__examination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__examination_date
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Examination date"
+msgstr "Ngày khám"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+msgid "Examination results"
+msgstr "Kết quả khám"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__examination_type
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__examination_type
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__examination_type
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__examination_type
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__examination_type
+msgid "Examination type"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_medical_result__examiner_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__examiner_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__examiner_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__examiner_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__examiner_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__examiner_id
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Examiner"
+msgstr "Người khám"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__eyes_aa
+msgid "Eye AA"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__eyes_baf
+msgid "Eye BAF"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__eyes_nra_pra
+msgid "Eye NRA/PRA"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__eye_eyeball_axis_length
+msgid "Eye eyeball axis length"
+msgstr "Chiều dài trục nhãn cầu"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__eye_health
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Eye health"
+msgstr "Sức khoẻ mắt"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Eye sight"
+msgstr "Thị lực"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+msgid "Eyeball axis length (mm)"
+msgstr "Chiều dài trục nhãn cầu (mm)"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__eyeball_axis_length_in_left_eye_with_potential_myopia
+msgid "Eyeball axis length in left eye with potential myopia"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__eyeball_axis_length_in_right_eye_with_potential_myopia
+msgid "Eyeball axis length in right eye with potential myopia"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_add
+msgid "Eyes ADD"
+msgstr "ADD hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_sbdt
+msgid "Eyes SBDT"
+msgstr "SVĐT hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_close_old_glasses
+msgid "Eyes close old glasses"
+msgstr "Hai mắt gần kính cũ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_close_without_glasses
+msgid "Eyes close without glasses"
+msgstr "Hai mắt gần không kính"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_contrast
+msgid "Eyes contrast"
+msgstr "Thị lực tương phản hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_far_old_glasses
+msgid "Eyes far old glasses"
+msgstr "Hai mắt xa kính cũ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_far_without_glasses
+msgid "Eyes far without glasses"
+msgstr "Hai mắt xa không kính"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__eyes_old_glasses
+msgid "Eyes old glasses"
+msgstr "Kính cũ hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__eyes_old_glasses_unit
+msgid "Eyes old glasses unit"
+msgstr "Đơn vị kính cũ hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_subjective_refraction
+msgid "Eyes subjective refraction"
+msgstr "Khúc xạ chủ quan hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__eyes_with_glare
+msgid "Eyes with glare"
+msgstr "Thị lực với ánh sáng chói"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__eyes_without_glasses
+msgid "Eyes without glasses"
+msgstr "Hai mắt không kính"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Eyesight without glasses"
+msgstr "Thị lực không kính"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__fas
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "FAS"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__ffs
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "FFS"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__fvs
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "FVS"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__family_eye_history
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__family_eye_history
+msgid "Family eye history"
+msgstr "Tiền sử mắt gia đình"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__family_history_of_myopia
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Family history of myopia"
+msgstr "Tiền sử gia đình cận thị"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Family history of myopia (2)"
+msgstr "Tiền sử gia đình cận thị (2)"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__family_history_of_myopia_point
+msgid "Family history of myopia point"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__family_history_of_myopia_value
+msgid "Family history of myopia value"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__family_overall_health_history
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__family_overall_health_history
+msgid "Family overall health history"
+msgstr "Tiền sử toàn thân gia đình"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Far"
+msgstr "Xa"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "Far (sc/cc)"
+msgstr "Xa (sc/cc)"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Far vision aid"
+msgstr "Thử trợ cụ nhìn xa"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Far vision without glasses"
+msgstr "TL xa không kính"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Far:"
+msgstr "Xa:"
+
+#. module: z_ophthalmology
+#. odoo-javascript
+#: code:addons/z_ophthalmology/static/src/fields/trial_lenses/trial_lenses_field.xml:0
+#, python-format
+msgid "Feeling with glasses:"
+msgstr "Cảm giác với kính:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Female"
+msgstr "Nữ"
+
+#. module: z_ophthalmology
+#. odoo-javascript
+#: code:addons/z_ophthalmology/static/src/fields/trial_lenses/trial_lenses_field.xml:0
+#, python-format
+msgid "Fitting:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Flat K:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_follower_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_follower_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_follower_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_follower_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_follower_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_partner_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_partner_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_partner_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_partner_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_partner_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_type_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__activity_type_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_type_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__activity_type_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__activity_type_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font biểu tượng, ví dụ: fa-tasks"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__foresight_tool_left_eye
+msgid "Foresight tool left eye"
+msgstr "Trợ cụ nhìn xa mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__foresight_tool_name
+msgid "Foresight tool name"
+msgstr "Tên trợ cụ nhìn xa"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__foresight_tool_right_eye
+msgid "Foresight tool right eye"
+msgstr "Trợ cụ nhìn xa mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__foresight_tool_status
+msgid "Foresight tool status"
+msgstr "Tình trạng trợ cụ nhìn xa"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__foresight_tool_wattage
+msgid "Foresight tool wattage"
+msgstr "Công suất trợ cụ nhìn xa"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "GLASS ORDER"
+msgstr "ĐƠN KÍNH"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "GM thickness (µm)"
+msgstr "Độ dày GM trung tâm (µm)"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Gender"
+msgstr "Giới tính"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Gender:"
+msgstr "Giới tính:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "General Information"
+msgstr "Thông tin chung"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Glass Company"
+msgstr "Hãng kính"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Glass order"
+msgstr "Đơn kính"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Glasses brand"
+msgstr "Hãng kính"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Handling Consultation"
+msgstr "Tư vấn xử lý"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__has_comprehensive
+msgid "Has Comprehensive"
+msgstr "Khám toàn diện"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__has_message
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__has_message
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__has_message
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__has_message
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__has_message
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__has_binocular_vision
+msgid "Has binocular vision"
+msgstr "Khám thị giác hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__has_lens
+msgid "Has lens"
+msgstr "Khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__has_re_lens
+msgid "Has re lens"
+msgstr "Tái khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__has_vision
+msgid "Has vision"
+msgstr "Khám khiếm thị"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_form
+msgid "Health history"
+msgstr ""
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#, python-format
+msgid "High risk"
+msgstr "Nguy cơ cao"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__icd_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__icd_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__icd_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__icd_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__icd_ids
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "ICD Codes"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "ICD-10"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_research__id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmonogy_examination_count__id
+msgid "ID"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_exception_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_exception_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_exception_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_exception_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_exception_icon
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_exception_icon
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_exception_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__activity_exception_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_exception_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__activity_exception_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__activity_exception_icon
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Biểu tượng cho thấy một hoạt động ngoại lệ."
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_needaction
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__message_needaction
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__message_needaction
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__message_needaction
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__message_needaction
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu chọn, bạn cần chú ý tới các tin nhắn mới."
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_has_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_has_sms_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__message_has_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__message_has_sms_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__message_has_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__message_has_sms_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__message_has_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__message_has_sms_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__message_has_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__message_has_sms_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__message_has_error
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu chọn, một số tin nhắn sẽ có lỗi gửi."
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Input content"
+msgstr "Nhập nội dung"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Input diagnose"
+msgstr "Nhập chẩn đoán"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Input information"
+msgstr "Nhập thông tin"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Input reason"
+msgstr "Nhập lý do"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Input result"
+msgstr "Nhập kết quả khám"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Input solution"
+msgstr "Nhập phương án xử lý"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#, python-format
+msgid "Insufficient Classification data"
+msgstr "Không đủ dữ liệu Phân loại."
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Intraocular pressure iCare(mmHg)"
+msgstr "Nhãn áp iCare (mmHg)"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/controllers/research_utils.py:0
+#, python-format
+msgid "Invalid value"
+msgstr "Không đúng định dạng"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Iris diameter (mm)"
+msgstr "Đường kính mống mắt (mm)"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_product_product__is_cls
+msgid "Is CLS"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__is_editable
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__is_editable
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__is_editable
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__is_editable
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__is_editable
+msgid "Is Editable"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_is_follower
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_is_follower
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_is_follower
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_is_follower
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_is_follower
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__is_valid_for_research
+msgid "Is valid for research"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Item"
+msgstr "Mục"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_account_move
+msgid "Journal Entry"
+msgstr "Bút toán"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__kcdt_close
+msgid "KCDT close"
+msgstr "Gần KCDT"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__kcdt_far
+msgid "KCDT far"
+msgstr "Xa KCDT"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "KCĐT (mm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "LENS OPHTHAMOLOGY"
+msgstr "KHÁM KÍNH TIẾP XÚC"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__write_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__write_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__write_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__write_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__write_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_research__write_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__write_uid
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmonogy_examination_count__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__write_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__write_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__write_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__write_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__write_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_research__write_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__write_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmonogy_examination_count__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Left Eye"
+msgstr "Mắt trái"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "Left eye"
+msgstr "Mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__left_eye_aa
+msgid "Left eye AA"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_acd
+msgid "Left eye ACD"
+msgstr "ACD mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_bc
+msgid "Left eye BC"
+msgstr "BC mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_dia
+msgid "Left eye DIA"
+msgstr "DIA mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__left_eye_ktx
+msgid "Left eye KTX"
+msgstr "KTX mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__left_eye_maf
+msgid "Left eye MAF"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__left_eye_mem
+msgid "Left eye MEM"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__left_eye_orx
+msgid "Left eye ORx"
+msgstr "ORx mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_p
+msgid "Left eye P"
+msgstr "P mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_sbdt
+msgid "Left eye SBDT"
+msgstr "SVĐT mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__left_eye_shv
+msgid "Left eye SHV"
+msgstr "SHV mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_anterior_chamber_depth
+msgid "Left eye anterior chamber depth"
+msgstr "Độ sâu tiền phòng mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_classification
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Left eye classification"
+msgstr "Phân loại mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_close_old_glasses
+msgid "Left eye close old glasses"
+msgstr "Mắt trái gần kính cũ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_close_without_glasses
+msgid "Left eye close without glasses"
+msgstr "Mắt trái gần không kính"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_contrast
+msgid "Left eye contrast"
+msgstr "Thị lực tương phản mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_corneal_diameter
+msgid "Left eye corneal diameter"
+msgstr "Đường kính giác mạc mắt trái"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Left eye curvature"
+msgstr "Độ cong mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_eyeball_axis_length
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_eyeball_axis_length
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__left_eye_eyeball_axis_length
+msgid "Left eye eyeball axis length"
+msgstr "Chiều dài trục nhãn cầu mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_far_old_glasses
+msgid "Left eye far old glasses"
+msgstr "Mắt trái xa kính cũ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_far_without_glasses
+msgid "Left eye far without glasses"
+msgstr "Mắt trái xa không kính"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_flat_k_first
+msgid "Left eye flat k first"
+msgstr "Flat K[1] mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_flat_k_second
+msgid "Left eye flat k second"
+msgstr "Flat K[2] mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_flat_k_third
+msgid "Left eye flat k third"
+msgstr "Flat K[3] mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_glasses_brand
+msgid "Left eye glasses brand"
+msgstr "Hãng kính mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_glasses_prescription
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_glasses_prescription
+msgid "Left eye glasses prescription"
+msgstr "Đơn kính mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_gm_thickness
+msgid "Left eye gm thickness"
+msgstr "Chiều dày GM mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_iris_diameter
+msgid "Left eye iris diameter"
+msgstr "Đường kính mống mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_objective_anterior_refraction
+msgid "Left eye objective anterior refraction"
+msgstr "Khúc xạ khách quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_objective_anterior_refraction_unit
+msgid "Left eye objective anterior refraction unit"
+msgstr "Đơn vị khúc xạ khách quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_objective_paralytic_refraction
+msgid "Left eye objective paralytic refraction"
+msgstr "Khúc xạ khách quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_objective_paralytic_refraction_unit
+msgid "Left eye objective paralytic refraction unit"
+msgstr "Đơn vị khúc xạ khách quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_old_glasses
+msgid "Left eye old glasses"
+msgstr "Kính cũ mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_old_glasses_unit
+msgid "Left eye old glasses unit"
+msgstr "Đơn vị kính cũ mắt trái"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Left eye point"
+msgstr "Điểm mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_pupil_size
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_pupil_size
+msgid "Left eye pupil size"
+msgstr "Kích thước đồng tử mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_steep_k_first
+msgid "Left eye steep k first"
+msgstr "Steep K[1] mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_steep_or_flat_k_first
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_steep_or_flat_k_second
+msgid "Left eye steep k or flat k (D)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_steep_or_flat_k_mm_first
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_steep_or_flat_k_mm_second
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_steep_or_flat_k_mm_third
+msgid "Left eye steep k or flat k (mm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_steep_k_second
+msgid "Left eye steep k second"
+msgstr "Steep K[2] mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_steep_k_third
+msgid "Left eye steep k third"
+msgstr "Steep K[3] mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_subjective_anterior_refraction
+msgid "Left eye subjective anterior refraction"
+msgstr "Khúc xạ chủ quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_subjective_anterior_refraction_unit
+msgid "Left eye subjective anterior refraction unit"
+msgstr "Đơn vị khúc xạ chủ quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_subjective_paralytic_refraction
+msgid "Left eye subjective paralytic refraction"
+msgstr "Khúc xạ chủ quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_subjective_paralytic_refraction_unit
+msgid "Left eye subjective paralytic refraction unit"
+msgstr "Đơn vị khúc xạ khách quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_subjective_refraction
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_subjective_refraction
+msgid "Left eye subjective refraction"
+msgstr "Khúc xạ chủ quan mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__left_eye_vision
+msgid "Left eye vision"
+msgstr "Thị lực mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__left_eye_with_glare
+msgid "Left eye with glare"
+msgstr "Mắt trái với ánh sáng chói"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eye_without_glasses
+msgid "Left eye without glasses"
+msgstr "Mắt trái không kính"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/lens.py:0
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#, python-format
+msgid "Left eye:"
+msgstr "Mắt trái:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "Left eye: 0,00"
+msgstr "Mắt trái: 0,00"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_eyeball_axis_length_point
+msgid "Left eyeball axis length point"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_intraocular_pressure
+msgid "Left intraocular pressure"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_ocular_axial_length_GM_radius_of_curvature_first
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_ocular_axial_length_GM_radius_of_curvature_second
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__left_ocular_axial_length_GM_radius_of_curvature_third
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_ocular_axial_length_GM_radius_of_curvature_first
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_ocular_axial_length_GM_radius_of_curvature_second
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_ocular_axial_length_GM_radius_of_curvature_third
+msgid "Left ocular axial length/GM radius of curvature"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__binocular_vision_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__lens_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__binocular_vision_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__lens_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__lens_ids
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_list_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_ophthalmology_form
+msgid "Lens"
+msgstr "Khám thị giác 2 mắt"
+
+#. module: z_ophthalmology
+#: model:ir.actions.act_window,name:z_ophthalmology.z_lens_action
+msgid "Lens examination"
+msgstr "Khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_ophthalmology_lens
+msgid "Lens examination result"
+msgstr "Kết quả khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_drug__lens_id
+msgid "Lens examination result's drug"
+msgstr "Thuốc của kết quả khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_ophthalmology_re_lens
+msgid "Lens reexamination result"
+msgstr "Kết quả tái khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_drug__re_lens_id
+msgid "Lens reexamination result's drug"
+msgstr "Thuốc của kết quả tái khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__light_perrl
+msgid "Light perrl"
+msgstr "Perrl sáng"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#, python-format
+msgid "Low risk"
+msgstr "Nguy cơ thấp"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#: model:ir.actions.act_window,name:z_ophthalmology.z_vision_action
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+#, python-format
+msgid "Low vision examination"
+msgstr "Khám khiếm thị"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_visit_list_view_inherit
+#, python-format
+msgid "Low vision examination"
+msgstr "KT"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_ophthalmology_vision
+msgid "Low vision examination result"
+msgstr "Kết quả khám khiếm thị"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_drug__vision_id
+msgid "Low vision examination result's drug"
+msgstr "Đơn thuốc của kết quả khám khiếm thị"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "MAF"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "MEM"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__mp_exam
+msgid "MP exam"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "MP:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__mt_exam
+msgid "MT exam"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "MT:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Male"
+msgstr "Nam"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#, python-format
+msgid "Maybe Wrong"
+msgstr "Giá trị bạn nhập không hợp lệ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__measurement_type
+msgid "Measurement Type"
+msgstr "Loại đo lường"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_medical_record_medical_result
+msgid "Medical result"
+msgstr "Kết quả khám"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__code
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__code
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__code
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__code
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__code
+msgid "Medical result code"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__medication_history
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__medication_history
+msgid "Medication history"
+msgstr "Tiền sử sử dụng thuốc"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#, python-format
+msgid "Medium risk"
+msgstr "Nguy cơ trung bình"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_has_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_has_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_has_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_has_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_has_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Microscopic biology"
+msgstr "Sinh hiển vi"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#, python-format
+msgid "Must be complete research field"
+msgstr "Hãy điển đầy đủ thông tin phục vụ nghiên cứu khoa học"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__my_activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__my_activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__my_activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__my_activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__my_activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Hạn chót hoạt động của tôi"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__nfv
+msgid "NFV"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "NFV (Far/Near)"
+msgstr "NFV (Xa/Gần)"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__npc
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__npc
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "NPC"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "NPC (cm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__npc_mp
+msgid "NPC MP"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__npc_mt
+msgid "NPC MT"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__npc_test
+msgid "NPC test"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "NRA/PRA"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_research__name
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Name"
+msgstr "Họ tên"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/cls.py:0
+#: model:ir.model.constraint,message:z_ophthalmology.constraint_z_ophthalmology_cls_unique_name
+#, python-format
+msgid "Name must be unique"
+msgstr "Tên chỉ định phải là duy nhất"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Name:"
+msgstr "Họ tên:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Near"
+msgstr "Gần"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "Near (sc/cc)"
+msgstr "Gần (sc/cc)"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__near_strabismus
+msgid "Near strabismus"
+msgstr "Độ lác gần"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Near vision"
+msgstr "Thị lực gần"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Near:"
+msgstr "Gần:"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_date_deadline
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Hạn chót cho hoạt động tiếp theo"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_summary
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_summary
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_summary
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_summary
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_summary
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_summary
+msgid "Next Activity Summary"
+msgstr "Tóm tắt hoạt động tiếp theo"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_type_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_type_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_type_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_type_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_type_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_type_id
+msgid "Next Activity Type"
+msgstr "Loại hoạt động tiếp theo"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Next visit"
+msgstr "Hẹn tái khám"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "Next visit and Tracking element"
+msgstr "Hẹn tái khám và Yếu tố theo dõi"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/controllers/research_utils.py:0
+#: code:addons/z_ophthalmology/controllers/research_utils.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: model:ir.model.fields.selection,name:z_ophthalmology.selection__z_ophthalmology_comprehensive__family_history_of_myopia__1
+#, python-format
+msgid "No Body"
+msgstr "Không có ai"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__non_optical_tool_left_eye
+msgid "Non optical tool left eye"
+msgstr "Trợ cụ phi quang học mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__non_optical_tool_name
+msgid "Non optical tool name"
+msgstr "Tên trợ cụ phi quang học"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__non_optical_tool_right_eye
+msgid "Non optical tool right eye"
+msgstr "Trợ cụ phi quang học mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__non_optical_tool_status
+msgid "Non optical tool status"
+msgstr "Tình trạng trợ cụ phi quang học"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__non_optical_tool_wattage
+msgid "Non optical tool wattage"
+msgstr "Công suất trợ cụ phi quang học"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Non-optical aids"
+msgstr "Trợ cụ phi quang học"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__note
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__note
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__note
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__note
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__note
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Note"
+msgstr "Lưu ý"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Note:"
+msgstr "Lưu ý:"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmonogy_examination_count__count
+msgid "Number examination per day"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_needaction_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_needaction_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_needaction_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_needaction_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_needaction_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số lượng hành động"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_has_error_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_has_error_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_has_error_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_has_error_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_has_error_counter
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lượng lỗi"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_needaction_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__message_needaction_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__message_needaction_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__message_needaction_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__message_needaction_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số tin nhắn cần xử lý"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_has_error_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__message_has_error_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__message_has_error_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__message_has_error_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__message_has_error_counter
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn bị gửi lỗi"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "ORx"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Objective"
+msgstr "Khách quan"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid ""
+"Ocular axial length/GM radius of curvature\n"
+"                                                        (AL/CR)"
+msgstr "Chiều dài trục nhãn cầu / Bán kính cong GM (AL/CR)"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__oculus_dexter
+msgid "Oculus dexter"
+msgstr "Thị lực gần mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__oculus_sinister
+msgid "Oculus sinister"
+msgstr "Thị lực gần mắt trái"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Old glasses"
+msgstr "Kính cũ"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/research.py:0
+#: code:addons/z_ophthalmology/models/research.py:0
+#, python-format
+msgid "Only 15 colors are allowed."
+msgstr "Chỉ được tạo tối đa 15 nghiên cứu"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_medical_result__optometrist_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__optometrist_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__optometrist_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__optometrist_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__optometrist_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__optometrist_id
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Optometrist"
+msgstr "Người đo"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__other_notes
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__other_notes
+msgid "Other notes"
+msgstr "Lưu ý khác"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__other_test
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "Other test"
+msgstr "Các test khác"
+
+#. module: z_ophthalmology
+#. odoo-javascript
+#: code:addons/z_ophthalmology/static/src/fields/trial_lenses/trial_lenses_field.xml:0
+#, python-format
+msgid "Over Rx:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "P (D)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "PERRL"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__pfv
+msgid "PFV"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "PFV (Far/Near)"
+msgstr "PFV (Xa/Gần)"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "PUPIL"
+msgstr ""
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/controllers/research_utils.py:0
+#: code:addons/z_ophthalmology/controllers/research_utils.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: model:ir.model.fields.selection,name:z_ophthalmology.selection__z_ophthalmology_comprehensive__family_history_of_myopia__2
+#, python-format
+msgid "Parents"
+msgstr "Bố/Mẹ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__pdf_title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__pdf_title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__pdf_title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__pdf_title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__pdf_title
+msgid "Pdf title"
+msgstr "Tiêu đề pdf"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__personal_eye_history
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__personal_eye_history
+msgid "Personal eye history"
+msgstr "Tiền sử mắt bản thân"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__personal_overall_health_history
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__personal_overall_health_history
+msgid "Personal overall health history"
+msgstr "Tiền sử toàn thân bản thân"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Phone number"
+msgstr "Điện thoại"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Phone number:"
+msgstr "Điện thoại:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Point"
+msgstr "Điểm"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Postoperative objective diagnosis result"
+msgstr "KXKQ sau liệt điều tiết"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Postoperative subjective diagnosis result"
+msgstr "KXCQ sau liệt điều tiết"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Pre myopia"
+msgstr "Tiền cận thị"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__pre_myopia_refractive_error_left_eye_point
+msgid "Pre myopia refractive error left eye point"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__pre_myopia_refractive_error_left_eye_value
+msgid "Pre myopia refractive error left eye value"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__pre_myopia_refractive_error_right_eye_point
+msgid "Pre myopia refractive error right eye point"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__pre_myopia_refractive_error_right_eye_value
+msgid "Pre myopia refractive error right eye value"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmonogy_examination_count__prefix
+msgid "Prefix"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+msgid "Preoperative subjective diagnosis result"
+msgstr "KXCQ trước liệt điều tiết"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__drug_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__drug_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__drug_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__drug_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__drug_ids
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Prescription"
+msgstr "Đơn thuốc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+msgid "Prescription:"
+msgstr "Đơn thuốc:"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__price
+msgid "Price"
+msgstr "Giá"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/cls.py:0
+#: code:addons/z_ophthalmology/models/cls.py:0
+#, python-format
+msgid "Price cls  is must be positive"
+msgstr "Giá chỉ định phải lớn hơn 0"
+
+#. module: z_ophthalmology
+#: model:ir.actions.report,name:z_ophthalmology.action_report_binocular_vision
+msgid "Print binocular vision examination result"
+msgstr "In khám thị giác hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.actions.report,name:z_ophthalmology.action_report_comprehensive
+msgid "Print comprehensive"
+msgstr "In khám toàn diện"
+
+#. module: z_ophthalmology
+#: model:ir.actions.report,name:z_ophthalmology.action_report_lens
+msgid "Print lens"
+msgstr "In khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.actions.report,name:z_ophthalmology.action_report_re_lens
+msgid "Print lens reexamination result"
+msgstr "In tái khám tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.actions.report,name:z_ophthalmology.action_report_vision
+msgid "Print low vision examination result"
+msgstr "In kết quả khám khiếm thị"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_product_product
+msgid "Product Variant"
+msgstr "Biến thể sản phẩm"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__pupil
+msgid "Pupil"
+msgstr "Đồng tử"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Pupil size (mm)"
+msgstr "Kích thước đồng tử (mm)"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+msgid "Quantity:"
+msgstr "Số lượng:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+msgid "REEXAMINATION - CONTACT LENS"
+msgstr "TÁI KHÁM - KÍNH TIẾP XÚC"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__re_lens_ids
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "Re Lens"
+msgstr "Tái khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_list_view
+msgid "Re lens"
+msgstr "Tái khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.actions.act_window,name:z_ophthalmology.z_re_lens_action
+msgid "Re lens examination"
+msgstr "Tái khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__re_lens_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__re_lens_ids
+msgid "ReLens"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__reason
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__reason
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__reason
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__reason
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__reason
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+msgid "Reason"
+msgstr "Lý do khám"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Reason:"
+msgstr "Lý do khám:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Reason<span class=\"text-danger\">*</span>"
+msgstr "Lý do khám<span class=\"text-danger\">*</span>"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__reexamination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__reexamination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__reexamination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__reexamination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__reexamination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__reexamination_date
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__reexamination_date
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Reexamination date"
+msgstr "Ngày tái khám"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+msgid "Reexamination date:"
+msgstr "Ngày tái khám:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Refractive error (3)"
+msgstr "Tật khúc xạ (3)"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid ""
+"Refractive error - Before\n"
+"                                            paralysis"
+msgstr "Tật khúc xạ - Trước liệt"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid ""
+"Refractive error - Post\n"
+"                                            paralysis"
+msgstr "Tật khúc xạ - Sau liệt"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "Regulatory system"
+msgstr "Hệ điều tiết"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__product_id
+msgid "Related Product"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_ophthalmology_research
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__research_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__research_ids
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_combo_form_view
+msgid "Research"
+msgstr "Nghiên cứu"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_user_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__activity_user_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_user_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__activity_user_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__activity_user_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__activity_user_id
+msgid "Responsible User"
+msgstr "Người phụ trách"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__result
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__result
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__result
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__result
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__result
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Result"
+msgstr "Kết quả khám"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+msgid "Right Eye"
+msgstr "Mắt phải"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "Right eye"
+msgstr "Mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__right_eye_aa
+msgid "Right eye AA"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_acd
+msgid "Right eye ACD"
+msgstr "ACD mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_bc
+msgid "Right eye BC"
+msgstr "BC mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_dia
+msgid "Right eye DIA"
+msgstr "DIA mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__right_eye_ktx
+msgid "Right eye KTX"
+msgstr "KTX mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__right_eye_maf
+msgid "Right eye MAF"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__right_eye_mem
+msgid "Right eye MEM"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__right_eye_orx
+msgid "Right eye ORx"
+msgstr "ORx mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_p
+msgid "Right eye P"
+msgstr "P mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_sbdt
+msgid "Right eye SBDT"
+msgstr "SVĐT mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__right_eye_shv
+msgid "Right eye SHV"
+msgstr "SHV mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_anterior_chamber_depth
+msgid "Right eye anterior chamber depth"
+msgstr "Độ sâu tiền phòng mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_classification
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Right eye classification"
+msgstr "Phân loại mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_close_old_glasses
+msgid "Right eye close old glasses"
+msgstr "Mắt phải gần kính cũ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_close_without_glasses
+msgid "Right eye close without glasses"
+msgstr "Mắt phải gần không kính"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_contrast
+msgid "Right eye contrast"
+msgstr "Thị lực tương phản mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_corneal_diameter
+msgid "Right eye corneal diameter"
+msgstr "Đường kính giác mạc mắt phải"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Right eye curvature"
+msgstr "Độ cong mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_eyeball_axis_length
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_eyeball_axis_length
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__right_eye_eyeball_axis_length
+msgid "Right eye eyeball axis length"
+msgstr "Chiều dài trục nhãn cầu mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_far_old_glasses
+msgid "Right eye far old glasses"
+msgstr "Mắt phải xa kính cũ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_far_without_glasses
+msgid "Right eye far without glasses"
+msgstr "Mắt phải xa không kính"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_flat_k_first
+msgid "Right eye flat k first"
+msgstr "Flat K[1] mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_flat_k_second
+msgid "Right eye flat k second"
+msgstr "Flat K[2] mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_flat_k_third
+msgid "Right eye flat k third"
+msgstr "Flat K[3] mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_glasses_brand
+msgid "Right eye glasses brand"
+msgstr "Hãng kính mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_glasses_prescription
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_glasses_prescription
+msgid "Right eye glasses prescription"
+msgstr "Đơn kính mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_gm_thickness
+msgid "Right eye gm thickness"
+msgstr "Chiều dày GM mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_iris_diameter
+msgid "Right eye iris diameter"
+msgstr "Đường kính mống mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_objective_anterior_refraction
+msgid "Right eye objective anterior refraction"
+msgstr "Khúc xạ khách quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_objective_anterior_refraction_unit
+msgid "Right eye objective anterior refraction unit"
+msgstr "Đơn vị khúc xạ khách quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_objective_paralytic_refraction
+msgid "Right eye objective paralytic refraction"
+msgstr "Khúc xạ khách quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_objective_paralytic_refraction_unit
+msgid "Right eye objective paralytic refraction unit"
+msgstr "Đơn vị khúc xạ khách quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_old_glasses
+msgid "Right eye old glasses"
+msgstr "Kính cũ mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_old_glasses_unit
+msgid "Right eye old glasses unit"
+msgstr "Đơn vị kính cũ mắt phải"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Right eye point"
+msgstr "Điểm mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_pupil_size
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_pupil_size
+msgid "Right eye pupil size"
+msgstr "Kích thước đồng tử mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_steep_k_first
+msgid "Right eye steep k first"
+msgstr "Steep K[1] mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_steep_or_flat_k_first
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_steep_or_flat_k_second
+msgid "Right eye steep k or flat k (D)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_steep_or_flat_k_mm_first
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_steep_or_flat_k_mm_second
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_steep_or_flat_k_mm_third
+msgid "Right eye steep k or flat k (mm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_steep_k_second
+msgid "Right eye steep k second"
+msgstr "Steep K[2] mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_steep_k_third
+msgid "Right eye steep k third"
+msgstr "Steep K[3] mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_subjective_anterior_refraction
+msgid "Right eye subjective anterior refraction"
+msgstr "Khúc xạ chủ quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_subjective_anterior_refraction_unit
+msgid "Right eye subjective anterior refraction unit"
+msgstr "Đơn vị khúc xạ chủ quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_subjective_paralytic_refraction
+msgid "Right eye subjective paralytic refraction"
+msgstr "Khúc xạ chủ quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_subjective_paralytic_refraction_unit
+msgid "Right eye subjective paralytic refraction unit"
+msgstr "Đơn vị khúc xạ chủ quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_subjective_refraction
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_subjective_refraction
+msgid "Right eye subjective refraction"
+msgstr "Khúc xạ chủ quan mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__right_eye_vision
+msgid "Right eye vision"
+msgstr "Thị lực mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_eye_with_glare
+msgid "Right eye with glare"
+msgstr "Mắt phải với ánh sáng chói"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eye_without_glasses
+msgid "Right eye without glasses"
+msgstr "Mắt phải không kính"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/lens.py:0
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#, python-format
+msgid "Right eye:"
+msgstr "Mắt phải:"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "Right eye: 0,00"
+msgstr "Mắt phải: 0,00"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_eyeball_axis_length_point
+msgid "Right eyeball axis length point"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__right_intraocular_pressure
+msgid "Right intraocular pressure"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__right_left_eye_add
+msgid "Right left eyes ADD"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "SBDT"
+msgstr "SBĐT"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields.selection,name:z_ophthalmology.selection__z_ophthalmology_comprehensive__measurement_type__sc
+msgid "SC"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "SHV"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__message_has_sms_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__message_has_sms_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__message_has_sms_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__message_has_sms_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__message_has_sms_error
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Lỗi gửi SMS"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Select reexamination date"
+msgstr "Chọn ngày tái khám"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__solution
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__solution
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__solution
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__solution
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__solution
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Solution"
+msgstr "Xử lý & tư vấn"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "State"
+msgstr "Tình trạng"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_state
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__activity_state
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_state
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__activity_state
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__activity_state
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Trạng thái dựa trên hoạt động\n"
+"Quá hạn: Hạn chót hạn đã qua\n"
+"Hôm nay: Hôm nay là ngày phải thực hiện\n"
+"Kế hoạch: Cần thực hiện trong tương lai."
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_comprehensive
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Steep K / Flat K (D)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Steep K / Flat K (mm)"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Steep K:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__strabismus
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "Strabismus"
+msgstr "Độ lác"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Subjective"
+msgstr "Chủ quan"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Subjective refraction"
+msgstr "Khúc xạ chủ quan"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "Test glasses"
+msgstr "Kính thử"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Test:"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "The market"
+msgstr "Thị trường"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/research.py:0
+#: code:addons/z_ophthalmology/models/research.py:0
+#, python-format
+msgid "This color is already used."
+msgstr "Mãn màu này đã được sử dụng"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/research.py:0
+#, python-format
+msgid "This name is already used."
+msgstr "Tên nghiên cứu bị trùng"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_medical_record_medical_result__title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__title
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__title
+msgid "Title"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Tool in use"
+msgstr "Trợ cụ đang sử dụng"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__tool_in_use_left_eye
+msgid "Tool in use left eye"
+msgstr "Trợ cụ đang sử dụng mắt trái"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__tool_in_use_name
+msgid "Tool in use name"
+msgstr "Tên trợ cụ đang sử dụng"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__tool_in_use_right_eye
+msgid "Tool in use right eye"
+msgstr "Trợ cụ đang sử dụng mắt phải"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__tool_in_use_status
+msgid "Tool in use status"
+msgstr "Tình trạng trợ cụ đang sử dụng"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__tool_in_use_wattage
+msgid "Tool in use wattage"
+msgstr "Trợ cụ đang sử dụng"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Tool name"
+msgstr "Tên trợ cụ"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__tracking_element
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__tracking_element
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_binocular_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+msgid "Tracking element"
+msgstr "Yếu tố theo dõi"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__trial_lenses
+msgid "Trial lenses"
+msgstr "Kính thử"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Try a close-up aid"
+msgstr "Thử trợ cụ nhìn gần"
+
+#. module: z_ophthalmology
+#. odoo-javascript
+#: code:addons/z_ophthalmology/static/src/fields/trial_lenses/trial_lenses_field.xml:0
+#, python-format
+msgid "Type"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__activity_exception_decoration
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__activity_exception_decoration
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__activity_exception_decoration
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__activity_exception_decoration
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__activity_exception_decoration
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Loại hoạt động ngoại lệ trong tập dữ liệu."
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_ophthalmology_form
+msgid "Relens"
+msgstr "Tái khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Value"
+msgstr "Giá trị"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#: code:addons/z_ophthalmology/models/comprehensive.py:0
+#, python-format
+msgid "Very low/ None"
+msgstr "Rất thấp/ Không"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_partner__vision_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_res_users__vision_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__vision_ids
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_ophthalmology_form
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Vision"
+msgstr "Khám khiếm thị"
+
+#. module: z_ophthalmology
+#. odoo-javascript
+#: code:addons/z_ophthalmology/static/src/fields/trial_lenses/trial_lenses_field.xml:0
+#, python-format
+msgid "Vision:"
+msgstr "Thị lực:"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#, python-format
+msgid "VisionExamination"
+msgstr "KhamKhiemThi"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__visit_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__visit_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__visit_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__visit_id
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__visit_id
+msgid "Visit"
+msgstr "Lượt khám"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_re_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "Visual acuity treated with KTX"
+msgstr "Thị lực điều trị với khám tiếp xúc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Visual acuity with glare"
+msgstr "Thị lực với ánh sáng chói"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Visual impairment assessment"
+msgstr "Đánh giá khiếm thị"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_vision
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+msgid "Wattage"
+msgstr "Công suất"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_binocular_vision__website_message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_cls__website_message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_comprehensive__website_message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_lens__website_message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_re_lens__website_message_ids
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_ophthalmology_vision__website_message_ids
+msgid "Website Messages"
+msgstr "Thông báo trên trang web"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_binocular_vision__website_message_ids
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_cls__website_message_ids
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_comprehensive__website_message_ids
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_lens__website_message_ids
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_re_lens__website_message_ids
+#: model:ir.model.fields,help:z_ophthalmology.field_z_ophthalmology_vision__website_message_ids
+msgid "Website communication history"
+msgstr "Lịch sử trao đổi qua trang web"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+msgid "Without glasses"
+msgstr "Không kính"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.report_lens
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+msgid "mm @"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_invoice_op_view_inherit
+msgid "product_service"
+msgstr "Sản phẩm / Dịch Vụ"
+
+#. module: z_ophthalmology
+#: model:ir.model,name:z_ophthalmology.model_z_ophthalmonogy_examination_count
+msgid "z_ophthalmonogy.examination_count"
+msgstr ""
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "Note medical exam"
+msgstr "Ghi chú phiếu khám"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_binocular_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_comprehensive_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_lens_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_vision_form_view
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_re_lens_form_view
+msgid "Input note"
+msgstr "Nhập ghi chú"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_ophthalmology_form
+msgid "Lens"
+msgstr "Khám kính tiếp xúc"
+
+#. module: z_ophthalmology
+#: model_terms:ir.ui.view,arch_db:z_ophthalmology.z_partner_ophthalmology_form
+msgid "Binocular Vision"
+msgstr "Khám thị giác hai mắt"
+
+#. module: z_ophthalmology
+#: model:ir.model.fields,field_description:z_ophthalmology.field_z_appointment_appointment__floor_opt
+msgid "Floor"
+msgstr "Tầng"
+
+#. module: z_partner
+#: model:ir.model.fields,field_description:z_partner.field_res_partner__job
+#: model:ir.model.fields,field_description:z_partner.field_res_users__job
+msgid "Job"
+msgstr "Booking"
+
+#. module: z_appointment
+#. odoo-javascript
+#: code:addons/z_appointment/static/src/views/schedule_form/customer_form.xml:0
+#, python-format
+msgid "Job"
+msgstr "Booking"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_job
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_job
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_job
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Job"
+msgstr "Booking"
+
+#. module: z_ophthalmology
+#. odoo-python
+#: code:addons/z_ophthalmology/models/appointment.py:0
+#, python-format
+msgid "It is not possible to update the unarrived status for a visit that has already arrived"
+msgstr "Không thể cập cập nhật trạng thái chưa đến cho lượt khám đã đến khám"
+
+#. module: helpdesk
+#: model:ir.model.fields,field_description:helpdesk.field_helpdesk_ticket__date_deadline_recent
+#: model_terms:ir.ui.view,arch_db:helpdesk.helpdesk_tickets_view_tree
+msgid "Date deadline recent"
+msgstr "Hạn hoạt động"

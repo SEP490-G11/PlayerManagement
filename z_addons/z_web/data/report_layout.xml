@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_layout_custom" model="report.layout">
+        <field name="name">Custom Layout Report</field>
+        <field name="sequence">6</field>
+        <field name="view_id" ref="z_web.custom_report_external_layout" />
+    </record>
+
+    <record id="report_layout_obstetric_custom" model="report.layout">
+        <field name="name">Custom Obstetric Layout Report</field>
+        <field name="sequence">7</field>
+        <field name="view_id" ref="z_web.custom_report_obstetric_external_layout" />
+    </record>
+</odoo>

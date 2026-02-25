@@ -1,0 +1,18 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_obstetric_gynecological,z_obstetric.gynecological all,model_z_obstetric_gynecological,base.group_user,1,1,1,1
+access_z_obstetric_non_gynecological,z_obstetric.non_gynecological all,model_z_obstetric_non_gynecological,base.group_user,1,1,1,1
+access_z_obstetric_post_pregnant,z_obstetric.post_pregnant all,model_z_obstetric_post_pregnant,base.group_user,1,1,1,1
+access_z_obstetric_pre_pregnant,z_obstetric.pre_pregnant all,model_z_obstetric_pre_pregnant,base.group_user,1,1,1,1
+access_z_obstetric_ultra_sound,z_obstetric.ultra_sound all,model_z_obstetric_ultra_sound,base.group_user,1,1,1,1
+access_z_obstetric_general_result,z_obstetric.general_result all,model_z_obstetric_general_result,base.group_user,1,1,1,1
+access_z_obstetric_gyn_ult,z_obstetric.gyn_ult all,model_z_obstetric_gyn_ult,base.group_user,1,1,1,1
+access_z_obstetric_post_first_indicated,z_obstetric.post_first_indicated all,model_z_obstetric_post_first_indicated,base.group_user,1,1,1,1
+access_z_obstetric_pre_first_indicated,z_obstetric.pre_first_indicated all,model_z_obstetric_pre_first_indicated,base.group_user,1,1,1,1
+access_z_obstetric_oval_check_idc,z_obstetric.oval_check_idc all,model_z_obstetric_oval_check_idc,base.group_user,1,1,1,1
+access_z_obstetric_ovalution_checking,z_obstetric.ovalution_checking all,model_z_obstetric_ovalution_checking,base.group_user,1,1,1,1
+access_z_obstetric_medical_test,z_obstetric.medical_test all,model_z_obstetric_medical_test,base.group_user,1,1,1,1
+access_z_obstetric_medical_test_line,z_obstetric.medical_test_line all,model_z_obstetric_medical_test_line,base.group_user,1,1,1,1
+access_z_obstetric_medical_tips_line,z_obstetric.medical_tips_line all,model_z_obstetric_medical_tips_line,base.group_user,1,1,1,1
+access_z_obstetric_service_code,access_z_obstetric_service_code,model_service_code,base.group_user,1,1,1,1
+access_z_obstetric_full_body,z_obstetric.full_body all,model_z_obstetric_full_body,base.group_user,1,1,1,1
+access_z_obstetric_fetal_ultrasound,z_obstetric.fetal_ultrasound all,model_z_obstetric_fetal_ultrasound,base.group_user,1,1,1,1

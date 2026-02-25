@@ -1,0 +1,442 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_payos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240624\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-18 10:37+0000\n"
+"PO-Revision-Date: 2024-09-18 10:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__account_bank
+msgid "Account Bank"
+msgstr "Số tài khoản"
+
+#. module: z_payos
+#. odoo-javascript
+#: code:addons/z_payos/static/src/create_qr_payment/create_pr_payment.xml:0
+#, python-format
+msgid "Amount"
+msgstr "Số tiền"
+
+#. module: z_payos
+#. odoo-javascript
+#: code:addons/z_payos/static/src/create_qr_payment/create_pr_payment.xml:0
+#, python-format
+msgid "Cancel"
+msgstr "Huỷ"
+
+#. module: z_payos
+#: model:ir.model.fields.selection,name:z_payos.selection__z_payos_qr_logs__payment_status__canceled
+msgid "Canceled"
+msgstr "Đã Huỷ"
+
+#. module: z_payos
+#: model:ir.model,name:z_payos.model_res_config_settings
+msgid "Config Settings"
+msgstr "Cài đặt cấu hình"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__is_create_account_payment
+msgid "Create Account Payment"
+msgstr "Đã tạo phiếu thu"
+
+#. module: z_payos
+#. odoo-javascript
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#: code:addons/z_payos/static/src/create_qr_payment/create_pr_payment.xml:0
+#, python-format
+msgid "Create Payment QR"
+msgstr "Tạo mã QR"
+
+#. module: z_payos
+#. odoo-javascript
+#: code:addons/z_payos/static/src/create_qr_payment/create_pr_payment.xml:0
+#, python-format
+msgid "Create Payment Register"
+msgstr "Tạo phiếu thu"
+
+#. module: z_payos
+#: model:ir.actions.client,name:z_payos.action_create_qr_code
+msgid "Create QR Code"
+msgstr "Tạo mã QR"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__create_date
+msgid "Created on"
+msgstr "Ngày tạo"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_account_bank_statement_line__current_qr_amount
+#: model:ir.model.fields,field_description:z_payos.field_account_move__current_qr_amount
+#: model:ir.model.fields,field_description:z_payos.field_account_payment__current_qr_amount
+msgid "Current QR Amount"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: z_payos
+#. odoo-javascript
+#: code:addons/z_payos/static/src/create_qr_payment/create_pr_payment.xml:0
+#, python-format
+msgid "Enter amount"
+msgstr "Nhập số tiền"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#, python-format
+msgid "Error: %s"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields.selection,name:z_payos.selection__z_payos_qr_logs__payment_status__failed
+msgid "Failed"
+msgstr "Thất bại"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__id
+msgid "ID"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__invoice_amount
+msgid "Invoice Amount"
+msgstr "Tiền hoá đơn gốc"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_account_payment_register__invoice_code
+msgid "Invoice Code"
+msgstr "Mã hoá đơn"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_account_payment_register__is_payos_payment
+msgid "Is PayOS Payment"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model,name:z_payos.model_account_move
+msgid "Journal Entry"
+msgstr "Bút toán"
+
+#. module: z_payos
+#: model:ir.model,name:z_payos.model_account_move_line
+msgid "Journal Item"
+msgstr "Hạng mục bút toán"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields.selection,name:z_payos.selection__z_payos_qr_logs__payment_status__paid
+msgid "Paid"
+msgstr "Đã thanh toán"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_res_config_settings__z_system_payos_api_key
+msgid "PayOS API Key"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_res_config_settings__z_system_payos_cancel_url
+msgid "PayOS Cancel URL"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_res_config_settings__z_system_payos_checksum_key
+msgid "PayOS Checksum Key"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_res_config_settings__z_system_payos_client_id
+msgid "PayOS Client ID"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_res_config_settings__z_system_payos_return_url
+msgid "PayOS Return URL"
+msgstr ""
+
+#. module: z_payos
+#: model_terms:ir.ui.view,arch_db:z_payos.z_res_config_settings_pos_view_form
+msgid "PayOS config"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__payment_amount
+msgid "Payment Amount"
+msgstr "Tiền thanh toán"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__payment_channel
+msgid "Payment Channel"
+msgstr "Kênh thanh toán"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__payment_code
+msgid "Payment Code"
+msgstr "Mã đơn hàng"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__payment_description
+msgid "Payment Description"
+msgstr "Mã đối chiếu VietQR"
+
+#. module: z_payos
+#: model_terms:ir.ui.view,arch_db:z_payos.z_account_move_payments_inherit
+#: model_terms:ir.ui.view,arch_db:z_payos.z_invoice_payment_payment_register_form_inherit
+msgid "Payment Method"
+msgstr "Phương thức thanh toán"
+
+#. module: z_payos
+#. odoo-javascript
+#: code:addons/z_payos/static/src/create_qr_payment/create_pr_payment.xml:0
+#, python-format
+msgid "Payment QR"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__payment_status
+msgid "Payment Status"
+msgstr "Trạng thái thanh toán"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/qr_logs.py:0
+#: code:addons/z_payos/models/qr_logs.py:0
+#, python-format
+msgid "Payment has already been paid"
+msgstr "Giao dịch  đã được thanh toán"
+
+#. module: z_payos
+#: model:ir.model,name:z_payos.model_account_payment
+msgid "Payments"
+msgstr "Thanh toán"
+
+#. module: z_payos
+#: model:ir.model.fields.selection,name:z_payos.selection__z_payos_qr_logs__payment_status__pending
+msgid "Pending"
+msgstr "Đang chờ"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#, python-format
+msgid "Please configure PayOS settings!"
+msgstr "Vui lòng cấu hình cài đặt PayOS!"
+
+#. module: z_payos
+#: model:ir.actions.act_window,name:z_payos.z_payos_logs_action
+msgid "QR List"
+msgstr "Giao dịch PayOS"
+
+#. module: z_payos
+#: model:ir.ui.menu,name:z_payos.menu_z_payos_logs
+#: model_terms:ir.ui.view,arch_db:z_payos.z_payos_logs
+msgid "QR Logs"
+msgstr "Giao dịch PayOS"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_account_payment_register__qr_log_id
+msgid "QR Logs ID"
+msgstr ""
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#: model:ir.model,name:z_payos.model_account_payment_register
+#, python-format
+msgid "Register Payment"
+msgstr "Ghi nhận thanh toán"
+
+#. module: z_payos
+#. odoo-javascript
+#: code:addons/z_payos/static/src/create_qr_payment/create_qr_payment.js:0
+#, python-format
+msgid "Số tiền thanh toán không được vượt quá số tiền hóa đơn"
+msgstr ""
+
+#. module: z_payos
+#. odoo-javascript
+#: code:addons/z_payos/static/src/create_qr_payment/create_qr_payment.js:0
+#, python-format
+msgid "Số tiền thanh toán phải lớn hơn 0"
+msgstr ""
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_payment_register.py:0
+#, python-format
+msgid ""
+"The register payment wizard should only be called on account.move or "
+"account.move.line records."
+msgstr ""
+
+#. module: z_payos
+#. odoo-javascript
+#: code:addons/z_payos/static/src/create_qr_payment/create_pr_payment.xml:0
+#, python-format
+msgid "Transaction Code"
+msgstr "Mã đối chiếu"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_account_payment_register__viet_qr_amount
+msgid "Viet QR Amount"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_account_payment_register__viet_qr_reconcile_code
+msgid "Viet QR Recoinle Code"
+msgstr "Mã đối chiếu  VietQR"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_account_payment__viet_qr_reconcile_code
+msgid "Viet QR Reconcile Code"
+msgstr "Mã đối chiếu VietQR"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#, python-format
+msgid "Viet QR Reconcile code is must be unique"
+msgstr "Mã đối chiếu VietQR bị trùng lặp"
+
+#. module: z_payos
+#: model_terms:ir.ui.view,arch_db:z_payos.z_invoice_form_view_inherit
+msgid "VietQR"
+msgstr ""
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_payment_register.py:0
+#, python-format
+msgid "You can only register payment for posted journal entries."
+msgstr ""
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_payment_register.py:0
+#, python-format
+msgid ""
+"You can't create payments for entries belonging to different companies."
+msgstr ""
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_payment_register.py:0
+#, python-format
+msgid ""
+"You can't register a payment because there is nothing left to pay on the "
+"selected journal items."
+msgstr ""
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_payment_register.py:0
+#, python-format
+msgid ""
+"You can't register payments for both inbound and outbound moves at the same "
+"time."
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model,name:z_payos.model_z_payos_qr_logs
+msgid "z_payos.qr.logs"
+msgstr ""
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__move_id
+msgid "Account Move"
+msgstr "Hoá đơn"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_z_payos_qr_logs__place_id
+msgid "Place"
+msgstr "Cơ sở"
+
+#. module: z_payos
+#: model:ir.model.fields,field_description:z_payos.field_account_payment__viet_qr_transaction_id
+msgid "Viet QR Transaction"
+msgstr "Mã đối chiếu VietQR"
+
+
+#. module: z_payos
+#: model_terms:ir.ui.view,arch_db:z_payos.z_invoice_inherit
+#: model_terms:ir.ui.view,arch_db:z_payos.z_account_move_payments_inherit
+msgid "Reconciled Invoice Code"
+msgstr "Mã hóa đơn"
+
+#. module: z_payos
+#: model:ir.ui.menu,name:z_payos.menu_z_journal
+#: model:ir.actions.act_window,name:z_payos.z_action_journal_id
+msgid "Journal"
+msgstr "Phương thức thanh toán"
+
+#. module: z_payos
+#: model_terms:ir.ui.view,arch_db:z_payos.z_invoice_form_view_inherit
+msgid "Open Counter"
+msgstr "Mở Quầy"
+
+#. module: z_payos
+#: model_terms:ir.ui.view,arch_db:z_payos.z_invoice_form_view_inherit
+msgid "Counter Settings"
+msgstr "Cài đặt quầy"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#, python-format
+msgid "Payment type must be inbound"
+msgstr "Loại thanh toán phải là nhận"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#, python-format
+msgid "Payment must be in draft state to create VietQR"
+msgstr "Không thể tạo QR cho phiếu thu đã xác nhận"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#, python-format
+msgid "Payment method must have QR code enabled"
+msgstr "Phương thức thanh toán không hỗ trợ tạo QR"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#, python-format
+msgid "Payment amount must be greater than 0"
+msgstr "Số tiền phải lớn hơn 0"
+
+#. module: z_payos
+#. odoo-python
+#: code:addons/z_payos/models/account_move.py:0
+#, python-format
+msgid "Payment amount must be in VND"
+msgstr "Chỉ hỗ trợ đơn vị thanh toán VND"

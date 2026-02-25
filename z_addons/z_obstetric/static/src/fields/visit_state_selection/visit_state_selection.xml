@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="my_module.CustomModalView" owl="1">
+        <div class="modal fade" id="confirmStatusScheduleModal"
+            aria-labelledby="scheduleConfirmModalLabel" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1>End confirmation</h1>
+                    </div>
+                    <div class="modal-body form" style="background-color:#ebebeb">
+                        Are you sure you want to end this visit?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-bs-dismiss="modal"
+                            class="btn btn-secondary cancel">Cancel</button>
+                        <button type="button" class="btn btn-primary save">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

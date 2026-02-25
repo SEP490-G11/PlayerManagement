@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <record id="z_place_form_view_inherit" model="ir.ui.view">
+            <field name="name">z_place.place.form</field>
+            <field name="model">z_place.place</field>
+            <field name="inherit_id" ref="z_place.z_place_place_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[.//field[@name='address']]" position="after">
+                    <notebook>
+                        <page string="VAT">
+                            <group>
+                                <field name="company_name_id"
+                                    required="tax_id and address_company"
+                                    placeholder="e.g. ABC Company Ltd"/>
+                                <field name="tax_id"
+                                    required="company_name_id and address_company"
+                                    placeholder="e.g. 0101234567"/>
+                                <field name="address_company"
+                                    required="company_name_id and tax_id"
+                                    placeholder="e.g. 123 Phố Bạch Mai, Hai Bà Trưng, TP.Hà Nội"/>
+                                <field name="appid" required="1" placeholder="e.g. appid123"/>
+                                <field name="email_company" required="1" placeholder="e.g. email@company.com"/>
+                                <field name="password" required="1" password="True"/>
+                                <field name="invoice_serial_number" required="1" placeholder="e.g. 1C22TAA"/>
+                                <field name="digital_signature_method" required="1" placeholder="e.g. HSM"/>
+                                <field name="note" string="Notes" placeholder="Additional notes (max 500 characters)"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>        
+</odoo>

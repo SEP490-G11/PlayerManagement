@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="z_web.Sort" owl="1">
+    <div class="sort">
+      <Dropdown togglerClass="`outline btn d-flex align-items-center gap-2 ${classActive}`">
+        <t t-set-slot="toggler">
+          <!-- "toggler" slot content is rendered inside a button -->
+          <t t-if="state.selectedValue" t-call="z_web.IconSortBlue"/>
+          <t t-else="" t-call="z_web.IconSort"/>
+            Sắp xếp
+        </t>
+        <!-- "default" slot content is rendered inside a div -->
+        <DropdownItem class="dropdown-item" t-foreach="props.options" t-as="sort" t-key="sort.value" onSelected="() => this.onSelect(sort.value)">
+          <span t-att-class="{'active': sort.value == state.selectedValue}" class="option" t-esc="sort.label"></span>
+          <div t-if="sort.value == state.selectedValue" style="float: right; margin-left: 10px;" class="icon-size-ssm">
+            <t t-call="z_web.IconLightGreenChecked"/>
+          </div>
+        </DropdownItem>
+      </Dropdown>
+    </div>
+  </t>
+</templates>

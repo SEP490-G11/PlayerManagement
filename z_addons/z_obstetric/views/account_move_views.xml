@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="z_account_move_list_view_inherit" model="ir.ui.view">
+            <field name="name">account.move.tree.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="z_invoice.z_invoice_tree_custom"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='label']" position="attributes">
+                    <attribute name="invisible_column">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+
+</odoo>

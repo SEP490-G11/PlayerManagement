@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_appointment_sequence,z_appointment_sequence admin,model_z_appointment_sequence,base.group_user,1,1,1,1
+access_zns_history,access_zns_history admin,model_zns_history,,1,1,1,1

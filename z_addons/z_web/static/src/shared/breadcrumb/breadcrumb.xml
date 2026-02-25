@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!-- Breadcrumb -->
+    <t t-name="z_web.Breadcrumb" owl="1">
+        <div class="o_control_breadcumb">
+            <nav t-if="state.breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li t-foreach="state.breadcrumb" t-as="item" t-key="item.label" class="breadcrumb-item" aria-current="page" t-esc="item.label" t-att-class="{'active': item.active}"/>
+                </ol>
+            </nav>
+        </div>
+    </t>
+</templates>

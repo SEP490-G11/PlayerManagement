@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="z_res_config_settings_pos_view_form" model="ir.ui.view">
+        <field name="name">z.res.config.settings.view.form.inherit.hr</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='performance']" position="after">
+                <block title="PayOS config" name="system_payos_config">
+                     <setting id="z_system_payos_client_id">
+                        <field name="z_system_payos_client_id"/>
+                    </setting>
+                     <setting id="z_system_payos_api_key">
+                        <field name="z_system_payos_api_key"/>
+                    </setting>
+                    <setting id="z_system_payos_checksum_key">
+                        <field name="z_system_payos_checksum_key"/>
+                    </setting>
+                    <setting id="z_system_payos_return_url">
+                        <field name="z_system_payos_return_url"/>
+                    </setting>
+                    <setting id="z_system_payos_return_url">
+                        <field name="z_system_payos_cancel_url"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

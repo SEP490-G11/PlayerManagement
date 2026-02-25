@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_z_combo_in_config_stock" name="Combo"
+        parent="stock.menu_stock_config_settings" />
+    <menuitem id="menu_z_combo_category_config_inventory"
+        action="z_combo.z_combo_category_action_form"
+        parent="menu_z_combo_in_config_stock" />
+    <menuitem id="menu_z_combo_in_stock" name="Combo"
+        parent="stock.menu_stock_root" />
+    <menuitem id="menu_sub_z_combo_in_stock" name="Combo"
+        sequence="0"
+        action="z_combo.z_combo_action_form"
+        parent="menu_z_combo_in_stock" />
+    <menuitem id="menu_sub_z_order_combo_in_stock" name="Combo Order"
+        sequence="10"
+        action="z_combo.z_combo_order_action_form"
+        parent="menu_z_combo_in_stock" />
+
+    <record id="purchase.menu_purchase_root" model="ir.ui.menu">
+        <field name="active" eval="False" />
+    </record>
+
+    <record id="stock.product_template_action_product" model="ir.actions.act_window">
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+
+    <record id="stock.stock_picking_type_action" model="ir.actions.act_window">
+        <field name="domain">[('warehouse_id.place_id','in', user_place_ids)]</field>
+    </record>
+
+    <!-- Menu for Stock Inventory Report -->
+    <menuitem id="menu_stock_inventory_report_main"
+              name="Báo cáo xuất nhập tồn kho"
+              parent="stock.menu_warehouse_report"
+              action="action_stock_inventory_report_wizard"
+              sequence="100"/>
+</odoo>

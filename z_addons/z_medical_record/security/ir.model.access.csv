@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_medical_record_medical_result,z_medical_record.medical_result all,model_z_medical_record_medical_result,base.group_system,1,1,1,1
+access_z_medical_record_service,z_medical_record.service all,model_z_medical_record_service,base.group_user,1,1,1,1
+access_z_medical_record_drug,z_medical_record.drug all,model_z_medical_record_drug,base.group_system,1,1,1,1
+access_z_icd,z_medical_record.icd all,model_z_medical_record_icd_10,base.group_system,1,1,1,1
+access_z_medical_record_drug,z_medical_record.drug all,model_z_medical_record_drug,base.group_system,1,1,1,1

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <template id="report_account_invoice">
+      <t t-set="dataAppointment" t-value="docs.z_appointment_id"></t>
+      <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+          <t t-foreach="docs" t-as="doc">
+            <div class="page" style="margin-top: 20px !important; font-size: 18pt">
+              <div class="text-center" style="font-weight: bold;line-height: 28px;">
+                <h2>INVOICE</h2>
+                <h2>Number: <span t-field="doc.code"/></h2>
+              </div>
+              <hr/>
+              <h3 style="font-weight: bold;line-height: 28px;">Customer Information</h3>
+              <div class="row pt-3">
+                <div class="col-2 pb-2" style="font-weight: bold;line-height: 20px;">
+                  <span>Customer code:</span>
+                </div>
+                <div class="col-2 pb-2 pl-0" style="font-weight: bold;line-height: 20px;">
+                  <span t-field="doc.partner_id.code"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2 pb-2" style="font-weight: bold;line-height: 20px;">
+                  <span>Full name:</span>
+                </div>
+                <div class="col-3 pb-2 pl-0">
+                  <span t-field="doc.partner_id.name"/>
+                </div>
+                <div class="col-1 pl-4 pb-2" style="font-weight: bold;line-height: 20px;">
+                  <span>Gender:</span>
+                </div>
+                <div class="col-1 pb-2 pl-0">
+                  <t t-if="doc.partner_id">
+                    <span t-if="doc.partner_id.gender == 'male'">Male</span>
+                    <span t-if="doc.partner_id.gender == 'female'">Female</span>
+                  </t>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2 pb-2" style="font-weight: bold;line-height: 20px;">
+                  <span>Date of birth:</span>
+                </div>
+                <div class="col-2 pb-2 pl-0">
+                  <span t-field="doc.partner_id.date"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2 pb-2" style="font-weight: bold;line-height: 20px;">
+                  <span>Phone number:</span>
+                </div>
+                <div class="col-3 pb-2 pl-0">
+                  <span t-field="doc.partner_id.mobile"/>
+                </div>
+                <div class="col-1 pl-4 pb-2" style="font-weight: bold;line-height: 20px;">
+                  <span>Address:</span>
+                </div>
+                <div class="col pb-2 pl-0">
+                  <span t-field="doc.partner_id.street"/>
+                </div>
+              </div>
+              <table class="table mt-3">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 5%">No</th>
+                    <th scope="col" style="width: 35%">Item</th>
+                    <th scope="col" style="width: 15%">Quantity</th>
+                    <th scope="col" style="width: 15%">Price <p>(VND)</p></th>
+                    <th scope="col" style="width: 15%">Discount <p>(VND)</p></th>
+                    <th scope="col" style="width: 15%">Price Total <p>(VND)</p></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <t t-set="stt" t-value="1"/>
+                  <t t-foreach="doc.invoice_line_ids" t-as="invoice_line" t-key="index">
+                    <t t-if="invoice_line.product_id">
+                      <tr>
+                        <th scope="row bg-white">
+                          <t t-esc="stt"/>
+                          <t t-set="stt" t-value="stt+1"/>
+                        </th>
+                        <td>
+                          <t t-esc="invoice_line.name"/>
+                        </td>
+                        <td class="text-center">
+                          <t t-esc="'{:,.0f}'.format(invoice_line.quantity)"/>
+                        </td>
+                        <td class="text-end">
+                          <t t-esc="'{:,.0f}'.format(invoice_line.price_unit)"/>
+                        </td>
+                        <!-- <td class="text-end">
+                          <t t-esc="'{:,.0f}'.format(invoice_line.discount_amount)"/>
+                        </td> -->
+                        <td class="text-end w-25">
+                          <t t-esc="'{:,.0f}'.format(invoice_line.price_subtotal)"/>
+                        </td>
+                      </tr>
+                    </t>
+                    <t t-else="">
+                      <tr>
+                        <td colspan="7" style="color: #3b999e; font-weight: bold; line-height: 20px;">
+                          <t t-esc="invoice_line.name"/>
+                        </td>
+                      </tr>
+                    </t>
+                  </t>
+                </tbody>
+              </table>
+              <div class="row mt-3">
+                <div class="col-6"/>
+                <div class="col-6">
+                  <div class="row mb-2">
+                    <div class="col-6">
+                      <span class="" style="font-weight: bold;line-height: 20px;">Price Pre-Discount
+                        (VND):</span>
+                    </div>
+                    <div class="col-6 text-end">
+                      <span t-esc="'{:,.0f}'.format(doc.total_without_discount)"/>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-6">
+                      <span class="" style="font-weight: bold;line-height: 20px;">Discount (VND):</span>
+                    </div>
+                    <div class="col-6 text-end">
+                      <span t-esc="'{:,.0f}'.format(doc.total_discount)"/>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-6">
+                      <span class="" style="font-weight: bold;line-height: 20px;">Due amount
+                        (VND):</span>
+                    </div>
+                    <div class="col-6 text-end" style="color: #3b999e;">
+                      <span t-esc="doc.tax_totals.get('formatted_amount_untaxed')"/>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-6">
+                      <span class="" style="font-weight: bold;line-height: 20px;">Due amount in
+                        text:</span>
+                    </div>
+                    <div class="col-6 text-end">
+                      <span t-out="doc.amount_total_words"/>
+                    </div>
+                  </div>
+                  <hr/>
+                  <div t-if="doc.invoice_payments_widget">
+                  <t t-set="content" t-value="doc.invoice_payments_widget.get('content', [])"/>
+                  <div class="row mb-2">
+                    <div class="col-5">
+                      <span class="" style="font-weight: bold;line-height: 20px;">Method:</span>
+                    </div>
+                    <div class="col-7 text-end">
+                       <span t-if="doc.invoice_payments_widget">
+                        <t t-if="content">
+                          <div t-foreach="content" t-as="payment">
+                              <span t-esc="payment.get('journal_name')"/>
+                              (<span t-esc="payment.get('date')"/>):
+                              <span class="ml-1" t-esc="payment.get('amount_company_currency')"/>
+                          </div>
+                        </t>
+                      </span>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-6">
+                      <span class="" style="font-weight: bold;line-height: 20px;">Paid (VND):</span>
+                    </div>
+                    <div class="col-6 text-end">
+                      <span t-esc="'{:,.0f}'.format(doc.paid)"/>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-5">
+                      <span class="" style="font-weight: bold;line-height: 20px;">Residual (VND):</span>
+                    </div>
+                    <div class="col-7 text-end">
+                      <span t-esc="'{:,.0f}'.format(doc.amount_residual)"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mt-5" style="font-weight: bold;line-height: 20px;">
+                Hanoi, date ........., month .........,year .........
+              </div>
+            </div>
+          </t>
+        </t>
+      </t>
+    </template>
+  </data>
+</odoo>

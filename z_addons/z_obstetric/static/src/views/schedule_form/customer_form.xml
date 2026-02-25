@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-inherit="z_appointment.CustomerForm" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='col-12'][contains(., 'Phone number')]" position="after">
+            <div class="col-12">
+                <label for="street-obs" class="label">Street
+                    <span class="require">*</span>
+                </label>
+                <input placeholder="Enter street" type="text" class="form-control" name="street-obs"
+                       t-model="state.customer.street" t-att-value="state.customer.street"
+                       t-att-disabled="state.customer.id" t-on-input="() => this.state.error.street = null"
+                       t-ref="street-input"/>
+                <span t-if="state.error.street" t-esc="state.error.street" class="invalid-message"></span>
+            </div>
+        </xpath>
+        <xpath expr="//input[@name='street']/parent::div" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+        <xpath expr="//select[@name='approach_channel']/parent::div" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+        <xpath expr="//label[@for='group_id']" position="replace">
+            <label for="group_id" class="label">Customer group
+            </label>
+        </xpath>
+    </t>
+</templates>

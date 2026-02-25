@@ -1,0 +1,122 @@
+<odoo>
+    <data>
+        <record id="z_partner_ophthalmology_form" model="ir.ui.view">
+            <field name="name">res.partner.ophthalmology.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="z_invoice.z_partner_invoice_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='account_move']" position="before">
+                    <page name="comprehensive" string="Comprehensive" invisible="not id">
+                        <field name="comprehensive_ids" readonly="0">
+                            <tree create="0" edit="1" delete="0">
+                                <field name="examination_date" widget="block_advance_search"/>
+                                <field name="reason" />
+                                <field name="optometrist_id"/>
+                                <field name="examiner_id"/>
+                                <field name="diagnose"/>
+                                <field name="reexamination_date"/>
+                                <field name="id" nolabel="1" widget="open_tab"/>
+                                <button name="action_print" type="object" icon="fa-print text-primary"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="lens" string="Lens" invisible="not id">
+                        <field name="lens_ids" readonly="0">
+                            <tree create="0" edit="1" delete="0">
+                                <field name="examination_date"/>
+                                <field name="reason"/>
+                                <field name="eye_eyeball_axis_length"/>
+                                <field name="optometrist_id"/>
+                                <field name="examiner_id"/>
+                                <field name="result"/>
+                                <field name="reexamination_date"/>
+                                <field name="id" nolabel="1" widget="open_tab"/>
+                                <button name="action_print" type="object" icon="fa-print text-primary"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="relens" string="Relens" invisible="not id">
+                        <field name="re_lens_ids" readonly="0">
+                            <tree create="0" edit="1" delete="0">
+                                <field name="examination_date"/>
+                                <field name="reason"/>
+                                <field name="right_eye_eyeball_axis_length"/>
+                                <field name="left_eye_eyeball_axis_length"/>
+                                <field name="optometrist_id"/>
+                                <field name="examiner_id"/>
+                                <field name="result"/>
+                                <field name="reexamination_date"/>
+                                <field name="id" nolabel="1" widget="open_tab"/>
+                                <button name="action_print" type="object" icon="fa-print text-primary"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="binocular_vision" string="Binocular Vision" invisible="not id">
+                        <field name="binocular_vision_ids" readonly="0">
+                            <tree create="0" edit="1" delete="0">
+                                <field name="examination_date"/>
+                                <field name="reason"/>
+                                <field name="optometrist_id"/>
+                                <field name="examiner_id"/>
+                                <field name="result"/>
+                                <field name="reexamination_date"/>
+                                <field name="id" nolabel="1" widget="open_tab"/>
+                                <button name="action_print" type="object" icon="fa-print text-primary"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="vision" string="Vision" invisible="not id">
+                        <field name="vision_ids" readonly="0">
+                            <tree create="0" edit="1" delete="0">
+                                <field name="examination_date"/>
+                                <field name="reason"/>
+                                <field name="examiner_id"/>
+                                <field name="reexamination_date"/>
+                                <field name="id" nolabel="1" widget="open_tab"/>
+                                <button name="action_print" type="object" icon="fa-print text-primary"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="date_join_rs"/> 
+                    <field name="research_ids" widget="many2many_tags" options="{'color_field': 'color_tag'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="z_partner_ophthalmology_tree" model="ir.ui.view">
+             <field name="name">res.partner.ophthalmology.tree.inherit</field>
+             <field name="model">res.partner</field>
+            <field name="inherit_id" ref="z_partner.view_partner_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='contact_source']" position="before">
+                    <field name="research_ids" widget="many2many_tags" options="{'color_field': 'color_tag'}"/>
+                    <field name="date_join_rs"/> 
+                    <field name="reexamination_date"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="z_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="z_partner.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='general_information']" position="before">
+                    <page name="health_history" string="Bệnh sử" invisible="not id">
+                        <group>
+                            <field widget="text" name="personal_eye_history" default_focus="1" />
+                            <field widget="text" name="personal_overall_health_history" />
+                            <field widget="text" name="family_eye_history" />
+                            <field widget="text" name="family_overall_health_history" />
+                            <field widget="text" name="allergies_history" />
+                            <field widget="text" name="medication_history" />
+                            <field widget="text" name="other_notes" />
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

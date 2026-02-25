@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_web.CustomSelect" owl="1">
+        <div class="custom-select-dropdown w-100" style="margin-top:8px">
+            <Dropdown beforeOpen="this.reset.bind(this)">
+                <t t-set-slot="toggler">
+                    <div class="input form-control mg-0 d-flex align-items-center select-custom text-eclipse" t-esc="selectedLabel">
+                    </div>
+                </t>
+                <div style="padding: 4px 16px">
+                    <form t-on-submit="this.submit.bind(this)">
+                        <input type="search" t-model="state.searchText" t-on-input="this.onSearch.bind(this)" t-ref="search-input" t-att-placeholder="props.searchPlaceholder" class="form-control mt-0"/>
+
+                    </form>
+                </div>
+                <DropdownItem class="dropdown-item" t-foreach="state.options" t-as="option" t-key="option.id" onSelected="() => this.onChange(option)">
+                    <div t-att-class="{'active': option.id == state.selectedValue}" class="option" t-esc="option.name"></div>
+                </DropdownItem>
+                <div t-if="!state._options.length" class="no-result">
+                    Không có dữ liệu
+                </div>
+                <div t-elif="!state.options.length" class="no-result">
+                    Không có tìm thấy kết quả
+                </div>
+            </Dropdown>
+        </div>
+    </t>
+</templates>

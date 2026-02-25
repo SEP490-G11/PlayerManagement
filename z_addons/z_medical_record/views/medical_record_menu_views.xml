@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <!-- Root-->
+        <menuitem name="Visit" id="z_medical_record_menu_root" sequence="3" web_icon="z_medical_record,static/description/icon.png"/>
+
+        <!-- Visit-->
+        <menuitem name="Visit" id="menu_z_visit_in_medical_record" action="z_visit_action" sequence="1" parent="z_medical_record_menu_root" />
+
+        <!-- Config-->
+        <menuitem name="Configuration" id="menu_config_setting_in_medical_record" sequence="100" parent="z_medical_record_menu_root" /> 
+
+        <menuitem id="menu_z_icd_in_visit" name="ICD(10)"
+                sequence="3"
+                action="action_z_icd_10"
+                parent="z_medical_record_menu_root"/>
+    </data>
+</odoo>

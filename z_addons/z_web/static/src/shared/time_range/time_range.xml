@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="z_web.TimeRange" owl="1">
+    <div class="schedule-date-picker">
+      <div class="start date-time-picker-group">
+        <span t-esc="state.fromLabel"></span>
+        <input placeholder="dd/mm/yyyy" type="date" class="form-control" name="searchStartAt" t-att-max="state.to" t-model="state.from" t-on-change="(event) => this.onChange(props.fields.from, event.target.value)" t-att-value="state.from" />
+      </div>
+      <div class="end date-time-picker-group">
+        <span t-esc="state.toLabel"></span>
+        <input placeholder="dd/mm/yyyy" type="date" class="form-control" name="searchEndAt" t-att-min="state.from" t-model="state.to" t-on-change="(event) => this.onChange(props.fields.to, event.target.value)" t-att-value="state.to" />
+      </div>
+    </div>
+  </t>
+</templates>

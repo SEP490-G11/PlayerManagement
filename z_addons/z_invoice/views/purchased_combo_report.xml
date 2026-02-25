@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="menu_purchased_combo_report"
+              name="Purchased Combo Report"
+              parent="account.account_reports_management_menu"
+              action="z_combo.action_purchased_combo_report2"/>
+</odoo>

@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_vision">
+            <t t-set="dataAppointment" t-value="docs.visit_id"></t>
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <style>
+                        .justify-content-center {
+                        -webkit-box-pack: center;
+                        justify-content: center;
+                        }
+                        .flex-1 {
+                        -webkit-box-flex: 1;
+                        -webkit-flex: 1;
+                        flex: 1;
+                        }
+                       @media print, screen {
+                  .page-break {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                  }
+                  div {
+                    line-height: 1.5;
+                  }
+                  div.text-nowrap {
+                    white-space: nowrap !important;
+                  }
+                }
+                    </style>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page" style="margin-top: 20px !important;">
+                            <h3 class="text-center text-uppercase fw-bolder">
+                                Low vision examination
+                            </h3>
+                            <p class="mb-3 text-center"> Code: <span t-esc="doc.code"/>
+                            </p>
+                            <div class="row mb-2">
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                       Name
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <strong>
+                                        <span t-field="doc.customer_id"></span>
+                                    </strong>
+                                </div>
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Age
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <strong>
+                                        <span t-if="doc.customer_id.age" t-field="doc.customer_id.age"></span>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Phone number
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.mobile"></span>
+                                </div>
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Gender
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-if="doc.customer_id.gender == 'male'">Male</span>
+                                    <span t-if="doc.customer_id.gender == 'female'">Female</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Reason
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.reason"></span>
+                                </div>
+                                <div class="col-6"></div>
+                            </div>
+                            <div class="fw-bolder text-uppercase mt-4">Clinical examination</div>
+                            <div class="mt-4">
+                                <table class="table" t-if="doc.right_eye_far_without_glasses or doc.left_eye_far_without_glasses or doc.eyes_far_without_glasses
+                                                        or doc.right_eye_close_without_glasses or doc.left_eye_close_without_glasses or doc.eyes_close_without_glasses
+                                                        or doc.right_eye_far_old_glasses or doc.left_eye_far_old_glasses or doc.eyes_far_old_glasses
+                                                        or doc.right_eye_close_old_glasses or doc.left_eye_close_old_glasses or doc.eyes_close_old_glasses
+                                                        or doc.right_eye_sbdt or doc.left_eye_sbdt or doc.eyes_sbdt
+                                                        or doc.right_eye_subjective_refraction or doc.left_eye_subjective_refraction or doc.eyes_subjective_refraction
+                                                        or doc.right_left_eye_add or doc.eyes_add">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2"></th>
+                                            <th>Right eye</th>
+                                            <th>Left eye</th>
+                                            <th>2 eyes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-if='doc.right_eye_far_without_glasses or doc.left_eye_far_without_glasses or doc.eyes_far_without_glasses or doc.right_eye_close_without_glasses or doc.left_eye_close_without_glasses or doc.eyes_close_without_glasses'>
+                                            <td rowspan="2">
+                                                Eyesight without glasses
+                                            </td>
+                                            <td>
+                                                Far
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_far_without_glasses" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_far_without_glasses" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_far_without_glasses" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if='doc.right_eye_far_without_glasses or doc.left_eye_far_without_glasses or doc.eyes_far_without_glasses or doc.right_eye_close_without_glasses or doc.left_eye_close_without_glasses or doc.eyes_close_without_glasses'>
+                                            <td>
+                                                Near
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_close_without_glasses" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_close_without_glasses" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_close_without_glasses" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.right_eye_far_old_glasses or doc.left_eye_far_old_glasses or doc.eyes_far_old_glasses 
+                                                or doc.right_eye_close_old_glasses or doc.left_eye_close_old_glasses or doc.eyes_close_old_glasses">
+                                            <td rowspan="2">
+                                                Old glasses
+                                            </td>
+                                            <td>
+                                                Far
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_far_old_glasses" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_far_old_glasses" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_far_old_glasses" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.right_eye_far_old_glasses or doc.left_eye_far_old_glasses or doc.eyes_far_old_glasses 
+                                        or doc.right_eye_close_old_glasses or doc.left_eye_close_old_glasses or doc.eyes_close_old_glasses">
+                                            <td>
+                                                Near
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_close_old_glasses" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_close_old_glasses" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_close_old_glasses" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if = "doc.right_eye_sbdt or doc.left_eye_sbdt or doc.eyes_sbdt">
+                                            <td colspan="2">
+                                                SBDT
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_sbdt" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_sbdt" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_sbdt" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if = "doc.right_eye_subjective_refraction or doc.left_eye_subjective_refraction or doc.eyes_subjective_refraction">
+                                            <td colspan="2">
+                                                Subjective refraction
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_subjective_refraction" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_subjective_refraction" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_subjective_refraction" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.right_left_eye_add or doc.eyes_add">
+                                            <td colspan="2">
+                                                ADD
+                                            </td>
+                                            <td colspan="2" class="text-center">
+                                                <span t-field="doc.right_left_eye_add" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_add" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-4">
+                                <table class="table" t-if="doc.right_eye_contrast or doc.left_eye_contrast or doc.eyes_contrast or doc.right_eye_with_glare or doc.left_eye_with_glare or doc.eyes_with_glare">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Right eye</th>
+                                            <th>Left eye</th>
+                                            <th>2 eyes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-if="doc.right_eye_contrast or doc.left_eye_contrast or doc.eyes_contrast">
+                                            <td>
+                                                Contrasting visual acuity
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_contrast" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_contrast" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_contrast"/>
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.right_eye_with_glare or doc.left_eye_with_glare or doc.eyes_with_glare">
+                                            <td>
+                                                Visual acuity with glare
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_with_glare" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_with_glare" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.eyes_with_glare" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-4">
+                                <table class="table" t-if="doc.color_sense_mp or doc.npc_mp or doc.eoms 
+                                                        or doc.color_sense_mt or doc.npc_mt or doc.kcdt_close or doc.light_perrl
+                                                        or doc.color_sense_test or doc.npc_test or doc.dark_perrl">
+                                    <thead>
+                                        <tr>
+                                            <th>Color perception</th>
+                                            <th>NPC (cm)</th>
+                                            <th>EOMs</th>
+                                            <th>KCĐT (mm)</th>
+                                            <th>PUPIL</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-if="doc.color_sense_mp or doc.npc_mp or doc.eoms">
+                                            <td class="d-flex align-items-center">
+                                                <div style="min-width:42px" class="d-inline-block">
+                                                    MP:
+                                                </div>
+                                                <span t-field="doc.color_sense_mp" />
+                                            </td>
+                                            <td>
+                                                <span t-field="doc.npc_mp" />
+                                            </td>
+                                            <td rowspan="3">
+                                                <field widget="text_field_bs" t-field="doc.eoms" class="textarea-h-100" />
+                                            </td>
+                                            <td class="d-flex align-items-center">
+                                                <div style="min-width:42px" class="d-inline-block">
+                                                    Far:
+                                                </div>
+                                                <span style="color: #0707f5;" t-field="doc.kcdt_far" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.pupil" />
+                                            </td>
+                                            <td class="text-center">PERRL</td>
+                                        </tr>
+                                        <tr t-if="doc.color_sense_mt or doc.npc_mt or doc.kcdt_close or doc.light_perrl">
+                                            <td class="d-flex align-items-center ">
+                                                <div style="min-width:42px" class="d-inline-block">
+                                                    MT:
+                                                </div>
+                                                <span t-field="doc.color_sense_mt" />
+                                            </td>
+                                            <td>
+                                                <span t-field="doc.npc_mt" />
+                                            </td>
+                                            <td rowspan="3">
+                                                <div class="d-flex align-items-center">
+                                                    <div style="min-width:42px" class="d-inline-block">
+                                                        Near:
+                                                    </div>
+                                                    <span style="color: #0707f5;" t-field="doc.kcdt_close" />
+                                                </div>
+                                            </td>
+                                            <td class="text-center">Bright</td>
+                                            <td>
+                                                <span t-field="doc.light_perrl" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.color_sense_test or doc.npc_test or doc.dark_perrl">
+                                            <td class="d-flex align-items-center">
+                                                <div style="min-width:42px" class="d-inline-block">
+                                                    Test:
+                                                </div>
+                                                <span t-field="doc.color_sense_test" />
+                                            </td>
+                                            <td>
+                                                <span t-field="doc.npc_test" />
+                                            </td>
+                                            <td class="text-center">Dark</td>
+                                            <td>
+                                                <span t-field="doc.dark_perrl" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-4">
+                                <table class="table" t-if="doc.cover_test_dsc or doc.mp_exam or doc.cover_test_dcc 
+                                                        or doc.cover_test_nsc or doc.mt_exam or doc.cover_test_ncc" >
+                                    <thead>
+                                        <tr>
+                                            <th>Cover test</th>
+                                            <th>The market</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-if="doc.cover_test_dsc or doc.mp_exam or doc.cover_test_dcc">
+                                            <td class="d-flex align-items-center">
+                                                <div style="min-width:45px" class="d-inline-block">
+                                                    @Dsc:
+                                                </div>
+                                                <span style="color: #0707f5;" t-field="doc.cover_test_dsc" />
+                                            </td>
+                                            <td rowspan="2">
+                                                <div class="d-flex align-items-center">
+                                                    <div style="min-width:45px" class="d-inline-block">
+                                                        MP:
+                                                    </div>
+                                                    <span t-field="doc.mp_exam" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.cover_test_dsc or doc.mp_exam or doc.cover_test_dcc">
+                                            <td class="d-flex align-items-center">
+                                                <div style="min-width:45px" class="d-inline-block">
+                                                    @Dcc:
+                                                </div>
+                                                <span style="color: #0707f5;" t-field="doc.cover_test_dcc" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.cover_test_nsc or doc.mt_exam or doc.cover_test_ncc">
+                                            <td class="d-flex align-items-center">
+                                                <div style="min-width:45px" class="d-inline-block">
+                                                    @Nsc:
+                                                </div>
+                                                <span style="color: #0707f5;" t-field="doc.cover_test_nsc" />
+                                            </td>
+                                            <td rowspan="2">
+                                                <div class="d-flex align-items-center">
+                                                    <div style="min-width:45px" class="d-inline-block">
+                                                        MT:
+                                                    </div>
+                                                    <span t-field="doc.mt_exam" />
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr t-if="doc.cover_test_nsc or doc.mt_exam or doc.cover_test_ncc">
+                                            <td class="d-flex align-items-center">
+                                                <div style="min-width:45px" class="d-inline-block">
+                                                    @Ncc:
+                                                </div>
+                                                <span style="color: #0707f5;" t-field="doc.cover_test_ncc" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div  t-if="doc.tool_in_use_name or doc.tool_in_use_wattage or doc.tool_in_use_right_eye or doc.tool_in_use_left_eye or doc.tool_in_use_status
+                                    or doc.close_up_tool_name or doc.close_up_tool_wattage or doc.close_up_tool_right_eye or doc.close_up_tool_left_eye or doc.close_up_tool_status
+                                    or doc.foresight_tool_name or doc.foresight_tool_wattage or doc.foresight_tool_right_eye or doc.foresight_tool_left_eye or doc.foresight_tool_status
+                                    or doc.non_optical_tool_name or doc.non_optical_tool_wattage or doc.non_optical_tool_right_eye or doc.non_optical_tool_left_eye or doc.non_optical_tool_status"
+                                    class="fw-bolder text-uppercase mt-4">Visual impairment assessment</div>
+
+                            <div class="mt-4">
+                                <table class="table" t-if="doc.tool_in_use_name or doc.tool_in_use_wattage or doc.tool_in_use_right_eye or doc.tool_in_use_left_eye or doc.tool_in_use_status
+                                                        or doc.close_up_tool_name or doc.close_up_tool_wattage or doc.close_up_tool_right_eye or doc.close_up_tool_left_eye or doc.close_up_tool_status
+                                                        or doc.foresight_tool_name or doc.foresight_tool_wattage or doc.foresight_tool_right_eye or doc.foresight_tool_left_eye or doc.foresight_tool_status
+                                                        or doc.non_optical_tool_name or doc.non_optical_tool_wattage or doc.non_optical_tool_right_eye or doc.non_optical_tool_left_eye or doc.non_optical_tool_status">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th class="w-30">Tool name</th>
+                                            <th>Wattage</th>
+                                            <th>Right eye</th>
+                                            <th>Left eye</th>
+                                            <th>State</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-if="doc.tool_in_use_name or doc.tool_in_use_wattage or doc.tool_in_use_right_eye or doc.tool_in_use_left_eye or doc.tool_in_use_status">
+                                            <td>Tool in use</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.tool_in_use_name" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.tool_in_use_wattage" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.tool_in_use_right_eye" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.tool_in_use_left_eye" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.tool_in_use_status" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.close_up_tool_name or doc.close_up_tool_wattage or doc.close_up_tool_right_eye or doc.close_up_tool_left_eye or doc.close_up_tool_status">
+                                            <td>Try a close-up aid</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.close_up_tool_name" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.close_up_tool_wattage" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.close_up_tool_right_eye" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.close_up_tool_left_eye" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.close_up_tool_status" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.foresight_tool_name or doc.foresight_tool_wattage or doc.foresight_tool_right_eye or doc.foresight_tool_left_eye or doc.foresight_tool_status">
+                                            <td>Far vision aid</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.foresight_tool_name" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.foresight_tool_wattage" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.foresight_tool_right_eye" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.foresight_tool_left_eye" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.foresight_tool_status" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.non_optical_tool_name or doc.non_optical_tool_wattage or doc.non_optical_tool_right_eye or doc.non_optical_tool_left_eye or doc.non_optical_tool_status">
+                                            <td>Non-optical aids</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.non_optical_tool_name" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.non_optical_tool_wattage" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.non_optical_tool_right_eye" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.non_optical_tool_left_eye" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.non_optical_tool_status" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row mb-2 mt-4">
+                                <div class="col-6">
+                                </div>
+                                <div class="col-6">
+                                    <div class="justify-content-center d-flex">
+                                        Day
+                                        <span t-field="doc.examination_date"></span>
+                                    </div>
+                                    <div class="justify-content-center d-flex">
+                                        <div class="fw-bold d-inline-block">Examiner</div>
+                                    </div>
+                                    <div style="height:70px"></div>
+                                    <div class="w-45" style="text-align:center !important">
+                                        <span t-field="doc.examiner_id" class="fw-bold"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="z_crm_logs_list_view" model="ir.ui.view">
+            <field name="name">z_crm_logs_list_view</field>
+            <field name="model">z.crm.logs</field>
+            <field name="arch" type="xml">
+                <tree string="Logs" create="0" edit="0" delete="0">
+                    <field name="queue_id"/>
+                    <field name="queue_execute_time"/>
+                    <field name="queue_status"/>
+                    <field name="queue_logs"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="z_crm_logs_form_view" model="ir.ui.view">
+            <field name="name">z_crm_logs_form_view</field>
+            <field name="model">z.crm.logs</field>
+            <field name="arch" type="xml">
+                <form string="Queue" readonly="1" create="0" edit="0" delete="0">
+                    <sheet>
+                        <group class="mb-0 mt-4">
+                            <group>
+                                <field name="queue_id" readonly="0"/>
+                                <field name="queue_execute_time" readonly="0"/>
+                                <field name="queue_status" widget="boolean_toggle" readonly="0"/>
+                                <field name="queue_logs" readonly="0"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="z_crm_logs_action" model="ir.actions.act_window">
+            <field name="name">CRM Logs</field>
+            <field name="res_model">z.crm.logs</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  <record id="z_combo_visit_form_view_inherit" model="ir.ui.view">-->
+<!--            <field name="name">z_combo_appointment.appointment.form.inherit</field>-->
+<!--            <field name="model">z_appointment.appointment</field>-->
+<!--            <field name="inherit_id" ref="z_medical_record.z_visit_form_view"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//notebook[@name='visit_notebook']" position="inside">-->
+<!--                        <page name="Purchased Combos" string="Purchased Combos">-->
+<!--                            <field name="purchased_combo_line">-->
+<!--                                <tree create="0" edit="1" delete="0" editable="bottom">-->
+<!--                                    <field name="indicated_date" readonly="is_completed"/>-->
+<!--                                    <field name="appointment_id" readonly="is_completed"/>-->
+<!--                                    <field name="combo_id" readonly="1"/>-->
+<!--                                    <field name="sub_combo_id" readonly="1"/>-->
+<!--                                    <field name="product_id" readonly="1" widget="block_advance_search"/>-->
+<!--                                    <field name="quantity" readonly="1"  widget="block_advance_search"/>-->
+<!--                                    <field name="indicated_doctor" readonly="is_completed"/>-->
+<!--                                    <field name="is_indicated" readonly="is_completed"/>-->
+<!--                                    <field name="is_completed" />-->
+<!--                                </tree>-->
+<!--                            </field>-->
+<!--                        </page>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+ </odoo>

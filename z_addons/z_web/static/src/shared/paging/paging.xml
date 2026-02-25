@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!-- Paging -->
+    <t t-name="z_web.Paging" owl="1">
+        <div class="d-flex w-100 paging-container justify-content-between" style="">
+            <button t-if="props.isShowExport" class="btn outline d-flex align-items-center " t-on-click="() => this.exportData()" style="font-weight:400; font-size: 13px; padding: 16px">
+                <t t-call="z_web.IconExcel"></t>
+                <div class="ms-2">
+                    Xuất ra Excel
+                </div>
+            </button>
+            <div t-else=''></div>
+            <div class="paging-group align-middle d-flex align-items-center">
+                <div class="pages groups">
+                    <ul>
+                        <li class="page-direct" t-on-click="() => this.previousPage()">
+                            <t t-call="z_web.IconLeftArrow"></t>
+                        </li>
+                        <li t-foreach="state.pages" t-as="page" t-on-click="() => this.handlePageClick(page)" t-key="page" t-att-class="{'active': state.currentPage == page, 'no-num': !page}">
+                            <a t-esc="page" t-if="page"></a>
+                            <span t-if="!page">...</span>
+                        </li>
+                        <li class="page-direct" t-on-click="() => this.nextPage()">
+                            <t t-call="z_web.IconRightArrow"></t>
+                        </li>
+                    </ul>
+                </div>
+                <div class="group lh-20  paging__text--color">Hiển thị <t t-esc="state.startRecord" />
+                    -                <t t-esc="state.endRecord" />
+ trên <t t-esc="state.totalRecords" />
+            </div>
+            <div class="goto-page group d-flex align-items-center paging__text--color">
+                <span style="width: 90px" class="lh-20">Đi tới trang</span>
+                <input type="number" t-model="state.currentPage" min="1" t-att-max="state.totalPages || 1" t-on-click="this.onInputClick" t-on-input="" t-on-change="(e)=>{this.handlePageClick(e.target.value)}" class="text-center" />
+            </div>
+        </div>
+    </div>
+</t>
+</templates>

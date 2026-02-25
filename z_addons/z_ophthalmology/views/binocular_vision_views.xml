@@ -1,0 +1,259 @@
+<odoo>
+    <data>
+        <record id="z_binocular_vision_form_view" model="ir.ui.view">
+            <field name="name">z_ophthalmology.binocular_vision.form</field>
+            <field name="model">z_ophthalmology.binocular_vision</field>
+            <field name="arch" type="xml">
+                <form string="Binocular vision examination" name="Vision Template" delete="False" duplicate="False" create="False">
+                    <field name="code" invisible="1"/>
+                    <field name="examination_type" invisible="1"/>
+                    <field name="is_editable" invisible="1"/>
+                    <sheet string="Vision">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Optometrist</div>
+                                        <field name="optometrist_id" string="" class="w-100" readonly="not is_editable"/>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Examiner</div>
+                                        <field name="examiner_id" string="" class="w-100" readonly="not is_editable"/>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="o_form_label mb-1">Examination date</div>
+                                        <field name="examination_date" string="" class="w-100" readonly="1" force_save="1"/>
+                                    </div>
+                                    <div class="col-3" style="pointer-events: none;opacity: 0.5;">
+                                        <div class="o_form_label mb-1">Code</div>
+                                        <field name="code" string="" class="w-100" readonly="1"/>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Reason<span class="text-danger">*</span>
+                                        </div>
+                                        <field rows="3" name="reason" widget="text_field_bs" class="w-100" placeholder="Input reason" required="True" readonly="not is_editable"/>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Note medical exam</div>
+                                        <field rows="3" name="note_medical_exam" widget="text_field_bs" readonly="not is_editable"
+                                            class="w-100" placeholder="Input note" />
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-3">
+                                            <h3 class="col-12 mb-0 fw-bolder">Clinical examination</h3>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1 text-uppercase">Clustering system</div>
+                                                <table class="w-100 examination-form">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2" style="width:20%">
+                                                               Cover test
+                                                            </td>
+                                                            <td>
+                                                                <field name="cover_test" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td rowspan="2">
+                                                               Strabismus
+                                                            </td>
+                                                            <td>
+                                                                Far (sc/cc)
+                                                            </td>
+                                                            <td>
+                                                                <field name="strabismus" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Near (sc/cc)
+                                                            </td>
+                                                            <td>
+                                                                <field name="near_strabismus" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                               NPC
+                                                            </td>
+                                                            <td>
+                                                                <field name="npc" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                               PFV (Far/Near)
+                                                            </td>
+                                                            <td>
+                                                                <field name="pfv" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                               NFV (Far/Near)
+                                                            </td>
+                                                            <td>
+                                                                <field name="nfv" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1 text-uppercase">Regulatory system</div>
+                                                <table class="w-100 examination-form">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Right eye</th>
+                                                            <th>Left eye</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td rowspan="2">
+                                                               AA
+                                                            </td>
+                                                            <td>
+                                                                <field name="right_eye_aa" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                            <td>
+                                                                <field name="left_eye_aa" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <field name="eyes_aa" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                               MEM
+                                                            </td>
+                                                            <td>
+                                                                <field name="right_eye_mem" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                            <td>
+                                                                <field name="left_eye_mem" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                               NRA/PRA
+                                                            </td>
+                                                            <td colspan="2">
+                                                                <field name="eyes_nra_pra" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                               MAF
+                                                            </td>
+                                                            <td>
+                                                                <field name="right_eye_maf" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                            <td>
+                                                                <field name="left_eye_maf" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                              BAF
+                                                            </td>
+                                                            <td colspan="2">
+                                                                <field name="eyes_baf" string="" class="w-100" widget="char_field_bs" readonly="not is_editable"/>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Other test</div>
+                                                <field name="other_test" string="" class="w-100" widget="text_field_bs" readonly="not is_editable"/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">CLS designation</h3>
+                                            <div class="col-12">
+                                                <field name="cls_ids" widget="many2many_checkboxes" readonly="not is_editable"/>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">Solution</h3>
+                                            <div class="col-12">
+                                                <field name="solution" string="" class="w-100" widget="text_field_bs" readonly="not is_editable"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">Result</h3>
+                                            <div class="col-12">
+                                                <field rows="3" name="result" widget="text_field_bs" class="w-100" readonly="not is_editable"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h3 class="col-12 mb-0 fw-bolder">Next visit and Tracking element</h3>
+                                            <div class="col-3">
+                                                <div class="o_form_label mb-1">Reexamination date</div>
+                                                <field name="reexamination_date" string="" class="d-block form-control trans-input" readonly="not is_editable"/>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="o_form_label mb-1">Tracking element</div>
+                                                <field rows="3" name="tracking_element" class="w-100" widget="text_field_bs" readonly="not is_editable"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                            <page string="Prescription" name="prescription">
+                                <field name="drug_ids" readonly="not is_editable">
+                                    <tree editable="bottom">
+                                        <field name="product_id" can_create="True" can_write="True"/>
+                                        <field name="quantity"/>
+                                        <field name="unit"/>
+                                        <field name="usage_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids" />
+                                <field name="activity_ids" />
+                                <field name="message_ids" />
+                            </div>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="z_binocular_vision_list_view" model="ir.ui.view">
+            <field name="name">z_ophthalmology.binocular_vision.list</field>
+            <field name="model">z_ophthalmology.binocular_vision</field>
+            <field name="arch" type="xml">
+                <tree string="V" js_class="no_selector_tree">
+                    <field name="examination_date"/>
+                    <field name="reason"/>
+                    <field name="optometrist_id"/>
+                    <field name="examiner_id"/>
+                    <field name="reexamination_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="z_binocular_vision_action" model="ir.actions.act_window">
+            <field name="name">Binocular vision examination</field>
+            <field name="view_mode">tree,form</field>
+            <field name="res_model">z_ophthalmology.binocular_vision</field>
+            <field name="domain">[('customer_id','=',active_id)]</field>
+            <field name="context">{'create': False}</field>
+        </record>
+    </data>
+</odoo>

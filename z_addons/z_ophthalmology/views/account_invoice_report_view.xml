@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--        Future use expected-->
+        
+<!--        <record id="z_view_account_invoice_report_pivot" model="ir.ui.view">-->
+<!--            <field name="name">z.account.invoice.report.pivot</field>-->
+<!--            <field name="model">account.invoice.report</field>-->
+<!--            <field name="inherit_id" ref="account.view_account_invoice_report_pivot"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//pivot/field[@name='product_categ_id']" position="before">-->
+<!--                    <field name="place_id" type="col"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//pivot/field[@name='product_categ_id']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="z_view_account_invoice_report_search" model="ir.ui.view">
+            <field name="name">z_view_account_invoice_report_search</field>
+            <field name="model">account.invoice.report</field>
+            <field name="inherit_id" ref="account.view_account_invoice_report_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='creditnote']" position="after">
+                    <field string="Cơ sở" name="place_id"/>
+                    <filter string="Cơ sở Bạch Mai" name="place_bachmai" domain="[('place_id','ilike', 'Bạch Mai')]"/>
+                    <filter string="Cơ sở Tôn Đức Thắng" name="place_tdt" domain="[('place_id','ilike', 'Tôn Đức Thắng')]"/>
+                    <filter string="Tất cả cơ sở" name="place_all" domain="[('place_id','!=', False)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account.action_account_invoice_report_all" model="ir.actions.act_window">
+            <field name="view_mode">pivot,graph</field>
+        </record>
+
+    </data>
+</odoo>

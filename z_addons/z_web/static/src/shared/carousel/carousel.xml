@@ -1,0 +1,15 @@
+<templates>
+  <t t-name="z_web.Carousel">
+    <div class="carousel-container">
+      <button class="carousel-control prev" t-on-click="prevSlide">❮</button>
+      <div class="carousel-slides">
+        <t t-foreach="state.slides" t-as="slide" t-key="slide.id">
+          <div t-att-class="'slide ' + (state.currentSlide === slide.id ? 'active' : '')">
+            <img t-att-src="slide.url" t-att-alt="slide.title"/>
+          </div>
+        </t>
+      </div>
+      <button class="carousel-control next" t-on-click="nextSlide">❯</button>
+    </div>
+  </t>
+</templates>

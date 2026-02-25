@@ -1,0 +1,53 @@
+<odoo>
+    <record id="z_invoice_inherit" model="ir.ui.view">
+        <field name="name">account.payment.form.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_bank_id']" position="after">
+                <field name="reconciled_invoice_code" string="Reconciled Invoice Code"/>
+                <field name="viet_qr_transaction_id" readonly="1"/>
+            </xpath>
+            <xpath expr="//button[@name='action_post']" position="after">
+                <button name="action_print_payment_slip" type="object" string="In phiếu thu" invisible="state != 'posted'" class="btn-primary"/>
+                <button name="action_print_payment_slip" type="object" string="In phiếu thu nháp" invisible="state != 'draft'" class="btn-primary"/>
+                <button name="create_payment_link" type="object" string="VietQR" invisible="state != 'draft'" class="btn-primary"/>
+                <button name="action_open_counter_settings" type="object" string="Cài đặt quầy" invisible="state != 'draft'" class="btn-primary"/>
+                <div>
+                    <a name="action_redirect_to_link" string="Open Link in New Tab" class="btn-primary btn" 
+                            href="/web/counters" target="_blank">
+                            Mở quầy
+                    </a>
+                </div>
+                
+            </xpath>
+            <xpath expr="//field[@name='payment_method_line_id']" position="attributes">
+                <attribute name="string">Loại thanh toán</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_account_move_payments_inherit" model="ir.ui.view">
+        <field name="name">account.payment.list.inherit</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="string">Mã phiếu thu</attribute>
+            </xpath>
+            <xpath expr="//field[@name='journal_id']" position="attributes">
+                <attribute name="string">Phương thức thanh toán</attribute>
+            </xpath>
+            <xpath expr="//field[@name='journal_id']" position="after">
+                <field name="partner_bank_id"/>
+                <field name="viet_qr_transaction_id" />
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="reconciled_invoice_code" readonly="1" string="Reconciled Invoice Code"/>
+            </xpath>
+            <xpath expr="//field[@name='payment_method_line_id']" position="attributes">
+                <attribute name="column_invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

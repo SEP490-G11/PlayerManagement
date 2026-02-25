@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_stock_inventory">
+        <t t-call="web.basic_layout">
+            <div class="page" style="padding: 20px;">
+                <h2 style="text-align: center; color: #2c3e50; margin-bottom: 30px;">BÁO CÁO XUẤT NHẬP TỒN KHO</h2>
+                <t t-set="wizard_data" t-value="docs[0]._prepare_report_data()"/>
+                
+                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                    <p><strong>Kho:</strong> <span t-esc="wizard_data.get('location_id', 'N/A')"/></p>
+                    <p><strong>Từ ngày:</strong> <span t-esc="wizard_data.get('date_from_str', 'N/A')"/></p>
+                    <p><strong>Đến ngày:</strong> <span t-esc="wizard_data.get('date_to_str', 'N/A')"/></p>
+                    <p><strong>Ngày in:</strong> <span t-esc="wizard_data.get('current_time', 'N/A')"/></p>
+                    <p><strong>Người in:</strong> <span t-esc="wizard_data.get('user_name', 'N/A')"/></p>
+                    
+                    <hr/>
+                </div>
+
+
+                
+                <div style="margin-bottom: 20px;">
+                    <t t-if="len(opening_stock) == 0 and len(incoming_stock) == 0 and len(outgoing_stock) == 0">
+                        <div style="background-color: #d1ecf1; border: 1px solid #bee5eb; padding: 15px; border-radius: 5px;">
+                            <h4>Không có dữ liệu</h4>
+                            <p>Không tìm thấy dữ liệu tồn kho trong khoảng thời gian từ <span t-esc="date_from.strftime('%d/%m/%Y 00:00:00') if date_from else 'N/A'"/> đến <span t-esc="date_to.strftime('%d/%m/%Y 23:59:59') if date_to else 'N/A'"/></p>
+                            <p>Vui lòng kiểm tra lại:</p>
+                            <ul>
+                                <li>Có sản phẩm nào trong kho không?</li>
+                                <li>Có hoạt động nhập/xuất kho trong thời gian này không?</li>
+                                <li>Khoảng thời gian có hợp lệ không?</li>
+                            </ul>
+                        </div>
+                    </t>
+                    <t t-if="len(opening_stock) > 0 or len(incoming_stock) > 0 or len(outgoing_stock) > 0">
+                        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                            <thead>
+                                <tr style="background-color: #343a40; color: white;">
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">STT</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Tên sản phẩm</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Mã sản phẩm</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Đơn vị</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Tồn đầu kỳ</th>
+                                    <th colspan="5" style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Nhập</th>
+                                    <th colspan="5" style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Xuất</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Tồn cuối kỳ</th>
+                                </tr>
+                                <tr style="background-color: #495057; color: white;">
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"></th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"></th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"></th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"></th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"></th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Nội bộ</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Điều chỉnh</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Mua</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Trả hàng</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Tổng</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Nội bộ</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Bán</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Điều chỉnh</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Trả hàng</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;">Tổng</th>
+                                    <th style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"></th>
+                                </tr>
+                            </thead>
+                                                    <tbody>
+                                <t t-set="opening_dict" t-value="dict((item['product']['id'], item) for item in opening_stock)"/>
+                                <t t-set="incoming_dict" t-value="dict((item['product']['id'], item) for item in incoming_stock)"/>
+                                <t t-set="outgoing_dict" t-value="dict((item['product']['id'], item) for item in outgoing_stock)"/>
+                                <t t-set="closing_dict" t-value="dict((item['product']['id'], item) for item in closing_stock)"/>
+                                
+                                <t t-set="all_products" t-value="set(opening_dict.keys()) | set(incoming_dict.keys()) | set(outgoing_dict.keys()) | set(closing_dict.keys())"/>
+                                
+                                <t t-foreach="enumerate(sorted(all_products, key=lambda x: (closing_dict.get(x, {}).get('product', {}).get('name', '') or incoming_dict.get(x, {}).get('product', {}).get('name', '') or outgoing_dict.get(x, {}).get('product', {}).get('name', '') or opening_dict.get(x, {}).get('product', {}).get('name', '') or '')))" t-as="index_product">
+                                    <t t-set="index" t-value="index_product[0]"/>
+                                    <t t-set="product_id" t-value="index_product[1]"/>
+                                    <t t-set="product" t-value="closing_dict.get(product_id, {}).get('product') or incoming_dict.get(product_id, {}).get('product') or outgoing_dict.get(product_id, {}).get('product') or opening_dict.get(product_id, {}).get('product')"/>
+                                    
+                                    <tr>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"><span t-esc="index + 1"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px;"><span t-esc="product.get('name', 'N/A')"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px;"><span t-esc="product.get('default_code', '')"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"><span t-esc="opening_dict.get(product_id, {}).get('uom') or incoming_dict.get(product_id, {}).get('uom') or outgoing_dict.get(product_id, {}).get('uom') or 'N/A'"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="opening_dict.get(product_id, {}).get('quantity', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="incoming_dict.get(product_id, {}).get('internal_qty', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="incoming_dict.get(product_id, {}).get('purchase_qty_po', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="incoming_dict.get(product_id, {}).get('purchase_qty_manual', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="incoming_dict.get(product_id, {}).get('return_qty', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="incoming_dict.get(product_id, {}).get('quantity', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="outgoing_dict.get(product_id, {}).get('internal_qty', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="outgoing_dict.get(product_id, {}).get('sale_qty_so', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="outgoing_dict.get(product_id, {}).get('sale_qty_manual', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="outgoing_dict.get(product_id, {}).get('return_qty', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="outgoing_dict.get(product_id, {}).get('quantity', 0)"/></td>
+                                        <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><span t-esc="closing_dict.get(product_id, {}).get('quantity', 0)"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr style="background-color: #e9ecef;">
+                                    <td colspan="4" style="border: 1px solid #dee2e6; padding: 8px; text-align: center;"><strong>TỔNG CỘNG</strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('quantity', 0) for item in opening_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('internal_qty', 0) for item in incoming_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('purchase_qty_po', 0) for item in incoming_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('purchase_qty_manual', 0) for item in incoming_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('return_qty', 0) for item in incoming_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('quantity', 0) for item in incoming_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('internal_qty', 0) for item in outgoing_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('sale_qty_so', 0) for item in outgoing_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('sale_qty_manual', 0) for item in outgoing_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('return_qty', 0) for item in outgoing_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('quantity', 0) for item in outgoing_stock)"/></strong></td>
+                                    <td style="border: 1px solid #dee2e6; padding: 8px; text-align: right;"><strong><span t-esc="sum(item.get('quantity', 0) for item in closing_stock)"/></strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        </t>
+                </div>
+
+                <div style="margin-top: 20px; padding: 15px; border-top: 1px solid #dee2e6;">
+                    <p><strong>Ghi chú:</strong></p>
+                    <ul>
+                        <li><strong>Tồn đầu kỳ:</strong> Số lượng tồn kho tại thời điểm <span t-esc="date_from_str"/> (Tồn cuối kỳ trước)</li>
+                        <li><strong>Nhập:</strong>
+                            <ul>
+                                <li><strong>Nội bộ:</strong> Nhập từ phiếu chuyển kho nội bộ</li>
+                                <li><strong>Mua:</strong> Nhập từ phiếu nhập kho mua hàng có liên kết với phiếu mua hàng</li>
+                                <li><strong>Điều chỉnh:</strong> Nhập từ phiếu nhập kho mua hàng không có liên kết với phiếu mua hàng</li>
+                                <li><strong>Trả hàng:</strong> Nhập từ phiếu trả hàng của khách hàng</li>
+                                <li><strong>Tổng:</strong> Tổng số lượng nhập (Nội bộ + Mua + Điều chỉnh + Trả hàng)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Xuất:</strong>
+                            <ul>
+                                <li><strong>Nội bộ:</strong> Xuất theo phiếu chuyển kho nội bộ</li>
+                                <li><strong>Bán:</strong> Xuất theo phiếu xuất kho bán hàng có liên kết với phiếu bán hàng</li>
+                                <li><strong>Điều chỉnh:</strong> Xuất theo phiếu xuất kho bán hàng không có liên kết với phiếu bán hàng</li>
+                                <li><strong>Trả hàng:</strong> Xuất theo phiếu trả hàng cho nhà cung cấp</li>
+                                <li><strong>Tổng:</strong> Tổng số lượng xuất (Nội bộ + Bán + Điều chỉnh + Trả hàng)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Tồn cuối kỳ:</strong> Số lượng tồn kho tại thời điểm <span t-esc="date_to_str or 'N/A'"/> (Tồn đầu + Tổng nhập - Tổng xuất)</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 30px; display: flex; justify-content: space-between;">
+                    <div style="text-align: center; flex: 1; margin: 0 10px;">
+                        <p><strong>Người lập báo cáo</strong></p>
+                        <div style="border-top: 1px solid #000; margin-top: 50px; padding-top: 10px;"></div>
+                        <p><span t-esc="user.name or 'N/A'"/></p>
+                    </div>
+                    <div style="text-align: center; flex: 1; margin: 0 10px;">
+                        <p><strong>Người kiểm tra</strong></p>
+                        <div style="border-top: 1px solid #000; margin-top: 50px; padding-top: 10px;"></div>
+                        <p>_________________</p>
+                    </div>
+                    <div style="text-align: center; flex: 1; margin: 0 10px;">
+                        <p><strong>Người duyệt</strong></p>
+                        <div style="border-top: 1px solid #000; margin-top: 50px; padding-top: 10px;"></div>
+                        <p>_________________</p>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

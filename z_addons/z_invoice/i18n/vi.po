@@ -1,0 +1,248 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__name
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log_line__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__operation_type
+msgid "Operation Type"
+msgstr "Loại thao tác"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__bulk_operation_log__operation_type__publish
+msgid "Bulk Publish"
+msgstr "Xuất bản hàng loạt"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__bulk_operation_log__operation_type__email
+msgid "Bulk Email"
+msgstr "Gửi email hàng loạt"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__bulk_operation_log__operation_type__cancel
+msgid "Bulk Cancel"
+msgstr "Hủy hàng loạt"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__user_id
+msgid "User"
+msgstr "Người dùng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__total_records
+msgid "Total Records"
+msgstr "Tổng số bản ghi"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__success_count
+msgid "Success Count"
+msgstr "Số thành công"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__error_count
+msgid "Error Count"
+msgstr "Số lỗi"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__state
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__bulk_operation_log__state__in_progress
+msgid "In Progress"
+msgstr "Đang xử lý"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__bulk_operation_log__state__completed
+msgid "Completed"
+msgstr "Hoàn thành"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__bulk_operation_log__state__failed
+msgid "Failed"
+msgstr "Thất bại"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__start_time
+msgid "Start Time"
+msgstr "Thời gian bắt đầu"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__end_time
+msgid "End Time"
+msgstr "Thời gian kết thúc"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__duration
+msgid "Duration (seconds)"
+msgstr "Thời gian (giây)"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log__log_line_ids
+msgid "Log Lines"
+msgstr "Chi tiết nhật ký"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log_line__log_id
+msgid "Log"
+msgstr "Nhật ký"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log_line__record_id
+msgid "Invoice"
+msgstr "Hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log_line__record_name
+msgid "Invoice Code"
+msgstr "Mã hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__bulk_operation_log_line__state__success
+msgid "Success"
+msgstr "Thành công"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__bulk_operation_log_line__state__failed
+msgid "Failed"
+msgstr "Thất bại"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log_line__error_message
+msgid "Error Message"
+msgstr "Thông báo lỗi"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_operation_log_line__error_details
+msgid "Error Details"
+msgstr "Chi tiết lỗi"
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_bulk_operation_log
+msgid "Bulk Operation Log"
+msgstr "Nhật ký thao tác hàng loạt"
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_bulk_operation_log_line
+msgid "Bulk Operation Log Line"
+msgstr "Chi tiết nhật ký thao tác hàng loạt"
+
+#. module: z_invoice
+#: model:ir.actions.act_window,name:z_invoice.action_bulk_operation_log
+msgid "Bulk Operation Logs"
+msgstr "Nhật ký thao tác hàng loạt"
+
+#. module: z_invoice
+#: model:ir.ui.menu,name:z_invoice.menu_bulk_operation_log
+msgid "Bulk Operation Logs"
+msgstr "Nhật ký thao tác hàng loạt"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Bulk Publish - %s"
+msgstr "Xuất bản hàng loạt - %s"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "Bulk Email - %s"
+msgstr "Gửi email hàng loạt - %s"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Bulk Cancel - %s"
+msgstr "Hủy hàng loạt - %s"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Unexpected result from publish operation"
+msgstr "Kết quả không mong đợi từ thao tác xuất bản"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Exception occurred during publish operation"
+msgstr "Lỗi xảy ra trong quá trình xuất bản"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "MISA API returned error response"
+msgstr "API MISA trả về lỗi"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "Exception occurred during email sending"
+msgstr "Lỗi xảy ra trong quá trình gửi email"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Exception occurred during cancellation"
+msgstr "Lỗi xảy ra trong quá trình hủy"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Check the bulk operation logs for detailed error information."
+msgstr "Kiểm tra nhật ký thao tác hàng loạt để xem chi tiết lỗi."
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "Check the bulk operation logs for detailed error information."
+msgstr "Kiểm tra nhật ký thao tác hàng loạt để xem chi tiết lỗi."
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Check the bulk operation logs for detailed error information."
+msgstr "Kiểm tra nhật ký thao tác hàng loạt để xem chi tiết lỗi."
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/bulk_operation_log.py:0
+msgid "Operation Details"
+msgstr "Chi tiết thao tác"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/bulk_operation_log.py:0
+msgid "No failed operations to retry"
+msgstr "Không có thao tác thất bại để thử lại"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/bulk_operation_log.py:0
+msgid "Retry Bulk Publish"
+msgstr "Thử lại xuất bản hàng loạt"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/bulk_operation_log.py:0
+msgid "Retry Bulk Email"
+msgstr "Thử lại gửi email hàng loạt"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/bulk_operation_log.py:0
+msgid "Retry Bulk Cancel"
+msgstr "Thử lại hủy hàng loạt" 
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_reversal__reason
+msgid "Reason"
+msgstr "Lý do" 
+

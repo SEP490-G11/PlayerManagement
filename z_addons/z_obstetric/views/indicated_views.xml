@@ -1,0 +1,259 @@
+<odoo>
+    <record id="z_obstetric_indicated_form_view" model="ir.ui.view">
+        <field name="name">z_appointment.appointment.indicated.list</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Indicated"
+                  name="Indicated Template">
+                <sheet string="Indicated">
+                    <style>
+                        .w-300 {
+                        width: 300px;
+                        }
+                    </style>
+                    <div class="mb-2">
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_ovulation_indicated" field_id="multifocal_0"/>
+                                <button name="action_open_ovalution_indcated" type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_ovulation_indicated"
+                                        string="Ovalution">
+                                </button>
+                                <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_ovulation_indicated"
+                                        string="Ovalution">
+                                </button>
+                            </span>
+                        </div>
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_pre_first_indicated" field_id="multifocal_0"/>
+                                <button name="action_open_pre_first_indicated_form" type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_pre_first_indicated"
+                                        string="Pre-first indicated">
+                                </button>
+                                <button
+                                        invisible="include_pre_first_indicated"
+                                        class="btn-primary o_list_button_add w-300"
+                                        string="Pre-first indicated">
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_post_first_indicated" field_id="multifocal_0"/>
+                                <button name="action_open_post_first_indicated_form" type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_post_first_indicated"
+                                        string="Post-first indicated">
+                                </button>
+                                <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_post_first_indicated"
+                                        string="Post-first indicated">
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_gynecological_indicated"
+                                       field_id="multifocal_0"/>
+                                <button name="action_open_gyn_ult_form"
+                                        type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_gynecological_indicated"
+                                        string="Gynecological Ultrasound">
+                                </button>
+                                <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_gynecological_indicated"
+                                        string="Gynecological Ultrasound">
+                                </button>
+                            </span>
+                        </div>
+
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_fetal_ultrasound_4d"
+                                       field_id="multifocal_0"/>
+                                <button name="action_open_fetal_ultrasound_4d"
+                                        type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_fetal_ultrasound_4d"
+                                        string="4D Fetal Ultrasound">
+                                </button>
+                                <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_fetal_ultrasound_4d"
+                                        string="4D Fetal Ultrasound">
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <notebook>
+                        <page string="Test" name="test">
+                            <group>
+                                <group>
+                                    <field name="medical_test_line_ids" string="">
+                                        <tree editable="bottom" js_class="medical_record_tree" delete="0">
+                                            <field name="has_result" column_invisible="1"/>
+                                            <field name="service_id" can_create="False" can_write="True" options="{'no_create': True}"/>
+                                            <button name="action_preview_result" type="object"
+                                                    class="btn btn-primary p-1 button-title-left"
+                                                    string="View result"
+                                                    title="Result" invisible="not has_result"/>
+                                            <button name="action_open_form" type="object"
+                                                    string="Upload"
+                                                    class="btn btn-secondary p-1 button-title-left"
+                                                    title="Result" invisible="has_result"/>
+                                            <button class="medical_test_css2" name="action_print" type="object" icon="fa-print text-primary"/>
+                                            <button class="medical_test_css3" name="action_unlink" type="object" icon="fa-trash-o text-primary" confirm="Bạn có chắc chắn muốn xóa một Chỉ định trên hệ thống?"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group></group>
+                            </group>
+
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+<!--    FOR URL ONLY-->
+    <record id="z_obstetric_visit_list_url_view" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.list.url</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Visit" js_class="medical_record_tree"
+                    default_order="time_slot_start_time des" multi_edit="1">
+                    <field name="examination_code" widget="block_advance_search"/>
+                    <field name="z_customer_code"/>
+                    <field name="test_state" column_invisible="1"/>
+                    <field name="test_state_selection" />
+                </tree>
+            </field>
+        </record>
+    <record id="z_obstetric_indicated_form_url_view" model="ir.ui.view">
+        <field name="name">z_appointment.appointment.indicated.url</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Indicated"
+                  name="Indicated Template">
+                <sheet string="Indicated">
+                    <style>
+                        .w-300 {
+                        width: 300px;
+                        }
+                    </style>
+                    <notebook>
+                        <page string="Test" name="test">
+                            <group>
+                                <group>
+                                    <field name="medical_test_line_ids" string="">
+                                        <tree editable="bottom" js_class="medical_record_tree" delete="0">
+                                            <field name="has_result" column_invisible="1"/>
+                                            <field name="service_id" can_create="False" can_write="True" options="{'no_create': True}"/>
+                                            <button name="action_preview_result" type="object"
+                                                    class="btn btn-primary p-1 button-title-left"
+                                                    string="Xem kết quả"
+                                                    title="Xem kết quả" invisible="not has_result"/>
+                                            <button name="action_open_form" type="object"
+                                                    string="Tải ảnh xét nghiệm"
+                                                    class="btn btn-secondary p-1 button-title-left"
+                                                    title="Tải ảnh xét nghiệm" invisible="has_result"/>
+                                            <button class="medical_test_css2" name="action_print" type="object" icon="fa-print text-primary"/>
+                                            <button class="medical_test_css3" name="action_unlink" type="object" icon="fa-trash-o text-primary" confirm="Bạn có chắc chắn muốn xóa một Chỉ định trên hệ thống?"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group></group>
+                            </group>
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="z_visit_filter_view_inherit" model="ir.ui.view">
+        <field name="name">z_appointment.appointment.select.inherit</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="inherit_id" ref="z_medical_record.z_visit_filter_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='state_consult']" position="attributes">
+                <attribute name="string">Waiting for ultrasound</attribute>
+                <attribute name="name">state_waiting_for_ultrasound</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='state_finished']" position="attributes">
+                <attribute name="string">Result SA</attribute>
+                <attribute name="name">state_result_sa</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='state_wait_conclude']" position="attributes">
+                <attribute name="string">Result test</attribute>
+                <attribute name="name">state_result_test</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='state_wait_cyclogyl']" position="attributes">
+                <attribute name="string">Waiting for conclude</attribute>
+                <attribute name="name">state_waiting_for_conclude</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='state_subclinical']" position="attributes">
+                <attribute name="string">Concluded and register tip</attribute>
+                <attribute name="name">state_concluded_register_tip</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='state_expired']" position="after">
+                <filter string="Finished" domain="[('state', '=', '9')]"
+                    name="state_finished" />
+                <filter string="Waiting for tip" domain="[('state', '=', '10')]"
+                    name="state_waiting_for_tip" />
+                <filter string="Doing tip" domain="[('state', '=', '11')]"
+                    name="state_doing_tip" />
+                <filter string="Finished tip" domain="[('state', '=', '12')]"
+                    name="state_finished_tip" />
+            </xpath>
+            <xpath expr="//filter[@name='state_expired']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_visit_url_action" model="ir.actions.act_window">
+        <field name="name">Lượt khám</field>
+        <field name="res_model">z_appointment.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('z_obstetric.z_obstetric_visit_list_url_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('z_obstetric.z_obstetric_indicated_form_url_view')})]"/>
+        <field name="search_view_id" ref="z_medical_record.z_visit_filter_view" />
+        <field name="domain">[('state','!=', 1)]</field>
+        <field name="target">fullscreen</field>
+        <field name="context">{'create': False, 'edit': False, 'delete': False, 'search_default_place_id': 1}</field>
+    </record>
+
+
+    <!-- QWeb Reports -->
+    <record id="action_report_obstetric_indicated" model="ir.actions.report">
+        <field name="name">Print cls assignment list</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">z_obstetric.report_obstetric_indicated</field>
+        <field name="report_file">z_obstetric.report_obstetric_indicated</field>
+        <field name="attachment" />
+        <field name="binding_model_id" ref="model_z_appointment_appointment" />
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s'%(object.pdf_title)</field>
+    </record>
+</odoo>

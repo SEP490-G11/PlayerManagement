@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+
+        <record id="z_cls_list_view" model="ir.ui.view">
+            <field name="name">z_ophthalmology.cls.list</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <tree string="Cls">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="z_cls_action" model="ir.actions.act_window">
+            <field name="name">CLS designation</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">tree</field>
+            <field name="view_ids"  eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('z_cls_list_view')})]" />
+            <field name="domain">[('is_cls','=',True)]</field>
+        </record>
+
+        <record id="stock.stock_product_normal_action" model="ir.actions.act_window">
+            <field name="res_model">product.product</field>
+        </record>
+
+        <record id="stock.stock_product_normal_action" model="ir.actions.act_window">
+            <field name="res_model">product.product</field>
+            <field name="domain">[('is_cls','=',False)]</field>
+        </record>
+    </data>
+</odoo>

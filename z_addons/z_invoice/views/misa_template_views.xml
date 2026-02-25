@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="view_misa_invoice_template_tree" model="ir.ui.view">
+            <field name="name">z_invoice.misa_invoice_template.tree</field>
+            <field name="model">z_invoice.misa_invoice_template</field>
+            <field name="arch" type="xml">
+                <tree string="MISA Invoice Templates">
+                    <header>
+                        <button name="action_create_misa_template"
+                                string="Tải từ API MISA"
+                                type="object"
+                                class="btn-primary"/>
+                    </header>
+                    <field name="template_id"/>
+                    <field name="template_name"/>
+                    <field name="inv_series"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_misa_invoice_template_form" model="ir.ui.view">
+            <field name="name">z_invoice.misa_invoice_template.form</field>
+            <field name="model">z_invoice.misa_invoice_template</field>
+            <field name="arch" type="xml">
+                <form string="MISA Invoice Template">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="template_id"/>
+                            <field name="template_name"/>
+                            <field name="template_content"/>
+                            <field name="inv_series"/>
+                            <field name="inactive"/>
+                            <field name="is_inherit_from_old_template"/>
+                            <field name="is_send_summary"/>
+                            <field name="is_petrol"/>
+                            <field name="is_more_vat_rate"/>
+                            <field name="is_default"/>
+                            <field name="is_default"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_misa_invoice_template" model="ir.actions.act_window">
+            <field name="name">MISA Invoice Templates</field>
+            <field name="res_model">z_invoice.misa_invoice_template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first MISA Invoice Template!
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_publish_vat_invoice_root" name="VAT Invoices" parent="account.menu_finance"/>
+        <menuitem id="menu_misa_invoice_template"
+                  name="MISA Templates"
+                  parent="menu_publish_vat_invoice_root"
+                  action="action_misa_invoice_template"
+                  sequence="20"/>
+        <menuitem id="menu_published_invoices"
+                  name="Published Invoices"
+                  parent="menu_publish_vat_invoice_root"
+                  action="action_published_invoices"
+                  sequence="20"/>
+    </data>
+</odoo>

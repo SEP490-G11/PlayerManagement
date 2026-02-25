@@ -1,0 +1,6 @@
+<odoo>
+    <data>
+        <!-- Medical record config-->
+        <!-- <menuitem id="z_ophthalmology_cls_config" action="z_cls_action" parent="z_medical_record.menu_config_setting_in_medical_record"/> -->
+    </data>
+</odoo>

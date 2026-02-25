@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_glass_order_form_view" model="ir.ui.view">
+        <field name="name">z_glass_order.form</field>
+        <field name="model">z_glass_order</field>
+        <field name="arch" type="xml">
+            <form string="Glass Order" name="Glass Order Template" delete="False" duplicate="False"
+                  create="False" js_class="form_with_toast">
+                <style>
+                    .trans-input input, .trans-input textarea{
+                    --o-input-border-color: transparent
+                    }
+                    .table-bordered &gt; :not(caption) &gt; * {
+                    border-width: 1px 1px;
+                    }
+                    .o_radio_item{
+                    min-width: 100px;
+                    }
+                    .fw-600{
+                    font-weight: 600;
+                    }
+                    .fw-700{
+                    font-weight: 700;
+                    }
+                </style>
+                <sheet name="glass_order_form">
+                    <div class="oe_button_box" name="button_box"/>
+                    <field name="is_added" invisible="1"/>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-600 oe_asterisk">Customer</span>
+                            </div>
+                            <field class="trans-input" name="customer_id" nolabel="1"
+                                   placeholder="Customer" required="true" readonly="1"
+                                   field_id="customer_id_0"
+                                   context="{'default_is_customer':True,'form_view_ref': 'z_partner.view_partner_form'}"/>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-grow-1" style="pointer-events: none;opacity: 0.5;">
+                            <div class="mb-3">
+                                <span class="fw-600 oe_asterisk">Glass order code</span>
+                            </div>
+                            <field class="d-block form-control trans-input" name="code" nolabel="1"
+                                   placeholder="Glass order code" required="true" field_id="code_0"
+                                   readonly="1"/>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-600">Appointment day</span>
+                            </div>
+                            <field class="d-block form-control trans-input" name="examination_date"
+                                   string="Order Date" placeholder="Chọn ngày" readonly="0"
+                                   field_id="order_date_0"/>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-3" invisible="not id">
+                                <span class="fw-600">State</span>
+                            </div>
+                            <field class="d-block form-control trans-input" invisible="not id"
+                                   name="state" placeholder="State" required="true" field_id="state_0"/>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-600">Optometrist</span>
+                            </div>
+                            <field class="d-block form-control trans-input" name="technician_id"
+                                   string="Optometrist" placeholder="Select optometrist"
+                                   can_create="True" can_write="True" field_id="technician_id_0"/>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-600">Examiner</span>
+                            </div>
+                            <field class="d-block form-control trans-input" name="doctor_id"
+                                   string="Examiner" placeholder="Select examiner" can_create="True"
+                                   can_write="True" field_id="doctor_id_0"/>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-600 oe_asterisk">Consultant</span>
+                            </div>
+                            <field class="d-block form-control trans-input" name="consultant"
+                                   nolabel="1" placeholder="Enter consultant" required="true"
+                                   field_id="consultant_0"/>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-600">Cutter</span>
+                            </div>
+                            <field class="d-block form-control trans-input" name="cutter"
+                                   nolabel="1" placeholder="Enter cutter" field_id="cutter_0"/>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="mb-3">
+                            <span class="fw-600">Note</span>
+                        </div>
+                        <field class="d-block form-control trans-input" name="note" nolabel="1"
+                               placeholder="Enter note" field_id="note_0"/>
+                    </div>
+                    <div class="mb-4">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td rowspan="3" class="align-middle fw-700 text-center">Glass Order</td>
+                                <td class="text-center">Right Eye</td>
+                                <td>
+                                    <div>
+                                        <field name="visit_id" invisible="1"/>
+                                        <field class="d-block form-control trans-input"
+                                               name="right_eye" nolabel="1" field_id="right_eye_0"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Left Eye</td>
+                                <td>
+                                    <div>
+                                        <field class="d-block form-control trans-input"
+                                               name="left_eye" nolabel="1" field_id="left_eye_0"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Add</td>
+                                <td>
+                                    <div>
+                                        <field class="d-block form-control trans-input" name="add"
+                                               nolabel="1" field_id="add_0"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="mb-4">
+                        <h2 class="fw-bold mb-3">Lens type</h2>
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <span class="d-inline-block">
+                                    <field name="multifocal" field_id="multifocal_0"/>
+                                    <label for="multifocal"/>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="d-inline-block">
+                                    <field name="far_vision" field_id="far_vision_0"/>
+                                    <label for="far_vision"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                <span class="d-inline-block">
+                                    <field name="bifocal" field_id="bifocal_0"/>
+                                    <label for="bifocal"/>
+                                </span>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="d-inline-block">
+                                    <field name="near_vision" field_id="near_vision_0"/>
+                                    <label for="near_vision"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="d-inline-block">
+                                <field name="single_vision" field_id="single_vision_0"/>
+                                <label for="single_vision"/>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-bold">Pupillary distance (mm)</span>
+                            </div>
+                            <field class="d-block form-control trans-input"
+                                   name="pupillary_distance" nolabel="1"
+                                   placeholder="Pupillary distance" field_id="pupillary_distance_0"/>
+                        </div>
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-bold">Pupillary height (mm)</span>
+                            </div>
+                            <field class="d-block form-control trans-input" name="pupillary_height"
+                                   nolabel="1" placeholder="Pupillary height"
+                                   field_id="pupillary_height_0"/>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-grow-1">
+                            <h2 class="fw-bold  mb-3">Product</h2>
+                            <field name="glass_order_line_ids" field_id="glass_order_line_ids_0"
+                                   readonly="is_added">
+                                <tree editable="bottom">
+                                    <field name="product_id" can_create="True" can_write="True"
+                                           domain="[('is_glass_order', '=', False)]"/>
+                                    <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </div>
+                    </div>
+                    <h2 class="fw-bold mb-3">Eyeglass Pickup Appointment</h2>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-grow-1">
+                            <field name="order_date_option" class="fw-600" widget="radio"
+                                   options="{'horizontal': true}" field_id="order_date_option_0"/>
+                            <div class="mt-2 d-inline-block" invisible="order_date_option == 'now'">
+                                <field name="order_date" field_id="order_date_1"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="flex-grow-1">
+                            <div class="mb-3">
+                                <span class="fw-bold">Delivery method</span>
+                            </div>
+                            <field name="delivery_method" widget="radio"
+                                   options="{'horizontal': true}" field_id="delivery_method_0"/>
+                        </div>
+                    </div>
+                    <div invisible="delivery_method == 'clinic'">
+                        <h2 class="fw-bold mb-3">Delivery information</h2>
+                        <div class="d-flex gap-4 mb-3">
+                            <div class="flex-grow-1">
+                                <div class="mb-3">
+                                    <span class="fw-600">Recipient</span>
+                                </div>
+                                <field class="d-block form-control trans-input" readonly="0"
+                                       name="recipient_name" nolabel="1" placeholder="Enter recipient"
+                                       invisible="delivery_method == 'clinic'"
+                                       field_id="recipient_name_0"/>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="mb-3">
+                                    <span class="fw-600">Phone number</span>
+                                </div>
+                                <field class="d-block form-control trans-input"
+                                       name="recipient_phone" nolabel="1"
+                                       placeholder="Enter phone number" readonly="0"
+                                       invisible="delivery_method == 'clinic'"
+                                       field_id="recipient_phone_0"/>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-4 mb-5">
+                            <div class="flex-grow-1">
+                                <div class="mb-3">
+                                    <span class="fw-600">Address</span>
+                                </div>
+                                <field class="d-block form-control trans-input"
+                                       name="recipient_address" readonly="0" nolabel="1"
+                                       placeholder="Enter address"
+                                       invisible="delivery_method == 'clinic'"
+                                       field_id="recipient_address_0"/>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="z_glass_order_list_view" model="ir.ui.view">
+        <field name="name">z_glass_order.list</field>
+        <field name="model">z_glass_order</field>
+        <field name="arch" type="xml">
+            <tree string="Glass Order" default_order="examination_date desc"
+                  js_class="tree_with_toast" export_xlsx="0" multi_edit="1">
+                <field name="code" readonly="1"/>
+                <field name="customer_group_id"/>
+                <field name="examination_date" readonly="1"/>
+                <field name="is_paid" readonly="1"/>
+                <field name="customer_id" readonly="1" widget="many2one_tags"
+                       options="{'no_open': False}"
+                       context="{'default_is_customer':True,'form_view_ref': 'z_partner.view_partner_form'}"
+                />
+                <field name="glass_order_line_id_widget" widget="product_list_field"/>
+                <field name="order_date"/>
+                <field name="delivery_method" readonly="1"/>
+                <field name="technician_id" readonly="1">
+                    <tree editable="bottom">
+                        <field name="name"/>
+                    </tree>
+                </field>
+                <field name="doctor_id" readonly="1">
+                    <tree editable="bottom">
+                        <field name="name"/>
+                    </tree>
+                </field>
+                <field name="consultant" readonly="1"/>
+                <field name="cutter" readonly="0"/>
+                <field name="state" widget="z_medical_record_state_selection"/>
+                <field name="note" readonly="0"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="z_glass_order_search_view" model="ir.ui.view">
+        <field name="name">z_glass_order.search</field>
+        <field name="model">z_glass_order</field>
+        <field name="arch" type="xml">
+            <search string="Glass Order">
+                <field name="customer_id"/>
+                <field name="code"/>
+                <filter string="Date Range" name="order_date_range"
+                        domain="['&amp;', ('order_date','&gt;=', time.strftime('%Y-%m-%d')),('order_date','&lt;=', time.strftime('%Y-%m-%d'))]"/>
+                <filter string="State" name="state" domain="[('state','=', 'received')]"/>
+                <field name="title"
+                       filter_domain="['|', ('customer_id.complete_name', 'ilike', self), ('customer_id.code', 'ilike', self)]"
+                       string="Customer code"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="z_glass_order_action" model="ir.actions.act_window">
+        <field name="name">Glass Order</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="res_model">z_glass_order</field>
+        <field name="search_view_id" ref="z_glass_order_search_view"/>
+        <field name="view_id" ref="z_glass_order_list_view"/>
+        <field name="context">{'create': False}</field>
+    </record>
+
+    <record id="z_glass_order_customer_action" model="ir.actions.act_window">
+        <field name="name">Glass Order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="res_model">z_glass_order</field>
+        <field name="search_view_id" ref="z_glass_order_search_view"/>
+        <field name="domain">[('customer_id','=',active_id)]</field>
+        <field name="view_id" ref="z_glass_order_list_view"/>
+        <field name="context">{'create': False}</field>
+    </record>
+
+    <record id="z_partner_form_view" model="ir.ui.view">
+        <field name="name">partner.form.view.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="z_appointment.z_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='visits']" position="before">
+                <page name="glass_order" string="Glass Order" invisible="not id">
+                    <field name="glass_order_ids" readonly="0" >
+                        <tree create="0" edit="1" delete="0">
+                            <field name="code" widget="block_advance_search"/>
+                            <field name="examination_date" widget="block_advance_search"/>
+                            <field name="is_paid" widget="block_advance_search"/>
+                            <field name="glass_order_line_id_widget" widget="product_list_field"/>
+                            <field name="order_date" string="Order date" widget="block_advance_search"/>
+                            <field name="delivery_method" widget="block_advance_search"/>
+                            <field name="state" widget="block_advance_search"/>
+                            <field name="id" nolabel="1" widget="open_tab" />
+                            <button name="action_print" type="object" icon="fa-print text-primary" />
+                        </tree>
+                    </field>
+                </page>
+                <page name="delivery_information" string="Delivery Information" invisible="not id">
+                    <group>
+                        <label string="Recipent Name" for="recipient_name"/>
+                        <field name="recipient_name" nolabel="1"/>
+                        <label string="Recipent Phone" for="recipient_phone"/>
+                        <field name="recipient_phone" nolabel="1"/>
+                        <label string="Recipent Address" for="recipient_address"/>
+                        <field name="recipient_address" nolabel="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

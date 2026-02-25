@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="z_sale_order_cancel_view_form" model="ir.ui.view">
+        <field name="name">z.sale.order.cancel.form</field>
+        <field name="model">sale.order.cancel</field>
+        <field name="arch" type="xml">
+            <form>
+                <group col="1">
+                    <field name="author_id" invisible="1"/>
+                    <field name="lang" invisible="1"/>
+                    <field name="render_model" invisible="1"/>
+                    <field name="order_id" invisible="1"/>
+                    <field name="template_id" invisible="1"/>
+                    <field name="display_invoice_alert" invisible="1"/>
+                    <!--                        <span id="display_invoice_alert"-->
+                    <!--                              invisible="not display_invoice_alert">-->
+                    <!--                            Hoá đơn nháp của đơn hàng này sẽ bị huỷ. <br/>-->
+                    <!--                        </span>-->
+                </group>
+                <span>Nếu bạn hủy phiếu bán hàng này: Phiếu giao hàng được sinh từ phiếu này sẽ tự động chuyển về trạng
+                    thái Trả hàng và sinh ra một phiếu nhập lại hàng đã trả. Hóa đơn và phiếu thu được sinh từ phiếu này
+                    sẽ tự động chuyển về trạng thái Huỷ
+                    <br/>
+                </span>
+
+                <footer>
+                    <button string="Huỷ"
+                            name="action_cancel"
+                            type="object"
+                            class="btn-primary mx-1"/>
+                    <button string="Đóng"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

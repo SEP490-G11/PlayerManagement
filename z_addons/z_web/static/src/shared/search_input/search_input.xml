@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="z_web.SearchInput" owl="1">
+
+    <form class="input search" style="height: 36px;" t-att-class="classNames" t-on-submit="this.submit.bind(this)">
+      <div class="icon-size-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M2.50167 7.05414C2.50167 4.46681 4.607 2.36214 7.19433 2.36214C9.781 2.36214 11.8863 4.46681 11.8863 7.05414C11.8863 9.64148 9.781 11.7468 7.19433 11.7468C4.607 11.7468 2.50167 9.64148 2.50167 7.05414ZM14.8317 14.0268L11.7657 10.9688C12.6697 9.91481 13.2197 8.54881 13.2197 7.05414C13.2197 3.73214 10.5163 1.02881 7.19433 1.02881C3.87167 1.02881 1.16833 3.73214 1.16833 7.05414C1.16833 10.3768 3.87167 13.0801 7.19433 13.0801C8.54234 13.0801 9.78434 12.6295 10.789 11.8781L13.8903 14.9708L14.8317 14.0268Z" fill="#3A3A3A"/>
+        </svg>
+      </div>
+      <input type="search" t-ref="search-input" t-model="state.input" t-att-value="state.input" t-on-input="this.onSearch" t-att-disabled="props.isDisable" t-att-placeholder="props.placeholder" />
+    </form>
+  </t>
+</templates>

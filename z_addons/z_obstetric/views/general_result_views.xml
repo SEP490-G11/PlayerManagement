@@ -1,0 +1,114 @@
+<odoo>
+    <data>
+        <record id="z_obstetric_general_result_form_view" model="ir.ui.view">
+            <field name="name">z_obstetric.general_result.form</field>
+            <field name="model">z_obstetric.general_result</field>
+            <field name="arch" type="xml">
+                <form string="General result"
+                    name="General Template"
+                    delete="False"
+                    js_class="form_with_toast"
+                    duplicate="False" create="False">
+                    <sheet string="General">
+                        <div class="row gy-3">
+                            <h2>General Result</h2>
+                            <div class="col-4">
+                                <div class="o_form_label oe_asterisk mb-1">Examiner</div>
+                                <field name="examiner_id" string=""
+                                    class="form-control trans-input w-100" />
+                            </div>
+                            <div class="col-4">
+                                <div class="o_form_label mb-1">Partner</div>
+                                <field name="customer_id" string=""
+                                    class="form-control trans-input w-100" />
+                            </div>
+                            <div class="col-4">
+                                <div class="o_form_label oe_asterisk mb-1">Examination date</div>
+                                <field name="examination_date" string=""
+                                    class="form-control trans-input w-100" />
+                            </div>
+                            <div class="col-12">
+                                <div class="o_form_label mb-1">Reason</div>
+                                <field name="reason" widget="text_field_bs"
+                                    class="w-100 fw-bolder" rows="3" />
+                            </div>
+                            <div class="col-12">
+                                <div class="o_form_label mb-1">Medical history</div>
+                                <field name="disease_history" widget="text_field_bs"
+                                    class="w-100 fw-bolder" rows="3" />
+                            </div>
+                            <div class="col-12">
+                                <div class="o_form_label mb-1">Prehistoric</div>
+                                <field name="prehistoric" widget="text_field_bs"
+                                    class="w-100 fw-bolder" rows="3" />
+                            </div>
+
+                            <h2>Result</h2>
+                            <div class="col-2">
+                                <div class="o_form_label mb-1">Diagnose</div>
+                            </div>
+                            <div class="col-10">
+                                <field widget="char_field_bs" class="w-100"
+                                       name="diagnosis"/>
+                            </div>
+                            <div class="d-flex gap-4">
+                                <div class="flex-grow-1">
+                                    <h2 class="o_form_label mb-2">Diagnose ICD</h2>
+                                    <field name="icd_ids" field_id="icd_ids_0">
+                                        <tree string="ICD Codes" create="0" editable="bottom">
+                                            <field name="no"/>
+                                            <field name="uid"/>
+                                            <field name="title"/>
+                                        </tree>
+                                    </field>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-4 ">
+                                <div class="flex-grow-1">
+                                    <h2 class="o_form_label mb-1">Prescription</h2>
+                                    <field name="product_drug_ids"
+                                        field_id="product_service_id_0">
+                                        <tree editable="bottom">
+                                            <field name="product_id" domain="[('detailed_type','=','product')]" can_create="False"
+                                                can_write="True" options="{'no_create': True}" />
+                                            <field name="quantity" />
+                                            <field name="unit" />
+                                            <field name="usage_id" />
+                                        </tree>
+                                    </field>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row gy-2">
+                                    <div class="col-12">
+                                        <div class="o_form_label mb-1">Solution</div>
+                                        <field rows="3" name="solution" widget="text_field_bs"
+                                            class="w-100 fw-bolder"
+                                            placeholder="Input content" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-4 mb-4">
+                                <div class="flex-grow-1">
+                                    <h2 class="fw-bold mb-3">Re-Appointment Date</h2>
+                                    <div class="d-flex">
+                                        <div style="margin-right:16px">Re-examination Date</div>
+                                        <div>
+                                            <field name="reexamination_date"
+                                                class=" form-control trans-input w-220" rows="1" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" />
+                        <field name="activity_ids" />
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

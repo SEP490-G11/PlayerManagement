@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_purchased_combo_report_tree2" model="ir.ui.view">
+        <field name="name">purchased.combo.report.tree</field>
+        <field name="model">purchased.combo.report</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" delete="0">
+                <field name="product_id"/>
+                <field name="account_move_code"/>
+                <field name="invoice_date"/>
+                <field name="appointment_code"/>
+                <field name="combo_parent_id"/>
+                <field name="sub_combo_id"/>
+                <field name="product_price" sum="total"/>
+                <field name="combo_total" column_invisible="1"/>
+                <field name="combo_price_after_discount"  sum="total"/>
+                <field name="invoice_total" column_invisible="1"/>
+                <field name="invoice_price_after_discount" sum="total"/>
+                <field name="quantity"/>
+                <field name="invoice_quantity" column_invisible="1"/>
+                <field name="payer_id"/>
+                <field name="executor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_purchased_combo_report_search" model="ir.ui.view">
+        <field name="name">purchased.combo.report.search</field>
+        <field name="model">purchased.combo.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="account_move_id"/>
+                <field name="invoice_date"/>
+                <filter name="today_filter" string="Hôm nay" domain="[('invoice_date', '=', context_today().strftime('%Y-%m-%d'))]" />
+                <field name="appointment_id"/>
+                <field name="combo_parent_id"/>
+                <filter name="all_filter" string="All" domain="[]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_purchased_combo_report2" model="ir.actions.act_window">
+        <field name="name">Purchased Combo Report</field>
+        <field name="res_model">purchased.combo.report</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="z_combo.view_purchased_combo_report_search"/>
+        <field name="context">{'search_default_today_filter': 1}</field>
+    </record>
+
+</odoo>

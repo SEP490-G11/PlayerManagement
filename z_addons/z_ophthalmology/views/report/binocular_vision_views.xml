@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_binocular_vision">
+             <t t-set="dataAppointment" t-value="docs.visit_id"></t>
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <style>
+                        .justify-content-center {
+                        -webkit-box-pack: center;
+                        justify-content: center;
+                        }
+                        .flex-1 {
+                        -webkit-box-flex: 1;
+                        -webkit-flex: 1;
+                        flex: 1;
+                        }
+                       @media print, screen {
+                  .page-break {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                  }
+                  div {
+                    line-height: 1.5;
+                  }
+                  div.text-nowrap {
+                    white-space: nowrap !important;
+                  }
+                }
+                    </style>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page" style="margin-top: 20px !important;">
+                            <h3 class="text-center text-uppercase fw-bolder">
+                                Binocular vision examination
+                            </h3>
+                            <p class="mb-3 text-center"> Code: <span t-esc="doc.code"/>
+                            </p>
+                            <div class="row mb-2">
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                       Name
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <strong>
+                                        <span t-field="doc.customer_id"/>
+                                    </strong>
+                                </div>
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Age
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <strong>
+                                        <span t-if="doc.customer_id.age" t-field="doc.customer_id.age"/>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Phone number
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.mobile"/>
+                                </div>
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Gender
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-if="doc.customer_id.gender == 'male'">Male</span>
+                                    <span t-if="doc.customer_id.gender == 'female'">Female</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        Reason
+                                    </div>
+                                    <span class="me-2">:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.reason"/>
+                                </div>
+                                <div class="col-6"/>
+                            </div>
+                            <div class="fw-bolder text-uppercase mt-4">Clinical examination</div>
+                            <div class="mt-4">
+                                <table class="table" t-if="doc.cover_test or doc.strabismus or doc.near_strabismus or doc.npc or doc.pfv or doc.nfv">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3" class="font-weight-bold text-uppercase">Clustering system</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-if="doc.cover_test">
+                                            <td colspan="2">Cover test</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.cover_test" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.strabismus or doc.near_strabismus">
+                                            <td rowspan="2">Strabismus</td>
+                                            <td>Far (sc/cc)</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.strabismus" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.strabismus or doc.near_strabismus">
+                                            <td>Near (sc/cc)</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.near_strabismus" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.npc">
+                                            <td colspan="2">NPC</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.npc" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.pfv">
+                                            <td colspan="2">PFV (Far/Near)</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.pfv" />
+                                            </td>
+                                        </tr>
+                                        <tr t-if="doc.nfv">
+                                            <td colspan="2">NFV (Far/Near)</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.nfv" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-4">
+                                <table class="table" t-if="doc.right_eye_aa or doc.left_eye_aa or doc.right_eye_mem or doc.left_eye_mem or doc.eyes_nra_pra or doc.right_eye_maf or doc.left_eye_maf or doc.eyes_baf">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="4" class="font-weight-bold text-uppercase">Regulatory system</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2"/>
+                                            <td class="text-center font-weight-bold">Right eye</td>
+                                            <td class="text-center font-weight-bold">Left eye</td>
+                                        </tr>
+                                        <tr t-if="doc.right_eye_aa or doc.left_eye_aa">
+                                            <td colspan="2" rowspan="2">AA</td>
+                                            <td class="text-center">
+                                                <span t-field="doc.right_eye_aa" />
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="doc.left_eye_aa" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center"><span t-field="doc.eyes_aa"/></td>
+                                        </tr>
+                                        <tr t-if="doc.right_eye_mem or doc.left_eye_mem">
+                                            <td colspan="2">MEM</td>
+                                            <td class="text-center"><span t-field="doc.right_eye_mem"/></td>
+                                            <td class="text-center"><span t-field="doc.left_eye_mem"/></td>
+                                        </tr>
+                                        <tr t-if="doc.eyes_nra_pra">
+                                            <td colspan="2">NRA/PRA</td>
+                                            <td class="text-center" colspan="2"><span t-field="doc.eyes_nra_pra"/></td>
+                                        </tr>
+                                        <tr t-if="doc.right_eye_maf or doc.left_eye_maf">
+                                            <td colspan="2">MAF</td>
+                                            <td class="text-center"><span t-field="doc.right_eye_maf"/></td>
+                                            <td class="text-center"><span t-field="doc.left_eye_maf"/></td>
+                                        </tr>
+                                        <tr t-if="doc.eyes_baf">
+                                            <td colspan="2">BAF</td>
+                                            <td class="text-center" colspan="2"><span t-field="doc.eyes_baf"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-4">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="font-weight-bold text-uppercase">Other test</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span t-field="doc.other_test"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-4">
+                                <table class="table" t-if="doc.result or doc.solution or doc.tracking_element"> 
+                                    <thead>
+                                        <tr>
+                                            <th class="font-weight-bold text-uppercase">Examination results</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span t-field="doc.result"/></td>
+                                        </tr>
+                                    </tbody>
+                                    <thead>
+                                        <tr>
+                                            <th class="font-weight-bold text-uppercase">Solution</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span t-field="doc.solution"/></td>
+                                        </tr>
+                                    </tbody>
+                                    <thead>
+                                        <tr>
+                                            <th class="font-weight-bold text-uppercase">Tracking element</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span t-field="doc.tracking_element"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row mb-2 page-break">
+                                <div class="col-6">
+                                    <div class="fw-bold d-inline-block">Reexamination date:</div>
+                                    <span t-field="doc.reexamination_date"/>
+                                </div>
+                                <div class="col-6">
+                                    <div class="justify-content-center d-flex">
+                                        Day
+                                        <span t-field="doc.examination_date"/>
+                                    </div>
+                                    <div class="justify-content-center d-flex">
+                                        <div class="fw-bold d-inline-block">Examiner</div>
+                                    </div>
+                                    <div style="height:70px"/>
+                                    <div class="w-45" style="text-align:center !important">
+                                        <span class="d-inline-block text-nowrap fw-bold" t-field="doc.examiner_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

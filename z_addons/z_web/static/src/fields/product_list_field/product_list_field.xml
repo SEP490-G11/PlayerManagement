@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_web.ProductListField">
+            <div>
+            <t t-foreach="this.list_product" t-as="product" t-key="product.name">
+                <div class="mb-2">
+                    <div class='d-flex justify-content-between'>
+                    <div class="fw-bolder">
+                        <span t-esc="product.no"/>.<span t-esc="product.code" />
+                    </div>    
+                    <span class="fw-bolder">
+                        QT:  
+                        <span t-esc="product.quantity" />
+                    </span>
+                    </div>
+                    <span t-esc="product.name" />
+                </div> 
+                </t>
+            </div>
+    </t>
+</templates>

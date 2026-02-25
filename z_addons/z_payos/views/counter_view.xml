@@ -1,0 +1,28 @@
+<data>
+    <record id="action_payos_counter" model="ir.actions.client">
+      <field name="name">Counter View</field>
+      <field name="tag">zen8.action_counter_view</field>
+      <field name="target">current</field>
+    </record>
+
+    <record id="action_z_payos_counter_settings_view" model="ir.actions.act_window">
+        <field name="name">Counter Settings</field>
+        <field name="res_model">z_payos.counter.settings</field>
+        <field name="view_mode">form</field>
+    </record>
+    
+    <record id="view_z_payos_counter_settings_form" model="ir.ui.view">
+        <field name="name">z.payos.counter.settings.form</field>
+        <field name="model">z_payos.counter.settings</field>
+        <field name="arch" type="xml">
+            <form string="System Settings">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="banner_ids" widget="many2many_binary_preview" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</data>

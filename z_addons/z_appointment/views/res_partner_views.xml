@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="z_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="z_partner.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[1]" position="before">
+                    <page name="visits" string="Visits" invisible="not id">
+                        <field name="visit_ids" readonly="0">
+                            <tree create="0" edit="1" delete="0">
+                                <field name="booking_date" string="Booking Date" widget="block_advance_search"/>
+                                <field name="booking_time" string="Booking Time" widget="block_advance_search"/>
+                                <field name="state" widget="block_advance_search"/>
+                                <field name="doctor_id" widget="block_advance_search"/>
+                                <field name="technician_id" widget="block_advance_search"/>
+                                <field name="note" string="Visit Note" widget="block_advance_search"/>
+                                <field name="id" nolabel="1" widget="open_tab" />
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

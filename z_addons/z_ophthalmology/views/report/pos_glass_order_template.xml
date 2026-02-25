@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_glass_order_">
+            <t t-set="dataAppointment" t-value="docs.visit_id"></t>
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <style>
+                @media print, screen {
+                  .page-break {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                  }
+                  div {
+                    line-height: 1.5;
+                  }
+                  div.text-nowrap {
+                    white-space: nowrap !important;
+                  }
+                }
+                    </style>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page" style="margin-top: 20px !important;">
+                            <div class="text-center" style="font-weight: bold;line-height: 28px;">
+                                <h2>LENS OPHTHAMOLOGY</h2>
+                                <p class="text-center fw-bolder">Code: <span t-esc="doc.code"/>
+                                </p>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    Name:
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id" class="text-uppercase fw-bold"></span>
+                                </div>
+                                <div class="col-2">
+                                    Age:
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.age" class="fw-bold"></span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    Phone number:
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.mobile"></span>
+                                </div>
+                                <div class="col-2">
+                                    Gender:
+                                </div>
+                                <div class="col-4">
+                                    <span t-if="doc.customer_id.gender == 'male'">Male</span>
+                                    <span t-if="doc.customer_id.gender == 'female'">Female</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    Reason:
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.reason"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240624\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-27 05:01+0000\n"
+"PO-Revision-Date: 2024-08-27 05:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_account_move__so_id
+msgid "Source SO"
+msgstr "Đơn bán hàng"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_sale_order_line__qty_invoiced
+msgid "Invoiced Quantity"
+msgstr "Đã xuất HĐ"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.view_order_form
+msgid "Invoiced"
+msgstr "Đã xuất HĐ"
+
+#. module: z_sale
+#: model_terms:ir.ui.view,arch_db:z_sale.z_sale_order_form_inherit
+msgid "If you cancel this sales order: The delivery note generated from this order will automatically change to Return status and generate a return receipt for the returned goods. The invoice and receipt generated from this order will automatically change to draft status."
+msgstr "Nếu bạn hủy phiếu bán hàng này: Phiếu giao hàng được sinh từ phiếu này sẽ tự động chuyển về trạng thái Trả hàng và sinh ra một phiếu nhập lại hàng đã trả. Hóa đơn và phiếu thu được sinh từ phiếu này sẽ tự động chuyển về trạng thái Huỷ"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_code
+msgid "Partner code"
+msgstr "Mã khách hàng"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__z_appointment_id
+msgid "Appointment"
+msgstr "Lịch hẹn"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_name
+msgid "Partner name"
+msgstr "Khách hàng"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_group
+msgid "Group"
+msgstr "Nhóm"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_fullname
+msgid "Full name"
+msgstr "Khách hàng"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_gender
+msgid "Gender"
+msgstr "Giới tính"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_dob
+msgid "Date of birth"
+msgstr "Ngày sinh"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_job
+msgid "Job"
+msgstr "Nghề nghiệp"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_address
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__partner_mobile
+msgid "Phone number"
+msgstr "Số điện thoại"
+
+#. module: z_sale
+#: model:ir.model.fields,field_description:z_sale.field_sale_order__place_id
+msgid "Place"
+msgstr "Cơ sở"
+
+#. module: z_sale
+#: model_terms:ir.ui.view,arch_db:z_sale.z_visit_list_view_inherit_sale
+msgid "Payment"
+msgstr "TT"

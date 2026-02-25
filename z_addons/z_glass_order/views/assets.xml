@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_frontend" inherit_id="web.assets_backend" name="table style">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/z_glass_order/static/src/js/colum_header_for_btn.js"/>
+        </xpath>
+    </template>
+</odoo>

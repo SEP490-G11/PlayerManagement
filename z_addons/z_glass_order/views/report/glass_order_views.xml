@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="report_glass_order">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+                            <div class="text-center" style="font-weight: bold;line-height: 28px;">
+                                <h2>GLASS INFO</h2>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    <span>Name:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id" class="text-uppercase fw-bold"></span>
+                                </div>
+                                <div class="col-2">
+                                    <span>Age:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-if="doc.customer_id.age" t-field="doc.customer_id.age" class="fw-bold"></span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2">
+                                    <span>Phone number:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.mobile"></span>
+                                </div>
+                                <div class="col-2">
+                                    <span>Gender:</span>
+                                </div>
+                                <div class="col-4">
+                                    <span t-if="doc.customer_id.gender == 'male'">Male</span>
+                                    <span t-if="doc.customer_id.gender == 'female'">Female</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-2 d-flex">
+                                    <div class="flex-1">
+                                        <span>Address:</span>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.street"></span>
+                                </div>
+                            </div>
+                            <h4 class="mt-3" t-if="doc.right_eye or doc.left_eye or doc.add">GLASS ORDER</h4>
+                            <div class="row" t-if="doc.right_eye">
+                                <div class="col-2">
+                                    <span>Right Eye:</span>
+                                </div>
+                                <div class="col-10">
+                                    <t t-esc="doc.right_eye" />
+                                </div>
+                            </div>
+                            <div class="row" t-if="doc.left_eye">
+                                <div class="col-2">
+                                    <span>Left Eye:</span>
+                                </div>
+                                <div class="col-10">
+                                    <t t-esc="doc.left_eye" />
+                                </div>
+                            </div>
+                            <div class="row" t-if="doc.add">
+                                <div class="col-2">
+                                    <span>Add:</span>
+                                </div>
+                                <div class="col-10">
+                                    <t t-esc="doc.add" />
+                                </div>
+                            </div>
+                            <div class="row mt-3" t-if="doc.pupillary_distance">
+                                <div class="col-4">
+                                    <span>Pupil distance (mm):</span>
+                                </div>
+                                <div class="col-8">
+                                    <t t-esc="doc.pupillary_distance" />
+                                </div>
+                            </div>
+                            <div class="row" t-if="doc.pupillary_height">
+                                <div class="col-4">
+                                    <span>Pupil height (mm):</span>
+                                </div>
+                                <div class="col-8">
+                                    <t t-esc="doc.pupillary_height" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">
+                                    <span>Type of glass:</span>
+                                </div>
+                                <div class="col-10 d-flex">
+                                    <div class="form-check">
+                                        <input type="checkbox" value=""
+                                            id="multifocal" t-att-checked="doc.multifocal" />
+                                        <label class="form-check-label text-nowrap" for="multifocal">Multifocal</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" value=""
+                                            id="bifocal" t-att-checked="doc.bifocal" />
+                                        <label class="form-check-label text-nowrap" for="bifocal">Bifocal</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" value=""
+                                            id="single_vision" t-att-checked="doc.single_vision" />
+                                        <label class="form-check-label text-nowrap"
+                                            for="single_vision">Single Vision</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" value=""
+                                            id="far_vision" t-att-checked="doc.far_vision" />
+                                        <label class="form-check-label text-nowrap" for="far_vision">Far Vision</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" value=""
+                                            id="near_vision" t-att-checked="doc.near_vision" />
+                                        <label class="form-check-label text-nowrap"
+                                            for="near_vision">Near Vision</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table mt-3" t-if="doc.glass_order_line_ids">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 15%;">SP Code</th>
+                                        <th style="width: 70%;">SP Name</th>
+                                        <th style="width: 15%;">Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="doc.glass_order_line_ids" t-as="glass_order">
+                                        <tr class="text-center">
+                                            <td>
+                                            </td>
+                                            <td>
+                                                <t t-esc="glass_order.product_id.display_name" />
+                                            </td>
+                                            <td>
+                                                <t
+                                                    t-esc="glass_order.quantity" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <div class="row mt-3">
+                                <div class="col-3">
+                                    <span class="fw-bold">Person
+                                        Measures/Examines:</span>
+                                </div>
+                                <div class="col-9">
+                                    <span>
+                                        <t t-esc="doc.doctor_id.display_name" /> (date <t
+                                            t-esc="doc.examination_date.strftime('%d/%m/%Y')" />) </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <span class="fw-bold">Order Date:</span>
+                                </div>
+                                <div class="col-9">
+                                    <span>
+                                        <t t-esc="doc.order_date.strftime('%d/%m/%Y')" />
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <span class="fw-bold">Delivery
+                                        Method:</span>
+                                </div>
+                                <div class="col-9">
+                                    <t t-if="doc.delivery_method == 'delivery'">
+                                        <span>Delivery</span>
+                                    </t>
+                                    <t t-if="doc.delivery_method == 'clinic'">
+                                        <span>Clinic</span>
+                                    </t>
+                                </div>
+                            </div>
+                            <table class="table mt-3">
+                                <thead>
+                                    <tr class="text-center">
+                                        <td class="w-50">
+                                            <span class="fw-bold">
+                                                Counselors</span>
+                                            <br />
+                                            <span t-esc="doc.consultant" />
+                                        </td>
+                                        <td class="w-50">
+                                            <span class="fw-bold">
+                                                Cutter</span>
+                                            <br />
+                                            <span t-esc="doc.cutter" />
+                                        </td>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="mt-3">
+                                <h5>NOTE:</h5>
+                                <span t-esc="doc.note"></span>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

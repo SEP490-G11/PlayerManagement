@@ -1,0 +1,116 @@
+"@startuml Create Appointment Sequence
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam sequenceParticipantBackgroundColor #E3F2FD
+skinparam sequenceActivationBackgroundColor #BBDEFB
+skinparam sequenceArrowColor #1976D2
+skinparam sequenceLifeLineBorderColor #1976D2
+skinparam sequenceMessageBackgroundColor #E3F2FD
+
+title Create Appointment Flow
+
+actor "Frontend" as Frontend #E8F5E9
+participant "ZAppointmentController\n(appointment_controllers.py)" as Controller #FFF3E0
+participant "ZAppointmentUtils\n(helpers/utils.py)" as Utils #FCE4EC
+participant "ZAppointmentUtilsExtend\n(z_obstetric/helpers/utils.py)" as UtilsExtend #E1F5FE
+participant "z_appointment.appointment\n(Model)" as AppointmentModel #F3E5F5
+participant "z_hr.time_slot\n(Model)" as TimeSlot #E0F7FA
+participant "hr.employee\n(Model)" as Employee #EFEBE9
+participant "res.partner\n(Customer)" as Customer #F1F8E9
+
+== Create Appointment API ==
+Frontend ->> Controller: POST /z_appointment/appointment\n{booking_type, customer, time_slot_id, doctor_id, ...}
+activate Controller
+
+Controller ->> UtilsExtend: create_or_update(instance, values, is_update=False)
+activate UtilsExtend
+
+Note over UtilsExtend
+  Step 1: Validate required fields
+  - booking_type, customer, time_slot_id, doctor_id
+end Note
+
+UtilsExtend ->> Utils: validate_required_field(values, is_update)
+Utils --> UtilsExtend: validated values
+
+UtilsExtend ->> Utils: validate_booking_type(booking_type, values)
+alt booking_type == BY_TECHNICIAN
+  Note over UtilsExtend
+    Validate technician_id exists
+  end Note
+end
+
+Note over UtilsExtend
+  Step 2: Get & Validate Time Slot
+end Note
+UtilsExtend ->> TimeSlot: _get_enable_time_slot_by_id(time_slot_id, False)
+TimeSlot --> UtilsExtend: time_slot (enabled & available)
+
+UtilsExtend ->> Utils: check_overbook(overbook, time_slot, appointment)
+alt overbook == False AND time_slot.booked == True
+  TimeSlot -->> UtilsExtend: ERROR: TIME_SLOT_IS_NOT_AVAILBLE
+end
+
+Note over UtilsExtend
+  Step 3: Validate Doctor & Technician
+end Note
+UtilsExtend ->> Employee: _get_employee_by_id(doctor_id)
+Employee --> UtilsExtend: doctor (exists & is_doctor)
+
+alt technician_id exists
+  UtilsExtend ->> Employee: _get_employee_by_id(technician_id)
+  Employee --> UtilsExtend: technician (exists & is_bookable)
+end
+
+Note over UtilsExtend
+  Step 4: Validate Time Slot by Booking Type
+end Note
+UtilsExtend ->> Utils: validate_time_slot_by_booking_type(...)
+alt booking_type == BY_TECHNICIAN
+  alt technician_id != time_slot.employee_id
+    TimeSlot -->> UtilsExtend: ERROR: "slot must belong to technician"
+  end
+  alt not overbook AND doctor has other appointments at same time
+    UtilsExtend -->> UtilsExtend: ERROR: "doctor has appointment"
+  end
+else booking_type == BY_DATE/BY_DOCTOR
+  alt time_slot.employee_id != doctor_id
+    TimeSlot -->> UtilsExtend: ERROR: "slot must belong to doctor"
+  end
+end
+
+Note over UtilsExtend
+  Step 5: Get or Create Customer
+end Note
+UtilsExtend ->> Utils: get_customer_info(instance, customer_id, customer_info)
+alt customer_id exists
+  UtilsExtend ->> Customer: _get_customer_by_id(customer_id)
+  Customer --> UtilsExtend: customer
+else
+  UtilsExtend ->> Customer: create(customer_info)
+  Customer --> UtilsExtend: new customer
+end
+
+Note over UtilsExtend
+  Step 6: Create Appointment Record
+end Note
+UtilsExtend ->> AppointmentModel: create(payload)
+AppointmentModel --> UtilsExtend: appointment (state=NOT_YET_ARRIVED)
+
+Note over UtilsExtend
+  Step 7: Book Time Slot
+end Note
+UtilsExtend ->> TimeSlot: booking_slots(time_slot_instance, appointment)
+TimeSlot ->> TimeSlot: write({booked: True}) for doctor & technician
+
+UtilsExtend --> Controller: appointment
+deactivate UtilsExtend
+
+Controller ->> Utils: format_detail(appointment)
+Utils --> Controller: formatted response
+
+Controller -->> Frontend: 200 OK\n{appointment details, "Đặt lịch thành công"}
+deactivate Controller
+
+@enduml
+"

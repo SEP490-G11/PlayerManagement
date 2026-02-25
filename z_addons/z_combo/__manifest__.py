@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+{
+    "name": "Combo",
+    "version": "1.0",
+    "summary": "zen8labs combo module",
+    "description": "zen8labs combo module",
+    "category": "zen8labs/zen8labs",
+    "author": "zen8labs",
+    "website": "https://www.zen8labs.com",
+    "sequence": 10,
+    "depends": [
+        "product",
+        "z_partner",
+        "z_web",
+        "z_appointment",
+        "z_hr",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "data/combo_category_data.xml",
+        "views/combo_category_views.xml",
+        "views/combo_views.xml",
+        "views/combo_order_views.xml",
+        "views/account_move_views.xml",
+        "views/res_partner_views.xml",
+        # "views/visit_views.xml",
+        "report/purchased_combo_report.xml",
+        "views/visit_views.xml",
+        "report/purchased_combo_report.xml",
+    ],
+    "installable": True,
+    "license": "LGPL-3",
+}

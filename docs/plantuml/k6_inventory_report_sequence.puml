@@ -1,0 +1,161 @@
+"@startuml K6 Inventory Report Sequence
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam sequenceParticipantBackgroundColor #E3F2FD
+skinparam sequenceActivationBackgroundColor #BBDEFB
+skinparam sequenceArrowColor #1976D2
+skinparam sequenceLifeLineBorderColor #1976D2
+skinparam sequenceMessageBackgroundColor #E3F2FD
+
+title K6: Inventory Report Flow
+
+actor "Frontend" as Frontend #E8F5E9
+participant "format_export\n(controllers/format_export.py)" as ExportController #FFF3E0
+participant "ZStockPicking\n(models/stock_picking.py)" as PickingModel #FCE4EC
+participant "stock.picking" as Picking #E1F5FE
+participant "stock.move" as Move #F3E5F5
+participant "z_place.place" as Place #E0F7FA
+participant "res.users" as User #CE93D8
+
+== Inventory Report: Export Picking List ==
+
+Frontend ->> ExportController: GET /stock/picking/export_excel\n?start_date=&end_date=&place_id=
+activate ExportController
+
+Note over ExportController
+  Custom filename generator for stock.picking
+  Inherits from base format_export
+end Note
+
+ExportController ->> PickingModel: search([domain])
+activate PickingModel
+
+Note over PickingModel
+  Step 1: Build search domain
+  - Filter by date range (start_date, end_date)
+  - Filter by place_id (user permission)
+  - Filter by state
+end Note
+
+PickingModel ->> User: Get user_place_ids
+User --> PickingModel: place_ids
+
+Note over PickingModel
+  Domain automatically filtered by:
+  - place_id in user_place_ids
+  (via view domain in stock_picking_views.xml)
+end Note
+
+PickingModel ->> Picking: search(domain, order, offset, limit)
+activate Picking
+
+loop For each picking
+  Picking ->> Move: picking.move_ids
+  Move --> Picking: stock moves
+end
+
+Picking --> PickingModel: queryset of pickings
+deactivate Picking
+
+PickingModel --> ExportController: pickings queryset
+deactivate PickingModel
+
+Note over ExportController
+  Step 2: Generate Excel file
+  Format: Danh-sach-phieu-nhap-kho-{date}.xls
+end Note
+
+ExportController ->> ExportController: Process Excel\n(headers, fields, data formatting)
+
+Note over ExportController
+  Excel Headers:
+  - STT (序号)
+  - Nhóm khách hàng (Customer Group)
+  - Ngày (Date)
+  - Thời gian (Time)
+  - Tên khách hàng (Customer Name)
+  - Số điện thoại (Phone)
+  - Loại lịch (Type)
+  - Kỹ thuật viên (Technician)
+  - Bác sĩ (Doctor)
+  - Trạng thái (State)
+  - Ghi chú (Note)
+  - Lý do (Reason)
+end Note
+
+ExportController --> ExportController: excel_file (base64 encoded)
+
+ExportController -->> Frontend: 200 OK\n{
+  url: "data:application/vnd.ms-excel;base64,...",
+  filename: "Danh-sach-phieu-nhap-kho-2025-01-15.xls"
+}
+
+== View-based Report Filtering ==
+
+Note over Frontend
+  Inventory report views are filtered by user permissions
+  Via: stock_picking_views.xml
+end Note
+
+Frontend ->> PickingModel: fields_view_get(view_id, view_type)
+PickingModel ->> User: Get user_place_ids
+
+PickingModel ->> PickingModel: Set context\n{user_place_ids: [...]}:
+PickingModel --> PickingModel: ctx with place restriction
+
+PickingModel -->> Frontend: view with restricted context
+
+Note over PickingModel
+  Menu action domain:
+  [('warehouse_id.place_id', 'in', user_place_ids)]
+  
+  This ensures users only see pickings
+  from their assigned branches
+end Note
+
+== Related Records ==
+
+Note over PickingModel
+  Additional computed fields for report:
+  
+  1. origin_so_count: Count related SO
+     → sale.order.search([('name', '=', origin)])
+     
+  2. invoice_count: Count related invoices
+     → account.move.search([('invoice_origin', 'in', so.names)])
+     
+  3. place_id: Branch of picking
+     → z_place.place
+end Note
+
+== Action Links ==
+
+Note over Frontend
+  Report includes action links to view:
+  
+  1. action_view_origin_so()
+     → Opens related Sale Order
+     
+  2. action_view_related_invoices()
+     → Opens related Account Move (invoice)
+end Note
+
+Frontend ->> PickingModel: action_view_origin_so()
+PickingModel ->> Picking: Get origin field
+Picking --> PickingModel: origin (SO name)
+
+PickingModel ->> Picking: search([('name', '=', origin)])
+Picking --> PickingModel: sale orders
+
+PickingModel -->> Frontend: action window for SO
+
+Frontend ->> PickingModel: action_view_related_invoices()
+PickingModel ->> Picking: Get origin field
+PickingModel ->> Picking: search sale orders
+PickingModel ->> Picking: search invoices\n[invoice_origin in so.names]
+Picking --> PickingModel: invoices
+
+PickingModel -->> Frontend: action window for invoices
+
+@enduml
+"

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Publish VAT Invoice Form View (Simple) -->
+        <record id="view_publish_vat_invoice_form_simple" model="ir.ui.view">
+            <field name="name">z_invoice.publish_vat_invoice.form.simple</field>
+            <field name="model">z_invoice.publish_vat_invoice</field>
+            <field name="arch" type="xml">
+                <form string="Publish VAT Invoice" options="{'no_create': True}" create="0">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,published,cancelled"/>
+                        <button name="action_preview_unpublish_invoice"
+                                string="Xem trước"
+                                type="object"
+                                class="btn-primary" invisible="state != 'draft'"/>
+                        <button name="action_publish_vat_invoice"
+                                string="Phát hành HĐ"
+                                type="object"
+                                confirm="Bạn có chắc chắn muốn phát hành hóa đơn này không?"
+                                invisible="state != 'draft'"
+                                class="btn-primary" />
+                        <button name="action_preview_publish_invoice" string="Xem HĐ phát hành" type="object" class="btn-primary" invisible="state != 'published'"/>
+                        <button name="action_cancel_publish_invoice"
+                        confirm="Bạn có chắc chắn muốn hủy phát hành hóa đơn này không?"
+                        string="Hủy phát hành" type="object" class="btn-secondary" invisible="state != 'published'"/>
+                    </header>
+                    <sheet>
+                        <notebook>
+                            <page string="Thông tin cơ bản">
+                                <group>
+                                    <group string="Thông tin cơ bản">
+                                        <field name="invoice_id" readonly="1"/>
+                                        <field name="place_id" readonly="1"/>
+                                    </group>
+                                    <group string="Thông tin khách hàng">
+                                        <field name="partner_id" readonly="1"/>
+                                        <field name="customer_company_id" placeholder="Tên công ty" readonly="partner_id.res"/>
+                                    </group>
+                                </group>
+                                <group string="Thông tin bổ sung">
+                                    <field name="customer_company_name"/>
+                                    <field name="customer_company_tax_code"/>
+                                    <field name="customer_company_address"/>
+                                    <field name="misa_template_id" readonly="state != 'draft'"/>
+                                    <field name="url" />
+                                    <field name="transaction_id" />
+                                    <field name="misa_inv_no" />
+                                    <field name="misa_inv_code" />
+                                </group>
+        
+                                <div class="alert alert-info" role="alert">
+                                    <strong>Lưu ý:</strong> Nếu có thông tin Tên công ty hoặc Mã số thuế, 
+                                    thì bắt buộc phải có đầy đủ: Tên công ty, Mã số thuế, và Địa chỉ.
+                                </div>
+
+                            </page>
+                            <page string="Xem trước" invisible="state == 'draft'">
+                                <div class="o_form_view o_form_editable">
+                                    <field name="url" widget="button_upload_result"/>
+                                </div>
+                            </page>
+                        </notebook>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Publish VAT Invoice Tree View -->
+        <record id="view_publish_vat_invoice_tree" model="ir.ui.view">
+            <field name="name">z_invoice.publish_vat_invoice.tree</field>
+            <field name="model">z_invoice.publish_vat_invoice</field>
+            <field name="arch" type="xml">
+                <tree string="Publish VAT Invoice">
+                    <field name="customer_company_name"/>
+                    <field name="customer_company_tax_code"/>
+                    <field name="customer_company_address"/>
+                    <field name="customer_company_bank_account"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_publish_vat_invoice_tree" model="ir.ui.view">
+            <field name="name">z_invoice.publish_vat_invoice.tree</field>
+            <field name="model">z_invoice.publish_vat_invoice</field>
+            <field name="arch" type="xml">
+                <tree string="Publish VAT Invoice">
+                    <field name="name"/>
+                    <field name="invoice_id"/>
+                    <field name="partner_id"/>
+                    <field name="customer_company_name"/>
+                    <field name="customer_company_tax_code"/>
+                    <field name="customer_company_address"/>
+                    <field name="misa_template_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Action to open the list view -->
+        <record id="action_publish_vat_invoice_list" model="ir.actions.act_window">
+            <field name="name">Publish VAT Invoice</field>
+            <field name="res_model">z_invoice.publish_vat_invoice</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_publish_vat_invoice_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                            Create your first VAT Invoice record!
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu item -->
+        
+        <menuitem id="menu_publish_vat_invoice" name="Publish VAT Invoice" parent="menu_publish_vat_invoice_root" action="action_publish_vat_invoice_list" sequence="10"/>
+    </data>
+</odoo> 

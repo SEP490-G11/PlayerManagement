@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="z_invoice.MisaTemplateField">
+        <div class="o_field_misa_template">
+            <!-- Loading state -->
+            <div t-if="state.loading" class="o_field_loading">
+                <i class="fa fa-spinner fa-spin"/> Loading templates...
+            </div>
+            
+            <!-- Error state -->
+            <div t-if="state.error" class="o_field_error text-danger">
+                <i class="fa fa-exclamation-triangle"/> <t t-out="state.error"/>
+            </div>
+            
+            <!-- Template dropdown -->
+            <div t-if="!state.loading and !state.error" class="o_field_template_dropdown">
+                <select 
+                    class="form-control" 
+                    t-att-value="state.selectedTemplate"
+                    t-on-change="onTemplateChange"
+                    t-att-disabled="props.readonly">
+                    
+                    <option value="">-- Select Template --</option>
+                    <t t-foreach="state.templates" t-as="template" t-key="template.IPTemplateID">
+                        <option 
+                            t-att-value="template.IPTemplateID"
+                            t-att-selected="state.selectedTemplate === template.IPTemplateID">
+                            <t t-out="template.TemplateName"/>
+                        </option>
+                    </t>
+                </select>
+                
+                <!-- Display selected template info -->
+                <div t-if="state.selectedTemplate" class="mt-2">
+                    <small class="text-muted">
+                        <strong>Selected:</strong> <t t-out="selectedTemplateName"/>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </t>    
+
+</templates>

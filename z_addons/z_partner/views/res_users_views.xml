@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="user_form_view_inherit" model="ir.ui.view">
+        <field name="name">res.user.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='login']" position="after">
+                <group>
+                    <group>
+                        <label for="z_mobile_phone" string="Work Mobile" class="oe_asterisk"/>
+                        <field name="z_mobile_phone" nolabel="1"/>
+                        <label for="job_id" string="Job Position" class="oe_asterisk"/>
+                        <field name="job_id" nolabel="1"/> 
+                    </group>
+                    <group>
+                        <label for="z_birthday" string="Date of birth" class="oe_asterisk"/>
+                        <field name="z_birthday" nolabel="1"/>
+                        <label for="place_ids" string="Places" class="oe_asterisk"/>
+                        <field name="place_ids" widget="many2many_checkboxes" nolabel="1" class="checkbox-place-ids"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//button[@name='action_create_employee']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

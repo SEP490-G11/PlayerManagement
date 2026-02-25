@@ -1,0 +1,146 @@
+"@startuml K3 Create & Approve Internal Picking Sequence
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam sequenceParticipantBackgroundColor #E3F2FD
+skinparam sequenceActivationBackgroundColor #BBDEFB
+skinparam sequenceArrowColor #1976D2
+skinparam sequenceLifeLineBorderColor #1976D2
+skinparam sequenceMessageBackgroundColor #E3F2FD
+
+title K3: Create & Approve Internal Picking Flow
+
+actor "Frontend" as Frontend #E8F5E9
+participant "ZStockPicking\n(models/stock_picking.py)" as PickingModel #FFF3E0
+participant "stock.picking.type" as PickingType #FCE4EC
+participant "hr.employee" as Employee #E1F5FE
+participant "res.users" as User #F3E5F5
+
+== Internal Picking: Transfer between locations ==
+
+Frontend ->> PickingModel: CREATE stock.picking\n(picking_type_code='internal', location_id, location_dest_id, ...)
+activate PickingModel
+
+Note over PickingModel
+  Entry point: _default_picking_type_id()
+  Context: {'restricted_picking_type_code': 'internal'}
+end Note
+
+Note over PickingModel
+  Step 1: Check user permission
+end Note
+PickingModel ->> User: Check place_ids
+alt No place assigned
+  PickingModel -->> Frontend: ERROR: "You are not allowed to create a picking in any branch."
+end
+
+Note over PickingModel
+  Step 2: Get default picking type for INTERNAL
+end Note
+PickingModel ->> PickingType: search([
+  ('code', '=', 'internal'),
+  ('company_id', '=', env.company.id),
+  ('warehouse_id.place_id', 'in', user_place_ids)
+])
+PickingType --> PickingModel: picking_type (internal)
+
+Note over PickingModel
+  Step 3: Set place_id
+end Note
+PickingModel ->> PickingModel: create({
+  place_id: user.place_ids[0].id,
+  picking_type_id: picking_type.id,
+  location_id: ...,
+  location_dest_id: ...,
+  approver_ids: [...],  # Required for internal!
+  ...
+})
+
+Note over PickingModel
+  Internal Picking States:
+  - draft → confirmed → assigned → done
+  - Requires APPROVER before confirmation
+end Note
+
+PickingModel --> PickingModel: picking created (draft)
+PickingModel -->> Frontend: 200 OK\n{picking.id, state='draft'}
+
+== Approve Internal Picking ==
+
+Note over Frontend
+  User must select approver(s) before confirming
+  Approver must have: job_id.acronym = 'LT-DS'
+  AND place_ids includes location_dest_id.place_id
+end Note
+
+Frontend ->> PickingModel: action_confirm()
+
+Note over PickingModel
+  Override action_confirm() for internal picking
+end Note
+
+PickingModel ->> PickingModel: _check_approver()
+activate PickingModel
+
+Note over PickingModel
+  Validation: Check approver_ids is not empty
+end Note
+
+alt No approver selected
+  PickingModel -->> Frontend: ERROR: "Bạn cần điền ít nhất một Người phê duyệt điều chuyển."
+else
+  PickingModel --> PickingModel: Validation passed
+end
+
+deactivate PickingModel
+
+Note over PickingModel
+  Continue with super().action_confirm()
+  State: draft → confirmed
+end Note
+PickingModel ->> PickingModel: super().action_confirm()
+PickingModel --> PickingModel: state = 'confirmed'
+
+PickingModel -->> Frontend: 200 OK\n{state: 'confirmed'}
+
+== Compute Approver Status ==
+
+Note over PickingModel
+  Field: is_not_approver (compute)
+  Used in view to show/hide Validate button
+end Note
+
+PickingModel ->> User: Get current user employees
+User --> PickingModel: user_employees
+
+PickingModel ->> PickingModel: user_employees & approver_ids
+PickingModel --> PickingModel: is_not_approver = (intersection is empty)
+
+Note over PickingModel
+  View Logic:
+  - button_validate is invisible if:
+    (is_not_approver AND picking_type_code == 'internal')
+    OR state in ('draft', 'confirmed', 'done', 'cancel')
+  
+  Only approver can validate internal picking!
+end Note
+
+== Validation by Approver ==
+
+Note over Frontend
+  Approver views the form
+  - is_not_approver = False
+  - Validate button is VISIBLE
+end Note
+
+Frontend ->> PickingModel: button_validate()
+PickingModel --> PickingModel: state = 'done'
+
+Note over PickingModel
+  Internal transfer is completed
+  Products moved from location_id → location_dest_id
+end Note
+
+PickingModel -->> Frontend: 200 OK\n{state: 'done'}
+
+@enduml
+"

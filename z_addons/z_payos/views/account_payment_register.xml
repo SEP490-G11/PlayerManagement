@@ -1,0 +1,52 @@
+<odoo>
+    <record id="z_invoice_payment_payment_register_form_inherit" model="ir.ui.view">
+        <field name="name">account.payment.register.form.inherit</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='journal_id']" position="attributes">
+                <attribute name="string">Payment Method</attribute>
+            </xpath>
+            <xpath expr="//field[@name='payment_method_line_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount']" position="attributes">
+                <attribute name="readonly">viet_qr_reconcile_code</attribute>
+            </xpath>
+            <xpath expr="//field[@name='payment_date']" position="attributes">
+                <attribute name="readonly">viet_qr_reconcile_code</attribute>
+            </xpath>
+            <xpath expr="//field[@name='journal_id']" position="attributes">
+                <attribute name="readonly">viet_qr_reconcile_code</attribute>
+            </xpath>
+            <xpath expr="//field[@name='group_payment']" position="after">
+                    <field name="viet_qr_reconcile_code"/>
+                    <field name="invoice_code"/>
+                    <field name="move_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+        <record id="z_invoice_form_view_inherit" model="ir.ui.view">
+            <field name="name">account.move.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_register_payment']" position="after">
+                    <button name="create_payment_link" type="object" invisible="state != 'posted' or payment_state not in ('not_paid', 'partial') or move_type not in ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt')" string="VietQR" class="btn-primary"></button>
+                    <button name="action_open_counter_settings" type="object" string="Counter Settings" class="btn-primary"/>
+                    <div>
+                        <a name="action_redirect_to_link" string="Open Link in New Tab" class="btn-primary btn" 
+                                href="/web/counters" target="_blank">
+                                Open Counter
+                        </a>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_create_qr_code" model="ir.actions.client">
+            <field name="name">Create QR Code</field>
+            <field name="tag">z_payos.create_pr_payment</field>
+        </record>
+</odoo>

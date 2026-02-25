@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_obs_stock_product_product_tree_view_inherit" model="ir.ui.view">
+        <field name="name">z.obs.product.product.tree.inherited</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="barcode"/>
+                <field name="detailed_type"/>
+                <field name="categ_id"/>
+                <field name="pharmacological"/>
+                <field name="fn_material"/>
+                <field name="brand_trade"/>
+                <field name="concentration_content_specifications"/>
+                <field name="preparation"/>
+                <field name="route_admin"/>
+            </xpath>
+            <xpath expr="//field[@name='product_template_variant_value_ids']" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_obs_product_template_only_form_view_inherit" model="ir.ui.view">
+        <field name="name">z.obs.product.template.form.inherited</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="z_product.z_product_template_only_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='packaging']" position="attributes">
+                <attribute name="invisible">detailed_type == 'service'</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_obs_stock_product_normal_form_view_inherit" model="ir.ui.view">
+        <field name="name">z.obs.stock.product.product.tree.inherited</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="z_stock.z_stock_product_normal_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='usage_id']" position="attributes">
+                <attribute name="invisible">detailed_type == 'service'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='usage_id']" position="after">
+                <field name="pharmacological" invisible="detailed_type == 'service'"/>
+                <field name="fn_material" invisible="detailed_type == 'service'"/>
+                <field name="brand_trade" invisible="detailed_type == 'service'"/>
+                <field name="concentration_content_specifications" invisible="detailed_type == 'service'"/>
+                <field name="preparation" invisible="detailed_type == 'service'"/>
+                <field name="route_admin" invisible="detailed_type == 'service'"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="stock.product_product_menu" model="ir.ui.menu">
+        <field name="name">Sản phẩm</field>
+    </record>
+</odoo>

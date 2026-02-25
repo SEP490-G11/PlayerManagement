@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    Quản lý hoá đơn-->
+
+    <record id="account.menu_action_move_out_refund_type" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_open_sale_payment_items" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.product_product_menu_sellable" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="view_account_payment_tree_inherit_optho" model="ir.ui.view">
+        <field name="name">account.payment.tree.inherit.optho</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <function model="ir.model.data" name="write">
+        <function model="ir.model.data" name="search">
+            <value eval="[('module','=','account'),('name','=','account_send_payment_receipt_by_email_action')]"/>
+        </function>
+        <value eval="{'noupdate': False,}"/>
+    </function>
+
+    <function model="ir.model.data" name="write">
+        <function model="ir.model.data" name="search">
+            <value eval="[('module','=','account'),('name','=','account_send_payment_receipt_by_email_action_multi')]"/>
+        </function>
+        <value eval="{'noupdate': False,}"/>
+    </function>
+
+    <record id="account.account_send_payment_receipt_by_email_action" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="account.account_send_payment_receipt_by_email_action_multi" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="account.action_account_confirm_payments" model="ir.actions.server">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <record id="z_invoice_tree_custom_optho" model="ir.ui.view">
+        <field name="name">z_invoice_tree_custom_optho</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="z_invoice.z_invoice_tree_custom"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account.action_view_account_move_reversal" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="account.action_validate_account_move" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="account.action_account_invoice_from_list" model="ir.actions.server">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="account.invoice_send" model="ir.actions.server">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <function model="ir.model.data" name="write">
+        <function model="ir.model.data" name="search">
+            <value eval="[('module','=','account'),('name','=','action_account_resequence')]"/>
+        </function>
+        <value eval="{'noupdate': False,}"/>
+    </function>
+
+    <record id="account.action_account_resequence" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <record id="account.menu_action_move_in_refund_type" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_open_payment_items" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_account_supplier_accounts" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.product_product_menu_purchasable" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="z_invoice_partner_tree_custom_optho" model="ir.ui.view">
+        <field name="name">z_invoice_partner_tree_custom_optho</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="z_invoice.inherit_view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_account_payment_form_optho" model="ir.ui.view">
+        <field name="name">view_account_payment_form_optho</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account.action_report_payment_receipt" model="ir.actions.report">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <record id="account.menu_account_config" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_payment_term_form" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_incoterm_open" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_tax_form" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_account_journal_form" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_currency_form" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_account_fiscal_position_form" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_account_journal_group_list" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account.menu_action_tax_group" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account_payment.payment_provider_menu" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account_payment.payment_token_menu" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="account_payment.payment_transaction_menu" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+
+    <!--    Quản lý kho-->
+    <record id="stock.menu_stock_scrap" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock.menu_reordering_rules_replenish" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock.menu_procurement_compute" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+    <record id="z_vpicktree_optho" model="ir.ui.view">
+        <field name="name">z_vpicktree_optho</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="stock.action_lead_mass_mail" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <record id="z_view_picking_form_optho" model="ir.ui.view">
+        <field name="name">z_view_picking_form_optho</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="stock.action_lead_mass_mail" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="stock.action_unreserve_picking" model="ir.actions.server">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="stock.action_toggle_is_locked" model="ir.actions.server">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="stock.action_scrap" model="ir.actions.server">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="stock.menu_pickingtype" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock.menu_putaway" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock.menu_reordering_rules_config" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock.menu_reordering_rules_config" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock.menu_stock_uom_categ_form_action" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock.menu_wms_barcode_nomenclature_all" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock.stock_move_menu" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock_account.menu_valuation" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="stock_account.menu_inventory_aging" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
+
+    <!--    Quản lý nhân viên-->
+
+    <record id="z_place_place_list_view_optho" model="ir.ui.view">
+        <field name="name">z_place_place_list_view_optho</field>
+        <field name="model">z_place.place</field>
+        <field name="inherit_id" ref="z_place.z_place_place_list_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_place_place_form_view_optho" model="ir.ui.view">
+        <field name="name">z_place_place_form_view_optho</field>
+        <field name="model">z_place.place</field>
+        <field name="inherit_id" ref="z_place.z_place_place_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_view_hr_job_tree_optho" model="ir.ui.view">
+        <field name="name">z_view_hr_job_tree_optho</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_view_hr_form_tree_optho" model="ir.ui.view">
+        <field name="name">z_view_hr_form_tree_optho</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_view_resource_calendar_tree_optho" model="ir.ui.view">
+        <field name="name">z_view_resource_calendar_tree_optho</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_view_resource_calendar_form_optho" model="ir.ui.view">
+        <field name="name">z_view_resource_calendar_form_optho</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="resource.resource_calendar_closing_days" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+    <record id="resource.resource_calendar_resources_leaves" model="ir.actions.act_window">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <record id="z_view_employee_tree_optho" model="ir.ui.view">
+        <field name="name">z_view_employee_tree_optho</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_view_employee_form_optho" model="ir.ui.view">
+        <field name="name">z_view_employee_form_optho</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="hr.hr_employee_print_badge" model="ir.actions.report">
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <!--    Đơn kính-->
+
+    <record id="z_z_glass_order_list_view_optho" model="ir.ui.view">
+        <field name="name">z_z_glass_order_list_view_optho</field>
+        <field name="model">z_glass_order</field>
+        <field name="inherit_id" ref="z_glass_order.z_glass_order_list_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="duplicate">0</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

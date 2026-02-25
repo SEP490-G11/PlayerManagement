@@ -1,0 +1,5 @@
+.oe_asterisk:after {
+    content: '*';
+    color: red; /* or any color you prefer */
+    margin-left: 0px;
+}

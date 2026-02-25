@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="base.menu_management" model="ir.ui.menu">
+        <field name="groups_id" eval="[(4, ref('base.group_no_one'))]"/>
+    </record>
+
+    <record id="z_ir_access_view_tree_edition" model="ir.ui.view">
+        <field name="name">ir.model.access.view.tree.edition</field>
+        <field name="model">ir.model.access</field>
+        <field name="arch" type="xml">
+            <tree string="Quyền truy cập" editable="top"
+                  decoration-warning="not group_id and
+                                         (perm_read or perm_write or
+                                          perm_create or perm_unlink)">
+                <field name="name"/>
+                <field name="model_id"/>
+                <field name="group_id"/>
+                <field name="perm_read"/>
+                <field name="perm_write"/>
+                <field name="perm_create"/>
+                <field name="perm_unlink"/>
+                <field name="is_custom_access" string="Là quyền truy cập của PK"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="z_ir_access_act" model="ir.actions.act_window">
+        <field name="name">Quyền truy cập</field>
+        <field name="res_model">ir.model.access</field>
+        <field name="view_id" ref="z_web.z_ir_access_view_tree_edition"/>
+        <field name="search_view_id" ref="base.ir_access_view_search"/>
+        <field name="domain">[('is_custom_access', '=', True)]</field>
+        <field name="context">{'default_is_custom_access': True}</field>
+        <field name="groups_id" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+
+    <record id="z_web_menu_access" model="ir.ui.menu">
+        <field name="name">Quyền truy cập</field>
+        <field name="active">True</field>
+        <field name="sequence">300</field>
+        <field name="web_icon">z_web,static/description/icon.png</field>
+    </record>
+
+    <record id="z_web_menu_our_access" model="ir.ui.menu">
+        <field name="name">Phân quyền model</field>
+        <field name="active">True</field>
+        <field name="sequence">1</field>
+        <field name="parent_id" ref="z_web.z_web_menu_access"/>
+        <field name="action" ref="z_web.z_ir_access_act"/>
+    </record>
+    <record id="z_web_menu_bases_access" model="ir.ui.menu">
+        <field name="name">Phân quyền theo base</field>
+        <field name="active">True</field>
+        <field name="sequence">10</field>
+        <field name="parent_id" ref="z_web.z_web_menu_access"/>
+        <field name="action" ref="base.ir_access_act"/>
+    </record>
+    <record id="z_web_menu_our_user_and_company" model="ir.ui.menu">
+        <field name="name">Người dùng &amp; Công ty</field>
+        <field name="active">True</field>
+        <field name="sequence">20</field>
+        <field name="parent_id" ref="z_web.z_web_menu_access"/>
+    </record>
+    <record id="z_web_menu_our_user" model="ir.ui.menu">
+        <field name="name">Người dùng</field>
+        <field name="active">True</field>
+        <field name="sequence">1</field>
+        <field name="parent_id" ref="z_web.z_web_menu_our_user_and_company"/>
+        <field name="action" ref="base.action_res_users"/>
+    </record>
+    <record id="z_web_menu_our_group" model="ir.ui.menu">
+        <field name="name">Nhóm</field>
+        <field name="active">True</field>
+        <field name="sequence">10</field>
+        <field name="parent_id" ref="z_web.z_web_menu_our_user_and_company"/>
+        <field name="action" ref="base.action_res_groups"/>
+    </record>
+    <record id="z_web_menu_our_company" model="ir.ui.menu">
+        <field name="name">Công ty</field>
+        <field name="active">True</field>
+        <field name="sequence">20</field>
+        <field name="parent_id" ref="z_web.z_web_menu_our_user_and_company"/>
+        <field name="action" ref="base.action_res_company_form"/>
+    </record>
+    <record id="base.menu_management" model="ir.ui.menu">
+        <field name="web_icon">base,static/description/modules.png</field>
+    </record>
+    <record id="base.menu_administration" model="ir.ui.menu">
+        <field name="web_icon">base,static/description/settings.png</field>
+    </record>
+</odoo>

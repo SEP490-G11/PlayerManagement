@@ -1,0 +1,183 @@
+"@startuml K5 Validate Picking Permission Sequence
+!theme plain
+skinparam backgroundColor #FEFEFE
+skinparam sequenceParticipantBackgroundColor #E3F2FD
+skinparam sequenceActivationBackgroundColor #BBDEFB
+skinparam sequenceArrowColor #1976D2
+skinparam sequenceLifeLineBorderColor #1976D2
+skinparam sequenceMessageBackgroundColor #E3F2FD
+
+title K5: Validate Picking Permission Flow
+
+actor "Frontend" as Frontend #E8F5E9
+participant "ZStockPicking\n(models/stock_picking.py)" as PickingModel #FFF3E0
+participant "stock.location" as Location #E1F5FE
+participant "z_place.place" as Place #F3E5F5
+participant "res.users" as User #E0F7FA
+participant "hr.employee" as Employee #CE93D8
+
+== Permission Validation Points ==
+
+note over PickingModel
+  Three permission validation points:
+  
+  1. CREATE: Check user.place_ids for branch access
+  2. CREATE: Check location.place_id matches picking type
+  3. CONFIRM: Check approver_ids for internal picking
+  
+end note
+
+== 1. Validate User Branch Access ==
+
+Frontend ->> PickingModel: CREATE stock.picking
+PickingModel ->> User: Get current user
+User --> PickingModel: current_user
+
+PickingModel ->> User: Check place_ids
+alt No place_ids assigned
+  PickingModel -->> Frontend: ERROR
+  note right
+    "You are not allowed to create 
+     a picking in any branch."
+  end note
+end
+
+note over PickingModel
+  This prevents users without branch assignment
+  from creating any pickings
+end note
+
+== 2. Validate Location by Picking Type ==
+
+Note over Frontend
+  Triggered when user changes location_id or location_dest_id
+  Method: _onchange_location_id()
+end Note
+
+Frontend ->> PickingModel: _onchange_location_id(location_id, location_dest_id)
+
+PickingModel ->> PickingModel: Get context 'restricted_picking_type_code'
+PickingModel ->> User: Get allowed_place_ids (user.place_ids.ids)
+
+alt picking_type_code == 'incoming'
+  Note over PickingModel
+    For INCOMING picking:
+    - Check location_dest_id.place_id
+    - User must have permission for DESTINATION branch
+    (Receiving goods TO this branch)
+  end Note
+  
+  PickingModel ->> Location: browse(location_dest_id)
+  Location --> PickingModel: location
+  
+  Location ->> Place: Get place_id
+  Place --> Location: place
+  
+  Location --> PickingModel: location.place_id.id
+  
+  alt location.place_id.id NOT in allowed_place_ids
+    PickingModel -->> Frontend: ERROR
+    note right
+      "You are not allowed to create 
+       a picking in this branch."
+    end note
+  end
+  
+else picking_type_code == 'outgoing'
+  Note over PickingModel
+    For OUTGOING picking:
+    - Check location_id.place_id
+    - User must have permission for SOURCE branch
+    (Sending goods FROM this branch)
+  end Note
+  
+  PickingModel ->> Location: browse(location_id)
+  Location --> PickingModel: location
+  
+  Location ->> Place: Get place_id
+  Place --> Location: place
+  
+  Location --> PickingModel: location.place_id.id
+  
+  alt location.place_id.id NOT in allowed_place_ids
+    PickingModel -->> Frontend: ERROR
+    note right
+      "You are not allowed to create 
+       a picking in this branch."
+    end note
+  end
+end
+
+PickingModel -->> Frontend: Validation passed
+
+== 3. Validate Approver for Internal Picking ==
+
+Note over Frontend
+  Triggered when user clicks "Confirm" on internal picking
+  Method: action_confirm() → _check_approver()
+end Note
+
+Frontend ->> PickingModel: action_confirm()
+PickingModel ->> PickingModel: Check picking_type_code == 'internal'
+
+alt is internal picking
+  PickingModel ->> PickingModel: _check_approver()
+  
+  alt approver_ids is empty
+    PickingModel -->> Frontend: ERROR
+    note right
+      "Bạn cần điền ít nhất một 
+       Người phê duyệt điều chuyển."
+    end note
+  end
+end
+
+PickingModel -->> Frontend: Confirmation allowed
+
+== 4. Compute Approver Status (for Validate Button) ==
+
+Note over Frontend
+  Used in view to hide/show Validate button
+  Field: is_not_approver (computed)
+end Note
+
+Frontend ->> PickingModel: Read is_not_approver
+PickingModel ->> User: Get current_user
+User --> PickingModel: current_user
+
+PickingModel ->> Employee: Get user_employees (current_user.employee_ids)
+Employee --> PickingModel: user_employees
+
+PickingModel ->> PickingModel: Check intersection\nuser_employees & approver_ids
+
+alt intersection exists
+  PickingModel --> PickingModel: is_not_approver = False
+  note right
+    Current user IS approver
+    → Validate button VISIBLE
+  end note
+else
+  PickingModel --> PickingModel: is_not_approver = True
+  note right
+    Current user is NOT approver
+    → Validate button HIDDEN
+  end note
+end
+
+== Permission Summary Table ==
+
+note right of PickingModel
+  | Picking Type | Permission Check |
+  |--------------|------------------|
+  | INCOMING | User must have destination branch |
+  | OUTGOING | User must have source branch |
+  | INTERNAL | Approver required (LT-DS job) |
+  
+  | User Role | Can Create | Can Validate |
+  |-----------|------------|-------------|
+  | Regular | Own branches only | N/A |
+  | Approver | Own branches only | Assigned pickings |
+end note
+
+@enduml
+"

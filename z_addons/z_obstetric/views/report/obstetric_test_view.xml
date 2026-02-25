@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+        <template id="report_obstetric_test">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="doc">
+                        <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                            <img style="object-fit: contain;width: 100%;"
+                                                             t-att-src="'/get-image?key=' + doc.result_image_url"/>
+
+<!--                            <img t-att-src="image_url" style="object-fit: contain;width: 100%;"/>-->
+                            <a t-att-href="'/get-image?key=' + doc.result_image_url"/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="action_report_obstetric_test" model="ir.actions.report">
+            <field name="name">Print medical test</field>
+            <field name="model">z_obstetric.medical_test_line</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">z_obstetric.report_obstetric_test</field>
+            <field name="report_file">z_obstetric.report_obstetric_test</field>
+            <field name="attachment"/>
+            <field name="binding_model_id"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'%s'%(object.pdf_title)</field>
+        </record>
+    </data>
+</odoo>

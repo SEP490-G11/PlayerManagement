@@ -1,0 +1,127 @@
+<odoo>
+    <data>
+        <record id="z_invoice_view_inherit" model="ir.ui.view">
+            <field name="name">account.move.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="attributes">
+                    <attribute name="string">product_service</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='discount']" position="after">
+                    <field name="discount_method"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='discount']" position="attributes">
+                    <attribute name="column_invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="attributes">
+                    <attribute name="column_invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='total_discount']" position="after">
+                    <field name="total_discount_after_sale_by_product" class="custom_move"/>
+                    <field name="discount_method_after_sale" invisible="1"/>
+                    <label for="discount_after_sale"/>
+                    <div class="o_row" style="min-width: 55px !important;">
+                        <field name="discount_after_sale"/>
+                        <span>%%</span>
+                    </div>
+                    <field name="total_discount_after_sale_percentage" widget="moneytary"
+                           invisible="discount_method_after_sale != 'percentage'"/>
+                    <field name="total_discount_all" widget="moneytary"/>
+                </xpath>
+                <xpath expr="//group[hasclass('oe_invoice_lines_tab')]/group[1]" position="attributes">
+                    <attribute name="colspan">6</attribute>
+                </xpath>
+                <xpath expr="//group[hasclass('oe_invoice_lines_tab')]/group[2]" position="attributes">
+                    <attribute name="colspan">6</attribute>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="z_obs_invoice_view_inherit" model="ir.ui.view">
+            <field name="name">z.obs.account.move.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="z_invoice.z_invoice_form_view_inherit"/>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='place_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+    <record id="z_obs_visit_list_view_inherit" model="ir.ui.view">
+        <field name="name">z_obs_appointment.appointment.list</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="inherit_id" ref="z_invoice.z_visit_list_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_create_invoices']" position="after">
+                <button name="action_create_invoices_drug" type="object" title="Payment Drug">
+                </button>
+            </xpath>
+            <xpath expr="//button[@name='action_create_invoices']" position="attributes">
+                <attribute name="title">Thanh toán dịch vụ</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_invoice_form_view_service_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.service.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="attributes">
+                <attribute name="domain">[('detailed_type', 'in', ['service', 'product']), '|', ('sale_ok', '=',
+                    context.get('default_move_type') in ('out_invoice', 'out_refund', 'out_receipt')), ('purchase_ok',
+                    '=', True)]
+                </attribute>
+                <attribute name="options">{'no_create': 'True' }</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_export_invoice'][1]" position="attributes"> 
+                <attribute name="string">In hoá đơn dịch vụ</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_invoice_form_view_drug_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.drug.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="attributes">
+                <attribute name="domain">[('detailed_type', '!=', 'service'), '|', ('sale_ok', '=',
+                    context.get('default_move_type') in ('out_invoice', 'out_refund', 'out_receipt')), ('purchase_ok',
+                    '=', True)]
+                </attribute>
+                <attribute name="options">{'no_create': 'True' }</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_export_invoice'][1]" position="attributes"> 
+                <attribute name="string">In hoá đơn thuốc</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_invoice_obs_for_service_order" model="ir.actions.act_window">
+        <field name="name">Hoá đơn dịch vụ</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">form</field>
+        <field name="domain">[('move_type', '=', 'out_invoice')]</field>
+        <field name="context">{'default_move_type': 'out_invoice', 'default_place_id': 1}</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                      (0, 0, {'view_mode': 'form', 'view_id': ref('z_obstetric.z_invoice_form_view_service_inherit')})]"/>
+    </record>
+
+    <record id="z_invoice_obs_for_drug_order" model="ir.actions.act_window">
+        <field name="name">Hoá đơn thuốc</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">form</field>
+        <field name="domain">[('move_type', '=', 'out_invoice')]</field>
+        <field name="context">{'default_move_type': 'out_invoice', 'default_place_id': 1}</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                      (0, 0, {'view_mode': 'form', 'view_id': ref('z_obstetric.z_invoice_form_view_drug_inherit')})]"/>
+    </record>
+</odoo>

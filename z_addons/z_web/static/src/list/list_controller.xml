@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="web_import_button.ListView.Buttons"
+       t-inherit="web.ListView.Buttons"
+       t-inherit-mode="extension"
+       owl="1"
+    >
+        <xpath expr="//*[contains(@class, 'o_list_button_add')]"
+               position="after">
+            <button t-if="isDisplayImportButton()"
+                    type="button"
+                    class="btn btn-secondary"
+                    t-on-click="actionImport"
+            >
+                Import
+            </button>
+        </xpath>
+    </t>
+</templates>
+
+

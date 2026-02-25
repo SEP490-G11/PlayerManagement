@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="z_base_automation_form" model="ir.ui.view">
+        <field name="name">z.base.automation.form</field>
+        <field name="model">base.automation</field>
+        <field name="inherit_id" ref="base_automation.view_base_automation_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='trigger']" position="attributes">
+                <attribute name="widget"></attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="z_view_server_action_tree_crm">
+        <field name="name">z.ir.actions.server.tree.crm</field>
+        <field name="model">ir.actions.server</field>
+        <field name="inherit_id" ref="base.view_server_action_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="base_automation_id"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="z_crm_menu_access" model="ir.ui.menu">
+        <field name="name">Automation</field>
+        <field name="active">True</field>
+        <field name="sequence">350</field>
+        <field name="web_icon">z_crm,static/description/icon.png</field>
+
+    </record>
+    <record id="z_crm_automation_rules_menu_access" model="ir.ui.menu">
+        <field name="name">Automation Rules</field>
+        <field name="active">True</field>
+        <field name="sequence">1</field>
+        <field name="parent_id" ref="z_crm.z_crm_menu_access"/>
+        <field name="action" ref="base_automation.base_automation_act"/>
+    </record>
+    <record id="z_crm_task_template_menu" model="ir.ui.menu">
+        <field name="name">Task Templates</field>
+        <field name="active">True</field>
+        <field name="sequence">10</field>
+        <field name="parent_id" ref="z_crm.z_crm_menu_access"/>
+        <field name="action" ref="z_crm.z_crm_task_template_action"/>
+    </record>
+    <record id="z_crm_zns_template_menu" model="ir.ui.menu">
+        <field name="name">ZNS Templates</field>
+        <field name="active">True</field>
+        <field name="sequence">20</field>
+        <field name="parent_id" ref="z_crm.z_crm_menu_access"/>
+        <field name="action" ref="z_crm.z_crm_zns_template_action"/>
+    </record>
+    <record id="z_crm_cron_menu" model="ir.ui.menu">
+        <field name="name">Hoạt động định kỳ</field>
+        <field name="active">True</field>
+        <field name="sequence">25</field>
+        <field name="parent_id" ref="z_crm.z_crm_menu_access"/>
+        <field name="action" ref="base.ir_cron_act"/>
+    </record>
+    <record id="z_crm_queue_menu" model="ir.ui.menu">
+        <field name="name">Queue</field>
+        <field name="active">True</field>
+        <field name="sequence">30</field>
+        <field name="parent_id" ref="z_crm.z_crm_menu_access"/>
+        <field name="action" ref="z_crm.z_crm_queue_action"/>
+    </record>
+    <record id="z_crm_logs_menu" model="ir.ui.menu">
+        <field name="name">Logs</field>
+        <field name="active">True</field>
+        <field name="sequence">40</field>
+        <field name="parent_id" ref="z_crm.z_crm_menu_access"/>
+        <field name="action" ref="z_crm.z_crm_logs_action"/>
+    </record>
+</odoo>

@@ -1,0 +1,114 @@
+<odoo>
+    <record id="z_obstetric_examination_form_view" model="ir.ui.view">
+        <field name="name">z_appointment.appointment.list.form</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Gynencological"
+                  name="Gynencological Template"
+                  delete="False"
+                  duplicate="False" create="False">
+                <sheet string="Gynencological">
+                    <style>
+                        .w-300 {
+                        width: 300px;
+                        }
+                    </style>
+                    <div class="mb-2">
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_gynecological_form" field_id="multifocal_0"/>
+                                <button name="action_open_gynecological_form" type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_gynecological_form"
+                                        string="Gynecologica examination">
+                                </button>
+                                <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_gynecological_form"
+                                        string="Gynecologica examination">
+                                </button>
+                            </span>
+                        </div>
+                        <!-- <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_non_speculum_gynecological_form" field_id="multifocal_0"/>
+                                <button name="action_open_non_speculum_gynecological_form" type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_non_speculum_gynecological_form"
+                                        string="Non Speculum Gynecologica examination">
+                                </button>
+                                <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_non_speculum_gynecological_form"
+                                        string="Non Speculum Gynecologica examination">
+                                </button>
+                            </span>
+                        </div> -->
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_pre_first_trimester_pregnant_form" field_id="multifocal_0"/>
+                                <button name="action_open_pre_first_trimester_pregnant_form" type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_pre_first_trimester_pregnant_form"
+                                        string="Pre first tremester pregnant examination">
+                                </button>
+                                 <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_pre_first_trimester_pregnant_form"
+                                        string="Pre first tremester pregnant examination">
+                                </button>
+                            </span>
+                        </div>
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_post_first_trimester_pregnant_form" field_id="multifocal_0"/>
+                                <button name="action_open_post_first_trimester_pregnant_form" type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_post_first_trimester_pregnant_form"
+                                        string="Post first tremester pregnant examination">
+                                </button>
+                                 <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_post_first_trimester_pregnant_form"
+                                        string="Post first tremester pregnant examination">
+                                </button>
+                            </span>
+                        </div>
+                        <div class="col-md-5 mt-3">
+                            <span class="d-inline-block">
+                                <field name="include_full_body_examination_form" field_id="multifocal_0"/>
+                                <button name="action_open_full_body_examination_form" type="object"
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="not include_full_body_examination_form"
+                                        string="Full body examination form">
+                                </button>
+                                 <button
+                                        class="btn-primary o_list_button_add w-300"
+                                        invisible="include_full_body_examination_form"
+                                        string="Full body examination form">
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <!-- QWeb Reports -->
+    <record id="action_report_obstetric_form" model="ir.actions.report">
+        <field name="name">Print cls examination list</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">z_obstetric.report_obstetric_form</field>
+        <field name="report_file">z_obstetric.report_obstetric_form</field>
+        <field name="attachment" />
+        <field name="binding_model_id" ref="model_z_appointment_appointment" />
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s'%(object.pdf_title)</field>
+    </record>
+</odoo>

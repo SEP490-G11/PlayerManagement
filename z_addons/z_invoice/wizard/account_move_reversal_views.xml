@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_account_move_reversal_wizard_inherit" model="ir.ui.view">
+        <field name="name">account.move.reversal.form.inherit</field>
+        <field name="model">account.move.reversal</field>
+        <field name="inherit_id" ref="account.view_account_move_reversal" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='refund_moves']" position="attributes">
+                <attribute name="string">Điểu chỉnh giảm</attribute>
+            </xpath>
+            <xpath expr="//button[@name='modify_moves']" position="attributes">
+                <attribute name="string">Thay thế</attribute>
+                <attribute name="class">btn-primary</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

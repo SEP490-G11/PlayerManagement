@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_crm_task_template,access_z_crm_task_template,z_crm.model_z_crm_task_template,,1,1,1,1
+access_z_crm_zns_template,access_z_crm_zns_template,z_crm.model_z_crm_zns_template,,1,1,1,1
+access_z_crm_queue,access_z_crm_queue,z_crm.model_z_crm_queue,,1,1,1,1
+access_z_crm_logs,access_z_crm_logs,z_crm.model_z_crm_logs,,1,1,1,1
+access_z_crm_task_template_queue,access_z_crm_task_template_queue,z_crm.model_z_crm_task_template_queue,,1,1,1,1
+access_z_crm_zns_template_queue,access_z_crm_zns_template_queue,z_crm.model_z_crm_zns_template_queue,,1,1,1,1

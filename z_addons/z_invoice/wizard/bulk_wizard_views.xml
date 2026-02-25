@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Bulk Publish Wizard View -->
+    <record id="view_bulk_publish_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.publish.wizard.form</field>
+        <field name="model">bulk.publish.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Bulk Publish Invoices">
+                <sheet>
+                    <div class="alert alert-info" role="alert">
+                        <strong>Thông báo:</strong> Bạn đang chuẩn bị phát hành <strong><field name="count"/> hóa đơn</strong>.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="misa_template_id" create="0" options="{'no_create': True}"/>
+                            <field name="progress" widget="progressbar" invisible="state != 'processing'"/>
+                            <field name="state" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Selected Invoices" name="invoices">
+                            <field name="move_ids" readonly="1" mode="tree">
+                                <tree>
+                                    <field name="code"/>
+                                    <field name="partner_id"/>
+                                    <field name="place_id"/>
+                                    <field name="state"/>
+                                    <field name="misa_state"/>
+                                    <field name="amount_total_signed"/>
+                                    <field name="invoice_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Lưu ý:</strong> Chỉ những hóa đơn đã vào số, chưa phát hành và có ngày hóa đơn là hôm nay mới có thể được phát hành.
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="action_confirm_publish" string="Publish Invoices" type="object" class="btn-primary" 
+                            invisible="state != 'draft'"/>
+                    <button string="Close" class="btn-secondary" special="cancel" invisible="state == 'processing'"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bulk_publish_wizard" model="ir.actions.act_window">
+        <field name="name">Bulk Publish Invoices</field>
+        <field name="res_model">bulk.publish.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_move_ids': context.get('default_move_ids', [])}</field>
+    </record>
+
+    <!-- Bulk Email Wizard View -->
+    <record id="view_bulk_email_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.email.wizard.form</field>
+        <field name="model">bulk.email.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Bulk Send Email">
+                <sheet>
+                    <div class="alert alert-info" role="alert">
+                        <strong>Thông báo:</strong> Bạn đang chuẩn bị gửi email cho <strong><field name="count"/> hóa đơn</strong>.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="customer_email" placeholder="Enter customer email address"/>
+                            <field name="progress" widget="progressbar" invisible="state != 'processing'"/>
+                            <field name="state" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Selected Invoices" name="invoices">
+                            <field name="move_ids" readonly="1" mode="tree">
+                                <tree>
+                                    <field name="code"/>
+                                    <field name="partner_id"/>
+                                    <field name="place_id"/>
+                                    <field name="misa_state"/>
+                                    <field name="misa_transaction_id"/>
+                                    <field name="amount_total_signed"/>
+                                    <field name="invoice_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Lưu ý:</strong> Chỉ những hóa đơn đã phát hành mới có thể gửi email.
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="action_confirm_send_email" string="Send Emails" type="object" class="btn-primary" 
+                            invisible="state != 'draft'"/>
+                    <button string="Close" class="btn-secondary" special="cancel" invisible="state == 'processing'"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bulk_email_wizard" model="ir.actions.act_window">
+        <field name="name">Bulk Send Email</field>
+        <field name="res_model">bulk.email.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_move_ids': context.get('default_move_ids', [])}</field>
+    </record>
+
+    <!-- Bulk Cancel Wizard View -->
+    <record id="view_bulk_cancel_wizard_form" model="ir.ui.view">
+        <field name="name">bulk.cancel.wizard.form</field>
+        <field name="model">bulk.cancel.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Bulk Cancel Invoices">
+                <sheet>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Cảnh báo:</strong> Bạn đang chuẩn bị hủy <strong><field name="count"/> hóa đơn</strong>. Hành động này không thể hoàn tác!
+                    </div>
+                    <group>
+                        <group>
+                            <field name="confirm_cancel"/>
+                            <field name="progress" widget="progressbar" invisible="state != 'processing'"/>
+                            <field name="state" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Selected Invoices" name="invoices">
+                            <field name="move_ids" readonly="1" mode="tree">
+                                <tree>
+                                    <field name="code"/>
+                                    <field name="partner_id"/>
+                                    <field name="place_id"/>
+                                    <field name="state"/>
+                                    <field name="misa_state"/>
+                                    <field name="amount_total_signed"/>
+                                    <field name="invoice_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Lưu ý:</strong> Chỉ những hóa đơn ở trạng thái nháp và chưa phát hành mới có thể được hủy. Hóa đơn đã phát hành không thể hủy.
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="action_confirm_cancel" string="Cancel Invoices" type="object" class="btn-danger" 
+                            invisible="state != 'draft'"/>
+                    <button string="Close" class="btn-secondary" special="cancel" invisible="state == 'processing'"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bulk_cancel_wizard" model="ir.actions.act_window">
+        <field name="name">Bulk Cancel Invoices</field>
+        <field name="res_model">bulk.cancel.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_move_ids': context.get('default_move_ids', [])}</field>
+    </record>
+</odoo> 

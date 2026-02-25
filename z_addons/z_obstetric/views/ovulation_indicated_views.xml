@@ -1,0 +1,103 @@
+<odoo>
+    <data>
+        <record id="z_obstetric_ovalution_checking_indicated_form_view"
+            model="ir.ui.view">
+            <field name="name">z_obstetric.z_obstetric.ovalution_checking_indicated.form</field>
+            <field name="model">z_obstetric.oval_check_idc</field>
+            <field name="arch" type="xml">
+                <form string="Ovalution checking indicated"
+                    js_class="form_with_toast"
+                    name="Ovalution checking indicated Template"
+                    delete="False"
+                    duplicate="False" create="False">
+                    <sheet string="Ovalution checking indicated">
+                        <div class="row gy-3">
+                            <div class="col-4">
+                                <div class="o_form_label oe_asterisk mb-1">Examiner</div>
+                                <field name="examiner_id" string=""
+                                    class="form-control trans-input w-100" />
+                            </div>
+                            <div class="col-4">
+                                <div class="o_form_label mb-1">Ultrasonographer</div>
+                                <field name="optometrist_id" string=""
+                                    class="form-control trans-input w-100" />
+                            </div>
+                            <div class="col-4">
+                                <div class="o_form_label oe_asterisk mb-1">Examination date</div>
+                                <field name="examination_date" string=""
+                                    class="form-control trans-input w-100"
+                                    readonly="id" />
+                            </div>
+                            <div class="o_form_label mb-1">1. Diagnose</div>
+                            <div class="col-2">
+                                <div class="o_form_label mb-1">Menstrual</div>
+                            </div>
+                            <div class="col-10">
+                                <field widget="char_field_bs" class="w-100"
+                                    name="menstrual" />
+                            </div>
+                            <div class="col-2">
+                                <div class="o_form_label mb-1">Menstrual cycle</div>
+                            </div>
+                            <div class="col-10">
+                                <field widget="char_field_bs" class="w-100"
+                                    name="menstrual_cycle" />
+                            </div>
+                            <div class="col-2">
+                                <div class="o_form_label mb-1">KCC</div>
+                            </div>
+                            <div class="col-10">
+                                <field widget="char_field_bs" class="w-100"
+                                    name="kcc" />
+                            </div>
+                            <div class="o_form_label mb-1">2. Uterus</div>
+                            <div class="col-2">
+                                <div class="o_form_label mb-1">Position</div>
+                            </div>
+                            <div class="col-10">
+                                <field widget="char_field_bs" class="w-100"
+                                    name="position" />
+                            </div>
+                            <div class="col-2">
+                                <div class="o_form_label mb-1">Size(mm)</div>
+                            </div>
+                            <div class="col-10">
+                                <field widget="char_field_bs" class="w-100"
+                                    name="size" />
+                            </div>
+                            <div class="col-2">
+                                <div class="o_form_label mb-1">Other image</div>
+                            </div>
+                            <div class="col-10">
+                                <field widget="char_field_bs" class="w-100"
+                                    name="other_image" />
+                            </div>
+                            <div class="col-2">
+                                <div class="o_form_label mb-1">Image</div>
+                            </div>
+                            <div class="col-10">
+                                <field name="image_result_upload" widget="many2many_binary_preview" options="{'reload': false }"/>
+                            </div>
+                            <div class="o_form_label mb-1">3. Ovulation Checking</div>
+                            <div class="d-flex gap-4 ">
+                                <div class="flex-grow-1">
+                                    <field name="cheking_ids"
+                                        field_id="product_service_id_0">
+                                        <tree editable="bottom">
+                                            <field name="date" />
+                                            <field name="period_day" />
+                                            <field name="mucosa" />
+                                            <field name="left_ovary" />
+                                            <field name="right_ovary" />
+                                            <field name="mocous_douglas" />
+                                        </tree>
+                                    </field>
+                                </div>
+                            </div>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

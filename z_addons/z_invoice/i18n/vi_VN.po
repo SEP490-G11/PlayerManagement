@@ -1,0 +1,1590 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240624\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-10 08:45+0000\n"
+"PO-Revision-Date: 2024-07-10 08:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_invoice
+#: model:ir.actions.report,print_report_name:z_invoice.action_report_account_invoice
+msgid "'%s'%(object.code)"
+msgstr ""
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "(VND)"
+msgstr "(VNĐ)"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Discount "
+"(VND):</span>"
+msgstr ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Giảm giá "
+"(VNĐ):</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Due amount\n"
+"                        (VND):</span>"
+msgstr ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Tổng thanh toán\n"
+"                        (VNĐ):</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Due amount in\n"
+"                        text:</span>"
+msgstr ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Thành tiền "
+"bằng chữ:</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Method:</span>"
+msgstr ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Hình "
+"thức:</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Paid "
+"(VND):</span>"
+msgstr ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Đã thanh "
+"toán (VNĐ):</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Price Pre-Discount\n"
+"                        (VND):</span>"
+msgstr ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Tổng trước giảm\n"
+"                        (VNĐ):</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Residual "
+"(VND):</span>"
+msgstr ""
+"<span class=\"\" style=\"font-weight: bold;line-height: 20px;\">Còn lại "
+"(VNĐ):</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "<span>Address:</span>"
+msgstr "<span>Địa chỉ:</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "<span>Customer code:</span>"
+msgstr "<span>Mã khách hàng:</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "<span>Date of birth:</span>"
+msgstr "<span>Ngày sinh:</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "<span>Full name:</span>"
+msgstr "<span>Họ và tên:</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "<span>Gender:</span>"
+msgstr "<span>Giới tính:</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "<span>Phone number:</span>"
+msgstr "<span>Số điện thoại:</span>"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.form_view_account_move_update
+msgid "Account Move Update"
+msgstr "Chỉnh sửa thông tin hoá đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_address
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_address
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_address
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__amount_residual
+msgid "Amount Residual"
+msgstr "Số tiền còn lại"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_tree_custom
+msgid "Amount Residual (VND)"
+msgstr "Nợ (VNĐ)"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__amount_residual_signed
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__amount_residual_signed
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__amount_residual_signed
+msgid "Amount Residual Signed"
+msgstr "Phải thu (VNĐ)"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_tree_custom
+msgid "Amount Total (VND)"
+msgstr "Tổng thanh toán (VNĐ)"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__amount_total_signed
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__amount_total_signed
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__amount_total_signed
+msgid "Amount Total Signed"
+msgstr "Tổng thanh toán (VNĐ)"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__amount_residual
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__amount_residual
+msgid "Amount due"
+msgstr "Số tiền phải trả"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_payment_register.py:0
+#, python-format
+msgid "Amount of payment is greater than amount of due amount's payment"
+msgstr "Số tiền của phiếu lớn hơn giá trị hoá đơn "
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_move.py:0
+#, python-format
+msgid "Amount of payment is greater than amount of invoice"
+msgstr "Số tiền của phiếu lớn hơn giá trị hoá đơn "
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Amount:"
+msgstr "Tổng tiền:"
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_z_appointment_appointment
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__z_appointment_id
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__z_appointment_id
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__z_appointment_id
+msgid "Appointment"
+msgstr "Lịch hẹn"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Branch:"
+msgstr "Chi nhánh:"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_visit_form_view_inherit
+msgid "Code"
+msgstr "Hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_combo_line__combo_id
+msgid "Combo"
+msgstr "Gói combo"
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__contact_channel
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__contact_channel
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__contact_channel
+msgid "Contact channel"
+msgstr "Kênh liên hệ"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.inherit_view_partner_tree
+msgid "Contacts"
+msgstr "Liên hệ"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Create payment"
+msgstr "Tạo phiếu thu"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_combo_line__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_combo_line__create_date
+msgid "Created on"
+msgstr "Được tạo"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__creator
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__creator
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__creator
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_tree_view_inherit
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_tree_custom
+msgid "Creator"
+msgstr "Người lập hoá đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Customer Information"
+msgstr "Thông tin khách hàng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_dob
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_dob
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_dob
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Date of birth"
+msgstr "Ngày sinh"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Date:"
+msgstr "Ngày:"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__debt
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__debt
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__debt
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_tree_view_inherit
+msgid "Debt"
+msgstr "Còn nợ"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__diagnostic
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__diagnostic
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__diagnostic
+msgid "Diagnostic"
+msgstr "Chẩn đoán"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.form_view_account_move_update
+msgid "Discard"
+msgstr "Huỷ"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__discount
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Discount"
+msgstr "Giảm giá"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__discount_amount
+msgid "Discount Amount"
+msgstr "Giảm giá"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_move_line.py:0
+#, python-format
+msgid "Discount amount is greater than total amount"
+msgstr "Giảm giá không được lớn hơn tổng tiền"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_move_line.py:0
+#, python-format
+msgid "Discount amount cannot be negative"
+msgstr "Giảm giá không được âm"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_combo_line__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/appointment.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__z_appointment_appointment__z_invoice_status__draft
+#, python-format
+msgid "Draft"
+msgstr "HĐ nháp"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Due date"
+msgstr "Ngày đến hạn"
+
+#. module: z_invoice
+#: model:ir.model.constraint,message:z_invoice.constraint_account_combo_line_combo_product_unique
+msgid "Each product can only be assigned to a combo once."
+msgstr "Mỗi sản phẩm chỉ được thêm vào combo một lần"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_move_line.py:0
+#, python-format
+msgid "Empty category"
+msgstr "Có một hạng mục đang để trống tên"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__clinic_date
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__clinic_date
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__clinic_date
+msgid "Examination date"
+msgstr "Ngày khám"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__medical_examiner
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__medical_examiner
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__medical_examiner
+msgid "Examiner"
+msgstr "Người khám"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Exchange Difference"
+msgstr ""
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__label__4
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+msgid "Family Package"
+msgstr "Gói gia đình"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Female"
+msgstr "Nữ"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/appointment.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__z_appointment_appointment__z_invoice_status__full
+#, python-format
+msgid "Full buy"
+msgstr "Đã TT"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_fullname
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_fullname
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_fullname
+msgid "Full name"
+msgstr "Họ và tên"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_gender
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_gender
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_gender
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Gender"
+msgstr "Giới tính"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_appointment_appointment__get_examination_code
+msgid "Get Examination Code"
+msgstr ""
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_group
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_group
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_group
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Group"
+msgstr "Nhóm"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/appointment.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__z_appointment_appointment__z_invoice_status__half
+#, python-format
+msgid "Half buy"
+msgstr "TT 1 phần"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Hanoi, date ........., month .........,year ........."
+msgstr "Hà nội, ngày ........., tháng .........,năm ........."
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__label__3
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+msgid "Hyperopia Package"
+msgstr "Gói nhược thị"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_combo_line__id
+msgid "ID"
+msgstr ""
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "INVOICE"
+msgstr "HOÁ ĐƠN"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Info"
+msgstr "Thông tin"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_tree_custom
+msgid "Invoice"
+msgstr "Hoá đơn"
+
+#. module: z_invoice
+#: model:ir.actions.report,name:z_invoice.action_report_account_invoice
+msgid "Invoice (VN)"
+msgstr "Hoá đơn (VNĐ)"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Invoice State"
+msgstr "Trạng thái hoá đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__code
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__code
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__code
+msgid "Invoice code"
+msgstr "Mã hoá đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__label
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__label
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__label
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Invoice label"
+msgstr "Nhãn hoá đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__invoice_date
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__invoice_date
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__invoice_date
+msgid "Invoice/Bill Date"
+msgstr "Ngày lập hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_res_partner__account_move_ids
+#: model:ir.model.fields,field_description:z_invoice.field_res_users__account_move_ids
+#: model:ir.model.fields,field_description:z_invoice.field_z_appointment_appointment__z_invoice_ids
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Invoices"
+msgstr "Hoá đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_res_partner__account_move_entry_ids
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Invoices Entry"
+msgstr "Phiếu Thu"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Item"
+msgstr "Hạng mục"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_job
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_job
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_job
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Job"
+msgstr "Nghề nghiệp"
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_account_move
+msgid "Journal Entry"
+msgstr "Bút toán"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.js:0
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Journal Entry Info"
+msgstr ""
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_account_move_line
+msgid "Journal Item"
+msgstr "Hạng mục bút toán"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.form_view_account_move_update
+msgid "Journal Items"
+msgstr "Hạng mục bút toán"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Journal:"
+msgstr ""
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_combo_line__write_uid
+msgid "Last Updated by"
+msgstr "Lần cập nhập gần nhất bởi"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_combo_line__write_date
+msgid "Last Updated on"
+msgstr "Lần cập nhật gần nhất"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Male"
+msgstr "Nam"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Memo:"
+msgstr ""
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__label__2
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+msgid "Myopia Control Glasses Package"
+msgstr "Gói kiểm soát gọng kính nhược thị"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "No"
+msgstr "STT"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__label__6
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+msgid "No label"
+msgstr "Không nhãn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__note
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__note
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__note
+#: model_terms:ir.ui.view,arch_db:z_invoice.form_view_account_move_update
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Number:"
+msgstr "Mã số:"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__label__1
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+msgid "Ortho K Pakage"
+msgstr "Gói Ortho K"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__paid
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__paid
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__paid
+msgid "Paid"
+msgstr "Đã thanh toán (VNĐ)"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_tree_custom
+msgid "Paid (VND)"
+msgstr "Đã thanh toán (VNĐ)"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Paid on"
+msgstr ""
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_code
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_code
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_code
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Partner code"
+msgstr "Mã khách hàng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__customer_detail_widget
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__customer_detail_widget
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_name
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__customer_detail_widget
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_name
+msgid "Partner name"
+msgstr "Khách hàng"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_visit_list_view_inherit
+msgid "Payment"
+msgstr "TT"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__payment_methods
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__payment_methods
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__payment_methods
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_payment_form_view
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_payment_payment_register_form_inherit
+msgid "Payment Method"
+msgstr "Phương thức thanh toán"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_visit_form_view_inherit
+msgid "Payment State"
+msgstr "Trạng thái thanh toán"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_payment.py:0
+#, python-format
+msgid "Payment slip cannot be made in the future"
+msgstr "Phiếu thanh toán không thể lập trong tương lai"
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_account_payment
+msgid "Payments"
+msgstr "Thanh toán"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_mobile
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__partner_z_mobile
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_mobile
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__partner_z_mobile
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_mobile
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__partner_z_mobile
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Phone number"
+msgstr "Số điện thoại"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.form_view_account_move_update
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Price"
+msgstr "Đơn giá"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__price_total
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__price_total
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__price_total
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Price Total"
+msgstr "Thành tiền"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Price Unit"
+msgstr "Đơn giá"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Price total"
+msgstr "Thành tiền"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Print draft invoice"
+msgstr "In hoá đơn nháp"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Print invoice"
+msgstr "In hoá đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__combo_line_ids
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__combo_line_ids
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__combo_line_ids
+msgid "Products in Combo"
+msgstr "Sản phẩm theo gói Combo"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__quantity
+#: model_terms:ir.ui.view,arch_db:z_invoice.report_account_invoice
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__reexaminer
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__reexaminer
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__reexaminer
+msgid "Re-exam"
+msgstr "Tái khám"
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_account_payment_register
+msgid "Register Payment"
+msgstr "Ghi nhận thanh toán"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__invoice_user_id
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__invoice_user_id
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__invoice_user_id
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+msgid "Salesperson"
+msgstr "Nhân viên kinh doanh"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.form_view_account_move_update
+msgid "Save"
+msgstr "Lưu"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__price_subtotal
+msgid "Subtotal"
+msgstr "Thành tiền"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_appointment_appointment__z_invoice_status
+msgid "TTTT"
+msgstr ""
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.form_view_account_move_update
+msgid "Tax excl."
+msgstr "Bao gồm thuế"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.form_view_account_move_update
+msgid "Tax incl."
+msgstr "Thành tiền"
+
+#. module: z_invoice
+#: model:ir.model.fields,help:z_invoice.field_account_move_line__quantity
+msgid ""
+"The optional quantity expressed by this line, eg: number of product sold. "
+"The quantity is not a legal requirement but is very useful for some reports."
+msgstr ""
+"Số lượng tùy chọn hiển thị trên dòng này, ví dụ: số lượng sản phẩm đã bán. "
+"Số lượng không phải là một phần bắt buộc nhưng lại rất hữu dụng cho một số "
+"báo cáo."
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__price_total
+msgid "Total"
+msgstr "Tổng"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Total Amount"
+msgstr "Tổng tiền thanh toán (VNĐ)"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Total Discount"
+msgstr "Giảm giá"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_tree_custom
+msgid "Total Discount (VND)"
+msgstr "Giảm giá (VNĐ)"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__total_after_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__total_after_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__total_after_discount
+msgid "Total after discount"
+msgstr "Tổng thanh toán"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__total_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__total_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__total_discount
+msgid "Total discount"
+msgstr "Giảm giá"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__total_without_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__total_without_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__total_without_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__total_without_discount
+msgid "Total without discount"
+msgstr "Tổng tiền trước giảm"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Unit"
+msgstr "Đơn vị"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__price_unit
+msgid "Unit price"
+msgstr "Đơn giá"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "Unreconcile"
+msgstr "Bỏ đối chiếu"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_move.py:0
+#, python-format
+msgid "Update Invoice"
+msgstr "Chỉnh sửa hoá đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Update invoice"
+msgstr "Chỉnh sửa hoá đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__label__5
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+msgid "Updated Invoice"
+msgstr "Hoá đơn đã được chỉnh sửa"
+
+#. module: z_invoice
+#. odoo-javascript
+#: code:addons/z_invoice/static/src/components/payment_table_field/payment_table_field.xml:0
+#, python-format
+msgid "View"
+msgstr ""
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_account_combo_line
+msgid "combo"
+msgstr "Gói combo"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_combo_line__account_move_id
+msgid "invoice"
+msgstr "Hoá đơn"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/appointment.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__z_appointment_appointment__z_invoice_status__unpaid
+#, python-format
+msgid "Unpaid"
+msgstr "Chưa TT"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__place_id
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_search_view
+msgid "Place"
+msgstr "Cơ sở"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_move__partner_id
+msgid "Partner"
+msgstr "Khách hàng"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Total Amount invoice"
+msgstr "Tổng tiền hóa đơn (VNĐ)"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Paid"
+msgstr "Đã thanh toán (VNĐ)"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Reconciled Invoice Code"
+msgstr "Mã hóa đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Discount"
+msgstr "Giảm giá"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Created By"
+msgstr "Người lập hóa đơn"
+
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Payment Code"
+msgstr "Mã phiếu"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__journal_name
+msgid "Journal Name"
+msgstr "Phương thức thanh toán"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__computed_name
+msgid "Computed Name"
+msgstr "Mã phiếu"
+
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__place_id
+#: model:ir.model.fields,field_description:z_invoice.field_account_journal__place_id
+msgid "Place"
+msgstr "Cơ sở"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__computed_date
+msgid "Computed Date"
+msgstr "Ngày"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_line__product_category_id
+msgid "Product Category"
+msgstr "Danh mục sản phẩm"
+
+#. module: z_invoice
+#: model:ir.ui.menu,name:z_invoice.menu_purchased_combo_report
+msgid "Purchased Combo Report"
+msgstr "Báo cáo combo"
+
+#. module: z_invoice
+#: model:ir.ui.menu,name:z_invoice.menu_publish_vat_invoice_root
+msgid "VAT Invoices"
+msgstr "Hóa đơn GTGT"
+
+#. module: z_invoice
+#: model:ir.ui.menu,name:z_invoice.menu_misa_invoice_template
+msgid "Misa Templates"
+msgstr "Mẫu"
+
+#. module: z_invoice
+#: model:ir.ui.menu,name:z_invoice.menu_published_invoices
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Published Invoices"
+msgstr "Hoá đơn đã phát hành"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Company Info"
+msgstr "Thông tin công ty"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__name
+msgid "Branch Name"
+msgstr "Tên chi nhánh"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__company_name_id
+msgid "Company Name for VAT Invoice"
+msgstr "Tên công ty xuất hóa đơn VAT"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__tax_id
+msgid "Company Tax ID for VAT Invoice"
+msgstr "Mã số thuế công ty xuất hóa đơn VAT"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__address_company
+msgid "Company Address for VAT Invoice"
+msgstr "Địa chỉ công ty xuất hóa đơn VAT"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__appid
+msgid "Invoice Software App ID"
+msgstr "App ID phần mềm hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__email_company
+msgid "Login Email for Invoice Software"
+msgstr "Email đăng nhập phần mềm hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__password
+msgid "Password for Invoice Software"
+msgstr "Mật khẩu phần mềm hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__invoice_serial_number
+msgid "VAT Invoice Serial Number"
+msgstr "Số seri hóa đơn VAT"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__digital_signature_method
+msgid "Digital Signature Method"
+msgstr "Phương thức ký số"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_z_place_place__note
+msgid "Notes"
+msgstr "Ghi chú"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/place.py:0
+#, python-format
+msgid  "If one of Company Name, Tax ID, or Company Address is filled, all three must be filled!"
+msgstr  "Nếu thông tin thuế được cập nhật hãy điền đủ thông tin"
+
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Publish VAT Invoice"
+msgstr "Phát hành HĐGTGT"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Invoice No"
+msgstr "Số hoá đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Type"
+msgstr "Loại"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Invoice Code"
+msgstr "Mã hoá đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Template"
+msgstr "Mẫu"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_account_move_misa_issuance_wizard
+msgid "Publish"
+msgstr "Phát hành"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_account_move_misa_issuance_wizard
+msgid "Template"
+msgstr "Mẫu"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_account_move_misa_issuance_wizard
+msgid "Preview Unpublish"
+msgstr "Xem trước"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_account_move_misa_issuance_wizard
+msgid "Cancel"
+msgstr "Huỷ"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_misa_issuance__move_id
+msgid "Invoice"
+msgstr "Hoá đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_misa_issuance__partner_id
+msgid "Partner"
+msgstr "Khách hàng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_misa_issuance__place_id
+msgid "Place"
+msgstr "Cơ sở"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/wizard/account_move_misa_issuance:0
+#, python-format
+msgid  "If one of Company Name, Tax ID, or Company Address is filled, all three must be filled!"
+msgstr  "Nếu thông tin thuế được cập nhật hãy điền đủ thông tin"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/wizard/account_move_misa_issuance:0
+#, python-format
+msgid  "Invalid email address"
+msgstr  "Không đúng định dạng email"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/wizard/account_move_misa_issuance:0
+#, python-format
+msgid  "Invalid tax code"
+msgstr  "Không đúng định dạng MST"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/wizard/account_move_misa_issuance:0
+#, python-format
+msgid  "MISA template is required"
+msgstr  "Mẫu là bắt buộc"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Adjust"
+msgstr "Điểu chỉnh/Thay thế"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_move.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__misa_type_inv__0
+#, python-format
+msgid "Normal"
+msgstr "Thường"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__misa_type_inv__1
+msgid "Replace"
+msgstr "Thay thế"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__misa_type_inv__3
+msgid "Adjust"
+msgstr "Điểu chỉnh"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__misa_type_inv__4
+msgid "Cancel"
+msgstr "Thay thế"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__misa_state__published
+msgid "Published"
+msgstr "Phát hành"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+#: model:ir.model.fields.selection,name:z_invoice.selection__account_move__misa_state__draft
+msgid "Draft"
+msgstr "Chưa phát hành"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/account_move_misa_issuance.py:0
+msgid "Success"
+msgstr "Thành công"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/account_move_misa_issuance.py:0
+msgid "Invoice published successfully!"
+msgstr "Hoá đơn phát hành thành công"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Invoice published successfully!"
+msgstr "Hoá đơn phát hành thành công"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Quan trọng! Bạn cần update lại các chứng từ liên quan để khớp với việc điều chỉnh hoá đơn này bao gồm: Phiếu bán hàng, Phiếu giao hàng, Phiếu thanh toán. > Bấm xác nhận."
+msgstr "Quan trọng! Bạn cần update lại các chứng từ liên quan để khớp với việc điều chỉnh hoá đơn này bao gồm: Phiếu bán hàng, Phiếu giao hàng, Phiếu thanh toán. > Bấm xác nhận."
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Email sent successfully"
+msgstr "Gửi email thành công"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Customer current does not have email"
+msgstr "Khách hàng hiện tại không có email"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Invoice has been published"
+msgstr "Hóa đơn đã được phát hành"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Transaction ID is not exist"
+msgstr "ID giao dịch không tồn tại"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Success"
+msgstr "Thành công"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Sent VAT Invoice to customer successfully"
+msgstr "Gửi hóa đơn VAT cho khách hàng thành công"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Error sending email"
+msgstr "Lỗi khi gửi email"
+
+#. module: z_invoice
+#: model:ir.model,name:z_invoice.model_account_move_email_wizard
+msgid "Send Invoice Email Wizard"
+msgstr "Wizard Gửi Email Hóa Đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_email_wizard__move_id
+msgid "Invoice"
+msgstr "Hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_email_wizard__partner_id
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_email_wizard__customer_email
+msgid "Customer Email"
+msgstr "Email khách hàng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_email_wizard__customer_name
+msgid "Customer Name"
+msgstr "Tên khách hàng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move_email_wizard__place_id
+msgid "Place"
+msgstr "Cơ sở"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_account_move_email_wizard_form
+msgid "Send Invoice Email"
+msgstr "Gửi Email Hóa Đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_account_move_email_wizard_form
+msgid "Send Email"
+msgstr "Gửi Email"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_account_move_email_wizard_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/account_move_email_wizard.py:0
+msgid "Email address is required"
+msgstr "Địa chỉ email là bắt buộc"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/account_move_email_wizard.py:0
+msgid "Please enter a valid email address"
+msgstr "Vui lòng nhập địa chỉ email hợp lệ"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/account_move_email_wizard.py:0
+msgid "Email sent successfully to %s"
+msgstr "Gửi email thành công đến %s"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/account_move_email_wizard.py:0
+msgid "You don't have permission to send invoice emails"
+msgstr "Bạn không có quyền gửi email hóa đơn"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/account_move_email_wizard.py:0
+msgid "You don't have permission to access this invoice"
+msgstr "Bạn không có quyền truy cập hóa đơn này"
+
+#. module: z_invoice
+#: code:addons/z_invoice/models/account_move.py:0
+msgid "Cannot cancel invoice that has been published"
+msgstr "Không thể hủy hóa đơn đã được phát hành"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_invoice_form_view_inherit
+msgid "Origin Move"
+msgstr "Hoá đơn gốc"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__misa_state
+msgid "MISA State"
+msgstr "Trạng thái hoá đơn Misa"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__misa_type_inv
+msgid "MISA Type Invoice"
+msgstr "Loại hoá đơn Misa"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_publish_wizard__move_ids
+msgid "Invoices to Publish"
+msgstr "Hóa đơn cần phát hành"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_publish_wizard__count
+msgid "Number of Invoices"
+msgstr "Số lượng hóa đơn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_publish_wizard__misa_template_id
+msgid "MISA Template"
+msgstr "Mẫu MISA"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_publish_wizard__place_ids
+msgid "Places"
+msgstr "Cơ sở"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_publish_wizard__progress
+msgid "Progress"
+msgstr "Tiến độ"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_publish_wizard__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_email_wizard__move_ids
+msgid "Invoices to Send Email"
+msgstr "Hóa đơn cần gửi email"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_email_wizard__customer_email
+msgid "Customer Email"
+msgstr "Email khách hàng"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_cancel_wizard__move_ids
+msgid "Invoices to Cancel"
+msgstr "Hóa đơn cần hủy"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_bulk_cancel_wizard__confirm_cancel
+msgid "I confirm I want to cancel these invoices"
+msgstr "Tôi xác nhận muốn hủy những hóa đơn này"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_bulk_publish_wizard_form
+#: model_terms:ir.ui.view,arch_db:z_invoice.action_bulk_publish_invoices
+msgid "Bulk Publish Invoices"
+msgstr "Phát hành hàng loạt hóa đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_bulk_email_wizard_form
+msgid "Bulk Send Email"
+msgstr "Gửi email hàng loạt"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_bulk_cancel_wizard_form
+msgid "Bulk Cancel Invoices"
+msgstr "Hủy hàng loạt hóa đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_bulk_publish_wizard_form
+msgid "Publish Invoices"
+msgstr "Phát hành hóa đơn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_bulk_email_wizard_form
+msgid "Send Emails"
+msgstr "Gửi email"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_bulk_cancel_wizard_form
+msgid "Cancel Invoices"
+msgstr "Hủy hóa đơn"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Please select a MISA template"
+msgstr "Vui lòng chọn mẫu MISA"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Please select a MISA template or ensure invoices have templates assigned"
+msgstr "Vui lòng chọn mẫu MISA hoặc đảm bảo hóa đơn đã được gán mẫu"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Some invoices cannot be published: %s"
+msgstr "Một số hóa đơn không thể phát hành: %s"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Publishing completed!"
+msgstr "Phát hành hoàn tất!"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Successfully published: %d invoices"
+msgstr "Phát hành thành công: %d hóa đơn"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Failed to publish: %d invoices"
+msgstr "Phát hành thất bại: %d hóa đơn"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Errors:"
+msgstr "Lỗi:"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "... and %d more errors"
+msgstr "... và %d lỗi khác"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Bulk Publish Results"
+msgstr "Kết quả phát hành hàng loạt"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "Some invoices cannot send email: %s"
+msgstr "Một số hóa đơn không thể gửi email: %s"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "Email sending completed!"
+msgstr "Gửi email hoàn tất!"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "✅ Successfully sent: %d emails"
+msgstr "✅ Gửi thành công: %d email"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "❌ Failed to send: %d emails"
+msgstr "❌ Gửi thất bại: %d email"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_email_wizard.py:0
+msgid "Bulk Email Results"
+msgstr "Kết quả gửi email hàng loạt"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Please confirm that you want to cancel these invoices"
+msgstr "Vui lòng xác nhận bạn muốn hủy những hóa đơn này"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Some invoices cannot be cancelled: %s"
+msgstr "Một số hóa đơn không thể hủy: %s"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Cancellation completed!"
+msgstr "Hủy hoàn tất!"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Successfully cancelled: %d invoices"
+msgstr "Hủy thành công: %d hóa đơn"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Failed to cancel: %d invoices"
+msgstr "Hủy thất bại: %d hóa đơn"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_cancel_wizard.py:0
+msgid "Bulk Cancel Results"
+msgstr "Kết quả hủy hàng loạt"
+
+
+#. module: z_invoice
+#: code:addons/z_invoice/model/account_move.py:0
+msgid "Cannot publish invoice. Invoice date  must be today"
+msgstr "Chỉ có thể phát hành hoá đơn ngày hôm nay"
+
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Some invoices cannot be published:"
+msgstr "Một vài hoá đơn không thể phát hành:"
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Invoice date is not today."
+msgstr "Ngày lập hoá đơn không phải hôm nay."
+
+#. module: z_invoice
+#: code:addons/z_invoice/wizard/bulk_publish_wizard.py:0
+msgid "Invoice date is not today."
+msgstr "Ngày lập hoá đơn không phải hôm nay."
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_bulk_publish_wizard_form
+msgid "Selected Invoices"
+msgstr "Hoá đơn được chọn"
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.view_bulk_publish_wizard_form
+msgid "Selected Invoices"
+msgstr "Hoá đơn được chọn"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__publish_misa_invoice_date
+msgid "Publish MISA Invoice Date"
+msgstr "Ngày phát hành"
+
+
+
+
+
+
+ 
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__is_prepayment
+msgid "Prepayment"
+msgstr "Đặt cọc"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__explanation
+msgid "Explanation"
+msgstr "Diễn giải"
+
+#. module: z_invoice
+#. odoo-python
+#: code:addons/z_invoice/models/account_payment.py:0
+#, python-format
+msgid "Can be paid"
+msgstr "Hoá đơn có thể thanh toán "
+
+#. module: z_invoice
+#: model_terms:ir.ui.view,arch_db:z_invoice.z_partner_invoice_form
+msgid "Invoice can be paid"
+msgstr "Hoá đơn có thể thanh toán"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__amount_untaxed_before_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__amount_untaxed_before_discount
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__amount_untaxed_before_discount
+msgid "Amount Untaxed Before Discount"
+msgstr "Tổng tiền trước giảm"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__amount_discount_lines
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__amount_discount_lines
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__amount_discount_lines
+msgid "Total discount on account move lines"
+msgstr "Tổng giảm giá theo sản phẩm"
+
+#. module: z_invoice
+#: model:ir.model.fields,field_description:z_invoice.field_account_bank_statement_line__amount_discount_promotion
+#: model:ir.model.fields,field_description:z_invoice.field_account_move__amount_discount_promotion
+#: model:ir.model.fields,field_description:z_invoice.field_account_payment__amount_discount_promotion
+msgid "Total promotion"
+msgstr "Tổng khuyến mãi"

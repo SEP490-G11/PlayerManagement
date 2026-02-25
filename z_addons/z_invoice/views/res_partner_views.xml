@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record id="z_partner_invoice_form" model="ir.ui.view">
+            <field name="name">res.partner.invoice.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="z_appointment.z_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='visits']" position="after">
+                    <page name="account_move" string="Invoices" invisible="not id">
+                        <field name="account_move_ids" readonly="1">
+                            <tree create="0" edit="0" delete="0">
+                                <field name="code" widget="block_advance_search" />
+                                <field name="invoice_date" widget="block_advance_search" />
+                                <field name="payment_state" widget="block_advance_search" />
+                                <field name="state" string="Invoice State"
+                                    widget="block_advance_search" />
+                                <field name="amount_total_signed" string="Total Amount"
+                                    widget="block_advance_search" />
+                                <field name="paid" widget="block_advance_search" />
+                                <field name="total_discount" widget="block_advance_search" />
+                                <field name="amount_residual_signed" widget="block_advance_search" />
+                                <field name="create_uid" string="Created By" widget="block_advance_search" />
+                                <field name="id" nolabel="1" widget="open_tab" />
+                                <button name="action_print" type="object"
+                                    icon="fa-print text-primary" />
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="account_payment_ids" string="Invoices Entry" invisible="not id">
+                        <field name="account_payment_ids" readonly="1">
+                            <tree create="0" edit="0" delete="0">
+                                <field name="reconciled_invoice_code" string="Reconciled Invoice Code" widget="block_advance_search" />
+                                <field name="name" string="Payment Code" widget="block_advance_search" ></field>
+                                <field name="create_date" widget="date" />
+                                <field name="amount" widget="block_advance_search"/>
+                                <field name="create_uid" string="Created By" widget="block_advance_search" />
+                                <field name="id" nolabel="1" widget="open_tab" />
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="company_info" string="Company Info" invisible="not id">
+                        <group>
+                            <field name="vat" />
+                            <field name="company_name" />
+                            <field name="bank_ids" />
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

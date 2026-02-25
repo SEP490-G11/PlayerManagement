@@ -1,0 +1,334 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_crm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-06 03:59+0000\n"
+"PO-Revision-Date: 2024-09-06 03:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__message_needaction
+msgid "Action Needed"
+msgstr "Hành động cần thiết"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__activity_ids
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Hoạt động Ngoại lệ Trang trí"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__activity_state
+msgid "Activity State"
+msgstr "Trạng thái hoạt động"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Biểu tượng loại hoạt động"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số lượng đính kèm"
+
+#. module: z_crm
+#: model:ir.ui.menu,name:z_crm.z_crm_menu_access
+msgid "Automation"
+msgstr "Tự động hoá"
+
+#. module: z_crm
+#: model:ir.ui.menu,name:z_crm.z_crm_automation_rules_menu_access
+msgid "Automation Rules"
+msgstr "Quy tắc tự động hoá"
+
+#. module: z_crm
+#: model:ir.actions.act_window,name:z_crm.z_crm_logs_action
+#: model:ir.model,name:z_crm.model_z_crm_logs
+msgid "CRM Logs"
+msgstr "Logs"
+
+#. module: z_crm
+#: model:ir.actions.act_window,name:z_crm.z_crm_queue_action
+#: model:ir.model,name:z_crm.model_z_crm_queue
+msgid "CRM Queue"
+msgstr "Hàng chờ"
+
+#. module: z_crm
+#: model:ir.model,name:z_crm.model_z_crm_task_template
+msgid "CRM Task Template"
+msgstr "Mẫu nhiệm vụ"
+
+#. module: z_crm
+#: model:ir.model,name:z_crm.model_z_crm_zns_template
+msgid "CRM ZNS Template"
+msgstr "Mẫu ZNS"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__create_uid
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__create_uid
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__create_uid
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__create_date
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__create_date
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__create_date
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__create_date
+msgid "Created on"
+msgstr "Tạo vào"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__partner_id
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__display_name
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__display_name
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__display_name
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__display_name
+msgid "Display Name"
+msgstr "Tên"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__execute_time
+msgid "Execute Time"
+msgstr "Thời gian thực hiện"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Khách hàng)"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__write_uid
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__write_uid
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__write_uid
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__write_date
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__write_date
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__write_date
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__write_date
+msgid "Last Updated on"
+msgstr "Thời gian xử lý cuối cùng"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__error_logs
+#: model:ir.ui.menu,name:z_crm.z_crm_logs_menu
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_logs_list_view
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_queue_form_view
+msgid "Logs"
+msgstr "Logs"
+
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__method
+msgid "Method"
+msgstr "Phương thức nhắc nhở"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__name
+msgid "Name"
+msgstr "Tên rule"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__queue_id
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__crm_queue_id
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__crm_queue_id
+#: model:ir.ui.menu,name:z_crm.z_crm_queue_menu
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_logs_form_view
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_queue_form_view
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_queue_list_view
+msgid "Queue"
+msgstr "Hàng chờ"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__queue_execute_time
+msgid "Queue Execute Time"
+msgstr "Thời gian xử lý"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__queue_logs
+msgid "Queue Logs"
+msgstr "Logs"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_logs__queue_status
+msgid "Queue Status"
+msgstr "Trạng thái"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__status
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: z_crm
+#. odoo-python
+#: code:addons/z_addons/z_crm/models/crm_queue.py:0
+#: code:addons/z_crm/models/crm_queue.py:0
+#: model:ir.model.fields.selection,name:z_crm.selection__z_crm_queue__method__task
+#, python-format
+msgid "Task"
+msgstr "Nhiệm vụ"
+
+#. module: z_crm
+#: model:ir.actions.act_window,name:z_crm.z_crm_task_template_action
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_queue_form_view
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_partner_form
+msgid "Task Template"
+msgstr "Mẫu nhiệm vụ"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__task_template_ids
+#: model:ir.ui.menu,name:z_crm.z_crm_task_template_menu
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_task_template_list_view
+msgid "Task Templates"
+msgstr "Mẫu nhiệm vụ"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__body
+msgid "Template Body"
+msgstr "Body của mẫu"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__code
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__code
+msgid "Template Code"
+msgstr "Mã của mẫu"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__content
+msgid "Template Context"
+msgstr "Nội dung"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template__name
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template__name
+msgid "Template Title"
+msgstr "Tiêu đề của mẫu"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template_queue__body
+msgid "Template Body"
+msgstr "Body của mẫu"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template_queue__code
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template_queue__code
+msgid "Template Code"
+msgstr "Mã của mẫu"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template_queue__content
+msgid "Template Context"
+msgstr "Nội dung"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template_queue__name
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template_queue__name
+msgid "Template Title"
+msgstr "Tiêu đề của mẫu"
+
+#. module: z_crm
+#: model:ir.actions.act_window,name:z_crm.z_crm_zns_template_action
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_queue_form_view
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_partner_form
+msgid "ZNS Template"
+msgstr "Mẫu ZNS"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__zns_template_ids
+#: model:ir.ui.menu,name:z_crm.z_crm_zns_template_menu
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_zns_template_list_view
+msgid "ZNS Templates"
+msgstr "Mẫu ZNS"
+
+#. module: z_crm
+#. odoo-python
+#: code:addons/z_addons/z_crm/models/crm_queue.py:0
+#: code:addons/z_crm/models/crm_queue.py:0
+#: model:ir.model.fields.selection,name:z_crm.selection__z_crm_queue__method__zns
+#, python-format
+msgid "Zalo"
+msgstr ""
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_task_template_queue__execute_time
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_zns_template_queue__execute_time
+msgid "Execute Time"
+msgstr "Thời gian thực hiện"
+
+#. module: z_crm
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_partner_form
+msgid "Queue"
+msgstr "Hàng chờ"
+
+#. module: z_crm
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_partner_form
+msgid "Task Template"
+msgstr "Nhiệm vụ"
+
+#. module: z_crm
+#: model_terms:ir.ui.view,arch_db:z_crm.z_crm_partner_form
+msgid "ZNS Template"
+msgstr "ZaloOA"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_helpdesk_ticket__deadline_task
+msgid "Deadline Task"
+msgstr "Ngày hết hạn nhiệm vụ"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_helpdesk_ticket__z_ticket_type
+msgid "Ticket Type"
+msgstr "Loại nhiệm vụ"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_helpdesk_ticket__execute_date
+msgid "Execute Date"
+msgstr "Ngày thực hiện"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.selection__helpdesk_ticket__z_ticket_type__ab
+msgid "Appointment Booking"
+msgstr "Chăm sóc đặt lịch"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.selection__helpdesk_ticket__z_ticket_type__gotc
+msgid "Glass Order Take Care"
+msgstr "Chăm sóc đơn kính"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.selection__helpdesk_ticket__z_ticket_type__sm
+msgid "Software Maintenance"
+msgstr "Chăm sóc phần mềm"
+
+#. module: z_crm
+#: model:ir.model.fields,field_description:z_crm.field_z_crm_queue__template_name
+msgid "Template"
+msgstr "Tiêu đề của mẫu"

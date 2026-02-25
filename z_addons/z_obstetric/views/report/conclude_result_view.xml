@@ -1,0 +1,1265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_report_conclude_result" model="ir.actions.report">
+        <field name="name">Print binocular vision examination result</field>
+        <field name="model">z_appointment.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">z_obstetric.report_conclude</field>
+        <field name="report_file">z_obstetric.report_conclude</field>
+        <field name="attachment" />
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'%s'%(object.pdf_title)</field>
+    </record>
+
+    <data>
+        <template id="report_conclude">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <style>
+                        .justify-content-center {
+                        -webkit-box-pack: center;
+                        justify-content: center;
+                        }
+                        .flex-1 {
+                        -webkit-box-flex: 1;
+                        -webkit-flex: 1;
+                        flex: 1;
+                        }
+                        @media print, screen {
+                        .page-break {
+                        break-inside: avoid !important;
+                        page-break-inside: avoid !important;
+                        }
+                        div {
+                        line-height: 1.5;
+                        }
+                        div.text-nowrap {
+                        white-space: nowrap !important;
+                        }
+                        .equal-width-table {
+                            width: 100%;
+                            table-layout: fixed;
+                        }
+                        .equal-width-table th, .equal-width-table td {
+                            width: calc(100% / 6);
+                            text-align: center;
+                        }
+                        }
+                    </style>
+
+                    <t t-foreach="docs" t-as="doc">
+                        <div
+                            style="font-family: 'Times New Roman', serif; font-size: 14pt; margin: 0 2cm">
+                            <h4 class="fw-bolder text-center">
+                                EXAMINATION RESULTS
+                            </h4>
+                            <div class="row mt-4 mb-2 page-break">
+                                <div class="col-3 d-flex">
+                                    <div class="flex-1">
+                                        Patient full name:
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <strong>
+                                        <span class="text-end" t-field="doc.customer_id" />
+                                    </strong>
+                                </div>
+                                <div class="col-4 d-flex flex-row justify-content-end">
+                                    <div>
+                                        Date of birth:
+                                    </div>
+                                    <div class="ms-2" t-field="doc.customer_id.date" />
+                                </div>
+                            </div>
+                            <div class="row mb-2 page-break">
+                                <div class="col-3 d-flex">
+                                    <div class="flex-1">
+                                        Phone:
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <span t-field="doc.customer_id.mobile" />
+                                </div>
+                            </div>
+                            <div class="row mb-4 page-break">
+                                <div class="col-3 d-flex">
+                                    <div class="flex-1">
+                                        Address:
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <span t-field="doc.customer_id.street" />
+                                </div>
+                            </div>
+
+                            <div class="fw-bolder mt-4 page-break">General information</div>
+                            <div class="row mt-3 page-break" t-if="doc.booking_date">
+                                <div class="col-3 d-flex">
+                                    Examination Date:
+                                </div>
+                                <div class="col-9">
+                                    <div t-field="doc.booking_date" />
+                                </div>
+                            </div>
+                            <div class="row mt-2 page-break" t-if="doc.general_result_ids.reason">
+                                <div class="col-3 d-flex">
+                                    Reason:
+                                </div>
+                                <div class="col-9">
+                                    <div t-field="doc.general_result_ids.reason" />
+                                </div>
+                            </div>
+                            <div class="row mt-2 page-break"
+                                t-if="doc.general_result_ids.disease_history">
+                                <div class="col-3 d-flex">
+                                    Personal Medical:
+                                </div>
+                                <div class="col-9">
+                                    <div t-field="doc.general_result_ids.disease_history" />
+                                </div>
+                            </div>
+                            <div class="row mt-2 page-break"
+                                t-if="doc.general_result_ids.prehistoric">
+                                <div class="col-3 d-flex">
+                                    Prehistoric:
+                                </div>
+                                <div class="col-9">
+                                    <div t-field="doc.general_result_ids.prehistoric" />
+                                </div>
+                            </div>
+
+                            <!-- Khám tổng quan -->
+                            <div t-if="doc.check_title_examination()"
+                                class="fw-bold mt-4 mb-3 fst-italic page-break">Examination
+                            </div>
+                            <!-- khám phụ khoa -->
+                            <div t-if="doc.check_conditions_gynecological_examination()"
+                                class="mb-3">
+                                <div class="fw-bolder mb-2 page-break"
+                                    t-if="doc.check_conditions_gynecological_examination()">
+                                    Gynecological examination
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gynecological_ids.ah">
+                                    <div class="col-3 add-colon">
+                                        AH
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.gynecological_ids.ah" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gynecological_ids.ad">
+                                    <div class="col-3 add-colon">
+                                        AD
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.gynecological_ids.ad" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gynecological_ids.ctc">
+                                    <div class="col-3 add-colon">
+                                        CTC
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.gynecological_ids.ctc" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gynecological_ids.tc">
+                                    <div class="col-3 add-colon">
+                                        TC
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.gynecological_ids.tc" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gynecological_ids.two_pp">
+                                    <div class="col-3 add-colon">
+                                        2PP
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.gynecological_ids.two_pp" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gynecological_ids.other">
+                                    <div class="col-3 add-colon">
+                                        Other
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.gynecological_ids.other" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- khám phụ khoa không mỏ vịt -->
+                            <div
+                                t-if="doc.check_conditions_gynecological_examination_without_speculum()"
+                                class="mb-3">
+                                <div class="fw-bolder mb-2 page-break"
+                                    t-if="doc.check_conditions_gynecological_examination_without_speculum()">
+                                    Gynecological examination results without speculum
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.non_speculum_gynecological_ids.ah">
+                                    <div class="col-3 add-colon">
+                                        AH
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.non_speculum_gynecological_ids.ah" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.non_speculum_gynecological_ids.hymen">
+                                    <div class="col-3 add-colon">
+                                        Hymen
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.non_speculum_gynecological_ids.hymen" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.non_speculum_gynecological_ids.ad">
+                                    <div class="col-3 add-colon">
+                                        AĐ
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.non_speculum_gynecological_ids.ad" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.non_speculum_gynecological_ids.other">
+                                    <div class="col-3 add-colon">
+                                        Other
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.non_speculum_gynecological_ids.other" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- khám  thai trước 3 tháng -->
+                            <div t-if="doc.check_conditions_pregnant_pre_first_trimester()"
+                                class="mb-3">
+                                <div class="fw-bolder mb-2 page-break"
+                                    t-if="doc.check_conditions_pregnant_pre_first_trimester()">
+                                    Pregnant pre-first trimester examination
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_tremester_pregnant_ids.blood_pressure">
+                                    <div class="col-3 add-colon">
+                                        Blood pressure
+                                    </div>
+                                    <div class="col-8">
+                                        <span
+                                            t-field="doc.pre_first_tremester_pregnant_ids.blood_pressure" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_tremester_pregnant_ids.cardiopulmonary">
+                                    <div class="col-3 add-colon">
+                                        Pulse
+                                    </div>
+                                    <div class="col-8">
+                                        <span
+                                            t-field="doc.pre_first_tremester_pregnant_ids.cardiopulmonary" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_tremester_pregnant_ids.fetal_heart">
+                                    <div class="col-3 add-colon">
+                                        Cardiopulmonary
+                                    </div>
+                                    <div class="col-8">
+                                        <span
+                                            t-field="doc.pre_first_tremester_pregnant_ids.fetal_heart" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_tremester_pregnant_ids.pulse">
+                                    <div class="col-3 add-colon">
+                                        Fetal heart
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.pre_first_tremester_pregnant_ids.pulse" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- khám thai sau 3 tháng -->
+                            <div t-if="doc.check_conditions_pregnant_post_first_trimester()"
+                                class="mb-3">
+                                <div class="fw-bolder mb-2 page-break"
+                                    t-if="doc.check_conditions_pregnant_post_first_trimester()">
+                                    Pregnant post-first trimester examination
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_tremester_pregnant_ids.blood_pressure">
+                                    <div class="col-3 add-colon">
+                                        Blood pressure
+                                    </div>
+                                    <div class="col-8">
+                                        <span
+                                            t-field="doc.post_first_tremester_pregnant_ids.blood_pressure" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_tremester_pregnant_ids.pulse">
+                                    <div class="col-3 add-colon">
+                                        Pulse
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.post_first_tremester_pregnant_ids.pulse" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_tremester_pregnant_ids.cardiopulmonary">
+                                    <div class="col-3 add-colon">
+                                        Cardiopulmonary
+                                    </div>
+                                    <div class="col-8">
+                                        <span
+                                            t-field="doc.post_first_tremester_pregnant_ids.cardiopulmonary" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_tremester_pregnant_ids.edema">
+                                    <div class="col-3 add-colon">
+                                        Edema
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.post_first_tremester_pregnant_ids.edema" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_tremester_pregnant_ids.cervical_length">
+                                    <div class="col-3 add-colon">
+                                        Cervical length
+                                    </div>
+                                    <div class="col-8">
+                                        <span
+                                            t-field="doc.post_first_tremester_pregnant_ids.cervical_length" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_tremester_pregnant_ids.fetal_position">
+                                    <div class="col-3 add-colon">
+                                        Fetal Position
+                                    </div>
+                                    <div class="col-8">
+                                        <span
+                                            t-field="doc.post_first_tremester_pregnant_ids.fetal_position" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_tremester_pregnant_ids.fetal_heart">
+                                    <div class="col-3 add-colon">
+                                        Fetal heart
+                                    </div>
+                                    <div class="col-8">
+                                        <span
+                                            t-field="doc.post_first_tremester_pregnant_ids.fetal_heart" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- khám toàn thân -->
+                            <div t-if="doc.check_conditions_full_body()" class="mb-3">
+                                <div class="fw-bolder mb-2 page-break"
+                                    t-if="doc.check_conditions_full_body()">
+                                    Full body examination
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.full_body_ids.perception">
+                                    <div class="col-3 add-colon">
+                                        Perception
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.full_body_ids.perception" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.full_body_ids.blood_pressure">
+                                    <div class="col-3 add-colon">
+                                        Blood Pressure
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.full_body_ids.blood_pressure" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.full_body_ids.physical_condition">
+                                    <div class="col-3 add-colon">
+                                        Physical Condition
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.full_body_ids.physical_condition" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.full_body_ids.skin_mucous_membrane">
+                                    <div class="col-3 add-colon">
+                                        Skin Mucous Membrane
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.full_body_ids.skin_mucous_membrane" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div t-if="doc.check_title_test_and_investigations()"
+                                class="fw-bold mt-4 mb-3 fst-italic page-break">Tests and
+                                investigations
+                            </div>
+                            <!-- Theo dõi nang noãn -->
+                            <div t-if="doc.check_title_ovarian_follicle_result()" class="mb-3">
+                                <div class="fw-bolder mb-2 page-break">
+                                    OVARIAN FOLLICLE MONITORING RESULTS
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_diagnostic()">
+                                    <div class="col-12">
+                                        1. Diagnostic
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.oval_check_idc_ids.menstrual">
+                                    <div class="col-3 add-colon">
+                                        Menstrual
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.oval_check_idc_ids.menstrual" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.oval_check_idc_ids.menstrual_cycle">
+                                    <div class="col-3 add-colon">
+                                        Cycle
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.oval_check_idc_ids.menstrual_cycle" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.oval_check_idc_ids.kcc">
+                                    <div class="col-3 add-colon">
+                                        KCC
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.oval_check_idc_ids.kcc" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_ulterus()">
+                                    <div class="col-12">
+                                        2. Uterus
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.oval_check_idc_ids.position">
+                                    <div class="col-3 add-colon">
+                                        Position
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.oval_check_idc_ids.position" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.oval_check_idc_ids.size">
+                                    <div class="col-3 add-colon">
+                                        Size(mm)
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.oval_check_idc_ids.size" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.oval_check_idc_ids.other_image">
+                                    <div class="col-3 add-colon">
+                                        - Other image
+                                    </div>
+                                    <div class="col-8">
+                                        <span t-field="doc.oval_check_idc_ids.other_image" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_follicle_monitoring()">
+                                    <div class="col-12">
+                                        3. Follicle monitoring
+                                    </div>
+                                </div>
+                                <table class="mt-2 mb-4 table equal-width-table page-break"
+                                    t-if="doc.check_conditions_follicle_monitoring()">
+                                    <tr>
+                                        <td class="fw-bold p-2">Date</td>
+                                        <td class="fw-bold p-2">Period Day</td>
+                                        <td class="fw-bold p-2">Mucosa</td>
+                                        <td class="fw-bold p-2">Left ovary</td>
+                                        <td class="fw-bold p-2">Right ovary</td>
+                                        <td class="fw-bold p-2">Mocous Douglas</td>
+                                    </tr>
+                                    <tr t-foreach="doc.oval_check_idc_ids.cheking_ids"
+                                        t-as="checking">
+                                        <td class="p-2" style="width: 20%;">
+                                            <span t-field="checking.date" />
+                                        </td>
+                                        <td class="p-2" style="width: 20%;">
+                                            <span t-field="checking.period_day" />
+                                        </td>
+                                        <td class="p-2" style="width: 20%;">
+                                            <span t-field="checking.mucosa" />
+                                        </td>
+                                        <td class="p-2" style="width: 20%;">
+                                            <span t-field="checking.left_ovary" />
+                                        </td>
+                                        <td class="p-2" style="width: 20%;">
+                                            <span t-field="checking.right_ovary" />
+                                        </td>
+                                        <td class="p-2" style="width: 20%;">
+                                            <span t-field="checking.mocous_douglas" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- Siêu âm trước 3 tháng  -->
+                            <div t-if="doc.check_title_pregnant_pre_first()" class="mb-3">
+                                <div class="fw-bolder mt-2 page-break">
+                                    Pregnant pre-first ultra sound indicated
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_kcc_after()">
+                                    <div class="col-5 d-flex">
+                                        <div class="flex-1 add-colon">
+                                            KCC
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.pre_first_indicated_ids.kcc" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.pregnant_age_1">
+                                    <div class="col-5 d-flex">
+                                        <div class="flex-1 add-colon">
+                                            Pregnant Age
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.pre_first_indicated_ids.pregnant_age_1" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_pregnancy()">
+                                    <div class="col-12">
+                                        1. Pregnancy
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.quantity_fetal">
+                                    <div class="col-5 add-colon">
+                                        Quantity
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.pre_first_indicated_ids.quantity_fetal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.position_fetal">
+                                    <div class="col-5 add-colon">
+                                        Position fetal
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.pre_first_indicated_ids.position_fetal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.amniotic_sac">
+                                    <div class="col-5 add-colon">
+                                        Amniotic Sac
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.pre_first_indicated_ids.amniotic_sac" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.heart_fetal">
+                                    <div class="col-5 add-colon">
+                                        Heart
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.pre_first_indicated_ids.heart_fetal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.length">
+                                    <div class="col-5 add-colon">
+                                        Length
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.pre_first_indicated_ids.length" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.biparietal">
+                                    <div class="col-5 add-colon">
+                                        Biparietal
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.pre_first_indicated_ids.biparietal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.gesture">
+                                    <div class="col-5 add-colon">
+                                        Gesture
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.pre_first_indicated_ids.gesture" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.pre_first_indicated_ids.light_neck_back">
+                                    <div class="col-5 add-colon">
+                                        Light of back neck
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.pre_first_indicated_ids.light_neck_back" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_other_image_pre()">
+                                    <div class="col-5 add-colon">
+                                        2. Other image
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.pre_first_indicated_ids.other_image" />
+                                    </div>
+                                </div>
+                                <div class="row page-break mt-2"
+                                    t-if="doc.check_conditions_expected_date()">
+                                    <div class="col-5 d-flex">
+                                        <div class="flex-1 add-colon">
+                                            Expected Birth
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.pre_first_indicated_ids.expected_birth" />
+                                    </div>
+                                </div>
+                                <div class="mt-2 page-break"
+                                    t-if="doc.check_conditions_pregnant_age()">
+                                    <div class="col-5 d-flex">
+                                        <div class="flex-1 add-colon">
+                                            3.Pregnant Age
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <span t-field="doc.pre_first_indicated_ids.pregnant_age_2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Siêu âm sau 3 tháng -->
+                            <div t-if="doc.check_title_pregnant_post_first()" class="mb-3">
+                                <div class="fw-bolder mt-2 page-break">
+                                    Pregnant post-first ultra sound indicated
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_pregnant()">
+                                    <div class="col-12">
+                                        1. Pregnancy
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.quantity_fetal">
+                                    <div class="col-5 add-colon">
+                                        Quantity
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.quantity_fetal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.position_fetal">
+                                    <div class="col-5 add-colon">
+                                        Position Preg
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.position_fetal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.heart_fetal">
+                                    <div class="col-5 add-colon">
+                                        Heart
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.heart_fetal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.biparietal">
+                                    <div class="col-5 add-colon">
+                                        Biparietal Preg
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.biparietal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.femur_length">
+                                    <div class="col-5 add-colon">
+                                        Femur length
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.femur_length" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.abdominal_circumference">
+                                    <div class="col-5 add-colon">
+                                        Abdominal circumference
+                                    </div>
+                                    <div class="col-6">
+                                        <span
+                                            t-field="doc.post_first_indicated_ids.abdominal_circumference" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.weight">
+                                    <div class="col-5 add-colon">
+                                        Weight
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.weight" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.pregnant_age">
+                                    <div class="col-5 add-colon">
+                                        Pregnant Age
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.pregnant_age" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.expected_birth">
+                                    <div class="col-5 add-colon">
+                                        Expected Birth
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.expected_birth" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_conception_part()">
+                                    <div class="col-12">
+                                        2. Conception part
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.amniotic_sac">
+                                    <div class="col-5 add-colon">
+                                        Amniotic
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.amniotic_sac" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.placenta">
+                                    <div class="col-5 add-colon">
+                                        Placenta
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.placenta" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.placenta_position">
+                                    <div class="col-5 add-colon">
+                                        Position placenta
+                                    </div>
+                                    <div class="col-6">
+                                        <span
+                                            t-field="doc.post_first_indicated_ids.placenta_position" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.post_first_indicated_ids.maturity_level">
+                                    <div class="col-5 add-colon">
+                                        Maturity Level
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.maturity_level" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_other_image_post()">
+                                    <div class="col-5 add-colon">
+                                        3. Other image
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="doc.post_first_indicated_ids.other_image" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Siêu âm phụ khoa -->
+                            <div t-if="doc.check_title_gynecological_ultrasound_results()"
+                                class="mb-3">
+                                <div class="fw-bolder mb-2 page-break">
+                                    Gynecological ultrasound results
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_uterus()">
+                                    <div class="col-12">
+                                        1. Uterus
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gyn_ult_ids.position">
+                                    <div class="col-5 add-colon">
+                                        Position
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.position" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gyn_ult_ids.size">
+                                    <div class="col-5 add-colon">
+                                        Size
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.size" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gyn_ult_ids.structure">
+                                    <div class="col-5 add-colon">
+                                        Structure
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.structure" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gyn_ult_ids.endometrium">
+                                    <div class="col-5 add-colon">
+                                        Endometrium
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.endometrium" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.gyn_ult_ids.other_image_uterus">
+                                    <div class="col-5 add-colon">
+                                        Other image
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.other_image_uterus" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.check_conditions_extra()">
+                                    <div class="col-12">
+                                        2. Extra
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gyn_ult_ids.right_ovary">
+                                    <div class="col-5 add-colon">
+                                        Right ovary
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.right_ovary" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break" t-if="doc.gyn_ult_ids.left_ovary">
+                                    <div class="col-5 add-colon">
+                                        Left ovary
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.left_ovary" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_douglas()">
+                                    <div class="col-5 add-colon">
+                                        3. Douglas
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.douglas" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 mb-5 page-break"
+                                    t-if="doc.check_conditions_other_image_gyn_ult()">
+                                    <div class="col-5 add-colon">
+                                        4. Other image
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.gyn_ult_ids.other_image" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Siêu âm thai 4D -->
+                            <div t-if="doc.check_title_fetal_ultrasound_results()"
+                                class="mb-3">
+                                <div class="fw-bolder mb-2 page-break">
+                                    4D fetal ultrasound
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_fetal_fetal_ultrasound()">
+                                    <div class="col-12">
+                                        1. Pregnancy
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.quantity_fetal">
+                                    <div class="col-5 add-colon">
+                                        Quantity
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.quantity_fetal" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.edge_of_skull">
+                                    <div class="col-5 add-colon">
+                                        Edge of the skull
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.edge_of_skull" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.head_circumference">
+                                    <div class="col-5 add-colon">
+                                        Head circumference
+                                    </div>
+                                    <div class="col-7">
+                                        <span
+                                            t-field="doc.fetal_ultrasound_4d_ids.head_circumference" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.nasal_spine">
+                                    <div class="col-5 add-colon">
+                                        Nasal spine
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.nasal_spine" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.anterior_abdominal_wall">
+                                    <div class="col-5 add-colon">
+                                        Anterior abdomnial wall
+                                    </div>
+                                    <div class="col-7">
+                                        <span
+                                            t-field="doc.fetal_ultrasound_4d_ids.anterior_abdominal_wall" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.stomach_image">
+                                    <div class="col-5 add-colon">
+                                        Stomach image
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.stomach_image" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.spine">
+                                    <div class="col-5 add-colon">
+                                        Spine
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.spine" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.femur_length">
+                                    <div class="col-5 add-colon">
+                                        Femur length
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.femur_length" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.limb_posture">
+                                    <div class="col-5 add-colon">
+                                        Limb posture
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.limb_posture" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.amniotic_status">
+                                    <div class="col-5 add-colon">
+                                        Amniotic status
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.amniotic_status" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.head_butt_length">
+                                    <div class="col-5 add-colon">
+                                        Head butt length
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.head_butt_length" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.fetal_weight">
+                                    <div class="col-5 add-colon">
+                                        Fetal weight
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.fetal_weight" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.diagonal_diameter">
+                                    <div class="col-5 add-colon">
+                                        Diagonal diameter
+                                    </div>
+                                    <div class="col-7">
+                                        <span
+                                            t-field="doc.fetal_ultrasound_4d_ids.diagonal_diameter" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.midline_structure">
+                                    <div class="col-5 add-colon">
+                                        Midline structure
+                                    </div>
+                                    <div class="col-7">
+                                        <span
+                                            t-field="doc.fetal_ultrasound_4d_ids.midline_structure" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.fetal_heart_rate">
+                                    <div class="col-5 add-colon">
+                                        Fetal heart rate
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.fetal_heart_rate" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.abdominal_circumference">
+                                    <div class="col-5 add-colon">
+                                        Abdominal circumference
+                                    </div>
+                                    <div class="col-7">
+                                        <span
+                                            t-field="doc.fetal_ultrasound_4d_ids.abdominal_circumference" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.bladder">
+                                    <div class="col-5 add-colon">
+                                        Bladder
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.bladder" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.limbs">
+                                    <div class="col-5 add-colon">
+                                        Limbs
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.limbs" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.foot_length">
+                                    <div class="col-5 add-colon">
+                                        Foot length
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.foot_length" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.placenta_position">
+                                    <div class="col-5 add-colon">
+                                        Placenta position
+                                    </div>
+                                    <div class="col-7">
+                                        <span
+                                            t-field="doc.fetal_ultrasound_4d_ids.placenta_position" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.umbilical_cord">
+                                    <div class="col-5 add-colon">
+                                        Umbilical cord
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.umbilical_cord" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.light_neck_back">
+                                    <div class="col-5 add-colon">
+                                        Light of back neck
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.light_neck_back" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.fetal_ultrasound_4d_ids.expected_birth">
+                                    <div class="col-5 add-colon">
+                                        Expected birth
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.expected_birth" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 mb-5 page-break"
+                                    t-if="doc.check_conditions_other_image_fetal_ultrasound()">
+                                    <div class="col-5 add-colon">
+                                        2. Other image
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.other_image" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_diagnose_fetal_ultrasound()">
+                                    <div class="col-5 d-flex">
+                                        <div class="flex-1 add-colon">
+                                            Diagnose
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.diagnose" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2 page-break"
+                                    t-if="doc.check_conditions_note_fetal_ultrasound()">
+                                    <div class="col-5 d-flex">
+                                        <div class="flex-1 add-colon">
+                                            Note
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <span t-field="doc.fetal_ultrasound_4d_ids.diagnose" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- danh sách xét nghiệm -->
+                            <div class="fw-bolder mb-2 page-break"
+                                t-if="doc.check_conditions_laboratory_test_order()">
+                                Laboratory Test Order
+                            </div>
+                            <div class="page-break" t-if="doc.check_conditions_laboratory_test_order()">
+                                <table class="mt-2 mb-4 w-100">
+                                    <thead>
+                                        <tr>
+                                            <th class="fw-bold p-2">Test name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="doc.medical_test_line_ids" t-as="line">
+                                            <td class="p-2" t-esc="line.service_id.name" />
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div t-if="doc.general_result_ids.diagnosis" class="row mb-2 mt-3 page-break">
+                                <div class="col-3 mb-2">
+                                    Diagnostic:
+                                </div>
+                                <div class="col-9 mb-1">
+                                    <span t-field="doc.general_result_ids.diagnosis" />
+                                </div>
+                            </div>
+                            <div t-if="doc.general_result_ids" class="row mt-2 page-break">
+                                <div class="col-3 mb-2">
+                                    ICD diagnosis:
+                                </div>
+                                <div class="col-9 mb-1">
+                                    <div t-foreach="doc.general_result_ids.icd_ids" t-as="icd"> [<span
+                                            t-esc="icd.uid" />] <span t-esc="icd.title" />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Hướng điều trị -->
+                            <div class="row mb-2 page-break"
+                                t-if="len(doc.general_result_ids.product_drug_ids) > 0">
+                                Treatment direction
+                            </div>
+                            <div class="row mb-4 page-break"
+                                t-if="len(doc.general_result_ids.product_drug_ids) > 0">
+                                <div class="col-12 mb-3">
+                                    <table class="table" style="width: 100%">
+                                        <tr>
+                                            <td class="fw-bold p-2">STT</td>
+                                            <td class="fw-bold p-2">Name</td>
+                                            <td class="fw-bold p-2">Quantity medicine</td>
+                                            <td class="fw-bold p-2">Unit</td>
+                                            <td class="fw-bold p-2">Usage</td>
+                                        </tr>
+                                        <t t-set="index" t-value="0" />
+                                        <tr t-foreach="doc.general_result_ids.product_drug_ids"
+                                            t-as="prod_service">
+                                            <t t-set="index" t-value="index + 1" />
+                                            <td class="p-2">
+                                                <t t-esc="index" />
+                                            </td>
+                                            <td class="p-2">
+                                                <t t-esc="prod_service.name" />
+                                            </td>
+                                            <td class="p-2">
+                                                <t t-esc="prod_service.quantity" />
+                                            </td>
+                                            <td class="p-2">
+                                                <t t-esc="prod_service.unit" />
+                                            </td>
+                                            <td class="p-2">
+                                                <t t-esc="prod_service.usage_id.name" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3 page-break" t-if="doc.general_result_ids.solution">
+                                <div class="col-3">
+                                    Advice:
+                                </div>
+                                <div class="col-9" t-esc="doc.general_result_ids.solution" />
+                            </div>
+                            <div class="row mb-2 page-break"
+                                t-if="doc.general_result_ids.reexamination_date">
+                                <div class="col-3 fw-bolder">
+                                    Re-Appointment Date
+                                </div>
+                                <div class="col-9" t-esc="doc.reexamination_date_format">
+                                </div>
+                            </div>
+                            <div class="row mb-2 page-break">
+                                <div class="col-6">
+                                    <div class="d-inline-block" />
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center col">
+                                        <div class="justify-content-center d-flex"><span
+                                                t-esc="doc.booking_date_format" /> </div>
+                                        <div class="justify-content-center d-flex fw-bold">Doctor</div>
+                                        <div class="justify-content-center d-flex">(Ký, ghi rõ họ
+                                            tên)</div>
+                                    </div>
+                                    <div style="height:50px" />
+                                    <div class="justify-content-center d-flex">
+                                        <strong>
+                                            <span class="d-inline-block text-nowrap"
+                                                t-field="doc.general_result_ids[:1].examiner_id.name" />
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

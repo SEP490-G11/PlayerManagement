@@ -1,0 +1,239 @@
+<odoo>
+    <data>
+        <record id="z_obstetric_fetal_ultrasound_form_view" model="ir.ui.view">
+            <field name="name">z_obstetric.fetal_ultrasound.form</field>
+            <field name="model">z_obstetric.fetal_ultrasound</field>
+            <field name="arch" type="xml">
+                <form string="Fetal Ultrasound"
+                    js_class="form_with_toast"
+                    name="Fetal Ultrasound Template"
+                    delete="False"
+                    duplicate="False" create="False">
+                    <sheet string="Fetal Ultrasound">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examiner</div>
+                                        <field name="examiner_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label mb-1">Ultrasonographer</div>
+                                        <field name="optometrist_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examination date</div>
+                                        <field name="examination_date" string=""
+                                            class="form-control trans-input w-100"
+                                            readonly="id" />
+                                    </div>
+                                    <h3 class="col-12 mt-4 mb-3 fw-bolder">Examination results</h3>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <h4 class="col-12 mt-1 mb-3">1. Pregnant</h4>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Quantity</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="quantity_fetal" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Edge of the skull</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="edge_of_skull" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Head circumference</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="head_circumference" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Nasal spine</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="nasal_spine" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Anterior abdomnial wall</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="anterior_abdominal_wall" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Stomach image</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="stomach_image" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Spine</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="spine" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Femur length</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="femur_length" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Limb posture</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="limb_posture" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Amniotic status</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="amniotic_status" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Head butt length</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="head_butt_length" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Fetal weight</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="fetal_weight" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Fetal movement</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="fetal_movement" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Diagonal diameter</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="diagonal_diameter" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Midline structure</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="midline_structure" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Fetal heart rate</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="fetal_heart_rate" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Abdominal circumference</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="abdominal_circumference" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Bladder</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="bladder" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Limbs</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="limbs" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Foot length</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="foot_length" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Placenta position</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="placenta_position" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Umbilical cord</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="umbilical_cord" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Light of back neck</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="light_neck_back" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Expected birth</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="expected_birth" />
+                                            </div>
+                                            <h4 class="col-12 mt-4 mb-3">2. Other image</h4>
+                                            <field rows="3" name="other_image"
+                                                widget="text_field_bs"
+                                                class="w-100 fw-bolder"
+                                                placeholder="Enter description" />
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Image</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field name="image_result_upload" widget="many2many_binary_preview" options="{'reload': false }"/>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1 fw-bolder">Diagnose</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="diagnose" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1 fw-bolder">Note</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="note" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

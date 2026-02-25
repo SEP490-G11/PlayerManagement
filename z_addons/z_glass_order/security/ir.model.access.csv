@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_glass_order_manager,z.glass.order.manager,model_z_glass_order,base.group_system,1,1,1,1
+access_z_glass_order_line_manager,z.glass.order.line.manager,model_z_glass_order_line,base.group_system,1,1,1,1
+access_z_glass_order_sequence,access_z_glass_order_sequence,model_z_glass_order_sequence,base.group_system,1,1,1,1

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_web.CustomerFieldBs">
+        <style>
+            .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #FF3333E5;
+            }
+        </style>
+        <t t-name="z_web.customer_field_bs">
+            <t t-if="!props.record.data.is_paid">
+                <div class="circle" />
+            </t>
+            <br />
+            <span t-esc="props.record.data.customer_id[1]" />
+        </t>
+    </t>
+</templates>

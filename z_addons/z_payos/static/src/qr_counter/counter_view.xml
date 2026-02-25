@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_payos.CounterView" owl="1">
+        <div class="counter-view row align-items-start" t-ref="counterView">
+            <Carousel t-if="!state.isShowInvoice and !state.isShowQR" t-props="{'slides': state.imgBannerList}"></Carousel>
+            <div class="d-flex">
+                <div  class="col-8 d-flex flex-column align-items-start p-3">
+                    <table t-ref="invoiceTable" t-if="state.isShowInvoice or state.isShowQR" class="base-table table-sm table table-hover mb-3 o_list_table_ungrouped table-bordered table-bordered scrollable-table">
+                        <thead>
+                            <tr>
+                                <th>Tên </th>
+                                <th class="text-end">Số lượng</th>
+                                <th class="text-end">Giá</th>
+                                <th class="text-end">Giảm giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="state.invoiceLines" t-as="line" t-key="line.id">
+                                <td style="width: 50%; word-break: break-word; white-space: normal">
+                                    <span t-esc="line.name"></span>
+                                </td>
+                                <td style="width: 10%" class="text-end">
+                                    <span t-esc="line.quantity"></span>
+                                </td>
+                                <td style="width: 20%" class="text-end">
+                                    <span t-esc="line.price_unit"></span>
+                                </td>
+                                <td style="width: 20%" class="text-end">
+                                    <span t-esc="line.discount"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                     <div class="" t-if="state.isShowInvoice or state.isShowQR" id="counter-info">
+                        Tổng thanh toán: <span t-esc="state.amount"></span>
+                    </div>
+                </div>
+                <div class="col-6 d-flex justify-content-center align-items-center" >
+                    <img t-if="state.qrCodeImageUrl and !state.isDone and state.isShowQR" t-att-src="state.qrCodeImageUrl" style="width: 100%" />
+                    <img src="/z_web/static/image/payment_done.svg" t-if="state.isDone and state.isShowQR" alt="Payment QR" style="width: 120px; height: 120px; margin-auto; object-fit: contain;"/>
+                </div>
+            </div>
+
+        </div>
+    </t>
+</templates>

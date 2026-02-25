@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record forcecreate="True" id="decimal_stock_product" model="decimal.precision">
+        <field name="name">Stock_Product</field>
+        <field name="digits" eval="0" />
+    </record>
+</odoo>

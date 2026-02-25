@@ -1,0 +1,264 @@
+<odoo>
+    <data>
+        <record id="z_visit_list_view_inherit" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.list</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="inherit_id" ref="z_medical_record.z_visit_list_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='booking_type']" position="after">
+                    <field name="has_general_result" column_invisible="True"/>
+                    <button name="action_open_general_result_form" type="object"
+                            class="has_general_result"
+                            title="General result">
+                    </button>
+                    <button name="action_open_examination_form" type="object" title="Examination" />
+                    <button name="action_open_indicated_form" type="object" title="Indicated CLS and Test" />
+                    <button name="action_open_tips_form" type="object" title="Tips" />
+                    <button name="action_open_sentence_form" type="object" title="Sentence" />
+                </xpath>
+                <xpath expr="//field[@name='printing_type']" position="attributes">
+                    <attribute name="column_invisible">1</attribute>
+                    <attribute name="widget">block_advance_search</attribute>
+                </xpath>
+                <xpath expr="//field[@name='doctor_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="examination_note" class="white-space-normal-span"/>
+                </xpath>
+                <xpath expr="//field[@name='technician_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                    <attribute name="string">Ultrasonographer</attribute>
+                </xpath>
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="js_class">combine_popup_record_tree</attribute>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="test_state" column_invisible="1"/>
+                    <field name="test_state_selection" />
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="z_obs_visit_form_view_inherit" model="ir.ui.view">
+            <field name="name">z_obs_appointment.appointment.form.inherit</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="inherit_id" ref="z_medical_record.z_visit_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('oe_chatter')]" position="before">
+                    <notebook>
+                        <page name="general_form" string="General">
+                            <field name="general_result_ids">
+                                <tree create="0" edit="1" delete="0">
+                                    <field name="examination_date"/>
+                                    <field name="reason"/>
+                                    <field name="examiner_id"/>
+                                    <field name="id" nolabel="1" widget="open_tab"/>
+                                    <button name="action_print" type="object" icon="fa-print text-primary"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="ce_form" string="Clinical examination">
+                            <style>
+                                .w-300 {
+                                width: 300px;
+                                }
+                            </style>
+                            <div class="mb-2">
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_gynecological_form" field_id="multifocal_0"/>
+                                        <button name="action_open_gynecological_form" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_gynecological_form"
+                                                string="Gynecologica examination">
+                                        </button>
+                                        <button class="btn-primary o_list_button_add w-300"
+                                                invisible="include_gynecological_form"
+                                                string="Gynecologica examination">
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_non_speculum_gynecological_form" field_id="multifocal_0"/>
+                                        <button name="action_open_non_speculum_gynecological_form" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_non_speculum_gynecological_form"
+                                                string="Non Speculum Gynecologica examination">
+                                        </button>
+                                        <button class="btn-primary o_list_button_add w-300"
+                                                invisible="include_non_speculum_gynecological_form"
+                                                string="Non Speculum Gynecologica examination">
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_pre_first_trimester_pregnant_form"
+                                               field_id="multifocal_0"/>
+                                        <button name="action_open_pre_first_trimester_pregnant_form" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_pre_first_trimester_pregnant_form"
+                                                string="Pre first tremester pregnant examination">
+                                        </button>
+                                        <button class="btn-primary o_list_button_add w-300"
+                                                invisible="include_pre_first_trimester_pregnant_form"
+                                                string="Pre first tremester pregnant examination">
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_post_first_trimester_pregnant_form"
+                                               field_id="multifocal_0"/>
+                                        <button name="action_open_post_first_trimester_pregnant_form" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_post_first_trimester_pregnant_form"
+                                                string="Post first tremester pregnant examination">
+                                        </button>
+                                        <button class="btn-primary o_list_button_add w-300"
+                                                invisible="include_post_first_trimester_pregnant_form"
+                                                string="Post first tremester pregnant examination">
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_full_body_examination_form" field_id="multifocal_0"/>
+                                        <button name="action_open_full_body_examination_form" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_full_body_examination_form"
+                                                string="Full body examination form">
+                                        </button>
+                                        <button class="btn-primary o_list_button_add w-300"
+                                                invisible="include_full_body_examination_form"
+                                                string="Full body examination form">
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </page>
+                        <page name="test_form" string="Tests">
+                            <style>
+                                .w-300 {
+                                width: 300px;
+                                }
+                            </style>
+                            <div class="mb-2">
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_ovulation_indicated" field_id="multifocal_0"/>
+                                        <button name="action_open_ovalution_indcated" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_ovulation_indicated" string="Ovalution">
+                                        </button>
+                                        <button class="btn-primary o_list_button_add w-300"
+                                                invisible="include_ovulation_indicated" string="Ovalution">
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_pre_first_indicated" field_id="multifocal_0"/>
+                                        <button name="action_open_pre_first_indicated_form" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_pre_first_indicated"
+                                                string="Pre-first indicated">
+                                        </button>
+                                        <button invisible="include_pre_first_indicated"
+                                                class="btn-primary o_list_button_add w-300"
+                                                string="Pre-first indicated">
+                                        </button>
+                                    </span>
+                                </div>
+
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_post_first_indicated" field_id="multifocal_0"/>
+                                        <button name="action_open_post_first_indicated_form" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_post_first_indicated"
+                                                string="Post-first indicated">
+                                        </button>
+                                        <button class="btn-primary o_list_button_add w-300"
+                                                invisible="include_post_first_indicated" string="Post-first indicated">
+                                        </button>
+                                    </span>
+                                </div>
+
+                                <div class="col-md-3 mt-3">
+                                    <span class="d-inline-block">
+                                        <field name="include_gynecological_indicated" field_id="multifocal_0"/>
+                                        <button name="action_open_gyn_ult_form" type="object"
+                                                class="btn-primary o_list_button_add w-300"
+                                                invisible="not include_gynecological_indicated"
+                                                string="Gynecological Ultrasound">
+                                        </button>
+                                        <button class="btn-primary o_list_button_add w-300"
+                                                invisible="include_gynecological_indicated"
+                                                string="Gynecological Ultrasound">
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <notebook>
+                                <page string="Test" name="test">
+                            <group>
+                                <group>
+                                    <field name="medical_test_line_ids" string="">
+                                        <tree editable="bottom" js_class="medical_record_tree" delete="0">
+                                            <field name="has_result" column_invisible="1"/>
+                                            <field name="service_id" can_create="True" can_write="True"/>
+                                            <button name="action_preview_result" type="object"
+                                                    class="btn btn-primary p-1 button-title-left"
+                                                    string="View result"
+                                                    title="Result" invisible="not has_result"/>
+                                            <button name="action_open_form" type="object"
+                                                    string="Upload"
+                                                    class="btn btn-secondary p-1 button-title-left"
+                                                    title="Result" invisible="has_result"/>
+                                            <button class="medical_test_css" name="action_print" type="object" icon="fa-print text-primary"/>
+                                            <button class="medical_test_css3" name="action_unlink" type="object" icon="fa-trash-o text-primary" confirm="Bạn có chắc chắn muốn xóa một Chỉ định trên hệ thống?"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group></group>
+                            </group>
+
+                        </page>
+                            </notebook>
+
+                        </page>
+                        <page name="tips_form" string="Tips">
+                            <style>
+                                .w-300 {
+                                width: 300px;
+                                }
+                            </style>
+                            <div>
+                                <div class="d-flex gap-4 mb-4">
+                                    <div class="flex-grow-1">
+                                        <h2 class="fw-bold  mb-3">Medical Tips</h2>
+                                        <group>
+                                            <group>
+                                                <field name="medical_tips_line_ids" string="">
+                                                    <tree editable="bottom" js_class="medical_record_tree">
+                                                        <field name="service_id" can_create="True" can_write="True"/>
+                                                        <field name="result"/>
+                                                    </tree>
+                                                </field>
+                                            </group>
+                                            <group></group>
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

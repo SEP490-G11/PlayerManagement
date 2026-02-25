@@ -1,0 +1,142 @@
+<odoo>
+    <data>
+        <record id="z_obstetric_pre_first_indicated_form_view" model="ir.ui.view">
+            <field name="name">z_obstetric.pre_first_indicated.form</field>
+            <field name="model">z_obstetric.pre_first_indicated</field>
+            <field name="arch" type="xml">
+                <form string="Pre First Indicated"
+                    js_class="form_with_toast"
+                    name="Pre First Indicated Template"
+                    delete="False"
+                    duplicate="False" create="False">
+                    <sheet string="Pre First Indicated">
+                        <notebook>
+                            <page string="General Information" name="general">
+                                <div class="row gy-3">
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examiner</div>
+                                        <field name="examiner_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label mb-1">Ultrasonographer</div>
+                                        <field name="optometrist_id" string=""
+                                            class="form-control trans-input w-100" />
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="o_form_label oe_asterisk mb-1">Examination date</div>
+                                        <field name="examination_date" string=""
+                                            class="form-control trans-input w-100"
+                                            readonly="id" />
+                                    </div>
+                                    <h3 class="col-12 mt-4 mb-3 fw-bolder">Examination results</h3>
+                                    <div class="col-12">
+                                        <div class="row gy-2">
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1 fw-bolder">KCC</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="kcc" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1 fw-bolder">Pregnant
+                                                    Age</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="pregnant_age_1" />
+                                            </div>
+                                            <h4 class="col-12 mt-4 mb-3">1. Pregnant</h4>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Quantity</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="quantity_fetal" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Position</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="position_fetal" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Amniotic Sac</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="amniotic_sac" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Heart</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="heart_fetal" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Length(CR)</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="length" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Biparietal</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="biparietal" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Gesture</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="gesture" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Light of back neck</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="light_neck_back" />
+                                            </div>
+                                            <h4 class="col-12 mt-4 mb-3">2. Other image</h4>
+                                            <field rows="3" name="other_image"
+                                                widget="text_field_bs"
+                                                class="w-100 fw-bolder"
+                                                placeholder="Enter description" />
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Image</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field name="image_result_upload" widget="many2many_binary_preview" options="{'reload': false }"/>
+                                            </div>
+                                            <div class="col-2">
+                                                <h4>3. Pregnant Age</h4>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="pregnant_age_2" />
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="o_form_label mb-1">Expected Birth</div>
+                                            </div>
+                                            <div class="col-10">
+                                                <field widget="char_field_bs" class="w-100"
+                                                    name="expected_birth" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

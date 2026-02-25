@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="z_resource_calendar_attendance_tree_inherit" model="ir.ui.view">
+        <field name="name">resource.calendar.attendance.tree.inherit</field>
+        <field name="model">resource.calendar.attendance</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='week_type']" position="attributes">
+                <attribute name="column_invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_view_resource_calendar_tree_inherit" model="ir.ui.view">
+        <field name="name">z.resource.calendar.tree.inherit</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">tree_with_toast</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="employee_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="z_resource_calendar_form_inherit" model="ir.ui.view">
+        <field name="name">resource.calendar.form.inherit</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="js_class">form_with_toast</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='hours_per_day']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tz']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tz']" position="after">
+                <group>
+                    <field name="is_template" widget="boolean_toggle" invisible="not is_admin"/>
+                    <field name="is_edited" invisible="True"/>
+                    <field name="is_admin" invisible="1"/>
+                    <label for="employee_id" string="Employee" class="oe_asterisk" invisible="is_template"/>
+                    <field name="employee_id" nolabel="1" invisible="is_template" readonly="is_edited" options="{ 'no_create': True , 'no_edit': True}"/>
+                    <field name="employee_place_ids" invisible="1"/>
+                    <field name="existing_employee_ids" invisible="1"/>
+                    <label for="date_from" string="Starting Date" class="oe_asterisk"  invisible="is_template"/>
+                    <field name="date_from" nolabel="1" invisible="is_template"/>
+                    <label for="date_to" string="End Date" class="oe_asterisk" invisible="is_template"/>
+                    <field name="date_to" nolabel="1" invisible="is_template"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='attendance_ids']" position="replace">
+                <field name="attendance_ids">
+                    <tree editable="top">
+                        <field name="name"/>
+                        <field name="dayofweek"/>
+                        <field name="hour_from" widget="float_time"/>
+                        <field name="hour_to" widget="float_time"/>
+                        <field name="place_id" options="{ 'no_create': True , 'no_edit': True}"
+                               domain="[('id','in', parent.employee_place_ids)]"/>
+                        <field name="enable" string="Activation"/>
+                        <field name="date_from" optional="hide"/>
+                        <field name="date_to" optional="hide"/>
+                    </tree>
+                </field>
+            </xpath>
+            <xpath expr="//h1" position="replace">
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

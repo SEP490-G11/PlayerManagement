@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* z_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-27 03:06+0000\n"
+"PO-Revision-Date: 2024-03-27 03:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: z_product
+#: model:ir.model.fields,field_description:z_product.field_product_product__ingredients
+#: model:ir.model.fields,field_description:z_product.field_product_template__ingredients
+msgid "Ingredients"
+msgstr "Thành phần"
+
+#. module: z_product
+#: model:ir.model.fields,field_description:z_product.field_product_product__instruction
+#: model:ir.model.fields,field_description:z_product.field_product_template__instruction
+msgid "Instruction"
+msgstr "Cách dùng"
+
+#. module: z_product
+#: model:ir.model.fields,field_description:z_product.field_product_product__packaging
+#: model:ir.model.fields,field_description:z_product.field_product_template__packaging
+msgid "Packaging"
+msgstr "Quy cách đóng gói"
+
+#. module: z_product
+#: model:ir.model,name:z_product.model_product_template
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: z_product
+#: model:ir.model.fields,field_description:z_product.field_product_product__quantity_per_day
+#: model:ir.model.fields,field_description:z_product.field_product_template__quantity_per_day
+msgid "Quantity per day"
+msgstr "Số lượng / ngày"
+
+#. module: z_product
+#. odoo-python
+#: code:addons/z_product/models/product.py:0
+#, python-format
+msgid "Products must be unique"
+msgstr "Sản phẩm này đã tồn tại"
+
+#. module: z_product
+#: model_terms:ir.ui.view,arch_db:z_product.z_product_template_only_form_view_inherit
+msgid "Name"
+msgstr "Tên sản phẩm"
+
+#. module: z_product
+#: model_terms:ir.ui.view,arch_db:z_product.z_product_normal_form_view_inherit
+msgid "Categ"
+msgstr "Danh mục sp"
+
+#. module: z_product
+#: model:ir.model.fields,field_description:z_product.field_product_category__categ_code
+msgid "Category Code"
+msgstr "Mã danh mục sản phẩm"
+
+#. module: z_product
+#: model:ir.model.fields,field_description:z_product.field_product_template__vietmis_code
+msgid "Vietmis Code"
+msgstr "Mã tham chiếu Vietmis"
+
+#. module: z_product
+#: model:ir.model.fields,field_description:z_product.field_product_template__sell_help
+msgid "Sell Help"
+msgstr "Bán hộ"

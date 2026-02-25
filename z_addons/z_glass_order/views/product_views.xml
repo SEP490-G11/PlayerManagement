@@ -1,0 +1,11 @@
+<odoo>
+    <record id="stock.product_template_action_product" model="ir.actions.act_window">
+        <field name="res_model">product.product</field>
+        <field name="domain">[('is_glass_order','=',False)]</field>
+    </record>
+
+    <record id="stock.stock_product_normal_action" model="ir.actions.act_window">
+        <field name="res_model">product.product</field>
+        <field name="domain">[('is_glass_order','=',False)]</field>
+    </record>
+</odoo>

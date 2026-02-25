@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_medical_record.VisitStateSelection">
+        <select class="o_input pe-3" style="font-weight: bold; min-width: 100px" t-on-change="onChange"
+            t-on-click.stop="() =&gt; {}" t-att-id="props.id">
+            <t t-foreach="this.options" t-as="option" t-key="option[0]">
+                <option t-att-selected="option[0] == value" t-att-value="stringify(option[0])" t-out="option[1]"/>
+            </t>
+        </select>
+    </t>
+</templates>

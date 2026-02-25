@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record id="view_partner_obstetric_tree" model="ir.ui.view">
+            <field name="name">res.partner.obstetric.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="z_partner.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='original_code']" position="attributes">
+                    <attribute name="column_invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='approach_channel']" position="attributes">
+                    <attribute name="column_invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='customer_detail_widget']" position="after">
+                    <field name="reexamination_date"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="z_partner_form_obs" model="ir.ui.view">
+            <field name="name">res.partner.form.obs.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="z_partner.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='general_information']" position="before">
+                    <page name="health_history" string="Health history" invisible="not id">
+                        <group>
+                            <field widget="text" name="medical_history" default_focus="1"/>
+                        </group>
+                    </page>
+                    <page name="personal_history" string="Personal history" invisible="not id">
+                        <group>
+                            <field widget="text" name="prehistoric" string="Prehistoric" default_focus="1"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='contact_source']" position="attributes">
+                    <attribute name="required">0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='approach_channel']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//label[@for='group_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='group_id']" position="attributes">
+                    <attribute name="required">0</attribute>
+                    <attribute name="nolabel">0</attribute>
+                </xpath>
+                <xpath expr="//page[@name='general_information']//field[@name='group_id']" position="attributes">
+                    <attribute name="required">0</attribute>
+                    <attribute name="nolabel">0</attribute>
+                </xpath>
+                <xpath expr="//field[@name='street']" position="before">
+                    <label for="street" string="Address" class="oe_asterisk"/>
+                </xpath>
+                <xpath expr="//field[@name='street']" position="attributes">
+                    <attribute name="required">1</attribute>
+                    <attribute name="nolabel">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="z_obs_partner_form" model="ir.ui.view">
+            <field name="name">res.obs.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="z_appointment.z_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[1]/field[@name='visit_ids']/tree/field[@name='id']" position="before">
+                    <button icon="fa-print text-primary" name="action_open_sentence_form" type="object"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

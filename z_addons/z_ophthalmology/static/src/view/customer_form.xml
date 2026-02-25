@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-inherit="z_appointment.CustomerForm" t-inherit-mode="extension" owl="1">
+        <xpath expr="//input[@t-model='state.customer.job']" position="attributes">
+            <attribute name="t-att-placeholder">getPlaceholder('Nhập booking', !state.customer.id)</attribute>
+        </xpath>
+
+        <xpath expr="//label[@for='job']" position="replace">
+            <label for="job" class="label">Booking</label>
+        </xpath>
+    </t>
+</templates>

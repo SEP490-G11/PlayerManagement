@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="z_web.Button" owl="1">
+        <button t-on-click="props.onClick" t-att-class="state.className">
+            <div class="d-flex justify-contents-center" t-if="!props.isLoading">
+                <t t-slot="left-icon"></t>
+                <span t-esc="props.label"></span>
+                <t t-slot="right-icon"></t>
+            </div>
+            <div t-if="props.isLoading" class="donut"></div>
+        </button>
+    </t>
+</templates>

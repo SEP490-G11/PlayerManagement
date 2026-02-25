@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_player_manager,access_player_manager,model_football_player,player_management.group_football_manager,1,1,1,1
+access_team_manager,access_team_manager,model_football_team,player_management.group_football_manager,1,1,1,1
+access_contract_manager,access_contract_manager,model_football_contract,player_management.group_football_manager,1,1,1,1
+
+access_player_viewer,access_player_viewer,model_football_player,player_management.group_football_viewer,1,0,0,0
+access_team_viewer,access_team_viewer,model_football_team,player_management.group_football_viewer,1,0,0,0
+access_contract_viewer,access_contract_viewer,model_football_contract,player_management.group_football_viewer,1,0,0,0

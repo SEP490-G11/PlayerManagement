@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_place_place_manager,z_place.place.manager,model_z_place_place,base.group_system,1,1,1,1
+access_z_place_place_user,z_place.place.user,model_z_place_place,base.group_system,1,1,1,1

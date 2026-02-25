@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/z_invoice/static/src/components/misa_template_field/misa_template_field.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo> 

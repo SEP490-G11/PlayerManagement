@@ -1,0 +1,308 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* amazon_s3_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240312\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-20 08:14+0000\n"
+"PO-Revision-Date: 2024-06-20 08:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "ALL FILES"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.res_config_settings_view_form
+msgid "Access key:"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "Amazon"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model,name:amazon_s3_connector.model_amazon_dashboard
+msgid "Amazon Dashboard"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_res_config_settings__amazon_access_key
+msgid "Amazon S3 Access Key"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.res_config_settings_view_form
+msgid "Amazon S3 Cloud Storage"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.actions.client,name:amazon_s3_connector.amazon_dashboard_action
+#: model:ir.ui.menu,name:amazon_s3_connector.amazon_s3_connector_menu_root
+msgid "Amazon S3 Dashboard"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_res_config_settings__amazon_secret_key
+msgid "Amazon S3 Secret key"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "Amazon Text"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model,name:amazon_s3_connector.model_amazon_upload_file
+msgid "Amazon Upload File"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__file
+msgid "Attachment"
+msgstr "Tệp tải lên"
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.res_config_settings_view_form
+msgid "Bucket Name:"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.amazon_upload_file_view_form
+msgid "Cancel"
+msgstr "Huỷ"
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.amazon_upload_file_view_form
+msgid "Cancel Upload"
+msgstr "Huỷ tải lên"
+
+#. module: amazon_s3_connector
+#: model:ir.actions.act_window,name:amazon_s3_connector.amazon_upload_file_action
+msgid "Comprehensive examination"
+msgstr "Đăng tải kết quả khám"
+
+#. module: amazon_s3_connector
+#: model:ir.model,name:amazon_s3_connector.model_res_config_settings
+msgid "Config Settings"
+msgstr "Cài đặt cấu hình"
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.amazon_upload_file_view_form
+msgid "Confirm Upload"
+msgstr "Xác nhận"
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_dashboard__create_uid
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_dashboard__create_date
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_dashboard__display_name
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "EXCEL"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,help:amazon_s3_connector.field_res_config_settings__is_amazon_connector
+msgid "Enable or disable the Amazon S3 connector."
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,help:amazon_s3_connector.field_res_config_settings__amazon_bucket_name
+msgid "Enter the name of your Amazon S3 Bucket here."
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,help:amazon_s3_connector.field_res_config_settings__amazon_access_key
+msgid "Enter your Amazon S3 Access Key here."
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,help:amazon_s3_connector.field_res_config_settings__amazon_secret_key
+msgid "Enter your Amazon S3 Secret Key here."
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__file_name
+msgid "File Name"
+msgstr "Tên file"
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_res_config_settings__amazon_bucket_name
+msgid "Folder ID"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__folder_path
+msgid "Folder Path"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_dashboard__id
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__id
+msgid "ID"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,help:amazon_s3_connector.field_amazon_upload_file__record_id
+msgid "ID of the record to update"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "IMAGE"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_res_config_settings__is_amazon_connector
+msgid "Is Amazon Connector"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "Last Modified"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_dashboard__write_uid
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_dashboard__write_date
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,help:amazon_s3_connector.field_amazon_upload_file__file_name
+msgid "Name of the file to upload"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "PDF"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,field_description:amazon_s3_connector.field_amazon_upload_file__record_id
+msgid "Record ID"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "SL NO:"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "Search Files"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.res_config_settings_view_form
+msgid "Secret access key:"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model:ir.model.fields,help:amazon_s3_connector.field_amazon_upload_file__file
+msgid "Select a file to upload"
+msgstr "Chọn tệp tải lên"
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "Size"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.res_config_settings_view_form
+msgid "Synchronize with Amazon S3 Cloud Storage"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "TEXT"
+msgstr ""
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "Type"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.amazon_upload_file_view_form
+msgid "Upload"
+msgstr "Tải lên"
+
+#. module: amazon_s3_connector
+#. odoo-javascript
+#: code:addons/amazon_s3_connector/static/src/xml/amazon_dashboard_template.xml:0
+#, python-format
+msgid "ZIP"
+msgstr ""
+
+#. module: amazon_s3_connector
+#: model_terms:ir.ui.view,arch_db:amazon_s3_connector.amazon_upload_file_view_form
+msgid "upload file wizard"
+msgstr "Popup tải file"
+
+#. module: amazon_s3_connector
+#. odoo-python
+#: code:addons/amazon_s3_connector/wizard/amazon_upload_file.py:0
+#, python-format
+msgid "File has been uploaded successfully. Please refresh the page."
+msgstr "Đã tải tệp lên thành công. Xin hãy làm mới lại trang web."

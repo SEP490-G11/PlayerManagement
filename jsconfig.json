@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@z_appointment/*": ["./z_addons/z_appointment/static/src/*"],
+      "@z_clinic/*": ["./z_addons/z_clinic/static/src/*"],
+      "@z_combo/*": ["./z_addons/z_combo/static/src/*"],
+      "@z_inventory/*": ["./z_addons/z_inventory/static/src/*"],
+      "@z_partner/*": ["./z_addons/z_partner/static/src/*"],
+      "@z_product/*": ["./z_addons/z_product/static/src/*"],
+      "@z_stock/*": ["./z_addons/z_stock/static/src/*"],
+      "@z_web/*": ["./z_addons/z_web/static/src/*"],
+      "@web/*": ["./odoo/addons/web/static/src/*"]
+    }
+  },
+  "include": ["z_addons", "odoo/odoo/addons/web"],
+  "exclude": []
+}

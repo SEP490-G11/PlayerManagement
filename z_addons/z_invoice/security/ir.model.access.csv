@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_z_invoice_combo_line_manager,z.invoice.combo.line manager,model_account_combo_line,base.group_system,1,1,1,1
+access_z_invoice_misa_invoice_template_user,z.invoice.misa.invoice.template user,model_z_invoice_misa_invoice_template,base.group_user,1,1,1,1
+access_z_invoice_misa_issuance_user,access.account.move.misa.issuance user,model_account_move_misa_issuance,account.group_account_invoice,1,1,1,1
+access_z_invoice_email_wizard_user,access.account.move.email.wizard user,model_account_move_email_wizard,account.group_account_invoice,1,1,1,1
+access_z_invoice_bulk_publish_wizard_user,access.bulk.publish.wizard user,model_bulk_publish_wizard,account.group_account_invoice,1,1,1,1
+access_z_invoice_bulk_email_wizard_user,access.bulk.email.wizard user,model_bulk_email_wizard,account.group_account_invoice,1,1,1,1
+access_z_invoice_bulk_cancel_wizard_user,access.bulk.cancel.wizard user,model_bulk_cancel_wizard,account.group_account_invoice,1,1,1,1
+access_z_invoice_bulk_operation_log_user,access.bulk.operation.log user,model_bulk_operation_log,account.group_account_invoice,1,1,1,1
+access_z_invoice_bulk_operation_log_line_user,access.bulk.operation.log.line user,model_bulk_operation_log_line,account.group_account_invoice,1,1,1,1

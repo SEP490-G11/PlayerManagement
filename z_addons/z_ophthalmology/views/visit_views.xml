@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record id="z_visit_list_view_inherit" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.list</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="inherit_id" ref="z_medical_record.z_visit_list_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='booking_type']" position="after">
+                    <field name="has_comprehensive" column_invisible="True"/>
+                    <field name="has_lens" column_invisible="True"/>
+                    <field name="has_re_lens" column_invisible="True"/>
+                    <field name="has_vision" column_invisible="True"/>
+                    <field name="has_binocular_vision" column_invisible="True"/>
+
+                    <button name="action_open_comprehensive_form" type="object" class="has_comprehensive" title="Comprehensive examination">
+                    </button>
+
+                    <button name="action_open_len_form" type="object" class="has_lens" title="Contact lens examination">
+                    </button>
+
+                    <button name="action_open_re_len_form" type="object" class="has_re_lens" title="Contact lens reexamination">
+                    </button>
+
+                    <button name="action_open_vision_form" type="object" class="has_vision" title="Low vision examination">
+                    </button>
+
+                    <button name="action_open_binocular_vision_form" type="object" class="has_binocular_vision" title="Binocular vision examination">
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="floor_opt" widget="visit_state_selection"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="z_visit_filter_view_inherit" model="ir.ui.view">
+            <field name="name">z_appointment.appointment.select.inherit</field>
+            <field name="model">z_appointment.appointment</field>
+            <field name="inherit_id" ref="z_medical_record.z_visit_filter_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='title']" position="attributes">
+                    <attribute name="filter_domain">['|','|','|','|', '|','|', ('customer_id.name', 'ilike', self),
+                     ('customer_id.code', 'ilike', self), ('customer_id.mobile', 'ilike', self),('customer_id.z_mobile', 'ilike', self),
+                     ('examination_code', 'ilike', self),('doctor_id.name', 'ilike', self),('technician_id.name', 'ilike', self)]
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

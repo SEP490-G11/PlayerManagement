@@ -1,0 +1,190 @@
+table {
+  &.examination-form {
+    thead {
+      border: 0.5px solid var(--neutral-light-gray, #cfcfcf);
+      color: #3a3a3a;
+      background-color: #f2f1f1;
+
+      tr {
+        color: black;
+        text-align: left;
+
+        th {
+          background-color: #f7f7f7;
+          border: 0.5px solid var(--neutral-lighter-gray, #ebebeb) !important;
+          padding: 14px 0 !important;
+          color: var(--neutral-black, #3a3a3a);
+          text-align: center;
+          vertical-align: middle;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 700;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:hover {
+          cursor: pointer;
+          background: #fdfcfc;
+        }
+
+        td {
+          padding: 6px;
+          color: var(--neutral-black, #3a3a3a);
+          border: 0.5px solid var(--neutral-light-gray, #cfcfcf) !important;
+
+          div.o_field_widget {
+            width: 100%;
+            margin-bottom: 0;
+          }
+
+          &.center {
+            text-align: center;
+          }
+
+          &.address {
+            max-width: 30vw !important;
+          }
+
+          .btn {
+            background: transparent;
+            border: none;
+            padding: 0;
+            height: 24px !important;
+
+            &.edit {
+              color: $secondaryColor;
+            }
+
+            &.delete {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.medical-order-container {
+  margin-top: 16px;
+  width: 100%;
+  padding: 16px;
+  border: 0.5px solid var(--neutral-gray, #b1b3b8);
+
+  .header {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 32px;
+  }
+}
+
+.re-exam-time-item {
+  border-radius: 4px;
+  background: var(--neutral-subdued, #f7f7f7);
+  text-align: center;
+  padding: 12px;
+  /* 13/Regular */
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+
+  &.active {
+    font-weight: 600;
+    color: var(--neutral-white, #fff);
+    background: var(--primary-default, #27b9b1);
+  }
+}
+
+.no-border {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.examination__btn--saveAndPrint {
+  width: 136px !important;
+  border-radius: 32px !important;
+  margin-right: 12px !important;
+  background: var(--Primary-Subdued, #ecfaf9) !important;
+  color: var(--Primary-Default, #27b9b1) !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  line-height: 20px !important;
+  border-color: var(--Primary-Subdued, #ecfaf9) !important;
+}
+
+.examination__input--border {
+  border: 0.5px solid var(--Neutral-Gray, #b1b3b8) !important;
+}
+.examination__input--border:focus {
+  border: 0.5px solid var(--Neutral-Gray, #b1b3b8) !important;
+}
+
+.appointment-table-customer-detail {
+  padding-bottom: 91px;
+  height: calc(100vh - 148px);
+  overflow-y: auto;
+}
+.textarea-h-100 {
+  height: 100% !important;
+  textarea,
+  div {
+    height: 100% !important;
+  }
+}
+.svg_paper_plus {
+  height: 20px;
+  width: 20px;
+  background-image: url("/z_web/static/image/paper_plus.svg");
+}
+
+.svg_paper {
+  height: 20px;
+  width: 20px;
+  background-image: url("/z_web/static/image/paper.svg");
+}
+
+.medical_test_css {
+  margin-left: 90% !important;
+  margin-top: -62px !important;
+}
+
+.medical_test_css2 {
+  margin-left: 90% !important;
+  margin-top: -63px !important;
+}
+
+.medical_test_css3 {
+    margin-left: 98% !important;
+    margin-top: -106px !important;
+}
+.custom_move {
+  margin-bottom: 35px !important;
+}
+
+.svg_print_result {
+  height: 21px;
+  width: 21px;
+  background-repeat: no-repeat;
+  background-image: url("/z_web/static/image/print_result.svg");
+}
+
+.padding_dropdown_schedule {
+  padding: 6px 12px;
+}
+
+.text-truncate {
+  white-space: unset !important;
+}
+
+.custom-modal-dialog {
+  max-width: 1150px;
+  width: 100%;
+}

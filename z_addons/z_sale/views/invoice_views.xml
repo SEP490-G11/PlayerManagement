@@ -1,0 +1,24 @@
+<odoo>
+    <record id="z_sale_invoice_form_inherit" model="ir.ui.view">
+        <field name="name">z_sale_invoice__form_inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='invoice_date']" position="before">
+                <label for="so_id" string="Đơn Bán hàng" invisible="not so_id" groups="base.group_user"/>
+                <field name="so_id" nolabel="1" force_save="1" invisible="not so_id" groups="base.group_user"/>
+            </xpath>
+            <xpath expr="//button[@name='button_cancel'][2]" position="attributes">
+                <attribute name="invisible">not id or state not in ['draft', 'posted']</attribute>
+                <attribute name="confirm">Nếu bạn hủy hóa đơn này:
+                    Phiếu thanh toán, Phiếu bán hàng được link đến hóa đơn này sẽ tự động chuyển về trạng thái "Hủy"
+                    Phiếu giao hàng (nếu đã xác nhận) sẽ tự động chuyển trạng thái "trả hàng" và tạo một phiếu nhập kho cho phiếu trả hàng này.
+                    BẠN CÓ CHẮC CHẮN MUỐN XÓA HÓA ĐƠN NÀY KHÔNG?
+                </attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_cancel'][1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

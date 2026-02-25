@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="z_invoice.MisaIframeWidget">
+        <div t-ref="iframeContainer" class="misa-iframe-container">
+            <!-- The iframe will be rendered here via innerHTML -->
+        </div>
+    </t>
+</templates> 
