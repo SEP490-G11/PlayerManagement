@@ -13,10 +13,10 @@ class FootballSeason(models.Model):
 
     match_duration_hours = fields.Float(default=2.0)
 
-    allowed_weekdays = fields.Selection([
-        ('5', 'Saturday'),
-        ('6', 'Sunday'),
-    ], required=True)
+    allowed_weekday_ids = fields.Many2many(
+    'football.weekday',
+    string="Allowed Weekdays"
+)
 
     match_ids = fields.One2many(
         'football.match',
@@ -46,9 +46,9 @@ class FootballSeason(models.Model):
         duration = timedelta(hours=self.match_duration_hours)
 
         for round_matches in rounds:
-
+            allowed_days = self.allowed_weekday_ids.mapped('code')
             # Tìm ngày hợp lệ trong tuần
-            while current_date.weekday() != int(self.allowed_weekdays):
+            while current_date.weekday() not in allowed_days:
                 current_date += timedelta(days=1)
 
             slot_time = current_date

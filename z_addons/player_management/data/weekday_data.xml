@@ -1,0 +1,36 @@
+<odoo>
+    <record id="weekday_0" model="football.weekday">
+        <field name="name">Monday</field>
+        <field name="code">0</field>
+    </record>
+
+    <record id="weekday_1" model="football.weekday">
+        <field name="name">Tuesday</field>
+        <field name="code">1</field>
+    </record>
+
+    <record id="weekday_2" model="football.weekday">
+        <field name="name">Wednesday</field>
+        <field name="code">2</field>
+    </record>
+
+    <record id="weekday_3" model="football.weekday">
+        <field name="name">Thursday</field>
+        <field name="code">3</field>
+    </record>
+
+    <record id="weekday_4" model="football.weekday">
+        <field name="name">Friday</field>
+        <field name="code">4</field>
+    </record>
+
+    <record id="weekday_5" model="football.weekday">
+        <field name="name">Saturday</field>
+        <field name="code">5</field>
+    </record>
+
+    <record id="weekday_6" model="football.weekday">
+        <field name="name">Sunday</field>
+        <field name="code">6</field>
+    </record>
+</odoo>

@@ -6,11 +6,14 @@
     'category': 'Sports',
     'depends': ['base'],
     'data': [
+    'data/weekday_data.xml',
     'security/security.xml',
     'security/ir.model.access.csv',
     'views/player_views.xml',
     'views/view_team.xml', 
-    'views/contract_views.xml',   
+    'views/contract_views.xml',  
+    'views/match_views.xml',
+    'views/season_views.xml', 
     'views/menu.xml',
             
 ],
