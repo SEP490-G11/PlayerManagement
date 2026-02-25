@@ -1,3 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import team
+from . import player
+from . import contract
+from . import match
+from . import season
