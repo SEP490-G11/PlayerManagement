@@ -1,19 +1,16 @@
 <odoo>
     <menuitem id="menu_player_root"
         name="Quản lý cầu thủ"/>
-
     <menuitem id="menu_team"
         name="Đội bóng"
         parent="menu_player_root"
         action="action_team"/>
-
-    <menuitem id="menu_player"
+    <!-- <menuitem id="menu_player"
         name="Danh sách cầu thủ"
         parent="menu_player_root"
         action="action_player"/>
-    
     <menuitem id="menu_contract"
         name="Hợp đồng"
         parent="menu_player_root"
-        action="action_contract"/>
+        action="action_contract"/> -->
 </odoo>

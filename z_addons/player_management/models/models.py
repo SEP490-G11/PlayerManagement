@@ -15,7 +15,6 @@ class Team(models.Model):
     coach = fields.Char(string="Huấn luyện viên")
     founded_year = fields.Integer(string="Năm thành lập")
 
-    # Relations
     player_ids = fields.One2many(
         'football.player',
         'team_id',
@@ -28,14 +27,12 @@ class Team(models.Model):
         string="Hợp đồng"
     )
 
-    # Tổng giá trị cầu thủ
     total_market_value = fields.Float(
         string="Tổng giá trị đội",
         compute="_compute_total_value",
         store=True
     )
 
-    # Tổng quỹ lương (chỉ tính contract active)
     total_salary = fields.Float(
         string="Tổng quỹ lương",
         compute="_compute_total_salary",
@@ -84,20 +81,17 @@ class Player(models.Model):
 
     team_id = fields.Many2one(
         'football.team',
-        string="Đội bóng"
+        string="Đội bóng",
+        required=True
     )
 
     image = fields.Binary(string="Ảnh cầu thủ")
-
-    # ===== VALIDATION =====
 
     @api.constrains('age')
     def _check_age(self):
         for rec in self:
             if rec.age and (rec.age < 15 or rec.age > 50):
-                raise ValidationError(
-                    "Tuổi cầu thủ phải từ 15 đến 50."
-                )
+                raise ValidationError("Tuổi cầu thủ phải từ 15 đến 50.")
 
     @api.constrains('number', 'team_id')
     def _check_unique_number(self):
@@ -109,15 +103,11 @@ class Player(models.Model):
                     ('id', '!=', rec.id)
                 ]
                 if self.search_count(domain) > 0:
-                    raise ValidationError(
-                        "Số áo đã tồn tại trong đội bóng này!"
-                    )
+                    raise ValidationError("Số áo đã tồn tại trong đội bóng này!")
 
 
-# =====================================================
+
 # CONTRACT
-# =====================================================
-
 class FootballContract(models.Model):
     _name = 'football.contract'
     _description = 'Football Contract'
@@ -128,26 +118,18 @@ class FootballContract(models.Model):
         required=True
     )
 
+    #TEAM TỰ ĐỘNG LẤY THEO PLAYER
     team_id = fields.Many2one(
         'football.team',
-        string="Đội bóng",
-        required=True
+        related='player_id.team_id',
+        store=True,
+        readonly=True
     )
 
-    date_start = fields.Date(
-        string="Ngày bắt đầu",
-        required=True
-    )
+    date_start = fields.Date(string="Ngày bắt đầu", required=True)
+    date_end = fields.Date(string="Ngày kết thúc", required=True)
 
-    date_end = fields.Date(
-        string="Ngày kết thúc",
-        required=True
-    )
-
-    salary = fields.Float(
-        string="Lương",
-        required=True
-    )
+    salary = fields.Float(string="Lương", required=True)
 
     state = fields.Selection([
         ('active', 'Active'),
@@ -156,8 +138,6 @@ class FootballContract(models.Model):
         compute="_compute_state",
         store=True
     )
-
-    # ===== Auto trạng thái =====
 
     @api.depends('date_end')
     def _compute_state(self):
@@ -168,8 +148,7 @@ class FootballContract(models.Model):
             else:
                 rec.state = 'active'
 
-    # ===== Không cho 2 hợp đồng active =====
-
+    # Không cho 2 hợp đồng active cùng thời gian
     @api.constrains('player_id', 'date_start', 'date_end')
     def _check_duplicate_active_contract(self):
         for rec in self:

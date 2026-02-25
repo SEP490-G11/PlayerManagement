@@ -1,6 +1,5 @@
 <odoo>
-
-    <!-- TREE VIEW TEAM -->
+    <!-- TREE VIEW -->
     <record id="view_team_tree" model="ir.ui.view">
         <field name="name">football.team.tree</field>
         <field name="model">football.team</field>
@@ -10,11 +9,11 @@
                 <field name="coach"/>
                 <field name="founded_year"/>
                 <field name="total_market_value"/>
+                <field name="total_salary"/>
             </tree>
         </field>
     </record>
-
-    <!-- FORM VIEW TEAM -->
+    <!-- FORM VIEW -->
     <record id="view_team_form" model="ir.ui.view">
         <field name="name">football.team.form</field>
         <field name="model">football.team</field>
@@ -28,7 +27,6 @@
                         <field name="total_market_value" readonly="1"/>
                         <field name="total_salary" readonly="1"/>
                     </group>
-
                     <notebook>
                         <page string="Cầu thủ">
                             <field name="player_ids">
@@ -40,29 +38,27 @@
                                 </tree>
                             </field>
                         </page>
+                        <page string="Hợp đồng">
+                            <field name="contract_ids" context="{'default_team_id': id}">
+                                <tree editable="bottom">
+                                    <field name="player_id"
+                                        domain="[('team_id','=',parent.id)]"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="salary"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
         </field>
     </record>
-
-    <!-- GRAPH VIEW TEAM -->
-    <record id="view_team_graph" model="ir.ui.view">
-        <field name="name">football.team.graph</field>
-        <field name="model">football.team</field>
-        <field name="arch" type="xml">
-            <graph string="Tổng giá trị đội" type="bar">
-                <field name="name"/>
-                <field name="total_market_value" type="measure"/>
-            </graph>
-        </field>
-    </record>
-
-    <!-- ACTION TEAM -->
+    <!-- ACTION -->
     <record id="action_team" model="ir.actions.act_window">
         <field name="name">Đội bóng</field>
         <field name="res_model">football.team</field>
-        <field name="view_mode">tree,form,graph</field>
+        <field name="view_mode">tree,form</field>
     </record>
-
 </odoo>
