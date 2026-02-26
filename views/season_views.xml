@@ -1,0 +1,58 @@
+<odoo>
+
+    <record id="view_season_form" model="ir.ui.view">
+        <field name="name">football.season.form</field>
+        <field name="model">football.season</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="match_duration_hours"/>
+                        <field name="allowed_weekday_ids" widget="many2many_tags"/>
+                    </group>
+
+                    <button name="action_generate_schedule"
+                            string="Generate Schedule"
+                            type="object"
+                            class="btn-primary"/>
+
+                    <notebook>
+                        <page string="Matches">
+                            <field name="match_ids">
+                                <tree>
+                                    <field name="match_date"/>
+                                    <field name="home_team_id"/>
+                                    <field name="away_team_id"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_season_tree" model="ir.ui.view">
+        <field name="name">football.season.tree</field>
+        <field name="model">football.season</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_season" model="ir.actions.act_window">
+        <field name="name">Season</field>
+        <field name="res_model">football.season</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

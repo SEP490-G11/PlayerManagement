@@ -1,0 +1,54 @@
+<odoo>
+
+    <!-- =========================
+         TREE VIEW
+    ========================== -->
+    <record id="view_contract_tree" model="ir.ui.view">
+        <field name="name">football.contract.tree</field>
+        <field name="model">football.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="player_id"/>
+                <field name="team_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="salary"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- =========================
+         FORM VIEW
+    ========================== -->
+    <record id="view_contract_form" model="ir.ui.view">
+        <field name="name">football.contract.form</field>
+        <field name="model">football.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="player_id" required="1"/>
+                        <field name="team_id" readonly="1"/>
+                        <field name="date_start" required="1"/>
+                        <field name="date_end" required="1"/>
+                        <field name="salary" required="1"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- =========================
+         ACTION
+    ========================== -->
+    <record id="action_contract" model="ir.actions.act_window">
+        <field name="name">Hợp đồng</field>
+        <field name="res_model">football.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
