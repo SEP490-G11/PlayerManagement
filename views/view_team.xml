@@ -61,4 +61,30 @@
         <field name="res_model">football.team</field>
         <field name="view_mode">tree,form</field>
     </record>
+    <!-- LEAGUE TABLE VIEW -->
+<record id="view_team_league_table" model="ir.ui.view">
+    <field name="name">football.team.league.table</field>
+    <field name="model">football.team</field>
+    <field name="arch" type="xml">
+        <tree string="League Table"
+              default_order="points desc, goal_difference desc, goals_for desc">
+            <field name="name"/>
+            <field name="played"/>
+            <field name="won"/>
+            <field name="draw"/>
+            <field name="lost"/>
+            <field name="goals_for"/>
+            <field name="goals_against"/>
+            <field name="goal_difference"/>
+            <field name="points"/>
+        </tree>
+    </field>
+</record>
+
+<record id="action_league_table" model="ir.actions.act_window">
+    <field name="name">League Table</field>
+    <field name="res_model">football.team</field>
+    <field name="view_mode">tree</field>
+    <field name="view_id" ref="view_team_league_table"/>
+</record>
 </odoo>

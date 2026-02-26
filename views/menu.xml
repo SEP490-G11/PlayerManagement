@@ -15,6 +15,13 @@
         parent="menu_player_root"
         action="action_match"/>
 
+    <menuitem
+        id="menu_league_table"
+        name="League Table"
+        parent="menu_player_root"
+        action="action_league_table"
+/>    
+
         
     <!-- <menuitem id="menu_player"
         name="Danh sách cầu thủ"

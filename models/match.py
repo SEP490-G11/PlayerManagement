@@ -65,3 +65,7 @@ class FootballMatch(models.Model):
 
             if self.search_count(domain):
                 raise ValidationError("Đội bị trùng lịch thi đấu trong khoảng thời gian này.")  
+    @api.onchange('home_score', 'away_score')
+    def _auto_set_played(self):
+        if self.home_score is not None and self.away_score is not None:
+            self.state = 'played'        
