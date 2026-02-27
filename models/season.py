@@ -1,6 +1,7 @@
-from odoo import models, fields, api
+from odoo import models, fields
 from odoo.exceptions import ValidationError
 from datetime import datetime, timedelta
+
 
 class FootballSeason(models.Model):
     _name = 'football.season'
@@ -14,44 +15,72 @@ class FootballSeason(models.Model):
     match_duration_hours = fields.Float(default=2.0)
 
     allowed_weekday_ids = fields.Many2many(
-    'football.weekday',
-    string="Allowed Weekdays"
-)
+        'football.weekday',
+        string="Allowed Weekdays"
+    )
 
     match_ids = fields.One2many(
         'football.match',
         'season_id'
     )
 
+    # =========================================================
+    # GENERATE SCHEDULE (EVENLY DISTRIBUTED)
+    # =========================================================
+
     def action_generate_schedule(self):
         self.ensure_one()
+
+        # Xóa lịch cũ
+        self.match_ids.unlink()
 
         teams = list(self.env['football.team'].search([]))
 
         if len(teams) != 20:
             raise ValidationError("EPL cần đúng 20 đội.")
 
-        # Double round robin (38 rounds)
         rounds = self._double_round_robin(teams)
 
-        total_weeks = len(rounds)
+        if len(rounds) != 38:
+            raise ValidationError("Phải có đúng 38 vòng.")
 
-        season_days = (self.end_date - self.start_date).days
-        weeks_available = season_days // 7
+        if not self.allowed_weekday_ids:
+            raise ValidationError("Phải chọn ít nhất một weekday.")
 
-        if weeks_available < total_weeks:
-            raise ValidationError("Khoảng thời gian không đủ cho 38 vòng.")
+        allowed_days = sorted(self.allowed_weekday_ids.mapped('code'))
 
-        current_date = self.start_date
+        total_days = (self.end_date - self.start_date).days
+
+        if total_days <= 0:
+            raise ValidationError("Thời gian mùa giải không hợp lệ.")
+
+        interval_days = total_days / len(rounds)
+
         duration = timedelta(hours=self.match_duration_hours)
 
-        for round_matches in rounds:
-            allowed_days = self.allowed_weekday_ids.mapped('code')
-            # Tìm ngày hợp lệ trong tuần
-            while current_date.weekday() not in allowed_days:
-                current_date += timedelta(days=1)
+        for index, round_matches in enumerate(rounds):
 
-            slot_time = current_date
+            # Tính ngày bắt đầu vòng đấu
+            round_base_date = self.start_date + timedelta(
+                days=int(index * interval_days)
+            )
+
+            # Tìm weekday hợp lệ gần nhất
+            match_day = None
+            for i in range(7):
+                candidate = round_base_date + timedelta(days=i)
+                if candidate.weekday() in allowed_days:
+                    match_day = candidate
+                    break
+
+            if not match_day:
+                raise ValidationError("Không tìm được ngày hợp lệ.")
+
+            # Bắt đầu đá 16:00
+            slot_time = datetime.combine(
+                match_day.date(),
+                datetime.strptime("16:00", "%H:%M").time()
+            )
 
             for home, away in round_matches:
 
@@ -61,21 +90,26 @@ class FootballSeason(models.Model):
                     'away_team_id': away.id,
                     'match_date': slot_time,
                     'match_end': slot_time + duration,
+                    'state': 'scheduled'
                 })
 
                 slot_time += duration
 
-            current_date += timedelta(days=7)
+    # =========================================================
+    # DOUBLE ROUND ROBIN
+    # =========================================================
 
     def _double_round_robin(self, teams):
-        """38 rounds home-away"""
+        teams = list(teams)
+
         if len(teams) % 2:
             teams.append(None)
 
         n = len(teams)
         rounds = []
 
-        for round in range(n - 1):
+        # Lượt đi
+        for _ in range(n - 1):
             pairs = []
             for i in range(n // 2):
                 t1 = teams[i]
@@ -85,7 +119,7 @@ class FootballSeason(models.Model):
             teams.insert(1, teams.pop())
             rounds.append(pairs)
 
-        # lượt về đảo sân
+        # Lượt về
         reverse_rounds = [
             [(away, home) for home, away in r]
             for r in rounds
