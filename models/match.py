@@ -1,7 +1,8 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 from datetime import timedelta
-
+from odoo import fields
+from odoo.exceptions import ValidationError
 
 class FootballMatch(models.Model):
     _name = 'football.match'
@@ -34,6 +35,30 @@ class FootballMatch(models.Model):
         ('played', 'Played'),
         ('cancelled', 'Cancelled')
     ], default='scheduled')
+    
+    def write(self, vals):
+        now = fields.Datetime.now()
+
+        restricted_fields = [
+            'home_score',
+            'away_score',
+            'home_team_id',
+            'away_team_id',
+            'match_date',
+            'match_end'
+        ]
+
+        for rec in self:
+
+            # Nếu trận CHƯA bắt đầu
+            if rec.match_date and now < rec.match_date:
+
+                if any(field in vals for field in restricted_fields):
+                    raise ValidationError(
+                        "Chỉ được chỉnh sửa khi trận đã bắt đầu."
+                    )
+
+        return super().write(vals)
 
     # =============================
     # Không cho 2 đội trùng nhau

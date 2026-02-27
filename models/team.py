@@ -4,6 +4,7 @@ from odoo import models, fields, api
 class Team(models.Model):
     _name = 'football.team'
     _description = 'Football Team'
+    _order = "points desc, goal_difference desc, goals_for desc"
 
     name = fields.Char(required=True)
     coach = fields.Char()
@@ -56,10 +57,10 @@ class Team(models.Model):
     won = fields.Integer(compute="_compute_stats")
     draw = fields.Integer(compute="_compute_stats")
     lost = fields.Integer(compute="_compute_stats")
-    goals_for = fields.Integer(compute="_compute_stats")
+    goals_for = fields.Integer(compute="_compute_stats", store=True)
     goals_against = fields.Integer(compute="_compute_stats")
-    goal_difference = fields.Integer(compute="_compute_stats")
-    points = fields.Integer(compute="_compute_stats")
+    goal_difference = fields.Integer(compute="_compute_stats", store=True)
+    points = fields.Integer(compute="_compute_stats", store=True)
 
     def _get_current_season(self):
         today = fields.Datetime.now()
