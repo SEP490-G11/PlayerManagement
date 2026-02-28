@@ -6,3 +6,4 @@ from . import contract
 from . import match
 from . import season
 from . import weekday
+from . import res_users

@@ -1,19 +1,66 @@
 <odoo>
 
+    <!-- ========================= -->
+    <!-- MODULE CATEGORY -->
+    <!-- ========================= -->
     <record id="module_category_football" model="ir.module.category">
         <field name="name">Football Management</field>
         <field name="sequence">15</field>
     </record>
 
+    <!-- ========================= -->
+    <!-- GROUP: FOOTBALL MANAGER -->
+    <!-- ========================= -->
     <record id="group_football_manager" model="res.groups">
         <field name="name">Football Manager</field>
-        <field name="category_id" ref="player_management.module_category_football"/>
-        <field name="implied_ids" eval="[(4, ref('player_management.group_football_viewer'))]"/>
+        <field name="category_id" ref="module_category_football"/>
     </record>
 
-    <record id="group_football_viewer" model="res.groups">
-        <field name="name">Football Viewer</field>
-        <field name="category_id" ref="player_management.module_category_football"/>
+    <!-- ========================= -->
+    <!-- GROUP: FOOTBALL COACH -->
+    <!-- ========================= -->
+    <record id="group_football_coach" model="res.groups">
+        <field name="name">Football Coach</field>
+        <field name="category_id" ref="module_category_football"/>
+    </record>
+
+    <!-- ========================= -->
+    <!-- RECORD RULE: PLAYER (COACH) -->
+    <!-- ========================= -->
+    <record id="football_player_coach_rule" model="ir.rule">
+        <field name="name">Coach: Only own team players</field>
+        <field name="model_id" ref="model_football_player"/>
+        <field name="groups" eval="[(4, ref('group_football_coach'))]"/>
+        <field name="domain_force">
+            [('team_id', '=', user.team_id.id)]
+        </field>
+    </record>
+
+    <!-- ========================= -->
+    <!-- RECORD RULE: CONTRACT (COACH) -->
+    <!-- ========================= -->
+    <record id="football_contract_coach_rule" model="ir.rule">
+        <field name="name">Coach: Only own team contracts</field>
+        <field name="model_id" ref="model_football_contract"/>
+        <field name="groups" eval="[(4, ref('group_football_coach'))]"/>
+        <field name="domain_force">
+            [('team_id', '=', user.team_id.id)]
+        </field>
+    </record>
+
+    <!-- ========================= -->
+    <!-- RECORD RULE: MATCH (COACH) -->
+    <!-- ========================= -->
+    <record id="football_match_coach_rule" model="ir.rule">
+        <field name="name">Coach: Only own team matches</field>
+        <field name="model_id" ref="model_football_match"/>
+        <field name="groups" eval="[(4, ref('group_football_coach'))]"/>
+        <field name="domain_force">
+            ['|',
+                ('home_team_id', '=', user.team_id.id),
+                ('away_team_id', '=', user.team_id.id)
+            ]
+        </field>
     </record>
 
 </odoo>
