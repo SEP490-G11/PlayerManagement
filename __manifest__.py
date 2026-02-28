@@ -9,6 +9,7 @@
     'data/weekday_data.xml',
     'security/security.xml',
     'security/ir.model.access.csv',
+    'views/res_users_views.xml',
     'views/player_views.xml',
     'views/view_team.xml', 
     'views/contract_views.xml',  
