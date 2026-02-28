@@ -36,13 +36,13 @@
         groups="player_management.group_football_manager,player_management.group_football_coach"/>
 
     
-    <menuitem id="menu_player"
+    <!-- <menuitem id="menu_player"
         name="Danh sách cầu thủ"
         parent="menu_player_root"
         action="action_player"/>
     <menuitem id="menu_contract"
         name="Hợp đồng"
         parent="menu_player_root"
-        action="action_contract"/>   
+        action="action_contract"/>    -->
 
 </odoo>

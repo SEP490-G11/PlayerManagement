@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 from datetime import datetime, timedelta
 
@@ -24,14 +24,26 @@ class FootballSeason(models.Model):
         'season_id'
     )
 
-    # =========================================================
-    # GENERATE SCHEDULE (EVENLY DISTRIBUTED)
-    # =========================================================
+    @api.constrains('start_date', 'end_date')
+    def _check_season_duration(self):
+        for rec in self:
+            if not rec.start_date or not rec.end_date:
+                continue
+
+            if rec.end_date <= rec.start_date:
+                raise ValidationError("Ngày kết thúc phải sau ngày bắt đầu.")
+
+            delta = rec.end_date - rec.start_date
+            total_weeks = delta.days // 7
+
+            if total_weeks < 38:
+                raise ValidationError(
+                    "Mùa giải phải kéo dài tối thiểu 38 tuần."
+                )
 
     def action_generate_schedule(self):
         self.ensure_one()
 
-        # Xóa lịch cũ
         self.match_ids.unlink()
 
         teams = list(self.env['football.team'].search([]))
@@ -49,26 +61,15 @@ class FootballSeason(models.Model):
 
         allowed_days = sorted(self.allowed_weekday_ids.mapped('code'))
 
-        total_days = (self.end_date - self.start_date).days
-
-        if total_days <= 0:
-            raise ValidationError("Thời gian mùa giải không hợp lệ.")
-
-        interval_days = total_days / len(rounds)
-
         duration = timedelta(hours=self.match_duration_hours)
 
-        for index, round_matches in enumerate(rounds):
+        current_date = self.start_date
 
-            # Tính ngày bắt đầu vòng đấu
-            round_base_date = self.start_date + timedelta(
-                days=int(index * interval_days)
-            )
+        for round_matches in rounds:
 
-            # Tìm weekday hợp lệ gần nhất
             match_day = None
             for i in range(7):
-                candidate = round_base_date + timedelta(days=i)
+                candidate = current_date + timedelta(days=i)
                 if candidate.weekday() in allowed_days:
                     match_day = candidate
                     break
@@ -76,15 +77,15 @@ class FootballSeason(models.Model):
             if not match_day:
                 raise ValidationError("Không tìm được ngày hợp lệ.")
 
-            # Bắt đầu đá 16:00
             slot_time = datetime.combine(
                 match_day.date(),
                 datetime.strptime("16:00", "%H:%M").time()
             )
 
             for home, away in round_matches:
-
-                self.env['football.match'].create({
+                self.env['football.match'].with_context(
+                    skip_conflict_check=True
+                ).create({
                     'season_id': self.id,
                     'home_team_id': home.id,
                     'away_team_id': away.id,
@@ -95,9 +96,7 @@ class FootballSeason(models.Model):
 
                 slot_time += duration
 
-    # =========================================================
-    # DOUBLE ROUND ROBIN
-    # =========================================================
+            current_date += timedelta(days=7)
 
     def _double_round_robin(self, teams):
         teams = list(teams)
@@ -108,7 +107,6 @@ class FootballSeason(models.Model):
         n = len(teams)
         rounds = []
 
-        # Lượt đi
         for _ in range(n - 1):
             pairs = []
             for i in range(n // 2):
@@ -119,7 +117,6 @@ class FootballSeason(models.Model):
             teams.insert(1, teams.pop())
             rounds.append(pairs)
 
-        # Lượt về
         reverse_rounds = [
             [(away, home) for home, away in r]
             for r in rounds
