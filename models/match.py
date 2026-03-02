@@ -7,10 +7,28 @@ class FootballMatch(models.Model):
     _description = 'Football Match'
     _order = 'match_date asc'
 
-    season_id = fields.Many2one('football.season', required=True)
+    # ==========================================
+    # BASIC INFO
+    # ==========================================
 
-    home_team_id = fields.Many2one('football.team', required=True)
-    away_team_id = fields.Many2one('football.team', required=True)
+    season_id = fields.Many2one(
+        'football.season',
+        required=True
+    )
+
+    round_number = fields.Integer(
+        string="Matchday"
+    )
+
+    home_team_id = fields.Many2one(
+        'football.team',
+        required=True
+    )
+
+    away_team_id = fields.Many2one(
+        'football.team',
+        required=True
+    )
 
     match_date = fields.Datetime(required=True)
     match_end = fields.Datetime(required=True)
@@ -25,7 +43,40 @@ class FootballMatch(models.Model):
     ], default='scheduled')
 
     # ==========================================
-    # AUTO UPDATE STATE WHEN CREATING
+    # DISPLAY NAME (EPL STYLE)
+    # ==========================================
+
+    display_name = fields.Char(
+        compute="_compute_display_name",
+        store=True
+    )
+
+    @api.depends('home_team_id', 'away_team_id',
+                 'home_score', 'away_score', 'state')
+    def _compute_display_name(self):
+        for rec in self:
+            if rec.home_team_id and rec.away_team_id:
+                if (
+                    rec.state == 'played'
+                    and rec.home_score is not None
+                    and rec.away_score is not None
+                ):
+                    rec.display_name = (
+                        f"{rec.home_team_id.name} "
+                        f"{rec.home_score} - {rec.away_score} "
+                        f"{rec.away_team_id.name}"
+                    )
+                else:
+                    rec.display_name = (
+                        f"{rec.home_team_id.name} "
+                        f"vs "
+                        f"{rec.away_team_id.name}"
+                    )
+            else:
+                rec.display_name = "Match"
+
+    # ==========================================
+    # CREATE
     # ==========================================
 
     @api.model
@@ -36,9 +87,13 @@ class FootballMatch(models.Model):
         home_score = vals.get('home_score')
         away_score = vals.get('away_score')
 
-        if match_end and match_end <= now:
-            if home_score is not None and away_score is not None:
-                vals['state'] = 'played'
+        if (
+            match_end
+            and match_end <= now
+            and home_score is not None
+            and away_score is not None
+        ):
+            vals['state'] = 'played'
 
         return super().create(vals)
 
@@ -59,14 +114,13 @@ class FootballMatch(models.Model):
         ]
 
         for rec in self:
-            # Không cho sửa nếu trận chưa bắt đầu
             if rec.match_date and now < rec.match_date:
                 if any(field in vals for field in restricted_fields):
                     raise ValidationError(
                         "Chỉ được chỉnh sửa khi trận đã bắt đầu."
                     )
 
-        # Nếu có sửa score -> tự set played nếu đã qua match_end
+        # Auto set played nếu đã qua giờ
         if 'home_score' in vals or 'away_score' in vals:
             for rec in self:
                 home = vals.get('home_score', rec.home_score)
@@ -80,7 +134,18 @@ class FootballMatch(models.Model):
                 ):
                     vals['state'] = 'played'
 
-        return super().write(vals)
+        res = super().write(vals)
+
+        # Recompute BXH nếu có thay đổi liên quan
+        if (
+            'home_score' in vals
+            or 'away_score' in vals
+            or 'state' in vals
+        ):
+            teams = self.env['football.team'].search([])
+            teams._compute_stats()
+
+        return res
 
     # ==========================================
     # CRON: AUTO UPDATE STATE REAL-TIME
@@ -95,7 +160,10 @@ class FootballMatch(models.Model):
         ])
 
         for match in matches:
-            if match.home_score is not None and match.away_score is not None:
+            if (
+                match.home_score is not None
+                and match.away_score is not None
+            ):
                 match.state = 'played'
 
         if matches:
@@ -112,10 +180,14 @@ class FootballMatch(models.Model):
             if rec.home_team_id == rec.away_team_id:
                 raise ValidationError("Hai đội không được trùng.")
 
-    @api.constrains('match_date', 'match_end',
-                    'home_team_id', 'away_team_id', 'season_id')
+    @api.constrains(
+        'match_date',
+        'match_end',
+        'home_team_id',
+        'away_team_id',
+        'season_id'
+    )
     def _check_conflict(self):
-
         for rec in self:
 
             if not rec.match_date or not rec.match_end:

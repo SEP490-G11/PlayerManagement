@@ -1,67 +1,131 @@
 <odoo>
 
-    <!-- TREE VIEW -->
+    <!-- ================= TREE VIEW ================= -->
     <record id="view_match_tree" model="ir.ui.view">
         <field name="name">football.match.tree</field>
         <field name="model">football.match</field>
         <field name="arch" type="xml">
-            <tree decoration-success="state=='played'"
-                  decoration-danger="state=='cancelled'">
-                <field name="season_id"/>
+            <tree default_order="match_date asc"
+                  decoration-success="state == 'played'"
+                  decoration-danger="state == 'cancelled'">
+
+                <field name="round_number" string="MD"/>
                 <field name="match_date"/>
-                <field name="match_end"/>
-                <field name="home_team_id"/>
-                <field name="away_team_id"/>
-                <field name="home_score"/>
-                <field name="away_score"/>
+                <field name="display_name" string="Fixture"/>
                 <field name="state"/>
+
             </tree>
         </field>
     </record>
 
-    <!-- FORM VIEW -->
+
+    <!-- ================= FORM VIEW ================= -->
     <record id="view_match_form" model="ir.ui.view">
         <field name="name">football.match.form</field>
         <field name="model">football.match</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="season_id"/>
-                        <field name="match_date"/>
-                        <field name="match_end"/>
-                        <field name="home_team_id"/>
-                        <field name="away_team_id"/>
-                        <field name="home_score"/>
-                        <field name="away_score"/>
-                        <field name="state" readonly="1"/>
+
+                    <h2>
+                        <field name="display_name" readonly="1"/>
+                    </h2>
+
+                    <group col="2">
+
+                        <group>
+                            <field name="season_id"/>
+                            <field name="round_number"/>
+                            <field name="state" readonly="1"/>
+                        </group>
+
+                        <group>
+                            <field name="match_date"/>
+                            <field name="match_end"/>
+                        </group>
+
                     </group>
+
+                    <group string="Teams" col="2">
+
+                        <group>
+                            <field name="home_team_id"/>
+                            <field name="home_score"/>
+                        </group>
+
+                        <group>
+                            <field name="away_team_id"/>
+                            <field name="away_score"/>
+                        </group>
+
+                    </group>
+
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- CALENDAR VIEW -->
+
+    <!-- ================= CALENDAR VIEW ================= -->
     <record id="view_match_calendar" model="ir.ui.view">
         <field name="name">football.match.calendar</field>
         <field name="model">football.match</field>
         <field name="arch" type="xml">
-            <calendar string="Match Calendar"
+            <calendar string="Premier League Schedule"
                       date_start="match_date"
                       date_stop="match_end"
-                      color="state">
-                <field name="home_team_id"/>
-                <field name="away_team_id"/>
+                      color="home_team_id">
+
+                <field name="display_name"/>
                 <field name="state"/>
+
             </calendar>
         </field>
     </record>
 
-    <!-- ACTION -->
+
+    <!-- ================= SEARCH VIEW ================= -->
+    <record id="view_match_search" model="ir.ui.view">
+        <field name="name">football.match.search</field>
+        <field name="model">football.match</field>
+        <field name="arch" type="xml">
+            <search string="Search Matches">
+
+                <!-- Search fields -->
+                <field name="season_id"/>
+                <field name="round_number"/>
+                <field name="home_team_id"/>
+                <field name="away_team_id"/>
+
+                <!-- Filters -->
+                <filter name="played"
+                        string="Played"
+                        domain="[('state','=','played')]"/>
+
+                <filter name="scheduled"
+                        string="Scheduled"
+                        domain="[('state','=','scheduled')]"/>
+
+                <!-- Group by -->
+                <filter name="group_by_round"
+                        string="Group by Matchday"
+                        context="{'group_by': 'round_number'}"/>
+
+                <filter name="group_by_season"
+                        string="Group by Season"
+                        context="{'group_by': 'season_id'}"/>
+
+            </search>
+        </field>
+    </record>
+
+
+    <!-- ================= ACTION ================= -->
     <record id="action_match" model="ir.actions.act_window">
-        <field name="name">Lịch thi đấu</field>
+        <field name="name">Premier League Fixtures</field>
         <field name="res_model">football.match</field>
         <field name="view_mode">calendar,tree,form</field>
+        <field name="search_view_id" ref="view_match_search"/>
     </record>
 
 </odoo>
