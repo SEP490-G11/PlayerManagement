@@ -8,6 +8,7 @@
 
     'data': [
         'data/weekday_data.xml',
+        'data/cron.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/res_users_views.xml',
