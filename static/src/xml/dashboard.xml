@@ -1,0 +1,28 @@
+<t t-name="player_management.PlayerDashboard">
+    <div class="o_player_dashboard">
+        <h1>⚽ Player Management Dashboard</h1>
+
+        <div class="stats_container">
+
+            <div class="stat_card">
+                <h2 t-esc="state.teams"/>
+                <p>Teams</p>
+            </div>
+
+            <div class="stat_card">
+                <h2 t-esc="state.matches"/>
+                <p>Matches</p>
+            </div>
+
+            <div class="stat_card">
+                <h2 t-esc="state.seasons"/>
+                <p>Seasons</p>
+            </div>
+
+        </div>
+
+        <div class="chart_container">
+            <canvas id="matchChart"/>
+        </div>
+    </div>
+</t>
