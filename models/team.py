@@ -44,21 +44,23 @@ class Team(models.Model):
     @api.depends('contract_ids.salary', 'contract_ids.state')
     def _compute_total_salary(self):
         for team in self:
-            active = team.contract_ids.filtered(
+            active_contracts = team.contract_ids.filtered(
                 lambda c: c.state == 'active'
             )
-            team.total_salary = sum(active.mapped('salary'))
+            team.total_salary = sum(
+                active_contracts.mapped('salary')
+            )
 
     # =========================
     # League Table Statistics
     # =========================
 
-    played = fields.Integer(compute="_compute_stats")
-    won = fields.Integer(compute="_compute_stats")
-    draw = fields.Integer(compute="_compute_stats")
-    lost = fields.Integer(compute="_compute_stats")
+    played = fields.Integer(compute="_compute_stats", store=True)
+    won = fields.Integer(compute="_compute_stats", store=True)
+    draw = fields.Integer(compute="_compute_stats", store=True)
+    lost = fields.Integer(compute="_compute_stats", store=True)
     goals_for = fields.Integer(compute="_compute_stats", store=True)
-    goals_against = fields.Integer(compute="_compute_stats")
+    goals_against = fields.Integer(compute="_compute_stats", store=True)
     goal_difference = fields.Integer(compute="_compute_stats", store=True)
     points = fields.Integer(compute="_compute_stats", store=True)
 
@@ -69,10 +71,14 @@ class Team(models.Model):
             ('end_date', '>=', today)
         ], limit=1)
 
+    @api.depends(
+        'player_ids',
+    )
     def _compute_stats(self):
         season = self._get_current_season()
 
         for team in self:
+
             if not season:
                 team.played = 0
                 team.won = 0

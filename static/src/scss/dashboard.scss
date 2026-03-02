@@ -1,0 +1,41 @@
+.o_player_dashboard {
+    padding: 40px;
+
+    h1 {
+        margin-bottom: 40px;
+        font-weight: 600;
+    }
+
+    .stats_container {
+        display: flex;
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .stat_card {
+        flex: 1;
+        background: linear-gradient(135deg, #ffffff, #f8f9ff);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        h2 {
+            font-size: 42px;
+            margin: 0;
+            color: #6a4c93;
+        }
+
+        p {
+            margin-top: 12px;
+            font-size: 15px;
+            color: #666;
+        }
+    }
+}

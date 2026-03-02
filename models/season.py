@@ -98,6 +98,17 @@ class FootballSeason(models.Model):
 
             current_date += timedelta(days=7)
 
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Success',
+                'message': 'Schedule generated successfully!',
+                'type': 'success',
+                'sticky': False,
+            }
+    }
+
     def _double_round_robin(self, teams):
         teams = list(teams)
 
