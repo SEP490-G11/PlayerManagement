@@ -52,15 +52,15 @@ class Team(models.Model):
             )
 
     # =========================
-    # League Table Statistics
+    # League Table 
     # =========================
 
-    played = fields.Integer(compute="_compute_stats", store=True)
-    won = fields.Integer(compute="_compute_stats", store=True)
-    draw = fields.Integer(compute="_compute_stats", store=True)
-    lost = fields.Integer(compute="_compute_stats", store=True)
+    played = fields.Integer(compute="_compute_stats")
+    won = fields.Integer(compute="_compute_stats")
+    draw = fields.Integer(compute="_compute_stats")
+    lost = fields.Integer(compute="_compute_stats")
     goals_for = fields.Integer(compute="_compute_stats", store=True)
-    goals_against = fields.Integer(compute="_compute_stats", store=True)
+    goals_against = fields.Integer(compute="_compute_stats")
     goal_difference = fields.Integer(compute="_compute_stats", store=True)
     points = fields.Integer(compute="_compute_stats", store=True)
 
@@ -71,9 +71,6 @@ class Team(models.Model):
             ('end_date', '>=', today)
         ], limit=1)
 
-    @api.depends(
-        'player_ids',
-    )
     def _compute_stats(self):
         season = self._get_current_season()
 
@@ -103,7 +100,7 @@ class Team(models.Model):
 
             for match in matches:
 
-                if match.home_team_id == team:
+                if match.home_team_id.id == team.id:
                     gf = match.home_score or 0
                     ga = match.away_score or 0
                 else:
